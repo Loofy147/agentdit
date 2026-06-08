@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "The heart of agent intelligence.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && true",
-    "lint": "echo \"No linting needed for HTML-only project\" && true",
+    "test": "vitest run",
+    "lint": "echo \"No linting needed for simple project\" && true",
     "format": "echo \"Formatting...\" && true"
   },
-  "keywords": ["agent", "intelligence", "conversations"],
-  "author": "Palette",
-  "license": "ISC"
+  "devDependencies": {
+    "vitest": "^1.0.0"
+  },
+  "type": "module"
 }
