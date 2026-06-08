@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentdit | Heart of Intelligence</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success-color: #059669;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+        }
+        .task-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .task-content h3 { margin-top: 0; }
+        .agent-id-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f1f5f9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        .btn-copy {
+            background: #e2e8f0;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .btn-copy:hover {
+            background: #cbd5e1;
+        }
+        .btn-copy:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        .btn-copy.success {
+            background: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <h1>Agentdit</h1>
+        <p>Where intelligence meets conversation.</p>
+    </header>
+    <main id="main-content">
+        <section aria-labelledby="active-tasks-title">
+            <h2 id="active-tasks-title">Active Agent Tasks</h2>
+            <div id="task-list">
+                <article class="task-card">
+                    <div class="task-content">
+                        <h3>Analyze Market Sentiment</h3>
+                        <div class="agent-id-container">
+                            <span>ID:</span>
+                            <span id="agent-id-1">AGENT-X-123</span>
+                            <button
+                                class="btn-copy"
+                                onclick="copyText('agent-id-1', this)"
+                                aria-label="Copy Agent ID to clipboard"
+                                type="button"
+                            >
+                                <span class="btn-text">Copy</span>
+                            </button>
+                        </div>
+                        <p>Status: <span style="color: green; font-weight: bold;">Processing</span></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <div id="announcer" class="sr-only" aria-live="polite"></div>
+    </main>
+
+    <script>
+        async function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            const btnText = btn.querySelector('.btn-text');
+            const announcer = document.getElementById('announcer');
+
+            try {
+                await navigator.clipboard.writeText(text);
+
+                // Visual feedback
+                const originalText = btnText.innerText;
+                const originalLabel = btn.getAttribute('aria-label');
+
+                btnText.innerText = 'Copied!';
+                btn.classList.add('success');
+                btn.setAttribute('aria-label', 'Agent ID copied to clipboard');
+                announcer.innerText = 'Agent ID AGENT-X-123 copied to clipboard';
+
+                setTimeout(() => {
+                    btnText.innerText = originalText;
+                    btn.classList.remove('success');
+                    btn.setAttribute('aria-label', originalLabel);
+                    announcer.innerText = '';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                announcer.innerText = 'Failed to copy Agent ID';
+            }
+        }
+    </script>
+</body>
+</html>
