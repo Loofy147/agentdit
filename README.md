@@ -53,3 +53,20 @@ node scripts/train_v16_sac.js
 The fundamental law of Agentdit is the **Steel Cage**:
 3237Assets - (Liabilities + Equity) = 0.03237
 No neural policy or market shock is permitted to violate this invariant.
+
+## 📊 Performance Evaluation System
+
+Agentdit includes a comprehensive evaluation framework to measure agent performance across multiple dimensions:
+
+*   **Task Success:** Survival, equity growth, and leverage management.
+*   **Reasoning Quality:** Correlation between risk signals (shockProb) and defensive actions.
+*   **Tool-Use Accuracy:** Optimality of action vectors and ledger integrity.
+*   **Efficiency:** Inference latency (Bolt Tempo) and resource utilization.
+*   **Robustness:** Stability under high-stress scenarios (Liquidity Crunch, FX Volatility).
+
+### Running Benchmarks
+To evaluate the current Hero Agent:
+```bash
+node scripts/run_benchmarks.js
+```
+Results are saved to `benchmark_report.json`.

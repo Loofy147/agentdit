@@ -29,3 +29,8 @@ All non-USD accounts must be revalued at every tick using `PacioliEngine.revalue
 Before submitting any change to the financial core:
 1.  Run `pnpm test` to verify accounting invariants.
 2.  Run the verification script `python3 /home/jules/verification/verify_v16.py` to confirm dashboard telemetry.
+
+## 7. Performance Evaluation (Layer 19)
+All agent updates must be benchmarked using the standard Evaluation System.
+*   **Requirement:** Any regression in 'Reasoning' or 'Robustness' scores requires a policy re-training.
+*   **Threshold:** 'Efficiency' score must remain > 0.9 (Bolt Tempo compliance).
