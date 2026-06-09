@@ -44,7 +44,7 @@ async function runRealDataSession(heroWeights, dataService, steps = 24) {
 
 async function train() {
     console.log('Loading real market data...');
-    const dataService = await DataService.load('./real_market_data.json');
+    const dataService = await DataService.load('./public_market_data.json');
 
     // stateDim=9, actionDim=3, hidden=64
     let heroWeights = new Float64Array((9 * 64) + (64 * 3) + (64 * 3)).map(() => (Math.random() * 2 - 1) * 0.1);
