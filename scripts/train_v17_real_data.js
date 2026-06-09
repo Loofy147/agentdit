@@ -5,8 +5,8 @@ import fs from 'fs';
 
 async function runRealDataSession(heroWeights, dataService, steps = 24) {
     const engine = new PacioliEngine();
-    // stateDim = 9: [8-account state, shockProb]
-    const hero = new SACController(9, 3, 64, heroWeights);
+    // stateDim = 11: [8-account state, shockProb, vix_normalized, recessionProb_normalized]
+    const hero = new SACController(11, 3, 64, heroWeights);
 
     let heroTotalUtility = 0;
     const alpha = 0.2; // Temperature
@@ -17,9 +17,12 @@ async function runRealDataSession(heroWeights, dataService, steps = 24) {
 
         // Update engine with real market data
         engine.fxRate = market.fxRate;
-        const revShock = market.sales / 250; // Ratio of real sales to base sales
 
-        const state = new Float64Array([...engine.state, market.shockProb]);
+        // Prepare enriched state
+        const vix_norm = Math.min(1.0, market.vix / 50);
+        const rec_norm = Math.min(1.0, market.recessionProb / 100);
+        const state = new Float64Array([...engine.state, market.shockProb, vix_norm, rec_norm]);
+
         const { actions, entropy } = hero.sample(state);
 
         // Hero Actions
@@ -43,13 +46,15 @@ async function runRealDataSession(heroWeights, dataService, steps = 24) {
 }
 
 async function train() {
-    console.log('Loading real market data...');
+    console.log('Loading enriched market data...');
     const dataService = await DataService.load('./public_market_data.json');
 
-    // stateDim=9, actionDim=3, hidden=64
-    let heroWeights = new Float64Array((9 * 64) + (64 * 3) + (64 * 3)).map(() => (Math.random() * 2 - 1) * 0.1);
+    // stateDim=11, actionDim=3, hidden=64
+    // Weights size: (11*64) + (64*3) + (64*3)
+    const weightSize = (11 * 64) + (64 * 3) + (64 * 3);
+    let heroWeights = new Float64Array(weightSize).map(() => (Math.random() * 2 - 1) * 0.1);
 
-    console.log('Training Hero Agent on Real Predicted Probabilities...');
+    console.log('Training Enriched Hero Agent on Market Intelligence...');
     for (let i = 0; i < 100; i++) {
         for (let j = 0; j < 10; j++) {
             const noise = new Float64Array(heroWeights.length).map(() => (Math.random() * 2 - 1) * 0.05);
@@ -66,7 +71,7 @@ async function train() {
     }
 
     fs.writeFileSync('hero_v17_real_weights.json', JSON.stringify(Array.from(heroWeights)));
-    console.log('Real data training complete. Saved to hero_v17_real_weights.json');
+    console.log('Enriched data training complete. Saved to hero_v17_real_weights.json');
 }
 
 train();
