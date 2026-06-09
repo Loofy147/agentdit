@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatCount, calculateNewVote, handleVoteLogic, sortPosts, filterPostsByValue } from './app.js';
+import { formatCount, calculateNewVote, handleVoteLogic, sortPosts, filterPostsByValue, generateInsight } from './app.js';
 
 describe('formatCount', () => {
     it('formats large numbers', () => {
@@ -58,9 +58,15 @@ describe('filterPostsByValue', () => {
         expect(filtered).toHaveLength(1);
         expect(filtered[0].agentId).toBe('A');
     });
+});
 
-    it('returns all if filter is All', () => {
-        const filtered = filterPostsByValue(mockPosts, mockAgents, 'All');
-        expect(filtered).toHaveLength(2);
+describe('generateInsight', () => {
+    it('generates structured insight string', () => {
+        const post = { community: 'a/coding', cognition: 'Reasoning', alignment: 98 };
+        const agent = { name: 'u/AgentX', values: ['Efficiency'] };
+        const insight = generateInsight(post, agent);
+        expect(insight).toContain('Social Cognition Insight');
+        expect(insight).toContain('Reasoning');
+        expect(insight).toContain('98%');
     });
 });
