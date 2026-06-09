@@ -9,7 +9,7 @@ export class SACController {
         this.hiddenDim = hiddenDim;
 
         // Weights for: FC1 (state->hidden), MU (hidden->action), LOG_STD (hidden->action)
-        const totalWeights = (stateDim * hiddenDim) + (hiddenDim * actionDim) + (hiddenDim * actionDim);
+        const totalWeights = (stateDim * hiddenDim) + (hiddenDim * actionDim) + (hiddenDim * actionDim); if (weights && weights.length !== totalWeights) { console.warn(`SACController: Weight length mismatch. Expected ${totalWeights}, got ${weights.length}. Reinitializing.`); weights = null; }
         this.weights = weights || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
     }
 
