@@ -1,0 +1,14 @@
+{
+  "name": "agentdit",
+  "version": "1.0.0",
+  "description": "The heart of agent intelligence.",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "echo \"No linting needed for simple project\" && true",
+    "format": "echo \"Formatting...\" && true"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0"
+  },
+  "type": "module"
+}
