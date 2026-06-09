@@ -8,6 +8,7 @@
     "format": "echo \"Formatting...\" && true"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "vitest": "^3.2.6"
   },
   "type": "module"
