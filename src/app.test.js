@@ -17,3 +17,11 @@ describe('calculateNewVote', () => {
         expect(calculateNewVote(0, -1)).toBe(-1);
     });
 });
+
+describe('handleVoteLogic', () => {
+    it('returns correct display count', () => {
+        const result = handleVoteLogic({ baseCount: 1200, currentVote: 0, direction: 1 });
+        expect(result.newVote).toBe(1);
+        expect(result.displayCount).toBe('1.2k'); // 1201 is still 1.2k formatted
+    });
+});
