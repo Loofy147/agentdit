@@ -4,7 +4,9 @@
 export class PacioliEngine {
     constructor() {
         // [0: USD_Cash, 1: EUR_Cash, 2: MMF_USD, 3: AR_USD, 4: Liab_USD, 5: Eq, 6: FX_Reval_Adj, 7: Int_Accrual_Liab]
-        this.state = new Float64Array([1500.0, 500.0, 1000.0, 700.0, 1500.0, 2200.0, 0.0, 0.0]);
+        // Assets: 1500 + 500*1.08 + 1000 + 700 = 3740
+        // Liab+Eq: 1500 + 2240 + 0 + 0 = 3740
+        this.state = new Float64Array([1500.0, 500.0, 1000.0, 700.0, 1500.0, 2240.0, 0.0, 0.0]);
 
         this.types = new Float64Array([1, 1, 1, 1, -1, -1, -1, -1]);
         this.debitMask = this.types.map(t => t === 1 ? 1.0 : -1.0);
@@ -12,18 +14,33 @@ export class PacioliEngine {
         this.fxRate = 1.08;
     }
 
+    /**
+     * Executes a double-entry post between two accounts.
+     * @param {number} drAccount Debit Account Index
+     * @param {number} crAccount Credit Account Index
+     * @param {number} amount Amount in base currency (USD) unless one account is EUR
+     */
     post(drAccount, crAccount, amount) {
         if (amount <= 0 || isNaN(amount)) return;
-        this.state[drAccount] += this.debitMask[drAccount] * amount;
-        this.state[crAccount] += this.creditMask[crAccount] * amount;
+
+        let drAmt = amount;
+        let crAmt = amount;
+
+        // Multi-currency handling: If the account is EUR (index 1), convert the USD amount.
+        if (drAccount === 1) drAmt = amount / this.fxRate;
+        if (crAccount === 1) crAmt = amount / this.fxRate;
+
+        this.state[drAccount] += this.debitMask[drAccount] * drAmt;
+        this.state[crAccount] += this.creditMask[crAccount] * crAmt;
     }
 
     revalueFX(newRate) {
         const oldVal = this.state[1] * this.fxRate;
         const newVal = this.state[1] * newRate;
         const diff = newVal - oldVal;
+
+        // Asset changed by diff, Equity must change by diff
         this.state[6] += diff;
-        this.state[5] += diff;
         this.fxRate = newRate;
     }
 

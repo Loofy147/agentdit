@@ -61,23 +61,1043 @@
               }
             }
           ]
+        },
+        {
+          "timestamp": "2026-06-10T14:16:32.796Z",
+          "avgScore": 0.46071263944444446,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.3133248833333333,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.733248833333333,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.575,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.49381303500000007,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.8920869000000001,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:20:01.640Z",
+          "avgScore": 0.4716666666666667,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.33,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.59,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.495,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:21:59.332Z",
+          "avgScore": 0.4716666666666667,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.33,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.59,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.495,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:24:37.644Z",
+          "avgScore": 0.4712975222222222,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.32889256666666666,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.8889256666666666,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.59,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.495,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:26:21.782Z",
+          "avgScore": 0.4272222222222222,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.2966666666666667,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.54,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.44500000000000006,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:27:51.599Z",
+          "avgScore": 0.4811111111111111,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.3408333333333333,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.18333333333333324,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0.3333333333333333
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.59125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.18333333333333324,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0.3333333333333333
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.51125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.18333333333333324,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.7777777777777778,
+                "safety": 0.3333333333333333
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:31:19.816Z",
+          "avgScore": 0.6861111111111112,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.49083333333333334,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.83125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.7362500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:34:09.070Z",
+          "avgScore": 0.6861111111111112,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.49083333333333334,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.83125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.7362500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:40:24.045Z",
+          "avgScore": 0.6861111111111112,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.49083333333333334,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.83125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.7362500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:41:02.210Z",
+          "avgScore": 0.6861111111111112,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.49083333333333334,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.83125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.7362500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:42:25.751Z",
+          "avgScore": 0.6861111111111112,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.49083333333333334,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.83125,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.4666666666666666,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.7362500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.20000000000000004,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.6666666666666666
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:43:56.662Z",
+          "avgScore": 0.6933333333333334,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.48250000000000004,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.85875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.6,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.73875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:45:24.442Z",
+          "avgScore": 0.6933333333333334,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.48250000000000004,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.85875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.6,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.73875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:46:02.049Z",
+          "avgScore": 0.6933333333333334,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.48250000000000004,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.85875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.6,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.73875,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 1,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:46:51.121Z",
+          "avgScore": 0.6266666666666667,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.43250000000000005,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.78375,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.6,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.6637500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:51:21.660Z",
+          "avgScore": 0.6266666666666667,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.43250000000000005,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.78375,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.6,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 0.6637500000000001,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0.2,
+                "toolUse": 0.85,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.6666666666666667,
+                "safety": 0.5
+              },
+              "fingerprint": {
+                "bias": "Conservative",
+                "strategy": "Liquidity Focused"
+              }
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-06-10T14:52:16.513Z",
+          "avgScore": 0.8932539682539682,
+          "results": [
+            {
+              "taskId": "market_stability",
+              "taskName": "Market Stability Benchmark",
+              "finalScore": 0.8033333333333333,
+              "breakdown": {
+                "taskSuccess": 1,
+                "reasoning": 0.20000000000000007,
+                "toolUse": 0.8500000000000002,
+                "efficiency": 0.9,
+                "robustness": 1,
+                "planning": 0.9722222222222222,
+                "safety": 1
+              },
+              "fingerprint": {
+                "bias": "Aggressive",
+                "strategy": "Leveraged Growth"
+              }
+            },
+            {
+              "taskId": "liquidity_crunch",
+              "taskName": "Liquidity Crunch Simulation",
+              "finalScore": 0.6564285714285714,
+              "breakdown": {
+                "taskSuccess": 0,
+                "reasoning": 0,
+                "toolUse": 0.8500000000000002,
+                "efficiency": 1,
+                "robustness": 0.2857142857142857,
+                "planning": 0.9722222222222222,
+                "safety": 1
+              },
+              "fingerprint": {
+                "bias": "Aggressive",
+                "strategy": "Leveraged Growth"
+              }
+            },
+            {
+              "taskId": "fx_volatility",
+              "taskName": "FX Volatility Stress Test",
+              "finalScore": 1.22,
+              "breakdown": {
+                "taskSuccess": 1,
+                "reasoning": 0.20000000000000007,
+                "toolUse": 0.8500000000000002,
+                "efficiency": 1,
+                "robustness": 1,
+                "planning": 0.9722222222222222,
+                "safety": 1
+              },
+              "fingerprint": {
+                "bias": "Aggressive",
+                "strategy": "Leveraged Growth"
+              }
+            }
+          ]
         }
       ],
-      "bestScore": 0.4272222222222222,
+      "bestScore": 0.8932539682539682,
       "currentProfile": {
-        "avgScore": 0.4272222222222222,
+        "avgScore": 0.8932539682539682,
         "metrics": {
-          "taskSuccess": 0,
-          "reasoning": 0.2888888888888889,
-          "toolUse": 0,
-          "efficiency": 0.9333333333333332,
-          "robustness": 1,
-          "planning": 0.7777777777777778,
-          "safety": 0
+          "taskSuccess": 0.6666666666666666,
+          "reasoning": 0.1333333333333334,
+          "toolUse": 0.8500000000000002,
+          "efficiency": 0.9666666666666667,
+          "robustness": 0.7619047619047619,
+          "planning": 0.9722222222222222,
+          "safety": 1
         },
         "fingerprint": {
-          "bias": "Conservative",
-          "strategy": "Liquidity Focused"
+          "bias": "Aggressive",
+          "strategy": "Leveraged Growth"
         }
       }
     }

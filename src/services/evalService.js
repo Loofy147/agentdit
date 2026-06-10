@@ -22,20 +22,28 @@ export class EvaluationService {
                 const market = task.data[t % task.data.length];
                 const t0 = performance.now();
 
-                // State vector [8 accounts + shockProb + vix_norm + rec_norm]
                 const vix_norm = Math.min(1.0, (market.vix || 15) / 50);
                 const rec_norm = Math.min(1.0, (market.recessionProb || 10) / 100);
                 const state = new Float64Array([...engine.state, market.shockProb || 0, vix_norm, rec_norm]);
 
-                const { actions } = agent.sample(state, true); // Use deterministic for eval
+                const { actions } = agent.sample(state, true);
 
-                // Execute actions
-                engine.post(0, 4, actions[0] * 300); // Borrow
-                engine.post(1, 0, actions[1] * 200); // Swap
-                engine.post(2, 0, actions[2] * 500); // MMF Realloc
+                // Refined Action Mapping
+                // Action 0: Borrow (>0) / Repay (<0)
+                if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
+                else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
 
-                // Reality update
-                engine.fxRate = market.fxRate || engine.fxRate;
+                // Action 1: Swap USD->EUR (>0) / EUR->USD (<0)
+                if (actions[1] > 0) engine.post(1, 0, actions[1] * 200);
+                else if (actions[1] < 0) engine.post(0, 1, Math.abs(actions[1]) * 200);
+
+                // Action 2: Cash->MMF (>0) / MMF->Cash (<0)
+                if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
+                else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
+
+                if (market.fxRate) {
+                    engine.revalueFX(market.fxRate);
+                }
                 engine.post(3, 5, market.sales || 250);
                 engine.post(0, 3, engine.state[3] * 0.18);
                 engine.post(5, 0, 180);
@@ -43,17 +51,20 @@ export class EvaluationService {
                 const t1 = performance.now();
                 totalLatency += (t1 - t0);
 
+                const engineState = engine.getState();
+                const inv = engine.getInvariant();
+
                 trace.push({
                     step: t,
                     state: Array.from(state),
                     actions: Array.from(actions),
                     engineState: {
-                        ...engine.getState(),
-                        invariant: engine.getInvariant()
+                        ...engineState,
+                        invariant: inv
                     }
                 });
 
-                if (engine.state[0] < 0) break; // Failure: Liquidity Exhausted
+                if (engine.state[0] < 0) break;
             }
 
             const finalState = engine.getState();
