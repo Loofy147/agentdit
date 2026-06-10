@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 export class DataService {
     constructor(data = []) {
         this.data = data;
@@ -27,7 +25,8 @@ export class DataService {
         if (typeof window === 'undefined') {
             // Node.js
             try {
-                const raw = fs.readFileSync(path, 'utf8');
+                const { readFileSync } = await import('fs');
+                const raw = readFileSync(path, 'utf8');
                 const data = JSON.parse(raw);
                 return new DataService(data);
             } catch (e) {
