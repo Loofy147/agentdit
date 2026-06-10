@@ -1,5 +1,6 @@
-import fs from 'fs';
-
+/**
+ * DataService handles market data ingestion for both Node.js and Browser environments.
+ */
 export class DataService {
     constructor(data = []) {
         this.data = data;
@@ -24,24 +25,25 @@ export class DataService {
     }
 
     static async load(path) {
-        if (typeof window === 'undefined') {
-            // Node.js
+        if (typeof window === 'undefined' && typeof process !== 'undefined') {
+            // Node.js Environment: Use dynamic import for 'fs'
             try {
+                const fs = await import('fs');
                 const raw = fs.readFileSync(path, 'utf8');
                 const data = JSON.parse(raw);
                 return new DataService(data);
             } catch (e) {
-                console.error('Failed to load data from file:', e);
+                console.error('DataService (Node): Failed to load data:', e);
                 return new DataService();
             }
         } else {
-            // Browser
+            // Browser Environment: Use fetch
             try {
                 const response = await fetch(path);
                 const data = await response.json();
                 return new DataService(data);
             } catch (e) {
-                console.error('Failed to load data from fetch:', e);
+                console.error('DataService (Browser): Failed to load data:', e);
                 return new DataService();
             }
         }

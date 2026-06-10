@@ -1,5 +1,6 @@
 /**
  * Flexible Neural Controller for Layer 14 Adversarial Game.
+ * Optimized for performance using pre-allocated buffers and subarray views.
  */
 export class NeuralController {
     constructor(inputDim, hiddenDim, outputDim, weights = null) {
@@ -9,6 +10,13 @@ export class NeuralController {
 
         const totalWeights = (inputDim * hiddenDim) + (hiddenDim * outputDim);
         this.weights = weights || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
+
+        this.hiddenBuffer = new Float64Array(hiddenDim);
+        this.outputBuffer = new Float64Array(outputDim);
+
+        const w1Size = inputDim * hiddenDim;
+        this.w1 = this.weights.subarray(0, w1Size);
+        this.w2 = this.weights.subarray(w1Size);
     }
 
     tanh(x) {
@@ -16,30 +24,24 @@ export class NeuralController {
     }
 
     predict(obs) {
-        const w1Size = this.inputDim * this.hiddenDim;
-        const w1 = this.weights.slice(0, w1Size);
-        const w2 = this.weights.slice(w1Size);
-
-        // Hidden Layer
-        const hidden = new Float64Array(this.hiddenDim);
+        // 1. Hidden Layer
         for (let j = 0; j < this.hiddenDim; j++) {
             let sum = 0;
             for (let i = 0; i < this.inputDim; i++) {
-                sum += obs[i] * w1[i * this.hiddenDim + j];
+                sum += obs[i] * this.w1[i * this.hiddenDim + j];
             }
-            hidden[j] = this.tanh(sum);
+            this.hiddenBuffer[j] = this.tanh(sum);
         }
 
-        // Output Layer
-        const outputs = new Float64Array(this.outputDim);
+        // 2. Output Layer
         for (let k = 0; k < this.outputDim; k++) {
             let sum = 0;
             for (let j = 0; j < this.hiddenDim; j++) {
-                sum += hidden[j] * w2[j * this.outputDim + k];
+                sum += this.hiddenBuffer[j] * this.w2[j * this.outputDim + k];
             }
-            outputs[k] = this.tanh(sum);
+            this.outputBuffer[k] = this.tanh(sum);
         }
 
-        return outputs;
+        return new Float64Array(this.outputBuffer);
     }
 }
