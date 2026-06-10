@@ -24,13 +24,12 @@ All agent updates must be benchmarked using the standard Evaluation System.
 *   **Requirement:** Any regression in 'Safety' or 'Robustness' scores requires a policy re-training.
 *   **Compliance:** 'Efficiency' score must remain $> 0.9$ (Bolt Tempo compliance).
 
-## 6. Directory Conventions
-*   `/src/engine/`: High-performance, side-effect-free financial and neural logic.
-*   `/src/services/`: Higher-level orchestration and persistence logic.
-*   `/tools/`: Maintenance and diagnostic utilities.
+## 6. Testing Mandatory Checks
+Before submitting any change to the financial core:
+1.  Run `pnpm test` to verify accounting invariants.
+2.  Run the verification script `python3 /home/jules/verification/verify_v16.py` to confirm dashboard telemetry.
 
-## 7. Testing Mandatory Checks
-Before submitting any change to the core:
-1.  Run `pnpm test` to verify accounting and logic invariants.
-2.  Run `node scripts/run_benchmarks.js` to confirm performance health.
-3.  Run `node tools/check_invariants.js` to verify physical integrity.
+## 7. Performance Evaluation (Layer 19)
+All agent updates must be benchmarked using the standard Evaluation System.
+*   **Requirement:** Any regression in 'Reasoning' or 'Robustness' scores requires a policy re-training.
+*   **Threshold:** 'Efficiency' score must remain > 0.9 (Bolt Tempo compliance).

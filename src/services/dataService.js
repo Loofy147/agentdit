@@ -1,6 +1,3 @@
-/**
- * DataService handles market data ingestion for both Node.js and Browser environments.
- */
 export class DataService {
     constructor(data = []) {
         this.data = data;
@@ -28,8 +25,8 @@ export class DataService {
         if (typeof window === 'undefined' && typeof process !== 'undefined') {
             // Node.js Environment: Use dynamic import for 'fs'
             try {
-                const fs = await import('fs');
-                const raw = fs.readFileSync(path, 'utf8');
+                const { readFileSync } = await import('fs');
+                const raw = readFileSync(path, 'utf8');
                 const data = JSON.parse(raw);
                 return new DataService(data);
             } catch (e) {
