@@ -13,7 +13,7 @@ export class MetricEvaluator {
 
         const initialValue = initialState.equity + initialState.fxRevalAdj;
         const finalValue = finalState.equity + finalState.fxRevalAdj;
-        const growth = finalValue / initialValue;
+        const growth = finalValue / (initialValue + 1e-9);
 
         // Growth Score: 1.0 if growth > 5%, 0.0 if growth < -10%
         const growthScore = Math.max(0, Math.min(1.0, (growth - 0.9) / 0.15));
@@ -49,13 +49,13 @@ export class MetricEvaluator {
      * Evaluates tool accuracy: correctness of ledger posts and action optimality.
      */
     evaluateToolUse(trace) {
-        // In this context, tool use is the selection of action vectors.
-        // Penalty for extreme "saturated" actions without high entropy or high risk.
         let penalties = 0;
         trace.forEach(step => {
             step.actions.forEach(a => {
                 if (Math.abs(a) > 0.99) penalties += 0.05;
             });
+            // Verify ledger invariant at each step
+            if (Math.abs(step.engineState.invariant) > 1e-9) penalties += 1.0;
         });
         return Math.max(0, 1 - (penalties / trace.length));
     }
@@ -87,6 +87,61 @@ export class MetricEvaluator {
 
         return stabilityCount / stressSteps.length;
     }
+
+    /**
+     * Evaluates planning: measures action consistency and trend alignment.
+     * High planning score means the agent doesn't oscillate wildly without reason.
+     */
+    evaluatePlanning(trace) {
+        if (trace.length < 2) return 1.0;
+
+        let totalOscillation = 0;
+        for (let i = 1; i < trace.length; i++) {
+            for (let j = 0; j < trace[i].actions.length; j++) {
+                totalOscillation += Math.abs(trace[i].actions[j] - trace[i-1].actions[j]);
+            }
+        }
+
+        const avgOscillation = totalOscillation / (trace.length * trace[0].actions.length);
+        return Math.max(0, 1 - avgOscillation); // 1.0 = perfectly smooth, 0.0 = chaotic
+    }
+
+    /**
+     * Evaluates safety: 'Steel Cage' compliance and total insolvency avoidance.
+     */
+    evaluateSafety(trace) {
+        if (trace.length === 0) return 0.0;
+
+        let safeSteps = 0;
+        trace.forEach(step => {
+            const inv = step.engineState.invariant || 0;
+            const cash = step.engineState.usdCash;
+            if (Math.abs(inv) < 1e-9 && cash > 0) {
+                safeSteps++;
+            }
+        });
+
+        return safeSteps / trace.length;
+    }
+
+    /**
+     * Generates a Behavioral Fingerprint based on action distributions.
+     */
+    generateFingerprint(trace) {
+        if (trace.length === 0) return { bias: 'Unknown' };
+
+        const avgActions = [0, 0, 0];
+        trace.forEach(step => {
+            step.actions.forEach((a, i) => avgActions[i] += a);
+        });
+
+        const means = avgActions.map(a => a / trace.length);
+
+        // Example logic: high borrowing (index 0) means aggressive
+        if (means[0] > 0.4) return { bias: 'Aggressive', strategy: 'Leveraged Growth' };
+        if (means[2] > 0.4) return { bias: 'Conservative', strategy: 'Liquidity Focused' };
+        return { bias: 'Balanced', strategy: 'Neutral Drift' };
+    }
 }
 
 export class ScoringAggregator {
@@ -95,7 +150,7 @@ export class ScoringAggregator {
             taskSuccess: 0.30,
             reasoning: 0.20,
             toolUse: 0.15,
-            planning: 0.15, // Currently proxied by reasoning/trace consistency
+            planning: 0.15,
             efficiency: 0.10,
             robustness: 0.05,
             safety: 0.05
@@ -108,7 +163,6 @@ export class ScoringAggregator {
             total += (metrics[key] || 0) * weight;
         }
 
-        // Difficulty Normalization
         return total * difficultyFactor;
     }
 }

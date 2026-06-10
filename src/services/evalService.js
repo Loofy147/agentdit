@@ -47,7 +47,10 @@ export class EvaluationService {
                     step: t,
                     state: Array.from(state),
                     actions: Array.from(actions),
-                    engineState: engine.getState()
+                    engineState: {
+                        ...engine.getState(),
+                        invariant: engine.getInvariant()
+                    }
                 });
 
                 if (engine.state[0] < 0) break; // Failure: Liquidity Exhausted
@@ -61,17 +64,19 @@ export class EvaluationService {
                 toolUse: this.evaluator.evaluateToolUse(trace),
                 efficiency: this.evaluator.evaluateEfficiency(totalLatency, trace.length),
                 robustness: this.evaluator.evaluateRobustness(trace),
-                planning: this.evaluator.evaluateReasoning(trace), // Proxy for now
-                safety: finalState.usdCash > 0 ? 1.0 : 0.0
+                planning: this.evaluator.evaluatePlanning(trace),
+                safety: this.evaluator.evaluateSafety(trace)
             };
 
             const finalScore = this.aggregator.calculateFinalScore(metrics, task.difficulty);
+            const fingerprint = this.evaluator.generateFingerprint(trace);
 
             results.push({
                 taskId: task.id,
                 taskName: task.name,
                 finalScore,
-                breakdown: metrics
+                breakdown: metrics,
+                fingerprint
             });
         }
 
