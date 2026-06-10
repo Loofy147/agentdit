@@ -54,10 +54,9 @@ let hero, villain, dataService;
 async function init() {
     const hw = await fetch('./hero_v17_real_weights.json').then(r => r.json());
     const vw = await fetch('./villain_v16_weights.json').then(r => r.json());
-    dataService = await DataService.load('./real_market_data.json');
+    dataService = await DataService.load('./public_market_data.json');
 
-    // stateDim = 9 for real data (8 accounts + shockProb)
-    hero = new SACController(9, 3, 64, new Float64Array(hw));
+    hero = new SACController(11, 3, 64, new Float64Array(hw));
     villain = new NeuralController(8, 32, 2, new Float64Array(vw));
 }
 
@@ -69,18 +68,23 @@ function runStep() {
     if (!market) return;
 
     // Reality Updates from DataService
-    engine.fxRate = market.fxRate;
-    const revShockFactor = market.sales / 250;
+    engine.revalueFX(market.fxRate);
 
-    const state = new Float64Array([...engine.state, market.shockProb]);
+    const vix_norm = Math.min(1.0, market.vix / 50);
+    const rec_norm = Math.min(1.0, market.recessionProb / 100);
+    const state = new Float64Array([...engine.state, market.shockProb, vix_norm, rec_norm]);
 
     const { actions, entropy } = hero.sample(state);
-    const vAct = villain.predict(engine.state); // Villain only sees internal state
 
-    // Hero Defense
-    engine.post(0, 4, actions[0] * 300); // Borrow
-    engine.post(1, 0, actions[1] * 200); // Swap
-    engine.post(2, 0, actions[2] * 500); // MMF Realloc
+    // Hero Actions
+    if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
+    else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
+
+    if (actions[1] > 0) engine.post(1, 0, actions[1] * 200);
+    else if (actions[1] < 0) engine.post(0, 1, Math.abs(actions[1]) * 200);
+
+    if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
+    else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
 
     // Reality Step
     engine.post(3, 5, market.sales);

@@ -1,57 +1,59 @@
 # Agentdit: The Global Hydraulic Grid
 
-**Agentdit** is a high-fidelity, autonomous financial execution layer designed for the next generation of AI-driven treasuries. It combines rigorous double-entry accounting physics with adversarial reinforcement learning to create an anti-fragile financial nervous system.
+**Agentdit** is a high-fidelity, autonomous financial execution layer designed for AI-driven treasuries. It combines rigorous double-entry accounting physics with maximum entropy reinforcement learning to create an anti-fragile financial nervous system.
 
-## 🏗 Architecture: The 16-Layer Stack
+## 🏗 Architecture: The 19-Layer Stack
 
 The system is built upon three fundamental pillars:
 
-1.  **Physics (The Pacioli Ledger):** A vector-based, double-entry bookkeeping engine that enforces absolute ledger integrity (0.0 invariant deviation) across multi-currency state vectors.
-2.  **Intelligence (Neural Hydraulics):** A Soft Actor-Critic (SAC) reinforcement learning agent that has learned to steer the balance sheet through trial and error, optimizing for growth, liquidity, and credit health.
-3.  **Resilience (Adversarial GAN):** The policy is forged in an adversarial environment where a 'Villain' agent (The Market) mathematically searches for coordinates attacks (revenue shocks + FX volatility) to break the treasury.
+1.  **Physics (The Pacioli Ledger):** A vector-based, multi-currency double-entry bookkeeping engine that enforces absolute ledger integrity (sub-e-12 invariant deviation).
+2.  **Intelligence (Neural Hydraulics):** A Soft Actor-Critic (SAC) reinforcement learning agent optimized for "Bolt Tempo" inference (< 0.2ms), maintaining strategy diversity through maximum entropy.
+3.  **Governance (Evaluation & Evolution):** A programmatic assessment layer that monitors agent performance across 7 metrics (Task Success, Reasoning, Tool-Use, Planning, Efficiency, Robustness, Safety) and triggers re-training if health thresholds are breached.
 
 ## 🚀 Key Features
 
-*   **Bolt Tempo Inference:** Neural inference latency optimized to **sub-millisecond ranges (~0.18ms)**, enabling real-time reaction to market physics.
-*   **Maximum Entropy RL:** Uses SAC to maintain policy diversity, ensuring the system is never over-optimized for a single market regime and remains resilient to "unknown unknowns."
+*   **Bolt Tempo Inference:** Neural inference latency optimized to sub-millisecond ranges using pre-allocated buffers and non-allocating matrix views.
+*   **Maximum Entropy RL:** Uses SAC to maintain policy diversity, ensuring resilience against "unknown unknowns" and preventing regime over-optimization.
 *   **Multi-Currency Grid:** Simultaneous management of USD, EUR (with dynamic basis risk), and Yield Assets (MMF).
-*   **Credit-Default Integration:** Dynamic interest rates are modeled as a non-linear function of leverage ( = f(L^2)$), creating "Debt Gravity."
+*   **Behavioral Fingerprinting:** Automatically classifies agent strategies as Aggressive (Leveraged Growth), Balanced, or Conservative (Liquidity Focused).
 
 ## 📁 Repository Structure
 
-*   `src/engine/`: Core logic including the `PacioliEngine`, `SACController`, and neural architectures.
-*   `src/services/`: Support services like `HealthService` (Stress Index) and `TreasuryBridge`.
-*   `scripts/`: Training environments for neuroevolution and adversarial co-training.
-*   `playwright-tests/`: UI/UX verification suite.
+*   `src/engine/`: High-performance financial logic and neural controllers.
+*   `src/services/`: Business logic, Evaluation, Registry, and Data services.
+*   `scripts/`: Training and high-level benchmark pipelines.
+*   `tools/`: Diagnostic and invariant verification utilities.
+*   `playwright-tests/`: E2E UI/UX verification suite.
 
-## 🛠 Setup & Usage
+## 🛠 Usage
 
 ### Installation
 ```bash
 pnpm install
 ```
 
-### Run Simulation
-Start a local server to view the real-time financial dashboard:
+### Running Benchmarks
+To evaluate the current agent and generate a performance profile:
 ```bash
-python3 -m http.server 8080
+node scripts/run_benchmarks.js
 ```
-
-### Testing
-```bash
-pnpm test
-```
+Results are persisted in `agent_registry.json`.
 
 ### Training
-To re-train the adversarial agents:
+To evolve a new policy on real market data:
 ```bash
-node scripts/train_v14_adversarial.js
-node scripts/train_v16_sac.js
+node scripts/train_v17_real_data.js
 ```
 
-## ⚖️ Ledger Invariant
+### Diagnostics
+Verify ledger integrity:
+```bash
+node tools/check_invariants.js
+```
+
+## ⚖️ Ledger Law
 The fundamental law of Agentdit is the **Steel Cage**:
-3237Assets - (Liabilities + Equity) = 0.03237
+$$Assets - (Liabilities + Equity) = 0.0$$
 No neural policy or market shock is permitted to violate this invariant.
 
 ## 📊 Performance Evaluation System
