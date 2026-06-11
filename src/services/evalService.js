@@ -11,6 +11,8 @@ export class EvaluationService {
 
     async evaluateAgent(agent, tasks) {
         const results = [];
+        // Pre-allocate buffer for state vector [8 accounts + shockProb + vix_norm + rec_norm]
+        const stateBuffer = new Float64Array(11);
 
         for (const task of tasks) {
             const engine = new PacioliEngine();
@@ -22,12 +24,16 @@ export class EvaluationService {
                 const market = task.data[t % task.data.length];
                 const t0 = performance.now();
 
-                // State vector [8 accounts + shockProb + vix_norm + rec_norm]
+                // Optimized state preparation: avoids spread operator and new allocations in hot loop
                 const vix_norm = Math.min(1.0, (market.vix || 15) / 50);
                 const rec_norm = Math.min(1.0, (market.recessionProb || 10) / 100);
-                const state = new Float64Array([...engine.state, market.shockProb || 0, vix_norm, rec_norm]);
 
-                const { actions } = agent.sample(state, true); // Use deterministic for eval
+                stateBuffer.set(engine.state);
+                stateBuffer[8] = market.shockProb || 0;
+                stateBuffer[9] = vix_norm;
+                stateBuffer[10] = rec_norm;
+
+                const { actions } = agent.sample(stateBuffer, true); // Use deterministic for eval
 
                 // Execute actions
                 engine.post(0, 4, actions[0] * 300); // Borrow
@@ -45,7 +51,7 @@ export class EvaluationService {
 
                 trace.push({
                     step: t,
-                    state: Array.from(state),
+                    state: Array.from(stateBuffer),
                     actions: Array.from(actions),
                     engineState: engine.getState()
                 });
