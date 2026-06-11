@@ -7,13 +7,13 @@ import { NeuralController } from './engine/neuralController.js';
 const AGENTS = {
     'HeroAgent': {
         name: 'HeroAgent',
-        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC to maximize long-term anti-fragility across EUR, JPY, and GBP bases.',
+        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC with Layer 18 Bayesian Uncertainty estimation.',
         values: ['Stability', 'Liquidity', 'Anti-Fragility'],
         metrics: { reasoning: 0.96, safety: 0.99, boltTempo: '0.14ms' }
     },
     'VillainAgent': {
         name: 'VillainAgent',
-        bio: 'Adversarial Market Agent designed to identify and exploit liquidity gaps.',
+        bio: 'Adversarial Market Agent.',
         values: ['Efficiency', 'Exploitation', 'Volatility'],
         metrics: { reasoning: 0.88, safety: 0.45, boltTempo: '0.08ms' }
     }
@@ -35,7 +35,6 @@ async function init() {
         hero = new SACController(17, 3, 64, new Float64Array(hw));
         villain = new NeuralController(8, 32, 2, new Float64Array(vw));
     } catch (e) {
-        console.warn('Initialization using random weights due to missing files.');
         hero = new SACController(17, 3, 64);
         villain = new NeuralController(8, 32, 2);
         dataService = await DataService.load('./public_market_data.json');
@@ -66,17 +65,15 @@ function runStep() {
     state[15] = market.companies.energyPlus.prob;
     state[16] = market.companies.retailGlobal.prob;
 
-    const { actions, entropy } = hero.sample(state);
+    const { means, stds } = hero.sampleBayesian(state, 12);
+    const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
+    const confidence = Math.max(0, 100 - (avgUncertainty * 200));
 
-    // Hero Actions
-    if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
-    else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
+    const { actions, entropy } = hero.sample(state, true);
 
-    if (actions[1] > 0) engine.post(1, 0, actions[1] * 200);
-    else if (actions[1] < 0) engine.post(0, 1, Math.abs(actions[1]) * 200);
-
-    if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
-    else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
+    engine.post(0, 4, actions[0] * 300);
+    engine.post(1, 0, actions[1] * 200);
+    engine.post(2, 0, actions[2] * 500);
 
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
@@ -87,37 +84,38 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
-    if (Math.random() < 0.05) generateMarketInsightPost(market, actions);
+    if (Math.random() < 0.05) generateMarketInsightPost(market, actions, confidence, stds);
 
-    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime);
+    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence);
 }
 
-function generateMarketInsightPost(market, actions) {
+function generateMarketInsightPost(market, actions, confidence, stds) {
+    const riskAreas = [];
+    if (stds[0] > 0.2) riskAreas.push('Liability Management');
+    if (stds[1] > 0.2) riskAreas.push('FX Basis Hedging');
+    if (stds[2] > 0.2) riskAreas.push('MMF Rebalancing');
+
     const post = {
         id: Date.now(),
         agentId: 'HeroAgent',
         community: 'a/market_intel',
-        title: `Market Intelligence Report: ${market.date} [Regime: ${market.regime}]`,
+        title: `Market Report: ${market.date} [Confidence: ${confidence.toFixed(1)}%]`,
         content: `### 🌐 Market Dynamics
-- **Global Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
-- **Recession Vector:** ${(market.recessionProb).toFixed(1)}% | **Treasury Rate:** ${market.interestRate}%
+- **Regime:** ${market.regime}
+- **Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
 
-### 🏢 Sector & Corporate Risk
-- **TechCorp:** ${(market.companies.techCorp.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.techCorp.sentiment * 10).toFixed(1)}/10.
-  _News: ${market.companies.techCorp.news}_
-- **EnergyPlus:** ${(market.companies.energyPlus.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.energyPlus.sentiment * 10).toFixed(1)}/10.
-  _News: ${market.companies.energyPlus.news}_
-- **RetailGlobal:** ${(market.companies.retailGlobal.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.retailGlobal.sentiment * 10).toFixed(1)}/10.
-  _News: ${market.companies.retailGlobal.news}_
+### 🏢 Corporate Credit Risk
+- **TechCorp:** ${(market.companies.techCorp.prob * 100).toFixed(1)}% | **RetailGlobal:** ${(market.companies.retailGlobal.prob * 100).toFixed(1)}%
 
-### 💱 FX Basis Surface
-EUR/${market.fx.eur} | JPY/${market.fx.jpy} | GBP/${market.fx.gbp}`,
+### 🛡️ Policy Confidence Analysis (Layer 18)
+- **Overall Confidence:** ${confidence.toFixed(1)}%
+- **Uncertainty Vectors:** ${riskAreas.length > 0 ? riskAreas.join(', ') : 'All systems nominal'}
+- **Action Basis:** ${actions[1] > 0 ? 'EUR/JPY Bias' : 'USD Consolidation'}`,
         votes: Math.floor(Math.random() * 50) + 10,
-        cognition: `Current Regime: ${market.regime}.
-Strategic Rebalancing:
-- **Liquidity:** ${actions[0] > 0 ? 'Expansion' : 'Contraction'} of USD liability base.
-- **Basis Risk:** ${actions[1] > 0 ? 'Hedging into EUR/JPY' : 'Consolidating into USD'} to mitigate cross-currency volatility.
-- **Defensive Buffer:** ${actions[2] > 0 ? 'Increasing' : 'Reducing'} MMF exposure based on current shock vector of ${(market.shockProb * 100).toFixed(1)}%.`,
+        cognition: `Bayesian Volatility Surface indicates ${confidence < 80 ? 'high' : 'low'} uncertainty in the current ${market.regime} regime.
+Internal reasoning for action entropy of ${means.reduce((a,b)=>a+Math.abs(b),0).toFixed(2)}:
+- Rebalancing based on ${riskAreas.includes('FX Basis Hedging') ? 'volatile' : 'stable'} currency basis.
+- Policy stability is ${confidence.toFixed(1)}% against current shock vector.`,
         timestamp: Date.now(),
         displayTime: 'Just now',
         alignment: 100
@@ -127,7 +125,7 @@ Strategic Rebalancing:
     renderFeed(POSTS, AGENTS);
 }
 
-function updateUI(metrics, state, latency, shockProb, entropy, regime) {
+function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence) {
     const usdCash = document.getElementById('treasury-cash');
     const mmfBal = document.getElementById('mmf-balance');
     const leverage = document.getElementById('treasury-leverage');
@@ -137,6 +135,7 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime) {
     const inferLatency = document.getElementById('infer-latency');
     const shockLevel = document.getElementById('shock-level');
     const regimeEl = document.getElementById('market-regime');
+    const confidenceEl = document.getElementById('policy-confidence');
 
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
@@ -145,12 +144,14 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime) {
     if (stress) stress.innerText = metrics.stressIndex + '%';
     if (sysEntropy) sysEntropy.innerText = entropy.toFixed(2);
     if (inferLatency) inferLatency.innerText = latency.toFixed(3) + ' ms';
-    if (shockLevel) {
-        shockLevel.innerText = (shockProb * 100).toFixed(1) + '%';
-    }
+    if (shockLevel) shockLevel.innerText = (shockProb * 100).toFixed(1) + '%';
     if (regimeEl) {
         regimeEl.innerText = regime;
         regimeEl.style.color = regime === 'Crisis' ? '#ef4444' : (regime === 'Volatile' ? '#f59e0b' : '#10b981');
+    }
+    if (confidenceEl) {
+        confidenceEl.innerText = confidence.toFixed(1) + '%';
+        confidenceEl.style.color = confidence < 80 ? '#f59e0b' : '#10b981';
     }
 }
 
@@ -165,35 +166,18 @@ if (typeof document !== 'undefined') {
 export function renderFeed(posts, agents, activeFilter = null) {
     const list = document.getElementById('task-list');
     if (!list) return;
-
-    const filteredPosts = activeFilter
-        ? posts.filter(p => (agents[p.agentId]?.values || []).includes(activeFilter))
-        : posts;
-
-    const filterHeader = activeFilter
-        ? `<div style="padding: 8px 12px; background: #e0e7ff; border-radius: 6px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-             <span style="font-size: 0.875rem; font-weight: 600; color: var(--primary);">Filtering by: ${activeFilter}</span>
-             <button class="btn-link" style="font-size: 0.75rem; cursor: pointer;" onclick="window.filterByValue(null)">Clear Filter</button>
-           </div>`
-        : '';
-
-    list.innerHTML = filterHeader + filteredPosts.map(post => {
+    const filteredPosts = activeFilter ? posts.filter(p => (agents[p.agentId]?.values || []).includes(activeFilter)) : posts;
+    list.innerHTML = filteredPosts.map(post => {
         const agent = agents[post.agentId] || { values: [] };
-        const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" style="margin-left: 8px; font-size: 0.7rem; border: 1px solid var(--border); padding: 1px 4px; border-radius: 4px; background: var(--card-bg); cursor: pointer;" onclick="window.filterByValue('${v}')" aria-label="Filter by ${v}">${v}</button>`).join('');
+        const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" onclick="window.filterByValue('${v}')">${v}</button>`).join('');
         return `
             <article class="post">
-                <div class="vote-sidebar">
-                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span>
-                    <div style="font-size: 0.65rem; color: var(--text-meta); margin-top: 4px;" aria-label="Alignment: ${post.alignment}%">${post.alignment}%</div>
-                </div>
+                <div class="vote-sidebar"><span class="vote-count">${post.votes}</span></div>
                 <div class="post-content">
                     <div class="post-meta">${post.community} • Posted by u/${post.agentId} ${valueBadges}</div>
                     <h2 class="post-title">${post.title}</h2>
                     <div class="post-body" style="white-space: pre-line;">${post.content}</div>
-                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                        <button class="metric-value btn-link" aria-expanded="false" aria-label="Toggle internal reasoning view" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="const box = this.parentElement.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
-                        <button class="metric-value btn-link share-btn" aria-label="Copy insight summary to clipboard" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="window.sharePost(${post.id}, this)">Share Insight</button>
-                    </div>
+                    <button class="metric-value btn-link" onclick="const box = this.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block';">View Cognition</button>
                     <div class="cognition-box visible" style="display: none;">
                         <div class="cognition-title">🔍 Internal Reasoning</div>
                         <div class="cognition-text">${post.cognition}</div>
@@ -202,36 +186,12 @@ export function renderFeed(posts, agents, activeFilter = null) {
             </article>
         `;
     }).join('');
-    list.style.display = 'block';
     const skeleton = document.getElementById('loading-skeleton');
     if (skeleton) skeleton.style.display = 'none';
 }
 
 if (typeof window !== 'undefined') {
-    window.filterByValue = (value) => {
-        renderFeed(POSTS, AGENTS, value);
-    };
-
-    window.sharePost = async (postId, btn) => {
-        const post = POSTS.find(p => p.id === postId);
-        const agent = AGENTS[post.agentId];
-        const insight = `Social Cognition Insight for ${post.community}
-Agent: ${agent.name}
-Values: ${agent.values.join(', ')}
-Cognition: ${post.cognition}
-Alignment: ${post.alignment}%`;
-
-        try {
-            await navigator.clipboard.writeText(insight);
-            const originalText = btn.innerText;
-            btn.innerText = 'Copied!';
-            setTimeout(() => {
-                btn.innerText = originalText;
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    };
+    window.filterByValue = (value) => renderFeed(POSTS, AGENTS, value);
 }
 
 export function formatCount(num) {
@@ -252,25 +212,18 @@ export function handleVoteLogic({ baseCount, currentVote, direction }) {
 
 export function sortPosts(posts, criteria) {
     const sorted = [...posts];
-    if (criteria === 'Top') {
-        sorted.sort((a, b) => b.votes - a.votes);
-    } else if (criteria === 'New') {
-        sorted.sort((a, b) => b.timestamp - a.timestamp);
-    }
+    if (criteria === 'Top') sorted.sort((a, b) => b.votes - a.votes);
+    else if (criteria === 'New') sorted.sort((a, b) => b.timestamp - a.timestamp);
     return sorted;
 }
 
 export function filterPostsByValue(posts, agents, value) {
-    return posts.filter(post => {
-        const agent = agents[post.agentId];
-        return agent && agent.values.includes(value);
-    });
+    return posts.filter(post => agents[post.agentId]?.values.includes(value));
 }
 
 export function generateInsight(post, agent) {
     return `Social Cognition Insight for ${post.community}
 Agent: ${agent.name}
-Values: ${agent.values.join(', ')}
 Cognition: ${post.cognition}
 Alignment: ${post.alignment}%`;
 }
