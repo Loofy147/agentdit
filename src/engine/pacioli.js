@@ -1,16 +1,19 @@
 /**
  * PacioliEngineV16 implements the 8-account state for the Global Hydraulic Grid.
+ * Optimized for frequent instantiation using static shared masks.
  */
 export class PacioliEngine {
+    // Static shared constants to avoid re-allocation and re-calculation on every new instance
+    static INITIAL_STATE = new Float64Array([1500.0, 500.0, 1000.0, 700.0, 1500.0, 2240.0, 0.0, 0.0]);
+    static TYPES = new Float64Array([1, 1, 1, 1, -1, -1, -1, -1]);
+    static DEBIT_MASK = new Float64Array([1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]);
+    static CREDIT_MASK = new Float64Array([-1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0]);
+
     constructor() {
         // [0: USD_Cash, 1: EUR_Cash, 2: MMF_USD, 3: AR_USD, 4: Liab_USD, 5: Eq, 6: FX_Reval_Adj, 7: Int_Accrual_Liab]
         // Assets: 1500 + 500*1.08 + 1000 + 700 = 3740
         // Liab+Eq: 1500 + 2240 + 0 + 0 = 3740
-        this.state = new Float64Array([1500.0, 500.0, 1000.0, 700.0, 1500.0, 2240.0, 0.0, 0.0]);
-
-        this.types = new Float64Array([1, 1, 1, 1, -1, -1, -1, -1]);
-        this.debitMask = this.types.map(t => t === 1 ? 1.0 : -1.0);
-        this.creditMask = this.types.map(t => t === -1 ? 1.0 : -1.0);
+        this.state = new Float64Array(PacioliEngine.INITIAL_STATE);
         this.fxRate = 1.08;
     }
 
@@ -30,8 +33,8 @@ export class PacioliEngine {
         if (drAccount === 1) drAmt = amount / this.fxRate;
         if (crAccount === 1) crAmt = amount / this.fxRate;
 
-        this.state[drAccount] += this.debitMask[drAccount] * drAmt;
-        this.state[crAccount] += this.creditMask[crAccount] * crAmt;
+        this.state[drAccount] += PacioliEngine.DEBIT_MASK[drAccount] * drAmt;
+        this.state[crAccount] += PacioliEngine.CREDIT_MASK[crAccount] * crAmt;
     }
 
     revalueFX(newRate) {

@@ -37,29 +37,34 @@ export class SACController {
      * sample: Samples an action from the policy distribution and calculates log_prob (entropy).
      */
     sample(state, deterministic = false) {
-        // 1. FC1 (State -> Hidden)
-        for (let j = 0; j < this.hiddenDim; j++) {
-            let sum = 0;
-            for (let i = 0; i < this.stateDim; i++) {
-                sum += state[i] * this.wFc1[i * this.hiddenDim + j];
+        // 1. FC1 (State -> Hidden) - Optimized Linear Iteration for Cache Locality
+        this.hiddenBuffer.fill(0);
+        for (let i = 0; i < this.stateDim; i++) {
+            const s = state[i];
+            const offset = i * this.hiddenDim;
+            for (let j = 0; j < this.hiddenDim; j++) {
+                this.hiddenBuffer[j] += s * this.wFc1[offset + j];
             }
-            this.hiddenBuffer[j] = this.relu(sum);
+        }
+        for (let j = 0; j < this.hiddenDim; j++) {
+            this.hiddenBuffer[j] = this.relu(this.hiddenBuffer[j]);
         }
 
         // 2. MU and LOG_STD (Hidden -> Action Params)
-        for (let k = 0; k < this.actionDim; k++) {
-            let sumMu = 0;
-            let sumLogStd = 0;
-            for (let j = 0; j < this.hiddenDim; j++) {
-                sumMu += this.hiddenBuffer[j] * this.wMu[j * this.actionDim + k];
-                sumLogStd += this.hiddenBuffer[j] * this.wLogStd[j * this.actionDim + k];
+        this.muBuffer.fill(0);
+        this.logStdBuffer.fill(0);
+        for (let j = 0; j < this.hiddenDim; j++) {
+            const h = this.hiddenBuffer[j];
+            const offset = j * this.actionDim;
+            for (let k = 0; k < this.actionDim; k++) {
+                this.muBuffer[k] += h * this.wMu[offset + k];
+                this.logStdBuffer[k] += h * this.wLogStd[offset + k];
             }
-            this.muBuffer[k] = sumMu;
-            this.logStdBuffer[k] = Math.max(-20, Math.min(2, sumLogStd));
         }
 
         let logProb = 0;
         for (let k = 0; k < this.actionDim; k++) {
+            this.logStdBuffer[k] = Math.max(-20, Math.min(2, this.logStdBuffer[k]));
             const std = Math.exp(this.logStdBuffer[k]);
             let z;
             if (deterministic) {
@@ -80,7 +85,6 @@ export class SACController {
             logProb += (lnNormal - lnCorrection);
         }
 
-        // Return copies or the buffer? Copying actions to prevent mutation of internal state if used elsewhere
         return {
             actions: new Float64Array(this.actionsBuffer),
             entropy: -logProb

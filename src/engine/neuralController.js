@@ -24,22 +24,30 @@ export class NeuralController {
     }
 
     predict(obs) {
-        // 1. Hidden Layer
-        for (let j = 0; j < this.hiddenDim; j++) {
-            let sum = 0;
-            for (let i = 0; i < this.inputDim; i++) {
-                sum += obs[i] * this.w1[i * this.hiddenDim + j];
+        // 1. Hidden Layer - Optimized Linear Iteration
+        this.hiddenBuffer.fill(0);
+        for (let i = 0; i < this.inputDim; i++) {
+            const o = obs[i];
+            const offset = i * this.hiddenDim;
+            for (let j = 0; j < this.hiddenDim; j++) {
+                this.hiddenBuffer[j] += o * this.w1[offset + j];
             }
-            this.hiddenBuffer[j] = this.tanh(sum);
+        }
+        for (let j = 0; j < this.hiddenDim; j++) {
+            this.hiddenBuffer[j] = this.tanh(this.hiddenBuffer[j]);
         }
 
         // 2. Output Layer
-        for (let k = 0; k < this.outputDim; k++) {
-            let sum = 0;
-            for (let j = 0; j < this.hiddenDim; j++) {
-                sum += this.hiddenBuffer[j] * this.w2[j * this.outputDim + k];
+        this.outputBuffer.fill(0);
+        for (let j = 0; j < this.hiddenDim; j++) {
+            const h = this.hiddenBuffer[j];
+            const offset = j * this.outputDim;
+            for (let k = 0; k < this.outputDim; k++) {
+                this.outputBuffer[k] += h * this.w2[offset + k];
             }
-            this.outputBuffer[k] = this.tanh(sum);
+        }
+        for (let k = 0; k < this.outputDim; k++) {
+            this.outputBuffer[k] = this.tanh(this.outputBuffer[k]);
         }
 
         return new Float64Array(this.outputBuffer);
