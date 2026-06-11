@@ -1,6 +1,8 @@
 import { DataService } from './services/dataService.js';
 import { HealthService } from './services/healthService.js';
 import { CognitionService } from './services/cognitionService.js';
+import { LatticeService } from './services/latticeService.js';
+import { SettlementService } from './services/settlementService.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -25,6 +27,8 @@ let POSTS = [];
 const engine = new PacioliEngine();
 const health = new HealthService();
 const cognitionService = new CognitionService();
+const latticeService = new LatticeService();
+const settlementService = new SettlementService();
 
 let hero, villain, dataService;
 
@@ -51,8 +55,23 @@ function runStep() {
     if (!hero || !villain || !dataService) return;
 
     const t0 = performance.now();
-    const market = dataService.getNext();
-    if (!market) return;
+
+    // Drive Market Dynamics from Geopolitical Lattice
+    latticeService.step(1.0, 0.5);
+    const dynamics = latticeService.getMarketDynamics();
+
+    // Process Settlement Queue
+    settlementService.step();
+
+    // Hybrid Data: Use static data for FX/Sales, but Lattice for Regimes/Shocks
+    const baseData = dataService.getNext();
+    if (!baseData) return;
+
+    const market = {
+        ...baseData,
+        ...dynamics,
+        date: baseData.date || 'LATTICE_GEN'
+    };
 
     engine.revalueFX(market.fx || engine.fxRates);
     engine.accrueInterest(market.interestRate);
@@ -67,9 +86,9 @@ function runStep() {
     state[11] = vix_norm;
     state[12] = rec_norm;
     state[13] = int_norm;
-    state[14] = market.companies.techCorp.prob;
-    state[15] = market.companies.energyPlus.prob;
-    state[16] = market.companies.retailGlobal.prob;
+    state[14] = market.companies?.techCorp?.prob || 0.1;
+    state[15] = market.companies?.energyPlus?.prob || 0.1;
+    state[16] = market.companies?.retailGlobal?.prob || 0.1;
 
     const { means, stds } = hero.sampleBayesian(state, 12);
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
@@ -78,15 +97,24 @@ function runStep() {
     // SLA-2.1 Phase-Shift Sampling
     const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
-    // Hero Actions - Bidirectional execution
-    if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
-    else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
+    // Hero Actions - Route through SettlementService
+    const routeAction = (type, dr, cr, amt) => {
+        const rail = (amt > 500 || market.regime === 'Crisis') ? 'SWIFT' : 'L2';
+        settlementService.dispatch(rail, amt, (req) => {
+            engine.post(dr, cr, req.amount);
+            // Deduct Fee
+            engine.post(5, 0, req.fee);
+        });
+    };
 
-    if (actions[1] > 0) engine.post(1, 0, actions[1] * 200);
-    else if (actions[1] < 0) engine.post(0, 1, Math.abs(actions[1]) * 200);
+    if (actions[0] > 0) routeAction('BORROW', 0, 4, actions[0] * 300);
+    else if (actions[0] < 0) routeAction('REPAY', 4, 0, Math.abs(actions[0]) * 300);
 
-    if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
-    else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
+    if (actions[1] > 0) routeAction('FX_BUY', 1, 0, actions[1] * 200);
+    else if (actions[1] < 0) routeAction('FX_SELL', 0, 1, Math.abs(actions[1]) * 200);
+
+    if (actions[2] > 0) routeAction('INVEST', 2, 0, actions[2] * 500);
+    else if (actions[2] < 0) routeAction('DIVEST', 0, 2, Math.abs(actions[2]) * 500);
 
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
@@ -130,6 +158,9 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     const steStatusEl = document.getElementById('ste-status');
     const alphaBlendEl = document.getElementById('alpha-blend');
 
+    const setQueueEl = document.getElementById('set-queue');
+    const setFeesEl = document.getElementById('set-fees');
+
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
     if (leverage) leverage.innerText = metrics.leverage + 'x';
@@ -138,6 +169,10 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     if (sysEntropy) sysEntropy.innerText = entropy.toFixed(2);
     if (inferLatency) inferLatency.innerText = latency.toFixed(3) + ' ms';
     if (shockLevel) shockLevel.innerText = (shockProb * 100).toFixed(1) + '%';
+
+    if (setQueueEl) setQueueEl.innerText = settlementService.queue.length;
+    if (setFeesEl) setFeesEl.innerText = '$' + settlementService.feesPaid.toFixed(2);
+
     if (regimeEl) {
         regimeEl.innerText = regime;
         regimeEl.style.color = regime === 'Crisis' ? '#ef4444' : (regime === 'Volatile' ? '#f59e0b' : '#10b981');
