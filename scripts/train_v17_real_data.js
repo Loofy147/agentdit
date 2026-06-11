@@ -5,7 +5,8 @@ import fs from 'fs';
 
 async function runRealDataSession(heroWeights, dataService, steps = 24) {
     const engine = new PacioliEngine();
-    const hero = new SACController(11, 3, 64, heroWeights);
+    // stateDim=12
+    const hero = new SACController(12, 3, 64, heroWeights);
 
     let heroTotalUtility = 0;
     const alpha = 0.1; // Lower temperature for more stability
@@ -15,10 +16,14 @@ async function runRealDataSession(heroWeights, dataService, steps = 24) {
         if (!market) break;
 
         engine.revalueFX(market.fxRate);
+        engine.accrueInterest(market.interestRate);
 
         const vix_norm = Math.min(1.0, market.vix / 50);
         const rec_norm = Math.min(1.0, market.recessionProb / 100);
-        const state = new Float64Array([...engine.state, market.shockProb, vix_norm, rec_norm]);
+        const int_norm = Math.min(1.0, market.interestRate / 10);
+
+        // state: [8 accounts, shockProb, vix, rec, interest]
+        const state = new Float64Array([...engine.state, market.shockProb, vix_norm, rec_norm, int_norm]);
 
         const { actions, entropy } = hero.sample(state);
 
@@ -64,17 +69,18 @@ async function train() {
     console.log('Loading enriched market data...');
     const dataService = await DataService.load('./public_market_data.json');
 
-    const weightSize = (11 * 64) + (64 * 3) + (64 * 3);
+    // stateDim=12, actionDim=3, hiddenDim=64
+    const weightSize = (12 * 64) + (64 * 3) + (64 * 3);
     let heroWeights = new Float64Array(weightSize).map(() => (Math.random() * 2 - 1) * 0.1);
 
-    console.log('Training Hero Agent (Generations: 500, Stability Focus)...');
+    console.log('Training Hero Agent (Generations: 200, Stability Focus)...');
     let bestScore = -Infinity;
 
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 200; i++) {
         let currentScore = await runRealDataSession(heroWeights, dataService);
 
-        for (let j = 0; j < 20; j++) {
-            const noiseLevel = 0.05 * Math.exp(-i / 200); // Decaying noise
+        for (let j = 0; j < 10; j++) {
+            const noiseLevel = 0.05 * Math.exp(-i / 100); // Decaying noise
             const noise = new Float64Array(heroWeights.length).map(() => (Math.random() * 2 - 1) * noiseLevel);
             const candidate = heroWeights.map((w, idx) => w + noise[idx]);
 
@@ -90,7 +96,7 @@ async function train() {
             bestScore = currentScore;
         }
 
-        if (i % 100 === 0) console.log(`Generation ${i} complete. Best Score: ${bestScore.toFixed(2)}`);
+        if (i % 50 === 0) console.log(`Generation ${i} complete. Best Score: ${bestScore.toFixed(2)}`);
     }
 
     fs.writeFileSync('hero_v17_real_weights.json', JSON.stringify(Array.from(heroWeights)));

@@ -19,8 +19,8 @@ async function runBenchmark() {
         hw = null;
     }
 
-    // stateDim=11, actionDim=3
-    const hero = new SACController(11, 3, 64, hw ? new Float64Array(hw) : null);
+    // stateDim=12, actionDim=3
+    const hero = new SACController(12, 3, 64, hw ? new Float64Array(hw) : null);
 
     console.log('Evaluating HeroAgent (v17 SAC)...');
     const results = await evalService.evaluateAgent(hero, tasks);

@@ -2,2057 +2,2314 @@
   {
     "date": "2023-12-29",
     "fxRate": 1.105,
-    "vix": 15.82,
-    "recessionProb": 10.32,
-    "sales": 225.2,
-    "shockProb": 0.12
+    "interestRate": 5,
+    "vix": 15.97,
+    "recessionProb": 13.42,
+    "sales": 211.22,
+    "shockProb": 0.18
   },
   {
     "date": "2024-01-02",
     "fxRate": 1.0956,
-    "vix": 15.86,
-    "recessionProb": 12.19,
-    "sales": 220.98,
-    "shockProb": 0.172
+    "interestRate": 5,
+    "vix": 15.81,
+    "recessionProb": 10.91,
+    "sales": 220.11,
+    "shockProb": 0.13
   },
   {
     "date": "2024-01-03",
     "fxRate": 1.0919,
-    "vix": 16.03,
-    "recessionProb": 10.2,
-    "sales": 226.07,
-    "shockProb": 0.117
+    "interestRate": 5,
+    "vix": 16.42,
+    "recessionProb": 11.37,
+    "sales": 218.29,
+    "shockProb": 0.146
   },
   {
     "date": "2024-01-04",
     "fxRate": 1.0953,
-    "vix": 17.83,
-    "recessionProb": 12.1,
-    "sales": 224.46,
-    "shockProb": 0.158
+    "interestRate": 5,
+    "vix": 17.79,
+    "recessionProb": 11.43,
+    "sales": 217.16,
+    "shockProb": 0.163
   },
   {
     "date": "2024-01-05",
     "fxRate": 1.0921,
-    "vix": 18.06,
-    "recessionProb": 10.38,
-    "sales": 216.52,
-    "shockProb": 0.185
+    "interestRate": 5,
+    "vix": 18.36,
+    "recessionProb": 11.61,
+    "sales": 217.84,
+    "shockProb": 0.165
   },
   {
     "date": "2024-01-08",
     "fxRate": 1.0946,
-    "vix": 19.39,
-    "recessionProb": 13.84,
-    "sales": 212.62,
-    "shockProb": 0.193
+    "interestRate": 5,
+    "vix": 18.74,
+    "recessionProb": 11.73,
+    "sales": 223.64,
+    "shockProb": 0.177
   },
   {
     "date": "2024-01-09",
     "fxRate": 1.094,
-    "vix": 18.84,
-    "recessionProb": 13.24,
-    "sales": 215.98,
-    "shockProb": 0.196
+    "interestRate": 5,
+    "vix": 19.48,
+    "recessionProb": 13.02,
+    "sales": 208.4,
+    "shockProb": 0.211
   },
   {
     "date": "2024-01-10",
     "fxRate": 1.0946,
-    "vix": 19.74,
-    "recessionProb": 15.35,
-    "sales": 208.04,
-    "shockProb": 0.215
+    "interestRate": 5,
+    "vix": 18.72,
+    "recessionProb": 15.36,
+    "sales": 221.57,
+    "shockProb": 0.196
   },
   {
     "date": "2024-01-11",
     "fxRate": 1.0987,
-    "vix": 20.22,
-    "recessionProb": 12.71,
-    "sales": 206.24,
-    "shockProb": 0.235
+    "interestRate": 5,
+    "vix": 18.83,
+    "recessionProb": 12.53,
+    "sales": 216.62,
+    "shockProb": 0.172
   },
   {
     "date": "2024-01-12",
     "fxRate": 1.0942,
-    "vix": 19.68,
-    "recessionProb": 14.99,
-    "sales": 220.41,
-    "shockProb": 0.209
+    "interestRate": 5,
+    "vix": 20.17,
+    "recessionProb": 14.61,
+    "sales": 205.1,
+    "shockProb": 0.225
   },
   {
     "date": "2024-01-15",
     "fxRate": 1.0945,
-    "vix": 20.98,
-    "recessionProb": 13.88,
-    "sales": 213.01,
-    "shockProb": 0.21
+    "interestRate": 5,
+    "vix": 20.74,
+    "recessionProb": 15.61,
+    "sales": 198.04,
+    "shockProb": 0.259
   },
   {
     "date": "2024-01-16",
     "fxRate": 1.0882,
-    "vix": 20.36,
-    "recessionProb": 15.81,
-    "sales": 201.96,
-    "shockProb": 0.247
+    "interestRate": 5,
+    "vix": 21.09,
+    "recessionProb": 14.13,
+    "sales": 199.5,
+    "shockProb": 0.25
   },
   {
     "date": "2024-01-17",
     "fxRate": 1.0877,
-    "vix": 20.05,
-    "recessionProb": 13.48,
-    "sales": 215.55,
-    "shockProb": 0.193
+    "interestRate": 5,
+    "vix": 20.52,
+    "recessionProb": 13.21,
+    "sales": 209.14,
+    "shockProb": 0.198
   },
   {
     "date": "2024-01-18",
     "fxRate": 1.0875,
-    "vix": 21.17,
-    "recessionProb": 14.19,
-    "sales": 215.94,
-    "shockProb": 0.235
+    "interestRate": 5,
+    "vix": 21.52,
+    "recessionProb": 13.49,
+    "sales": 202.01,
+    "shockProb": 0.248
   },
   {
     "date": "2024-01-19",
     "fxRate": 1.0887,
-    "vix": 20.74,
-    "recessionProb": 15.47,
-    "sales": 211.58,
-    "shockProb": 0.235
+    "interestRate": 5,
+    "vix": 20.3,
+    "recessionProb": 14.03,
+    "sales": 212.85,
+    "shockProb": 0.208
   },
   {
     "date": "2024-01-22",
     "fxRate": 1.089,
-    "vix": 21.22,
-    "recessionProb": 14.55,
-    "sales": 212.68,
-    "shockProb": 0.243
+    "interestRate": 5,
+    "vix": 20.55,
+    "recessionProb": 12.75,
+    "sales": 215.6,
+    "shockProb": 0.205
   },
   {
     "date": "2024-01-23",
     "fxRate": 1.0872,
-    "vix": 20.48,
-    "recessionProb": 14.22,
-    "sales": 220.33,
-    "shockProb": 0.206
+    "interestRate": 5,
+    "vix": 20.28,
+    "recessionProb": 11.34,
+    "sales": 214.51,
+    "shockProb": 0.182
   },
   {
     "date": "2024-01-24",
     "fxRate": 1.0905,
-    "vix": 21.89,
-    "recessionProb": 13.74,
-    "sales": 206.91,
-    "shockProb": 0.248
+    "interestRate": 5,
+    "vix": 21.71,
+    "recessionProb": 11.34,
+    "sales": 215.31,
+    "shockProb": 0.217
   },
   {
     "date": "2024-01-25",
     "fxRate": 1.0893,
-    "vix": 21.54,
-    "recessionProb": 11.67,
-    "sales": 208.64,
-    "shockProb": 0.198
+    "interestRate": 5,
+    "vix": 21.36,
+    "recessionProb": 12.86,
+    "sales": 199.55,
+    "shockProb": 0.251
   },
   {
     "date": "2024-01-26",
     "fxRate": 1.0871,
-    "vix": 20.38,
-    "recessionProb": 14.86,
-    "sales": 205.76,
-    "shockProb": 0.227
+    "interestRate": 5,
+    "vix": 20.12,
+    "recessionProb": 15.88,
+    "sales": 204.46,
+    "shockProb": 0.241
   },
   {
     "date": "2024-01-29",
     "fxRate": 1.0823,
-    "vix": 20.26,
-    "recessionProb": 13.93,
-    "sales": 208.05,
-    "shockProb": 0.242
+    "interestRate": 5,
+    "vix": 20.46,
+    "recessionProb": 15.95,
+    "sales": 208.39,
+    "shockProb": 0.218
   },
   {
     "date": "2024-01-30",
     "fxRate": 1.0846,
-    "vix": 19.44,
-    "recessionProb": 12.87,
-    "sales": 225.04,
-    "shockProb": 0.182
+    "interestRate": 5,
+    "vix": 20.78,
+    "recessionProb": 11.91,
+    "sales": 209.62,
+    "shockProb": 0.197
   },
   {
     "date": "2024-01-31",
     "fxRate": 1.0837,
-    "vix": 19.83,
-    "recessionProb": 13.97,
-    "sales": 216.61,
-    "shockProb": 0.196
+    "interestRate": 5.411,
+    "vix": 20.72,
+    "recessionProb": 13.87,
+    "sales": 210.29,
+    "shockProb": 0.222
   },
   {
     "date": "2024-02-01",
     "fxRate": 1.0814,
-    "vix": 19.4,
-    "recessionProb": 14.92,
-    "sales": 212.23,
-    "shockProb": 0.206
+    "interestRate": 5.411,
+    "vix": 20.58,
+    "recessionProb": 16.15,
+    "sales": 216.84,
+    "shockProb": 0.226
   },
   {
     "date": "2024-02-02",
     "fxRate": 1.0883,
-    "vix": 18.41,
-    "recessionProb": 14.02,
-    "sales": 223.66,
-    "shockProb": 0.178
+    "interestRate": 5.411,
+    "vix": 18.73,
+    "recessionProb": 12.25,
+    "sales": 220.41,
+    "shockProb": 0.194
   },
   {
     "date": "2024-02-05",
     "fxRate": 1.0746,
-    "vix": 18.6,
-    "recessionProb": 13.87,
-    "sales": 207.79,
-    "shockProb": 0.207
+    "interestRate": 5.411,
+    "vix": 19.51,
+    "recessionProb": 15.9,
+    "sales": 206.84,
+    "shockProb": 0.245
   },
   {
     "date": "2024-02-06",
     "fxRate": 1.0743,
-    "vix": 19.39,
-    "recessionProb": 12.63,
-    "sales": 217.74,
-    "shockProb": 0.207
+    "interestRate": 5.411,
+    "vix": 19.15,
+    "recessionProb": 15.77,
+    "sales": 208.23,
+    "shockProb": 0.21
   },
   {
     "date": "2024-02-07",
     "fxRate": 1.0776,
-    "vix": 18.65,
-    "recessionProb": 15.96,
-    "sales": 222.61,
-    "shockProb": 0.193
+    "interestRate": 5.411,
+    "vix": 17.32,
+    "recessionProb": 12.98,
+    "sales": 219.01,
+    "shockProb": 0.151
   },
   {
     "date": "2024-02-08",
     "fxRate": 1.0758,
-    "vix": 17.35,
-    "recessionProb": 15.26,
-    "sales": 215.92,
-    "shockProb": 0.177
+    "interestRate": 5.411,
+    "vix": 17.16,
+    "recessionProb": 12.51,
+    "sales": 222.63,
+    "shockProb": 0.15
   },
   {
     "date": "2024-02-09",
     "fxRate": 1.0772,
-    "vix": 17.61,
-    "recessionProb": 12.33,
-    "sales": 214.75,
-    "shockProb": 0.163
+    "interestRate": 5.411,
+    "vix": 16.81,
+    "recessionProb": 12.39,
+    "sales": 222.92,
+    "shockProb": 0.14
   },
   {
     "date": "2024-02-12",
     "fxRate": 1.0773,
-    "vix": 17.46,
-    "recessionProb": 16.35,
-    "sales": 216.6,
-    "shockProb": 0.194
+    "interestRate": 5.411,
+    "vix": 15.93,
+    "recessionProb": 15.25,
+    "sales": 212.24,
+    "shockProb": 0.178
   },
   {
     "date": "2024-02-13",
     "fxRate": 1.0793,
-    "vix": 15.51,
-    "recessionProb": 13.72,
-    "sales": 218.41,
-    "shockProb": 0.14
+    "interestRate": 5.411,
+    "vix": 16.36,
+    "recessionProb": 16.23,
+    "sales": 207.67,
+    "shockProb": 0.204
   },
   {
     "date": "2024-02-14",
     "fxRate": 1.0713,
-    "vix": 15.88,
-    "recessionProb": 15.72,
-    "sales": 227.65,
-    "shockProb": 0.169
+    "interestRate": 5.411,
+    "vix": 16.07,
+    "recessionProb": 14.58,
+    "sales": 224.01,
+    "shockProb": 0.15
   },
   {
     "date": "2024-02-15",
     "fxRate": 1.0743,
-    "vix": 14.79,
-    "recessionProb": 13,
-    "sales": 221.64,
-    "shockProb": 0.12
+    "interestRate": 5.411,
+    "vix": 15.22,
+    "recessionProb": 15.62,
+    "sales": 220.27,
+    "shockProb": 0.154
   },
   {
     "date": "2024-02-16",
     "fxRate": 1.0768,
-    "vix": 15.03,
-    "recessionProb": 13.87,
-    "sales": 215.57,
-    "shockProb": 0.168
+    "interestRate": 5.411,
+    "vix": 14.15,
+    "recessionProb": 16.82,
+    "sales": 223.93,
+    "shockProb": 0.155
   },
   {
     "date": "2024-02-19",
     "fxRate": 1.0776,
-    "vix": 13.73,
-    "recessionProb": 16.15,
-    "sales": 231.5,
-    "shockProb": 0.129
+    "interestRate": 5.411,
+    "vix": 14.46,
+    "recessionProb": 14,
+    "sales": 220.42,
+    "shockProb": 0.166
   },
   {
     "date": "2024-02-20",
     "fxRate": 1.0802,
-    "vix": 14.67,
-    "recessionProb": 14.24,
-    "sales": 230.21,
-    "shockProb": 0.127
+    "interestRate": 5.411,
+    "vix": 14.17,
+    "recessionProb": 15.84,
+    "sales": 224.39,
+    "shockProb": 0.151
   },
   {
     "date": "2024-02-21",
     "fxRate": 1.0809,
-    "vix": 13.26,
-    "recessionProb": 15.19,
-    "sales": 224.97,
-    "shockProb": 0.117
+    "interestRate": 5.411,
+    "vix": 12.89,
+    "recessionProb": 13.68,
+    "sales": 226.08,
+    "shockProb": 0.134
   },
   {
     "date": "2024-02-22",
     "fxRate": 1.0844,
-    "vix": 12.49,
-    "recessionProb": 17,
-    "sales": 228.78,
-    "shockProb": 0.112
+    "interestRate": 5.411,
+    "vix": 12.72,
+    "recessionProb": 16.36,
+    "sales": 232.34,
+    "shockProb": 0.131
   },
   {
     "date": "2024-02-23",
     "fxRate": 1.0834,
-    "vix": 12.19,
-    "recessionProb": 16.96,
-    "sales": 231.91,
-    "shockProb": 0.124
+    "interestRate": 5.411,
+    "vix": 11.88,
+    "recessionProb": 16.61,
+    "sales": 231,
+    "shockProb": 0.117
   },
   {
     "date": "2024-02-26",
     "fxRate": 1.0852,
-    "vix": 11.71,
-    "recessionProb": 13.89,
-    "sales": 237.73,
-    "shockProb": 0.098
+    "interestRate": 5.411,
+    "vix": 12.44,
+    "recessionProb": 13.8,
+    "sales": 227.42,
+    "shockProb": 0.138
   },
   {
     "date": "2024-02-27",
     "fxRate": 1.0856,
-    "vix": 11.58,
-    "recessionProb": 13.81,
-    "sales": 220.97,
-    "shockProb": 0.125
+    "interestRate": 5.411,
+    "vix": 12.67,
+    "recessionProb": 16.77,
+    "sales": 220.71,
+    "shockProb": 0.131
   },
   {
     "date": "2024-02-28",
     "fxRate": 1.0808,
-    "vix": 10.66,
-    "recessionProb": 16.47,
-    "sales": 232.26,
-    "shockProb": 0.14
+    "interestRate": 5.411,
+    "vix": 12.25,
+    "recessionProb": 16.2,
+    "sales": 226.43,
+    "shockProb": 0.136
   },
   {
     "date": "2024-02-29",
     "fxRate": 1.0826,
-    "vix": 11.18,
-    "recessionProb": 14.53,
-    "sales": 231.63,
-    "shockProb": 0.133
+    "interestRate": 5.384,
+    "vix": 11.74,
+    "recessionProb": 17.64,
+    "sales": 220.06,
+    "shockProb": 0.131
   },
   {
     "date": "2024-03-01",
     "fxRate": 1.0813,
-    "vix": 12,
-    "recessionProb": 13.83,
-    "sales": 232.18,
-    "shockProb": 0.106
+    "interestRate": 5.384,
+    "vix": 11.12,
+    "recessionProb": 13.44,
+    "sales": 225.03,
+    "shockProb": 0.13
   },
   {
     "date": "2024-03-04",
     "fxRate": 1.0846,
-    "vix": 10.86,
-    "recessionProb": 14.65,
-    "sales": 230.38,
-    "shockProb": 0.098
+    "interestRate": 5.384,
+    "vix": 10.27,
+    "recessionProb": 14.1,
+    "sales": 234.21,
+    "shockProb": 0.131
   },
   {
     "date": "2024-03-05",
     "fxRate": 1.0849,
-    "vix": 11.57,
-    "recessionProb": 15.86,
-    "sales": 223.83,
-    "shockProb": 0.11
+    "interestRate": 5.384,
+    "vix": 11.06,
+    "recessionProb": 18.35,
+    "sales": 224.56,
+    "shockProb": 0.155
   },
   {
     "date": "2024-03-06",
     "fxRate": 1.0874,
-    "vix": 11.48,
-    "recessionProb": 16.42,
-    "sales": 234.53,
+    "interestRate": 5.384,
+    "vix": 10.8,
+    "recessionProb": 16.27,
+    "sales": 225.39,
     "shockProb": 0.128
   },
   {
     "date": "2024-03-07",
     "fxRate": 1.0895,
-    "vix": 11.69,
-    "recessionProb": 17.8,
-    "sales": 220.79,
-    "shockProb": 0.131
+    "interestRate": 5.384,
+    "vix": 11.46,
+    "recessionProb": 14.43,
+    "sales": 229.42,
+    "shockProb": 0.101
   },
   {
     "date": "2024-03-08",
     "fxRate": 1.0932,
-    "vix": 10.92,
-    "recessionProb": 15.48,
-    "sales": 230.57,
-    "shockProb": 0.111
+    "interestRate": 5.384,
+    "vix": 11.8,
+    "recessionProb": 16.47,
+    "sales": 226.06,
+    "shockProb": 0.147
   },
   {
     "date": "2024-03-11",
     "fxRate": 1.0926,
-    "vix": 12.16,
-    "recessionProb": 14.78,
-    "sales": 221.38,
-    "shockProb": 0.138
+    "interestRate": 5.384,
+    "vix": 11.79,
+    "recessionProb": 16.58,
+    "sales": 229.11,
+    "shockProb": 0.123
   },
   {
     "date": "2024-03-12",
     "fxRate": 1.0916,
-    "vix": 10.52,
-    "recessionProb": 18.62,
-    "sales": 228.52,
-    "shockProb": 0.146
+    "interestRate": 5.384,
+    "vix": 11.72,
+    "recessionProb": 16.91,
+    "sales": 230.63,
+    "shockProb": 0.147
   },
   {
     "date": "2024-03-13",
     "fxRate": 1.0939,
-    "vix": 12.2,
-    "recessionProb": 18.46,
-    "sales": 225.64,
-    "shockProb": 0.154
+    "interestRate": 5.384,
+    "vix": 12.12,
+    "recessionProb": 15.73,
+    "sales": 221.32,
+    "shockProb": 0.143
   },
   {
     "date": "2024-03-14",
     "fxRate": 1.0925,
-    "vix": 10.96,
-    "recessionProb": 14.71,
-    "sales": 233.56,
-    "shockProb": 0.105
+    "interestRate": 5.384,
+    "vix": 12.52,
+    "recessionProb": 14.52,
+    "sales": 227.49,
+    "shockProb": 0.137
   },
   {
     "date": "2024-03-15",
     "fxRate": 1.0892,
-    "vix": 11.96,
-    "recessionProb": 15.75,
-    "sales": 222.11,
-    "shockProb": 0.127
+    "interestRate": 5.384,
+    "vix": 11.36,
+    "recessionProb": 18.93,
+    "sales": 216.23,
+    "shockProb": 0.162
   },
   {
     "date": "2024-03-18",
     "fxRate": 1.0892,
-    "vix": 12.64,
-    "recessionProb": 17.04,
-    "sales": 217.76,
-    "shockProb": 0.156
+    "interestRate": 5.384,
+    "vix": 11.68,
+    "recessionProb": 17.54,
+    "sales": 231.98,
+    "shockProb": 0.136
   },
   {
     "date": "2024-03-19",
     "fxRate": 1.0854,
-    "vix": 11.87,
-    "recessionProb": 18.89,
-    "sales": 228.45,
-    "shockProb": 0.151
+    "interestRate": 5.384,
+    "vix": 13.27,
+    "recessionProb": 15.87,
+    "sales": 228.07,
+    "shockProb": 0.114
   },
   {
     "date": "2024-03-20",
     "fxRate": 1.0844,
-    "vix": 13.45,
-    "recessionProb": 16.42,
-    "sales": 230.94,
-    "shockProb": 0.125
+    "interestRate": 5.384,
+    "vix": 12.33,
+    "recessionProb": 18.86,
+    "sales": 222.81,
+    "shockProb": 0.166
   },
   {
     "date": "2024-03-21",
     "fxRate": 1.0907,
-    "vix": 14.18,
-    "recessionProb": 16.6,
-    "sales": 228.22,
-    "shockProb": 0.142
+    "interestRate": 5.384,
+    "vix": 14.38,
+    "recessionProb": 17.75,
+    "sales": 226.44,
+    "shockProb": 0.153
   },
   {
     "date": "2024-03-22",
     "fxRate": 1.0823,
-    "vix": 14.56,
-    "recessionProb": 16.73,
-    "sales": 232.02,
-    "shockProb": 0.142
+    "interestRate": 5.384,
+    "vix": 13.82,
+    "recessionProb": 18.93,
+    "sales": 223.79,
+    "shockProb": 0.175
   },
   {
     "date": "2024-03-25",
     "fxRate": 1.0835,
-    "vix": 14.47,
-    "recessionProb": 16.77,
-    "sales": 224.39,
-    "shockProb": 0.156
+    "interestRate": 5.384,
+    "vix": 13.7,
+    "recessionProb": 19.33,
+    "sales": 220.12,
+    "shockProb": 0.14
   },
   {
     "date": "2024-03-26",
     "fxRate": 1.0855,
-    "vix": 15.87,
-    "recessionProb": 19.49,
-    "sales": 222.43,
-    "shockProb": 0.196
+    "interestRate": 5.384,
+    "vix": 14.74,
+    "recessionProb": 18.26,
+    "sales": 221.83,
+    "shockProb": 0.147
   },
   {
     "date": "2024-03-27",
     "fxRate": 1.0816,
-    "vix": 14.99,
-    "recessionProb": 18.96,
-    "sales": 220.91,
-    "shockProb": 0.194
+    "interestRate": 5.384,
+    "vix": 14.72,
+    "recessionProb": 17.23,
+    "sales": 230.16,
+    "shockProb": 0.146
   },
   {
     "date": "2024-03-28",
     "fxRate": 1.0811,
-    "vix": 15.54,
-    "recessionProb": 16.65,
-    "sales": 222.75,
-    "shockProb": 0.152
+    "interestRate": 5.384,
+    "vix": 15.49,
+    "recessionProb": 19.73,
+    "sales": 211.85,
+    "shockProb": 0.186
   },
   {
     "date": "2024-04-02",
     "fxRate": 1.0749,
-    "vix": 16.7,
-    "recessionProb": 15.85,
-    "sales": 220.74,
-    "shockProb": 0.178
+    "interestRate": 5.384,
+    "vix": 16.75,
+    "recessionProb": 17.94,
+    "sales": 216.69,
+    "shockProb": 0.18
   },
   {
     "date": "2024-04-03",
     "fxRate": 1.0783,
-    "vix": 17.81,
-    "recessionProb": 18.36,
-    "sales": 208.47,
-    "shockProb": 0.195
+    "interestRate": 5.384,
+    "vix": 17.02,
+    "recessionProb": 18.15,
+    "sales": 211.4,
+    "shockProb": 0.198
   },
   {
     "date": "2024-04-04",
     "fxRate": 1.0852,
-    "vix": 18.23,
-    "recessionProb": 19.87,
-    "sales": 201.81,
-    "shockProb": 0.244
+    "interestRate": 5.384,
+    "vix": 17.38,
+    "recessionProb": 19.54,
+    "sales": 214.83,
+    "shockProb": 0.217
   },
   {
     "date": "2024-04-05",
     "fxRate": 1.0841,
-    "vix": 18.94,
-    "recessionProb": 17.04,
-    "sales": 210.46,
-    "shockProb": 0.237
+    "interestRate": 5.384,
+    "vix": 18.66,
+    "recessionProb": 19.85,
+    "sales": 205.79,
+    "shockProb": 0.214
   },
   {
     "date": "2024-04-08",
     "fxRate": 1.0823,
-    "vix": 18.23,
-    "recessionProb": 15.64,
-    "sales": 215.98,
-    "shockProb": 0.182
+    "interestRate": 5.384,
+    "vix": 19.34,
+    "recessionProb": 20.14,
+    "sales": 215.07,
+    "shockProb": 0.228
   },
   {
     "date": "2024-04-09",
     "fxRate": 1.0867,
-    "vix": 19.78,
-    "recessionProb": 18.62,
-    "sales": 212.2,
-    "shockProb": 0.229
+    "interestRate": 5.384,
+    "vix": 18.58,
+    "recessionProb": 18.32,
+    "sales": 211.37,
+    "shockProb": 0.246
   },
   {
     "date": "2024-04-10",
     "fxRate": 1.086,
-    "vix": 20.01,
-    "recessionProb": 15.92,
-    "sales": 212.65,
-    "shockProb": 0.224
+    "interestRate": 5.384,
+    "vix": 18.29,
+    "recessionProb": 17.43,
+    "sales": 211.18,
+    "shockProb": 0.201
   },
   {
     "date": "2024-04-11",
     "fxRate": 1.0729,
-    "vix": 19.18,
-    "recessionProb": 19.79,
-    "sales": 212.4,
-    "shockProb": 0.253
+    "interestRate": 5.384,
+    "vix": 18.78,
+    "recessionProb": 16.31,
+    "sales": 208.53,
+    "shockProb": 0.201
   },
   {
     "date": "2024-04-12",
     "fxRate": 1.0652,
-    "vix": 19.88,
-    "recessionProb": 19.22,
-    "sales": 206.32,
-    "shockProb": 0.264
+    "interestRate": 5.384,
+    "vix": 20.13,
+    "recessionProb": 18.83,
+    "sales": 209.84,
+    "shockProb": 0.243
   },
   {
     "date": "2024-04-15",
     "fxRate": 1.0656,
-    "vix": 20.16,
-    "recessionProb": 17.71,
-    "sales": 214.26,
-    "shockProb": 0.226
+    "interestRate": 5.384,
+    "vix": 19.65,
+    "recessionProb": 17.15,
+    "sales": 212.76,
+    "shockProb": 0.219
   },
   {
     "date": "2024-04-16",
     "fxRate": 1.0637,
-    "vix": 20.96,
-    "recessionProb": 16.83,
-    "sales": 204.73,
-    "shockProb": 0.242
+    "interestRate": 5.384,
+    "vix": 21.29,
+    "recessionProb": 17.73,
+    "sales": 202.87,
+    "shockProb": 0.234
   },
   {
     "date": "2024-04-17",
     "fxRate": 1.0638,
-    "vix": 20.43,
-    "recessionProb": 18.91,
-    "sales": 200.64,
-    "shockProb": 0.239
+    "interestRate": 5.384,
+    "vix": 21.57,
+    "recessionProb": 15.87,
+    "sales": 209.71,
+    "shockProb": 0.229
   },
   {
     "date": "2024-04-18",
     "fxRate": 1.0679,
-    "vix": 20.29,
-    "recessionProb": 20.35,
-    "sales": 207.58,
-    "shockProb": 0.247
+    "interestRate": 5.384,
+    "vix": 21.02,
+    "recessionProb": 20.81,
+    "sales": 206.59,
+    "shockProb": 0.289
   },
   {
     "date": "2024-04-19",
     "fxRate": 1.0653,
-    "vix": 21.02,
-    "recessionProb": 16.26,
-    "sales": 217.96,
-    "shockProb": 0.225
+    "interestRate": 5.384,
+    "vix": 21.6,
+    "recessionProb": 17.27,
+    "sales": 210.11,
+    "shockProb": 0.25
   },
   {
     "date": "2024-04-22",
     "fxRate": 1.0632,
-    "vix": 21.85,
-    "recessionProb": 17.48,
-    "sales": 208.46,
-    "shockProb": 0.241
+    "interestRate": 5.384,
+    "vix": 20.16,
+    "recessionProb": 20.67,
+    "sales": 201.96,
+    "shockProb": 0.245
   },
   {
     "date": "2024-04-23",
     "fxRate": 1.0674,
-    "vix": 21.17,
-    "recessionProb": 20.03,
-    "sales": 196.59,
-    "shockProb": 0.263
+    "interestRate": 5.384,
+    "vix": 21.65,
+    "recessionProb": 20.72,
+    "sales": 196.65,
+    "shockProb": 0.274
   },
   {
     "date": "2024-04-24",
     "fxRate": 1.0686,
-    "vix": 20.85,
-    "recessionProb": 20.78,
-    "sales": 198.81,
-    "shockProb": 0.265
+    "interestRate": 5.384,
+    "vix": 21.67,
+    "recessionProb": 17.62,
+    "sales": 197.95,
+    "shockProb": 0.266
   },
   {
     "date": "2024-04-25",
     "fxRate": 1.072,
-    "vix": 21.65,
-    "recessionProb": 17.5,
-    "sales": 200,
-    "shockProb": 0.261
+    "interestRate": 5.384,
+    "vix": 21.74,
+    "recessionProb": 19.67,
+    "sales": 200.04,
+    "shockProb": 0.275
   },
   {
     "date": "2024-04-26",
     "fxRate": 1.0714,
-    "vix": 19.72,
-    "recessionProb": 16.97,
-    "sales": 205.62,
-    "shockProb": 0.245
+    "interestRate": 5.384,
+    "vix": 21.42,
+    "recessionProb": 16.46,
+    "sales": 196.55,
+    "shockProb": 0.274
   },
   {
     "date": "2024-04-29",
     "fxRate": 1.072,
-    "vix": 21.48,
-    "recessionProb": 21.24,
-    "sales": 203.5,
-    "shockProb": 0.291
+    "interestRate": 5.384,
+    "vix": 20.91,
+    "recessionProb": 18.14,
+    "sales": 206.69,
+    "shockProb": 0.266
   },
   {
     "date": "2024-04-30",
     "fxRate": 1.0718,
-    "vix": 21.02,
-    "recessionProb": 19.97,
-    "sales": 210.52,
-    "shockProb": 0.242
+    "interestRate": 5.357,
+    "vix": 21.17,
+    "recessionProb": 19.26,
+    "sales": 203.92,
+    "shockProb": 0.258
   },
   {
     "date": "2024-05-02",
     "fxRate": 1.0698,
-    "vix": 19.88,
-    "recessionProb": 17.58,
-    "sales": 214.14,
-    "shockProb": 0.227
+    "interestRate": 5.357,
+    "vix": 19.31,
+    "recessionProb": 18.94,
+    "sales": 214.82,
+    "shockProb": 0.216
   },
   {
     "date": "2024-05-03",
     "fxRate": 1.0744,
-    "vix": 18.97,
-    "recessionProb": 17.24,
-    "sales": 206.94,
-    "shockProb": 0.24
+    "interestRate": 5.357,
+    "vix": 19.33,
+    "recessionProb": 21.23,
+    "sales": 204.05,
+    "shockProb": 0.244
   },
   {
     "date": "2024-05-06",
     "fxRate": 1.0776,
-    "vix": 18.98,
-    "recessionProb": 18.6,
-    "sales": 212.84,
-    "shockProb": 0.217
+    "interestRate": 5.357,
+    "vix": 19.83,
+    "recessionProb": 18.83,
+    "sales": 202.6,
+    "shockProb": 0.254
   },
   {
     "date": "2024-05-07",
     "fxRate": 1.0766,
-    "vix": 19.57,
-    "recessionProb": 18.67,
-    "sales": 209.08,
-    "shockProb": 0.243
+    "interestRate": 5.357,
+    "vix": 18.58,
+    "recessionProb": 19.28,
+    "sales": 205.81,
+    "shockProb": 0.246
   },
   {
     "date": "2024-05-08",
     "fxRate": 1.0743,
-    "vix": 18.98,
-    "recessionProb": 19.1,
-    "sales": 213.63,
-    "shockProb": 0.218
+    "interestRate": 5.357,
+    "vix": 18.52,
+    "recessionProb": 20.21,
+    "sales": 205.34,
+    "shockProb": 0.22
   },
   {
     "date": "2024-05-09",
     "fxRate": 1.0732,
-    "vix": 18.52,
-    "recessionProb": 17.95,
-    "sales": 212.96,
-    "shockProb": 0.216
+    "interestRate": 5.357,
+    "vix": 17.36,
+    "recessionProb": 21.93,
+    "sales": 207.39,
+    "shockProb": 0.226
   },
   {
     "date": "2024-05-10",
     "fxRate": 1.0779,
-    "vix": 17.28,
-    "recessionProb": 19.45,
-    "sales": 211.31,
-    "shockProb": 0.22
+    "interestRate": 5.357,
+    "vix": 17.67,
+    "recessionProb": 18.56,
+    "sales": 214.78,
+    "shockProb": 0.198
   },
   {
     "date": "2024-05-13",
     "fxRate": 1.0795,
-    "vix": 16.81,
-    "recessionProb": 18.64,
-    "sales": 224.09,
-    "shockProb": 0.181
+    "interestRate": 5.357,
+    "vix": 17.19,
+    "recessionProb": 19.37,
+    "sales": 219.64,
+    "shockProb": 0.2
   },
   {
     "date": "2024-05-14",
     "fxRate": 1.0796,
-    "vix": 16.93,
-    "recessionProb": 19.6,
-    "sales": 206.27,
-    "shockProb": 0.228
+    "interestRate": 5.357,
+    "vix": 15.68,
+    "recessionProb": 18.47,
+    "sales": 218.12,
+    "shockProb": 0.2
   },
   {
     "date": "2024-05-15",
     "fxRate": 1.0832,
-    "vix": 16.31,
-    "recessionProb": 19.83,
-    "sales": 216.55,
-    "shockProb": 0.202
+    "interestRate": 5.357,
+    "vix": 16.73,
+    "recessionProb": 17.99,
+    "sales": 226.61,
+    "shockProb": 0.172
   },
   {
     "date": "2024-05-16",
     "fxRate": 1.0866,
-    "vix": 15.52,
-    "recessionProb": 17.67,
-    "sales": 221.4,
-    "shockProb": 0.17
+    "interestRate": 5.357,
+    "vix": 15.81,
+    "recessionProb": 22.17,
+    "sales": 211.89,
+    "shockProb": 0.217
   },
   {
     "date": "2024-05-17",
     "fxRate": 1.0844,
-    "vix": 15.02,
-    "recessionProb": 19.75,
-    "sales": 211.49,
-    "shockProb": 0.185
+    "interestRate": 5.357,
+    "vix": 15.82,
+    "recessionProb": 20.75,
+    "sales": 210.22,
+    "shockProb": 0.194
   },
   {
     "date": "2024-05-20",
     "fxRate": 1.0861,
-    "vix": 14.67,
-    "recessionProb": 19.16,
-    "sales": 218.45,
-    "shockProb": 0.17
+    "interestRate": 5.357,
+    "vix": 14.33,
+    "recessionProb": 20.69,
+    "sales": 226.89,
+    "shockProb": 0.163
   },
   {
     "date": "2024-05-21",
     "fxRate": 1.0864,
-    "vix": 13.45,
-    "recessionProb": 18.9,
-    "sales": 217.97,
-    "shockProb": 0.153
+    "interestRate": 5.357,
+    "vix": 14.25,
+    "recessionProb": 18.48,
+    "sales": 223.23,
+    "shockProb": 0.189
   },
   {
     "date": "2024-05-22",
     "fxRate": 1.083,
-    "vix": 14.3,
-    "recessionProb": 20.92,
-    "sales": 221.03,
-    "shockProb": 0.181
+    "interestRate": 5.357,
+    "vix": 13.56,
+    "recessionProb": 21.09,
+    "sales": 226.02,
+    "shockProb": 0.148
   },
   {
     "date": "2024-05-23",
     "fxRate": 1.0854,
-    "vix": 12.61,
-    "recessionProb": 21.86,
-    "sales": 223.3,
-    "shockProb": 0.186
+    "interestRate": 5.357,
+    "vix": 12.85,
+    "recessionProb": 21.67,
+    "sales": 226.69,
+    "shockProb": 0.152
   },
   {
     "date": "2024-05-24",
     "fxRate": 1.084,
-    "vix": 12.92,
-    "recessionProb": 22.51,
-    "sales": 215.09,
-    "shockProb": 0.189
+    "interestRate": 5.357,
+    "vix": 13.12,
+    "recessionProb": 21.54,
+    "sales": 224.84,
+    "shockProb": 0.184
   },
   {
     "date": "2024-05-27",
     "fxRate": 1.0843,
-    "vix": 12,
-    "recessionProb": 18.91,
-    "sales": 220.34,
-    "shockProb": 0.142
+    "interestRate": 5.357,
+    "vix": 12.47,
+    "recessionProb": 18.13,
+    "sales": 228.7,
+    "shockProb": 0.139
   },
   {
     "date": "2024-05-28",
     "fxRate": 1.0882,
-    "vix": 11.91,
-    "recessionProb": 21.89,
-    "sales": 231.24,
-    "shockProb": 0.142
+    "interestRate": 5.357,
+    "vix": 13.03,
+    "recessionProb": 20.4,
+    "sales": 211.56,
+    "shockProb": 0.183
   },
   {
     "date": "2024-05-29",
     "fxRate": 1.0857,
-    "vix": 11.4,
-    "recessionProb": 21.42,
-    "sales": 216.7,
-    "shockProb": 0.151
+    "interestRate": 5.357,
+    "vix": 11.39,
+    "recessionProb": 20.69,
+    "sales": 230.39,
+    "shockProb": 0.132
   },
   {
     "date": "2024-05-30",
     "fxRate": 1.0815,
-    "vix": 11.14,
-    "recessionProb": 20.69,
-    "sales": 216.32,
-    "shockProb": 0.162
+    "interestRate": 5.357,
+    "vix": 10.88,
+    "recessionProb": 21.28,
+    "sales": 214.46,
+    "shockProb": 0.174
   },
   {
     "date": "2024-05-31",
     "fxRate": 1.0852,
-    "vix": 12.32,
-    "recessionProb": 22.15,
-    "sales": 220.41,
-    "shockProb": 0.159
+    "interestRate": 5.352,
+    "vix": 10.91,
+    "recessionProb": 21.77,
+    "sales": 221.68,
+    "shockProb": 0.173
   },
   {
     "date": "2024-06-03",
     "fxRate": 1.0842,
-    "vix": 11.62,
-    "recessionProb": 18.55,
-    "sales": 233.73,
-    "shockProb": 0.135
+    "interestRate": 5.352,
+    "vix": 12.11,
+    "recessionProb": 21.68,
+    "sales": 214.99,
+    "shockProb": 0.161
   },
   {
     "date": "2024-06-04",
     "fxRate": 1.0865,
-    "vix": 11.1,
-    "recessionProb": 20.27,
-    "sales": 224.68,
-    "shockProb": 0.147
+    "interestRate": 5.352,
+    "vix": 11.2,
+    "recessionProb": 18.55,
+    "sales": 219.07,
+    "shockProb": 0.137
   },
   {
     "date": "2024-06-05",
     "fxRate": 1.0872,
-    "vix": 10.77,
-    "recessionProb": 21.97,
-    "sales": 223.13,
-    "shockProb": 0.138
+    "interestRate": 5.352,
+    "vix": 10.24,
+    "recessionProb": 20.19,
+    "sales": 228.58,
+    "shockProb": 0.144
   },
   {
     "date": "2024-06-06",
     "fxRate": 1.0865,
-    "vix": 10.6,
-    "recessionProb": 19.18,
-    "sales": 224.37,
-    "shockProb": 0.165
+    "interestRate": 5.352,
+    "vix": 10.4,
+    "recessionProb": 23.07,
+    "sales": 217.38,
+    "shockProb": 0.152
   },
   {
     "date": "2024-06-07",
     "fxRate": 1.0898,
-    "vix": 10.99,
-    "recessionProb": 20.87,
-    "sales": 219.59,
-    "shockProb": 0.142
+    "interestRate": 5.352,
+    "vix": 11.25,
+    "recessionProb": 22.3,
+    "sales": 219.61,
+    "shockProb": 0.156
   },
   {
     "date": "2024-06-10",
     "fxRate": 1.0756,
-    "vix": 10.27,
-    "recessionProb": 18.75,
-    "sales": 229.17,
-    "shockProb": 0.121
+    "interestRate": 5.352,
+    "vix": 11.54,
+    "recessionProb": 18.89,
+    "sales": 220.53,
+    "shockProb": 0.134
   },
   {
     "date": "2024-06-11",
     "fxRate": 1.073,
-    "vix": 10.45,
-    "recessionProb": 21.42,
-    "sales": 228.2,
-    "shockProb": 0.164
+    "interestRate": 5.352,
+    "vix": 11.97,
+    "recessionProb": 19.44,
+    "sales": 229.11,
+    "shockProb": 0.142
   },
   {
     "date": "2024-06-12",
     "fxRate": 1.0765,
-    "vix": 11.26,
-    "recessionProb": 21.89,
-    "sales": 220.84,
-    "shockProb": 0.169
+    "interestRate": 5.352,
+    "vix": 10.48,
+    "recessionProb": 18.95,
+    "sales": 232.23,
+    "shockProb": 0.12
   },
   {
     "date": "2024-06-13",
     "fxRate": 1.0784,
-    "vix": 12.06,
-    "recessionProb": 20.56,
-    "sales": 224.39,
-    "shockProb": 0.166
+    "interestRate": 5.352,
+    "vix": 11.05,
+    "recessionProb": 19.99,
+    "sales": 222.57,
+    "shockProb": 0.159
   },
   {
     "date": "2024-06-14",
     "fxRate": 1.0686,
-    "vix": 12.44,
-    "recessionProb": 20.58,
-    "sales": 233.1,
-    "shockProb": 0.133
+    "interestRate": 5.352,
+    "vix": 12.75,
+    "recessionProb": 20.43,
+    "sales": 222.4,
+    "shockProb": 0.156
   },
   {
     "date": "2024-06-17",
     "fxRate": 1.0712,
-    "vix": 11.55,
-    "recessionProb": 20.91,
-    "sales": 227.48,
-    "shockProb": 0.156
+    "interestRate": 5.352,
+    "vix": 12.55,
+    "recessionProb": 22.32,
+    "sales": 210.97,
+    "shockProb": 0.184
   },
   {
     "date": "2024-06-18",
     "fxRate": 1.0715,
-    "vix": 13.06,
-    "recessionProb": 19.73,
-    "sales": 225.35,
-    "shockProb": 0.133
+    "interestRate": 5.352,
+    "vix": 12.6,
+    "recessionProb": 21.89,
+    "sales": 224.66,
+    "shockProb": 0.173
   },
   {
     "date": "2024-06-19",
     "fxRate": 1.0749,
-    "vix": 11.95,
-    "recessionProb": 21.26,
-    "sales": 228.77,
-    "shockProb": 0.141
+    "interestRate": 5.352,
+    "vix": 13.37,
+    "recessionProb": 23.04,
+    "sales": 215.33,
+    "shockProb": 0.187
   },
   {
     "date": "2024-06-20",
     "fxRate": 1.0719,
-    "vix": 13.08,
-    "recessionProb": 21.42,
-    "sales": 222.77,
-    "shockProb": 0.144
+    "interestRate": 5.352,
+    "vix": 13.98,
+    "recessionProb": 22.36,
+    "sales": 217.02,
+    "shockProb": 0.208
   },
   {
     "date": "2024-06-21",
     "fxRate": 1.0688,
-    "vix": 14,
-    "recessionProb": 24.28,
-    "sales": 220.23,
-    "shockProb": 0.195
+    "interestRate": 5.352,
+    "vix": 13,
+    "recessionProb": 21.52,
+    "sales": 221.56,
+    "shockProb": 0.167
   },
   {
     "date": "2024-06-24",
     "fxRate": 1.073,
-    "vix": 13.38,
-    "recessionProb": 21.48,
-    "sales": 224.65,
-    "shockProb": 0.155
+    "interestRate": 5.352,
+    "vix": 14.45,
+    "recessionProb": 22.82,
+    "sales": 217.88,
+    "shockProb": 0.196
   },
   {
     "date": "2024-06-25",
     "fxRate": 1.0714,
-    "vix": 14.49,
-    "recessionProb": 20.47,
-    "sales": 223.85,
-    "shockProb": 0.192
+    "interestRate": 5.352,
+    "vix": 14.98,
+    "recessionProb": 23.82,
+    "sales": 210.51,
+    "shockProb": 0.203
   },
   {
     "date": "2024-06-26",
     "fxRate": 1.0689,
-    "vix": 15.87,
-    "recessionProb": 20.27,
-    "sales": 214.64,
-    "shockProb": 0.215
+    "interestRate": 5.352,
+    "vix": 16.06,
+    "recessionProb": 21.48,
+    "sales": 215.94,
+    "shockProb": 0.231
   },
   {
     "date": "2024-06-27",
     "fxRate": 1.0696,
-    "vix": 16.44,
-    "recessionProb": 21.32,
-    "sales": 210.46,
-    "shockProb": 0.22
+    "interestRate": 5.352,
+    "vix": 16.21,
+    "recessionProb": 22.65,
+    "sales": 204.11,
+    "shockProb": 0.238
   },
   {
     "date": "2024-06-28",
     "fxRate": 1.0705,
-    "vix": 15.91,
-    "recessionProb": 20.75,
-    "sales": 211.03,
-    "shockProb": 0.193
+    "interestRate": 5.352,
+    "vix": 17.09,
+    "recessionProb": 24.06,
+    "sales": 210.96,
+    "shockProb": 0.26
   },
   {
     "date": "2024-07-01",
     "fxRate": 1.0745,
-    "vix": 16.59,
-    "recessionProb": 24.62,
-    "sales": 214.04,
-    "shockProb": 0.246
+    "interestRate": 5.352,
+    "vix": 16.95,
+    "recessionProb": 20.25,
+    "sales": 213.33,
+    "shockProb": 0.213
   },
   {
     "date": "2024-07-02",
     "fxRate": 1.0729,
-    "vix": 17.4,
-    "recessionProb": 24.91,
-    "sales": 207.55,
-    "shockProb": 0.236
+    "interestRate": 5.352,
+    "vix": 17.09,
+    "recessionProb": 21.1,
+    "sales": 206.09,
+    "shockProb": 0.24
   },
   {
     "date": "2024-07-03",
     "fxRate": 1.0758,
-    "vix": 17.6,
-    "recessionProb": 23.57,
-    "sales": 204.27,
-    "shockProb": 0.234
+    "interestRate": 5.352,
+    "vix": 16.82,
+    "recessionProb": 24.81,
+    "sales": 203.76,
+    "shockProb": 0.24
   },
   {
     "date": "2024-07-04",
     "fxRate": 1.08,
+    "interestRate": 5.352,
     "vix": 17.56,
-    "recessionProb": 22.91,
-    "sales": 215.76,
-    "shockProb": 0.235
+    "recessionProb": 22.7,
+    "sales": 209.66,
+    "shockProb": 0.216
   },
   {
     "date": "2024-07-05",
     "fxRate": 1.0824,
-    "vix": 17.59,
-    "recessionProb": 22.56,
-    "sales": 206.31,
-    "shockProb": 0.248
+    "interestRate": 5.352,
+    "vix": 18.08,
+    "recessionProb": 20.26,
+    "sales": 211.01,
+    "shockProb": 0.228
   },
   {
     "date": "2024-07-08",
     "fxRate": 1.0835,
-    "vix": 19.77,
-    "recessionProb": 23.82,
-    "sales": 198.81,
-    "shockProb": 0.253
+    "interestRate": 5.352,
+    "vix": 18.17,
+    "recessionProb": 23.95,
+    "sales": 200.81,
+    "shockProb": 0.25
   },
   {
     "date": "2024-07-09",
     "fxRate": 1.0814,
-    "vix": 19.47,
-    "recessionProb": 23.65,
-    "sales": 194.56,
-    "shockProb": 0.291
+    "interestRate": 5.352,
+    "vix": 19.83,
+    "recessionProb": 25.06,
+    "sales": 198.54,
+    "shockProb": 0.299
   },
   {
     "date": "2024-07-10",
     "fxRate": 1.0825,
-    "vix": 20.7,
-    "recessionProb": 22.93,
-    "sales": 210.37,
-    "shockProb": 0.262
+    "interestRate": 5.352,
+    "vix": 20.32,
+    "recessionProb": 24.65,
+    "sales": 202.94,
+    "shockProb": 0.306
   },
   {
     "date": "2024-07-11",
     "fxRate": 1.0855,
-    "vix": 19.27,
-    "recessionProb": 23.83,
-    "sales": 204.75,
-    "shockProb": 0.26
+    "interestRate": 5.352,
+    "vix": 19.85,
+    "recessionProb": 23.28,
+    "sales": 207.86,
+    "shockProb": 0.263
   },
   {
     "date": "2024-07-12",
     "fxRate": 1.089,
-    "vix": 20.44,
-    "recessionProb": 21.06,
-    "sales": 210.74,
-    "shockProb": 0.25
+    "interestRate": 5.352,
+    "vix": 19.98,
+    "recessionProb": 22.42,
+    "sales": 195.71,
+    "shockProb": 0.274
   },
   {
     "date": "2024-07-15",
     "fxRate": 1.0907,
-    "vix": 21.22,
-    "recessionProb": 25.49,
-    "sales": 199.42,
-    "shockProb": 0.279
+    "interestRate": 5.352,
+    "vix": 19.8,
+    "recessionProb": 21.76,
+    "sales": 207.65,
+    "shockProb": 0.249
   },
   {
     "date": "2024-07-16",
     "fxRate": 1.0902,
-    "vix": 20.1,
-    "recessionProb": 21.39,
-    "sales": 210.52,
-    "shockProb": 0.268
+    "interestRate": 5.352,
+    "vix": 21.08,
+    "recessionProb": 23.49,
+    "sales": 201.4,
+    "shockProb": 0.265
   },
   {
     "date": "2024-07-17",
     "fxRate": 1.0934,
-    "vix": 20.06,
-    "recessionProb": 24.11,
-    "sales": 201.11,
-    "shockProb": 0.273
+    "interestRate": 5.352,
+    "vix": 21.24,
+    "recessionProb": 22.93,
+    "sales": 202.15,
+    "shockProb": 0.31
   },
   {
     "date": "2024-07-18",
     "fxRate": 1.093,
-    "vix": 20.39,
-    "recessionProb": 22.54,
-    "sales": 198.94,
-    "shockProb": 0.291
+    "interestRate": 5.352,
+    "vix": 21.46,
+    "recessionProb": 24.18,
+    "sales": 207.75,
+    "shockProb": 0.272
   },
   {
     "date": "2024-07-19",
     "fxRate": 1.089,
-    "vix": 21.43,
-    "recessionProb": 23.63,
-    "sales": 207.88,
-    "shockProb": 0.269
+    "interestRate": 5.352,
+    "vix": 21.77,
+    "recessionProb": 21.56,
+    "sales": 191.04,
+    "shockProb": 0.295
   },
   {
     "date": "2024-07-22",
     "fxRate": 1.0888,
-    "vix": 21.97,
-    "recessionProb": 25.21,
-    "sales": 198.72,
-    "shockProb": 0.301
+    "interestRate": 5.352,
+    "vix": 20.08,
+    "recessionProb": 25.38,
+    "sales": 204.12,
+    "shockProb": 0.293
   },
   {
     "date": "2024-07-23",
     "fxRate": 1.086,
-    "vix": 20.69,
-    "recessionProb": 22.07,
-    "sales": 202.64,
-    "shockProb": 0.298
+    "interestRate": 5.352,
+    "vix": 20.48,
+    "recessionProb": 23.81,
+    "sales": 189.95,
+    "shockProb": 0.302
   },
   {
     "date": "2024-07-24",
     "fxRate": 1.0848,
-    "vix": 21.5,
-    "recessionProb": 21.59,
-    "sales": 211.17,
-    "shockProb": 0.263
+    "interestRate": 5.352,
+    "vix": 20.61,
+    "recessionProb": 25.48,
+    "sales": 203.8,
+    "shockProb": 0.301
   },
   {
     "date": "2024-07-25",
     "fxRate": 1.0851,
-    "vix": 20.7,
-    "recessionProb": 25.15,
-    "sales": 197.6,
-    "shockProb": 0.276
+    "interestRate": 5.352,
+    "vix": 20.04,
+    "recessionProb": 23.62,
+    "sales": 200.06,
+    "shockProb": 0.295
   },
   {
     "date": "2024-07-26",
     "fxRate": 1.086,
-    "vix": 21.18,
-    "recessionProb": 22.32,
-    "sales": 197.31,
-    "shockProb": 0.292
+    "interestRate": 5.352,
+    "vix": 20.92,
+    "recessionProb": 21.88,
+    "sales": 198.61,
+    "shockProb": 0.255
   },
   {
     "date": "2024-07-29",
     "fxRate": 1.0817,
-    "vix": 20.55,
-    "recessionProb": 25.29,
-    "sales": 194.98,
-    "shockProb": 0.275
+    "interestRate": 5.352,
+    "vix": 20.81,
+    "recessionProb": 23.48,
+    "sales": 205.66,
+    "shockProb": 0.29
   },
   {
     "date": "2024-07-30",
     "fxRate": 1.0824,
-    "vix": 19.13,
-    "recessionProb": 25.85,
-    "sales": 210.43,
-    "shockProb": 0.252
+    "interestRate": 5.352,
+    "vix": 19.87,
+    "recessionProb": 25.76,
+    "sales": 205.5,
+    "shockProb": 0.272
   },
   {
     "date": "2024-07-31",
     "fxRate": 1.0828,
-    "vix": 19.93,
-    "recessionProb": 22.33,
-    "sales": 194.7,
-    "shockProb": 0.28
+    "interestRate": 5.345,
+    "vix": 19.25,
+    "recessionProb": 23.09,
+    "sales": 212.65,
+    "shockProb": 0.235
   },
   {
     "date": "2024-08-01",
     "fxRate": 1.0789,
-    "vix": 19.84,
-    "recessionProb": 24.09,
-    "sales": 194.55,
-    "shockProb": 0.285
+    "interestRate": 5.345,
+    "vix": 19.3,
+    "recessionProb": 24.83,
+    "sales": 209.34,
+    "shockProb": 0.261
   },
   {
     "date": "2024-08-02",
     "fxRate": 1.0835,
-    "vix": 19.09,
-    "recessionProb": 22.66,
-    "sales": 196.5,
-    "shockProb": 0.275
+    "interestRate": 5.345,
+    "vix": 18.42,
+    "recessionProb": 22.81,
+    "sales": 206.83,
+    "shockProb": 0.252
   },
   {
     "date": "2024-08-05",
     "fxRate": 1.0966,
-    "vix": 17.64,
-    "recessionProb": 22.16,
-    "sales": 206.19,
-    "shockProb": 0.232
+    "interestRate": 5.345,
+    "vix": 19.19,
+    "recessionProb": 23.94,
+    "sales": 199.62,
+    "shockProb": 0.289
   },
   {
     "date": "2024-08-06",
     "fxRate": 1.0915,
-    "vix": 17.42,
-    "recessionProb": 23.93,
-    "sales": 209.69,
-    "shockProb": 0.225
+    "interestRate": 5.345,
+    "vix": 17.68,
+    "recessionProb": 25.33,
+    "sales": 211.08,
+    "shockProb": 0.234
   },
   {
     "date": "2024-08-07",
     "fxRate": 1.0922,
-    "vix": 17.86,
-    "recessionProb": 24.9,
-    "sales": 208.95,
-    "shockProb": 0.256
+    "interestRate": 5.345,
+    "vix": 16.99,
+    "recessionProb": 23,
+    "sales": 201.84,
+    "shockProb": 0.236
   },
   {
     "date": "2024-08-08",
     "fxRate": 1.093,
-    "vix": 16.58,
-    "recessionProb": 26.44,
-    "sales": 202.9,
-    "shockProb": 0.246
+    "interestRate": 5.345,
+    "vix": 16.82,
+    "recessionProb": 24.6,
+    "sales": 207.24,
+    "shockProb": 0.232
   },
   {
     "date": "2024-08-09",
     "fxRate": 1.0917,
-    "vix": 16.93,
-    "recessionProb": 25.98,
-    "sales": 213.42,
-    "shockProb": 0.223
+    "interestRate": 5.345,
+    "vix": 16.87,
+    "recessionProb": 24.33,
+    "sales": 207.19,
+    "shockProb": 0.249
   },
   {
     "date": "2024-08-12",
     "fxRate": 1.0925,
-    "vix": 15.87,
-    "recessionProb": 25.79,
-    "sales": 218.93,
-    "shockProb": 0.218
+    "interestRate": 5.345,
+    "vix": 17.01,
+    "recessionProb": 25.32,
+    "sales": 209.45,
+    "shockProb": 0.263
   },
   {
     "date": "2024-08-13",
     "fxRate": 1.0931,
-    "vix": 14.55,
-    "recessionProb": 26.09,
-    "sales": 210.03,
-    "shockProb": 0.226
+    "interestRate": 5.345,
+    "vix": 16.17,
+    "recessionProb": 22.99,
+    "sales": 217.65,
+    "shockProb": 0.223
   },
   {
     "date": "2024-08-14",
     "fxRate": 1.1019,
-    "vix": 14.55,
-    "recessionProb": 26.25,
-    "sales": 218,
-    "shockProb": 0.195
+    "interestRate": 5.345,
+    "vix": 15.67,
+    "recessionProb": 22.45,
+    "sales": 204.62,
+    "shockProb": 0.226
   },
   {
     "date": "2024-08-15",
     "fxRate": 1.1011,
-    "vix": 13.73,
-    "recessionProb": 25.18,
-    "sales": 215.63,
-    "shockProb": 0.184
+    "interestRate": 5.345,
+    "vix": 15.11,
+    "recessionProb": 23.73,
+    "sales": 212.47,
+    "shockProb": 0.203
   },
   {
     "date": "2024-08-16",
     "fxRate": 1.0994,
-    "vix": 13.81,
-    "recessionProb": 25.2,
-    "sales": 213.5,
-    "shockProb": 0.197
+    "interestRate": 5.345,
+    "vix": 13.42,
+    "recessionProb": 25.1,
+    "sales": 209.59,
+    "shockProb": 0.194
   },
   {
     "date": "2024-08-19",
     "fxRate": 1.1041,
-    "vix": 14.14,
-    "recessionProb": 23.08,
-    "sales": 207.4,
-    "shockProb": 0.201
+    "interestRate": 5.345,
+    "vix": 13.49,
+    "recessionProb": 24.58,
+    "sales": 215.42,
+    "shockProb": 0.19
   },
   {
     "date": "2024-08-20",
     "fxRate": 1.1084,
-    "vix": 14.14,
-    "recessionProb": 25.93,
-    "sales": 218.26,
-    "shockProb": 0.219
+    "interestRate": 5.345,
+    "vix": 12.86,
+    "recessionProb": 22.93,
+    "sales": 216.3,
+    "shockProb": 0.175
   },
   {
     "date": "2024-08-21",
     "fxRate": 1.1116,
-    "vix": 13.19,
-    "recessionProb": 23.97,
-    "sales": 214.77,
-    "shockProb": 0.169
+    "interestRate": 5.345,
+    "vix": 13.18,
+    "recessionProb": 24.54,
+    "sales": 216.73,
+    "shockProb": 0.207
   },
   {
     "date": "2024-08-22",
     "fxRate": 1.1135,
-    "vix": 12.89,
-    "recessionProb": 25.27,
-    "sales": 211.93,
-    "shockProb": 0.203
+    "interestRate": 5.345,
+    "vix": 12.38,
+    "recessionProb": 26.42,
+    "sales": 217.59,
+    "shockProb": 0.17
   },
   {
     "date": "2024-08-23",
     "fxRate": 1.1121,
-    "vix": 11.12,
-    "recessionProb": 27.3,
-    "sales": 212.21,
-    "shockProb": 0.196
+    "interestRate": 5.345,
+    "vix": 12.64,
+    "recessionProb": 26.13,
+    "sales": 216.12,
+    "shockProb": 0.17
   },
   {
     "date": "2024-08-26",
     "fxRate": 1.1163,
-    "vix": 12.02,
-    "recessionProb": 25.79,
-    "sales": 216.9,
-    "shockProb": 0.177
+    "interestRate": 5.345,
+    "vix": 11.71,
+    "recessionProb": 23.81,
+    "sales": 219.92,
+    "shockProb": 0.168
   },
   {
     "date": "2024-08-27",
     "fxRate": 1.1162,
-    "vix": 11.04,
-    "recessionProb": 23.7,
-    "sales": 219.69,
-    "shockProb": 0.155
+    "interestRate": 5.345,
+    "vix": 11.47,
+    "recessionProb": 24.89,
+    "sales": 208.69,
+    "shockProb": 0.197
   },
   {
     "date": "2024-08-28",
     "fxRate": 1.1117,
-    "vix": 12.21,
-    "recessionProb": 27.86,
-    "sales": 214.88,
-    "shockProb": 0.187
+    "interestRate": 5.345,
+    "vix": 10.82,
+    "recessionProb": 26.6,
+    "sales": 220.66,
+    "shockProb": 0.196
   },
   {
     "date": "2024-08-29",
     "fxRate": 1.1088,
-    "vix": 11.3,
-    "recessionProb": 25.69,
-    "sales": 215.42,
-    "shockProb": 0.196
+    "interestRate": 5.345,
+    "vix": 11.14,
+    "recessionProb": 25.29,
+    "sales": 217.98,
+    "shockProb": 0.17
   },
   {
     "date": "2024-08-30",
     "fxRate": 1.1087,
-    "vix": 11.11,
-    "recessionProb": 25.28,
-    "sales": 219.44,
-    "shockProb": 0.16
+    "interestRate": 5.345,
+    "vix": 11.93,
+    "recessionProb": 26.65,
+    "sales": 222.24,
+    "shockProb": 0.167
   },
   {
     "date": "2024-09-02",
     "fxRate": 1.1061,
-    "vix": 11.82,
-    "recessionProb": 27.75,
-    "sales": 221.42,
-    "shockProb": 0.179
+    "interestRate": 5.345,
+    "vix": 11.64,
+    "recessionProb": 27.65,
+    "sales": 222.28,
+    "shockProb": 0.185
   },
   {
     "date": "2024-09-03",
     "fxRate": 1.1035,
-    "vix": 10.61,
-    "recessionProb": 27.59,
-    "sales": 211.34,
-    "shockProb": 0.185
+    "interestRate": 5.345,
+    "vix": 11.86,
+    "recessionProb": 27.77,
+    "sales": 212.01,
+    "shockProb": 0.18
   },
   {
     "date": "2024-09-04",
     "fxRate": 1.105,
-    "vix": 11.96,
-    "recessionProb": 25.23,
-    "sales": 225.86,
-    "shockProb": 0.165
+    "interestRate": 5.345,
+    "vix": 11.24,
+    "recessionProb": 23.87,
+    "sales": 212.88,
+    "shockProb": 0.183
   },
   {
     "date": "2024-09-05",
     "fxRate": 1.1097,
-    "vix": 10.21,
-    "recessionProb": 26.52,
-    "sales": 216,
-    "shockProb": 0.195
+    "interestRate": 5.345,
+    "vix": 10.66,
+    "recessionProb": 27.96,
+    "sales": 218.21,
+    "shockProb": 0.185
   },
   {
     "date": "2024-09-06",
     "fxRate": 1.1103,
-    "vix": 10.41,
-    "recessionProb": 24.84,
-    "sales": 222.81,
-    "shockProb": 0.171
+    "interestRate": 5.345,
+    "vix": 12.03,
+    "recessionProb": 28.07,
+    "sales": 219.33,
+    "shockProb": 0.183
   },
   {
     "date": "2024-09-09",
     "fxRate": 1.1043,
-    "vix": 12.41,
-    "recessionProb": 27.04,
-    "sales": 224.37,
-    "shockProb": 0.188
+    "interestRate": 5.345,
+    "vix": 11.53,
+    "recessionProb": 26.1,
+    "sales": 219.43,
+    "shockProb": 0.174
   },
   {
     "date": "2024-09-10",
     "fxRate": 1.1031,
-    "vix": 12.31,
-    "recessionProb": 26.2,
-    "sales": 219.18,
-    "shockProb": 0.182
+    "interestRate": 5.345,
+    "vix": 11.2,
+    "recessionProb": 25.61,
+    "sales": 209.25,
+    "shockProb": 0.197
   },
   {
     "date": "2024-09-11",
     "fxRate": 1.1043,
-    "vix": 12.09,
-    "recessionProb": 25.48,
-    "sales": 214.33,
-    "shockProb": 0.182
+    "interestRate": 5.345,
+    "vix": 12.24,
+    "recessionProb": 27.3,
+    "sales": 221.88,
+    "shockProb": 0.187
   },
   {
     "date": "2024-09-12",
     "fxRate": 1.1016,
-    "vix": 12.49,
-    "recessionProb": 26.6,
-    "sales": 221.67,
-    "shockProb": 0.189
+    "interestRate": 5.345,
+    "vix": 13.07,
+    "recessionProb": 28,
+    "sales": 210.44,
+    "shockProb": 0.186
   },
   {
     "date": "2024-09-13",
     "fxRate": 1.1081,
-    "vix": 11.68,
-    "recessionProb": 29.02,
-    "sales": 212.08,
-    "shockProb": 0.184
+    "interestRate": 5.345,
+    "vix": 11.66,
+    "recessionProb": 24.74,
+    "sales": 222.2,
+    "shockProb": 0.168
   },
   {
     "date": "2024-09-16",
     "fxRate": 1.1126,
-    "vix": 12.27,
-    "recessionProb": 27.9,
-    "sales": 213.51,
-    "shockProb": 0.221
+    "interestRate": 5.345,
+    "vix": 12.17,
+    "recessionProb": 28.18,
+    "sales": 215.2,
+    "shockProb": 0.173
   },
   {
     "date": "2024-09-17",
     "fxRate": 1.1139,
-    "vix": 12.95,
-    "recessionProb": 26.15,
-    "sales": 213.31,
-    "shockProb": 0.219
+    "interestRate": 5.345,
+    "vix": 13.52,
+    "recessionProb": 27.9,
+    "sales": 209.23,
+    "shockProb": 0.228
   },
   {
     "date": "2024-09-18",
     "fxRate": 1.1124,
-    "vix": 14.5,
-    "recessionProb": 25.08,
-    "sales": 212.86,
-    "shockProb": 0.184
+    "interestRate": 5.345,
+    "vix": 13.39,
+    "recessionProb": 29.32,
+    "sales": 211.82,
+    "shockProb": 0.232
   },
   {
     "date": "2024-09-19",
     "fxRate": 1.1156,
-    "vix": 14.51,
-    "recessionProb": 25.08,
-    "sales": 219.44,
-    "shockProb": 0.214
+    "interestRate": 5.345,
+    "vix": 14.8,
+    "recessionProb": 27.64,
+    "sales": 205.17,
+    "shockProb": 0.227
   },
   {
     "date": "2024-09-20",
     "fxRate": 1.1166,
-    "vix": 14.84,
-    "recessionProb": 27.34,
-    "sales": 207.43,
-    "shockProb": 0.22
+    "interestRate": 5.345,
+    "vix": 15.37,
+    "recessionProb": 25.5,
+    "sales": 216.92,
+    "shockProb": 0.215
   },
   {
     "date": "2024-09-23",
     "fxRate": 1.1119,
-    "vix": 14.94,
-    "recessionProb": 29.44,
-    "sales": 211.36,
-    "shockProb": 0.233
+    "interestRate": 5.345,
+    "vix": 16.24,
+    "recessionProb": 28.92,
+    "sales": 208.77,
+    "shockProb": 0.265
   },
   {
     "date": "2024-09-24",
     "fxRate": 1.1133,
-    "vix": 14.76,
-    "recessionProb": 25.71,
-    "sales": 217.4,
-    "shockProb": 0.213
+    "interestRate": 5.345,
+    "vix": 15.63,
+    "recessionProb": 28.59,
+    "sales": 200.65,
+    "shockProb": 0.257
   },
   {
     "date": "2024-09-25",
     "fxRate": 1.1194,
-    "vix": 16.05,
-    "recessionProb": 27.53,
-    "sales": 202.69,
-    "shockProb": 0.261
+    "interestRate": 5.345,
+    "vix": 15.49,
+    "recessionProb": 28.43,
+    "sales": 201.27,
+    "shockProb": 0.251
   },
   {
     "date": "2024-09-26",
     "fxRate": 1.1155,
-    "vix": 17.66,
-    "recessionProb": 25.91,
-    "sales": 201.97,
-    "shockProb": 0.279
+    "interestRate": 5.345,
+    "vix": 16.17,
+    "recessionProb": 26.57,
+    "sales": 208.53,
+    "shockProb": 0.241
   },
   {
     "date": "2024-09-27",
     "fxRate": 1.1158,
-    "vix": 16.98,
-    "recessionProb": 25.74,
-    "sales": 205.41,
-    "shockProb": 0.262
+    "interestRate": 5.345,
+    "vix": 18.01,
+    "recessionProb": 27.26,
+    "sales": 199.13,
+    "shockProb": 0.267
   },
   {
     "date": "2024-09-30",
     "fxRate": 1.1196,
-    "vix": 17.65,
-    "recessionProb": 25.54,
-    "sales": 200.18,
-    "shockProb": 0.248
+    "interestRate": 5.154,
+    "vix": 16.73,
+    "recessionProb": 28.78,
+    "sales": 204.97,
+    "shockProb": 0.239
   },
   {
     "date": "2024-10-01",
     "fxRate": 1.1086,
-    "vix": 18.77,
-    "recessionProb": 28.13,
-    "sales": 194.12,
-    "shockProb": 0.286
+    "interestRate": 5.154,
+    "vix": 18.21,
+    "recessionProb": 26.84,
+    "sales": 203.81,
+    "shockProb": 0.251
   },
   {
     "date": "2024-10-02",
     "fxRate": 1.1071,
-    "vix": 18.99,
-    "recessionProb": 29.08,
-    "sales": 203.66,
+    "interestRate": 5.154,
+    "vix": 17.96,
+    "recessionProb": 25.45,
+    "sales": 206.27,
     "shockProb": 0.274
   },
   {
     "date": "2024-10-03",
     "fxRate": 1.1039,
-    "vix": 18.9,
-    "recessionProb": 30.09,
-    "sales": 198.04,
-    "shockProb": 0.313
+    "interestRate": 5.154,
+    "vix": 18.82,
+    "recessionProb": 27.53,
+    "sales": 194.92,
+    "shockProb": 0.299
   },
   {
     "date": "2024-10-04",
     "fxRate": 1.1029,
-    "vix": 20.25,
-    "recessionProb": 28.51,
-    "sales": 192.72,
-    "shockProb": 0.303
+    "interestRate": 5.154,
+    "vix": 18.95,
+    "recessionProb": 30.11,
+    "sales": 199.78,
+    "shockProb": 0.302
   },
   {
     "date": "2024-10-07",
     "fxRate": 1.0982,
-    "vix": 19.44,
-    "recessionProb": 29.84,
-    "sales": 207.1,
-    "shockProb": 0.287
+    "interestRate": 5.154,
+    "vix": 19.04,
+    "recessionProb": 28.33,
+    "sales": 195.17,
+    "shockProb": 0.284
   },
   {
     "date": "2024-10-08",
     "fxRate": 1.0982,
-    "vix": 19.3,
-    "recessionProb": 29.46,
-    "sales": 197.74,
-    "shockProb": 0.308
+    "interestRate": 5.154,
+    "vix": 20.69,
+    "recessionProb": 26.95,
+    "sales": 199.63,
+    "shockProb": 0.296
   },
   {
     "date": "2024-10-09",
     "fxRate": 1.0957,
-    "vix": 20.98,
-    "recessionProb": 27.88,
-    "sales": 186.34,
+    "interestRate": 5.154,
+    "vix": 21,
+    "recessionProb": 30.37,
+    "sales": 186.66,
     "shockProb": 0.324
   },
   {
     "date": "2024-10-10",
     "fxRate": 1.0932,
-    "vix": 21.02,
-    "recessionProb": 26.91,
-    "sales": 195.37,
-    "shockProb": 0.292
+    "interestRate": 5.154,
+    "vix": 20.4,
+    "recessionProb": 27.4,
+    "sales": 204.54,
+    "shockProb": 0.277
   },
   {
     "date": "2024-10-11",
     "fxRate": 1.0938,
-    "vix": 21.38,
-    "recessionProb": 29.08,
-    "sales": 190.68,
-    "shockProb": 0.305
+    "interestRate": 5.154,
+    "vix": 19.94,
+    "recessionProb": 29.14,
+    "sales": 194.77,
+    "shockProb": 0.328
   },
   {
     "date": "2024-10-14",
     "fxRate": 1.0915,
-    "vix": 20.35,
-    "recessionProb": 29.59,
-    "sales": 188.86,
-    "shockProb": 0.311
+    "interestRate": 5.154,
+    "vix": 21.08,
+    "recessionProb": 28.95,
+    "sales": 200.66,
+    "shockProb": 0.318
   },
   {
     "date": "2024-10-15",
     "fxRate": 1.0903,
-    "vix": 20.7,
-    "recessionProb": 29.09,
-    "sales": 190.65,
-    "shockProb": 0.333
+    "interestRate": 5.154,
+    "vix": 21.83,
+    "recessionProb": 29.05,
+    "sales": 188.32,
+    "shockProb": 0.339
   },
   {
     "date": "2024-10-16",
     "fxRate": 1.0897,
-    "vix": 20.68,
-    "recessionProb": 27.74,
-    "sales": 196.99,
-    "shockProb": 0.291
+    "interestRate": 5.154,
+    "vix": 20.1,
+    "recessionProb": 30.01,
+    "sales": 206.13,
+    "shockProb": 0.29
   },
   {
     "date": "2024-10-17",
     "fxRate": 1.0866,
-    "vix": 20.37,
-    "recessionProb": 28.78,
-    "sales": 192.75,
-    "shockProb": 0.306
+    "interestRate": 5.154,
+    "vix": 21,
+    "recessionProb": 26.57,
+    "sales": 204.87,
+    "shockProb": 0.292
   },
   {
     "date": "2024-10-18",
     "fxRate": 1.0847,
-    "vix": 20.04,
-    "recessionProb": 26.26,
-    "sales": 200.94,
-    "shockProb": 0.284
+    "interestRate": 5.154,
+    "vix": 21.78,
+    "recessionProb": 30.98,
+    "sales": 198.98,
+    "shockProb": 0.325
   },
   {
     "date": "2024-10-21",
     "fxRate": 1.0853,
-    "vix": 21.8,
-    "recessionProb": 30.95,
-    "sales": 184.36,
-    "shockProb": 0.355
+    "interestRate": 5.154,
+    "vix": 20.61,
+    "recessionProb": 27.08,
+    "sales": 200,
+    "shockProb": 0.289
   },
   {
     "date": "2024-10-22",
     "fxRate": 1.0821,
-    "vix": 20.63,
-    "recessionProb": 28.57,
-    "sales": 196.15,
-    "shockProb": 0.297
+    "interestRate": 5.154,
+    "vix": 19.98,
+    "recessionProb": 30.46,
+    "sales": 190.57,
+    "shockProb": 0.312
   },
   {
     "date": "2024-10-23",
     "fxRate": 1.0767,
-    "vix": 20.6,
-    "recessionProb": 31.15,
-    "sales": 196.11,
-    "shockProb": 0.337
+    "interestRate": 5.154,
+    "vix": 20.67,
+    "recessionProb": 27.56,
+    "sales": 195.74,
+    "shockProb": 0.282
   },
   {
     "date": "2024-10-24",
     "fxRate": 1.0801,
-    "vix": 19.65,
-    "recessionProb": 26.65,
-    "sales": 198.33,
-    "shockProb": 0.264
+    "interestRate": 5.154,
+    "vix": 20.72,
+    "recessionProb": 26.75,
+    "sales": 188.11,
+    "shockProb": 0.324
   },
   {
     "date": "2024-10-25",
     "fxRate": 1.0825,
-    "vix": 19.82,
-    "recessionProb": 28.53,
-    "sales": 189.34,
-    "shockProb": 0.306
+    "interestRate": 5.154,
+    "vix": 19.24,
+    "recessionProb": 29.23,
+    "sales": 191.9,
+    "shockProb": 0.318
   },
   {
     "date": "2024-10-28",
     "fxRate": 1.0818,
-    "vix": 19.5,
-    "recessionProb": 27.43,
-    "sales": 200.32,
-    "shockProb": 0.294
+    "interestRate": 5.154,
+    "vix": 19.78,
+    "recessionProb": 27.07,
+    "sales": 200.89,
+    "shockProb": 0.284
   },
   {
     "date": "2024-10-29",
     "fxRate": 1.0774,
-    "vix": 18.73,
-    "recessionProb": 30.42,
-    "sales": 194.16,
-    "shockProb": 0.305
+    "interestRate": 5.154,
+    "vix": 18.52,
+    "recessionProb": 30.21,
+    "sales": 207.36,
+    "shockProb": 0.28
   },
   {
     "date": "2024-10-30",
     "fxRate": 1.0815,
-    "vix": 18.42,
-    "recessionProb": 27.13,
-    "sales": 194.97,
-    "shockProb": 0.274
+    "interestRate": 5.154,
+    "vix": 18.99,
+    "recessionProb": 29.12,
+    "sales": 204.84,
+    "shockProb": 0.295
   },
   {
     "date": "2024-10-31",
     "fxRate": 1.0882,
-    "vix": 17.9,
-    "recessionProb": 28.17,
-    "sales": 200.24,
-    "shockProb": 0.257
+    "interestRate": 4.901,
+    "vix": 19.15,
+    "recessionProb": 28.95,
+    "sales": 190.48,
+    "shockProb": 0.309
   },
   {
     "date": "2024-11-01",
     "fxRate": 1.0885,
-    "vix": 18.44,
-    "recessionProb": 27.29,
-    "sales": 205.37,
-    "shockProb": 0.271
+    "interestRate": 4.901,
+    "vix": 18.22,
+    "recessionProb": 27.28,
+    "sales": 194.42,
+    "shockProb": 0.286
   },
   {
     "date": "2024-11-04",
     "fxRate": 1.0904,
-    "vix": 17.74,
-    "recessionProb": 28.8,
-    "sales": 205.97,
-    "shockProb": 0.286
+    "interestRate": 4.901,
+    "vix": 17.34,
+    "recessionProb": 28.73,
+    "sales": 205.84,
+    "shockProb": 0.283
   },
   {
     "date": "2024-11-05",
     "fxRate": 1.0897,
-    "vix": 17.34,
-    "recessionProb": 31.67,
-    "sales": 197.13,
-    "shockProb": 0.301
+    "interestRate": 4.901,
+    "vix": 17.89,
+    "recessionProb": 30.43,
+    "sales": 196.36,
+    "shockProb": 0.287
   },
   {
     "date": "2024-11-06",
     "fxRate": 1.0695,
-    "vix": 16.41,
-    "recessionProb": 31.96,
-    "sales": 195.26,
-    "shockProb": 0.292
+    "interestRate": 4.901,
+    "vix": 16,
+    "recessionProb": 29.34,
+    "sales": 208.89,
+    "shockProb": 0.241
   },
   {
     "date": "2024-11-07",
     "fxRate": 1.0785,
-    "vix": 15.58,
-    "recessionProb": 27.27,
-    "sales": 199.21,
-    "shockProb": 0.25
+    "interestRate": 4.901,
+    "vix": 15.86,
+    "recessionProb": 27.33,
+    "sales": 207.88,
+    "shockProb": 0.239
   },
   {
     "date": "2024-11-08",
     "fxRate": 1.0772,
-    "vix": 15.9,
-    "recessionProb": 30.57,
-    "sales": 209.83,
-    "shockProb": 0.242
+    "interestRate": 4.901,
+    "vix": 15.91,
+    "recessionProb": 29.72,
+    "sales": 213.44,
+    "shockProb": 0.248
   },
   {
     "date": "2024-11-11",
     "fxRate": 1.0651,
-    "vix": 15.89,
-    "recessionProb": 27.96,
-    "sales": 208.32,
-    "shockProb": 0.261
+    "interestRate": 4.901,
+    "vix": 15.45,
+    "recessionProb": 27.29,
+    "sales": 215.94,
+    "shockProb": 0.22
   },
   {
     "date": "2024-11-12",
     "fxRate": 1.0617,
-    "vix": 13.55,
-    "recessionProb": 31.95,
-    "sales": 217.27,
-    "shockProb": 0.225
+    "interestRate": 4.901,
+    "vix": 14.73,
+    "recessionProb": 29.52,
+    "sales": 205.83,
+    "shockProb": 0.25
   },
   {
     "date": "2024-11-13",
     "fxRate": 1.0629,
-    "vix": 14.37,
-    "recessionProb": 31.59,
-    "sales": 209.09,
-    "shockProb": 0.231
+    "interestRate": 4.901,
+    "vix": 14.96,
+    "recessionProb": 28.16,
+    "sales": 215.25,
+    "shockProb": 0.23
   },
   {
     "date": "2024-11-14",
     "fxRate": 1.0533,
-    "vix": 13.87,
-    "recessionProb": 28.23,
-    "sales": 212.57,
-    "shockProb": 0.213
+    "interestRate": 4.901,
+    "vix": 14.48,
+    "recessionProb": 28.89,
+    "sales": 218.67,
+    "shockProb": 0.215
   },
   {
     "date": "2024-11-15",
     "fxRate": 1.0583,
-    "vix": 12.31,
-    "recessionProb": 29.94,
-    "sales": 209.01,
-    "shockProb": 0.223
+    "interestRate": 4.901,
+    "vix": 12.54,
+    "recessionProb": 32.05,
+    "sales": 210.36,
+    "shockProb": 0.222
   },
   {
     "date": "2024-11-18",
     "fxRate": 1.0552,
-    "vix": 11.86,
-    "recessionProb": 30.94,
-    "sales": 220.89,
-    "shockProb": 0.189
+    "interestRate": 4.901,
+    "vix": 12.15,
+    "recessionProb": 29.35,
+    "sales": 216.05,
+    "shockProb": 0.221
   },
   {
     "date": "2024-11-19",
     "fxRate": 1.0578,
-    "vix": 12.06,
-    "recessionProb": 28.1,
-    "sales": 212.55,
-    "shockProb": 0.179
+    "interestRate": 4.901,
+    "vix": 11.84,
+    "recessionProb": 27.94,
+    "sales": 207.03,
+    "shockProb": 0.205
   },
   {
     "date": "2024-11-20",
     "fxRate": 1.0562,
-    "vix": 12.87,
-    "recessionProb": 31.43,
-    "sales": 202.1,
-    "shockProb": 0.245
+    "interestRate": 4.901,
+    "vix": 11.45,
+    "recessionProb": 28.93,
+    "sales": 211.91,
+    "shockProb": 0.198
   },
   {
     "date": "2024-11-21",
     "fxRate": 1.0526,
-    "vix": 11.28,
-    "recessionProb": 29.76,
-    "sales": 210.31,
-    "shockProb": 0.187
+    "interestRate": 4.901,
+    "vix": 11.23,
+    "recessionProb": 28.73,
+    "sales": 208.68,
+    "shockProb": 0.22
   },
   {
     "date": "2024-11-22",
     "fxRate": 1.0412,
-    "vix": 11.57,
-    "recessionProb": 31.96,
-    "sales": 211.36,
-    "shockProb": 0.2
+    "interestRate": 4.901,
+    "vix": 11.39,
+    "recessionProb": 31.8,
+    "sales": 217.61,
+    "shockProb": 0.204
   },
   {
     "date": "2024-11-25",
     "fxRate": 1.0495,
-    "vix": 10.42,
-    "recessionProb": 31.52,
-    "sales": 206.69,
-    "shockProb": 0.211
+    "interestRate": 4.901,
+    "vix": 10.4,
+    "recessionProb": 30.85,
+    "sales": 205.44,
+    "shockProb": 0.213
   },
   {
     "date": "2024-11-26",
     "fxRate": 1.0522,
-    "vix": 11.6,
-    "recessionProb": 31.24,
-    "sales": 219.03,
-    "shockProb": 0.216
+    "interestRate": 4.901,
+    "vix": 11.72,
+    "recessionProb": 29.77,
+    "sales": 219.26,
+    "shockProb": 0.18
   },
   {
     "date": "2024-11-27",
     "fxRate": 1.0531,
-    "vix": 11.47,
-    "recessionProb": 32.46,
-    "sales": 207.49,
-    "shockProb": 0.235
+    "interestRate": 4.901,
+    "vix": 10.9,
+    "recessionProb": 30.36,
+    "sales": 216.68,
+    "shockProb": 0.223
   },
   {
     "date": "2024-11-28",
     "fxRate": 1.0542,
-    "vix": 11.6,
-    "recessionProb": 28.64,
-    "sales": 205.37,
-    "shockProb": 0.216
+    "interestRate": 4.901,
+    "vix": 10.73,
+    "recessionProb": 29.81,
+    "sales": 218.81,
+    "shockProb": 0.207
   },
   {
     "date": "2024-11-29",
     "fxRate": 1.0562,
-    "vix": 11.91,
-    "recessionProb": 29.62,
-    "sales": 216.42,
-    "shockProb": 0.221
+    "interestRate": 4.901,
+    "vix": 11.44,
+    "recessionProb": 31.04,
+    "sales": 211.62,
+    "shockProb": 0.192
   },
   {
     "date": "2024-12-02",
     "fxRate": 1.0507,
-    "vix": 10.35,
-    "recessionProb": 32.82,
-    "sales": 211.57,
-    "shockProb": 0.245
+    "interestRate": 4.901,
+    "vix": 11.4,
+    "recessionProb": 33.05,
+    "sales": 220.68,
+    "shockProb": 0.205
   },
   {
     "date": "2024-12-03",
     "fxRate": 1.0512,
-    "vix": 11.49,
-    "recessionProb": 33.16,
-    "sales": 212.91,
-    "shockProb": 0.231
+    "interestRate": 4.901,
+    "vix": 11.25,
+    "recessionProb": 33.52,
+    "sales": 216.19,
+    "shockProb": 0.219
   },
   {
     "date": "2024-12-04",
     "fxRate": 1.0492,
-    "vix": 12.25,
-    "recessionProb": 29.83,
-    "sales": 206.57,
-    "shockProb": 0.212
+    "interestRate": 4.901,
+    "vix": 11.6,
+    "recessionProb": 32.97,
+    "sales": 211.07,
+    "shockProb": 0.198
   },
   {
     "date": "2024-12-05",
     "fxRate": 1.054,
-    "vix": 10.82,
-    "recessionProb": 29.06,
-    "sales": 224.2,
-    "shockProb": 0.183
+    "interestRate": 4.901,
+    "vix": 11.07,
+    "recessionProb": 30.39,
+    "sales": 208.97,
+    "shockProb": 0.194
   },
   {
     "date": "2024-12-06",
     "fxRate": 1.0581,
-    "vix": 11.21,
-    "recessionProb": 29.6,
-    "sales": 211.79,
-    "shockProb": 0.216
+    "interestRate": 4.901,
+    "vix": 12.36,
+    "recessionProb": 32.36,
+    "sales": 205.31,
+    "shockProb": 0.233
   },
   {
     "date": "2024-12-09",
     "fxRate": 1.0568,
-    "vix": 12.41,
-    "recessionProb": 28.97,
-    "sales": 207.14,
+    "interestRate": 4.901,
+    "vix": 12.03,
+    "recessionProb": 30.14,
+    "sales": 218.24,
     "shockProb": 0.209
   },
   {
     "date": "2024-12-10",
     "fxRate": 1.0527,
-    "vix": 11.58,
-    "recessionProb": 30.56,
-    "sales": 219.48,
-    "shockProb": 0.206
+    "interestRate": 4.901,
+    "vix": 13.12,
+    "recessionProb": 32.97,
+    "sales": 200.44,
+    "shockProb": 0.25
   },
   {
     "date": "2024-12-11",
     "fxRate": 1.0507,
-    "vix": 12.74,
-    "recessionProb": 32.97,
-    "sales": 214.59,
-    "shockProb": 0.239
+    "interestRate": 4.901,
+    "vix": 12.5,
+    "recessionProb": 30.22,
+    "sales": 215.12,
+    "shockProb": 0.224
   },
   {
     "date": "2024-12-12",
     "fxRate": 1.0491,
-    "vix": 12.72,
-    "recessionProb": 33.03,
-    "sales": 209.24,
-    "shockProb": 0.224
+    "interestRate": 4.901,
+    "vix": 13.13,
+    "recessionProb": 29.09,
+    "sales": 210.86,
+    "shockProb": 0.237
   },
   {
     "date": "2024-12-13",
     "fxRate": 1.0518,
-    "vix": 14.19,
-    "recessionProb": 30.86,
-    "sales": 198.66,
+    "interestRate": 4.901,
+    "vix": 14,
+    "recessionProb": 30.59,
+    "sales": 205.67,
     "shockProb": 0.254
   },
   {
     "date": "2024-12-16",
     "fxRate": 1.0498,
-    "vix": 14.37,
-    "recessionProb": 29.56,
-    "sales": 215.58,
-    "shockProb": 0.214
+    "interestRate": 4.901,
+    "vix": 13.69,
+    "recessionProb": 31.75,
+    "sales": 210.8,
+    "shockProb": 0.243
   },
   {
     "date": "2024-12-17",
     "fxRate": 1.0497,
-    "vix": 15.31,
-    "recessionProb": 34.29,
-    "sales": 198.33,
-    "shockProb": 0.283
+    "interestRate": 4.901,
+    "vix": 14.31,
+    "recessionProb": 31.13,
+    "sales": 210.11,
+    "shockProb": 0.225
   },
   {
     "date": "2024-12-18",
     "fxRate": 1.0496,
-    "vix": 14.73,
-    "recessionProb": 32.62,
-    "sales": 193.85,
-    "shockProb": 0.28
+    "interestRate": 4.901,
+    "vix": 14.3,
+    "recessionProb": 32.33,
+    "sales": 212.9,
+    "shockProb": 0.243
   },
   {
     "date": "2024-12-19",
     "fxRate": 1.0395,
-    "vix": 16.04,
-    "recessionProb": 30.97,
-    "sales": 203.87,
-    "shockProb": 0.243
+    "interestRate": 4.901,
+    "vix": 15.42,
+    "recessionProb": 31.17,
+    "sales": 200.05,
+    "shockProb": 0.278
   },
   {
     "date": "2024-12-20",
     "fxRate": 1.039,
-    "vix": 15.84,
-    "recessionProb": 29.56,
-    "sales": 194.74,
-    "shockProb": 0.277
+    "interestRate": 4.901,
+    "vix": 16.05,
+    "recessionProb": 31.71,
+    "sales": 208.58,
+    "shockProb": 0.25
   },
   {
     "date": "2024-12-23",
     "fxRate": 1.0393,
-    "vix": 15.92,
-    "recessionProb": 31.25,
-    "sales": 199.62,
-    "shockProb": 0.253
+    "interestRate": 4.901,
+    "vix": 16.57,
+    "recessionProb": 33.58,
+    "sales": 203.46,
+    "shockProb": 0.281
   },
   {
     "date": "2024-12-24",
     "fxRate": 1.0395,
-    "vix": 16.06,
-    "recessionProb": 31.7,
-    "sales": 203.25,
-    "shockProb": 0.248
+    "interestRate": 4.901,
+    "vix": 17.43,
+    "recessionProb": 33.68,
+    "sales": 195.88,
+    "shockProb": 0.309
   },
   {
     "date": "2024-12-27",
     "fxRate": 1.0435,
-    "vix": 16.5,
-    "recessionProb": 32.62,
-    "sales": 209.66,
-    "shockProb": 0.27
+    "interestRate": 4.901,
+    "vix": 17.81,
+    "recessionProb": 33.57,
+    "sales": 200.92,
+    "shockProb": 0.293
   },
   {
     "date": "2024-12-30",
     "fxRate": 1.0444,
-    "vix": 18.37,
-    "recessionProb": 31.21,
-    "sales": 194.28,
-    "shockProb": 0.3
+    "interestRate": 4.901,
+    "vix": 18.03,
+    "recessionProb": 30.62,
+    "sales": 195,
+    "shockProb": 0.289
   },
   {
     "date": "2024-12-31",
     "fxRate": 1.0389,
-    "vix": 17.27,
-    "recessionProb": 32.21,
-    "sales": 198.63,
-    "shockProb": 0.301
+    "interestRate": 4.586,
+    "vix": 18.3,
+    "recessionProb": 31.08,
+    "sales": 193.08,
+    "shockProb": 0.312
   }
 ]

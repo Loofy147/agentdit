@@ -47,6 +47,20 @@ export class PacioliEngine {
         this.fxRate = newRate;
     }
 
+    /**
+     * Accrues interest on liabilities.
+     * @param {number} marketRate Annual percentage rate (e.g., 5.38)
+     */
+    accrueInterest(marketRate) {
+        const principal = this.state[4]; // Liab_USD
+        const dailyRate = (marketRate / 100) / 365;
+        const interest = principal * dailyRate;
+
+        if (interest > 0) {
+            this.post(5, 7, interest); // Dr Eq (5), Cr Int_Accrual_Liab (7)
+        }
+    }
+
     getLeverage() {
         const liabs = this.state[4] + this.state[7];
         const equity = this.state[5] + this.state[6];

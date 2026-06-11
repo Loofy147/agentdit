@@ -11,8 +11,8 @@ export class EvaluationService {
 
     async evaluateAgent(agent, tasks) {
         const results = [];
-        // Pre-allocate buffer for state vector [8 accounts + shockProb + vix_norm + rec_norm]
-        const stateBuffer = new Float64Array(11);
+        // Pre-allocate buffer for state vector [8 accounts + shockProb + vix_norm + rec_norm + interest_norm]
+        const stateBuffer = new Float64Array(12);
 
         for (const task of tasks) {
             const engine = new PacioliEngine();
@@ -24,14 +24,16 @@ export class EvaluationService {
                 const market = task.data[t % task.data.length];
                 const t0 = performance.now();
 
-                // Optimized state preparation: avoids spread operator and new allocations in hot loop
+                // Optimized state preparation
                 const vix_norm = Math.min(1.0, (market.vix || 15) / 50);
                 const rec_norm = Math.min(1.0, (market.recessionProb || 10) / 100);
+                const int_norm = Math.min(1.0, (market.interestRate || 5) / 10);
 
                 stateBuffer.set(engine.state);
                 stateBuffer[8] = market.shockProb || 0;
                 stateBuffer[9] = vix_norm;
                 stateBuffer[10] = rec_norm;
+                stateBuffer[11] = int_norm;
 
                 const { actions } = agent.sample(stateBuffer, true); // Use deterministic for eval
 
@@ -41,7 +43,8 @@ export class EvaluationService {
                 engine.post(2, 0, actions[2] * 500); // MMF Realloc
 
                 // Reality update
-                engine.fxRate = market.fxRate || engine.fxRate;
+                engine.revalueFX(market.fxRate || engine.fxRate);
+                engine.accrueInterest(market.interestRate || 5.0);
                 engine.post(3, 5, market.sales || 250);
                 engine.post(0, 3, engine.state[3] * 0.18);
                 engine.post(5, 0, 180);
