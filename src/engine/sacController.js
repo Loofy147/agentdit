@@ -15,9 +15,9 @@ export class SACController {
         const totalWeights = (stateDim * hiddenDim) + (hiddenDim * actionDim) + (hiddenDim * actionDim);
 
         this.weightsM = weightsM || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
-        this.weightsS = weightsS || new Float64Array(this.weightsM); // Default S to M if not provided
+        this.weightsS = weightsS || new Float64Array(this.weightsM);
 
-        this.weights = new Float64Array(this.weightsM); // Active weights
+        this.weights = new Float64Array(this.weightsM);
 
         this.phaseShift = new PhaseShiftModule();
         this.hiddenBuffer = new Float64Array(hiddenDim);
@@ -101,23 +101,28 @@ export class SACController {
      * Protocol SLA-2.1: PHASE-SHIFT MODULE EXECUTION.
      */
     samplePhaseShifted(state, sigma = 0.15) {
-        // 1. Bond Conservation (Freeze Lattice if STE active)
         const activeState = this.phaseShift.conserveBond(state);
 
-        // 2. Calculate Vector B (Mechanical Necessity) using M Weights
         const originalWeights = new Float64Array(this.weights);
+
+        // Mechanical Necessity (Vector B)
         this.weights.set(this.weightsM);
         this.updateWeightViews();
         const mechanical = this.sampleInternal(activeState, true);
-        const vectorB = mechanical.actions[0]; // Primary control vector
+        const vectorB = mechanical.actions[0];
 
-        // 3. Calculate Actual Behavior (using current weights, which could be blended or M)
+        // Sentiment Sample (Domain S)
+        this.weights.set(this.weightsS);
+        this.updateWeightViews();
+        const sentimentSample = this.sampleInternal(activeState, false);
+        this.phaseShift.updateFloors(sentimentSample.actions);
+
+        // Restore & Blending
         this.weights.set(originalWeights);
         this.updateWeightViews();
         const actualBehavior = this.sampleInternal(activeState, false);
         const actualA = actualBehavior.actions[0];
 
-        // 4. Monitor Entropy & Triangulate
         const { steActive, alpha } = this.phaseShift.monitorEntropy(actualA, vectorB, sigma);
 
         if (alpha > 0) {
@@ -127,21 +132,27 @@ export class SACController {
         }
         this.updateWeightViews();
 
-        // 5. Re-calibrate Kill-Switch (Internal Logic)
-        const invalidationTrigger = steActive ? 'Sentiment Floor' : 'Technical Level';
-
         const result = this.sampleInternal(activeState, false);
+
+        // KILL-SWITCH: Apply Sentiment Floors during STE
+        if (steActive) {
+            for (let i = 0; i < this.actionDim; i++) {
+                const floor = this.phaseShift.sentimentFloors[i];
+                // If action is weaker than floor in the same direction, snap to floor
+                if (Math.sign(result.actions[i]) === Math.sign(floor) && Math.abs(result.actions[i]) < Math.abs(floor)) {
+                    result.actions[i] = floor;
+                }
+            }
+        }
+
         return {
             ...result,
             steActive,
             alpha,
-            invalidationTrigger
+            invalidationTrigger: steActive ? 'Sentiment Floor' : 'Technical Level'
         };
     }
 
-    /**
-     * Layer 18: Bayesian Volatility Surface estimation via MC Dropout.
-     */
     sampleBayesian(state, numPasses = 10) {
         const results = [];
         for (let i = 0; i < numPasses; i++) {

@@ -9,6 +9,9 @@ export class PhaseShiftModule {
         this.alpha = 0.0;
         this.lastDeviation = 0;
         this.frozenLattice = null;
+
+        // Sentiment Floors (Domain S action supports)
+        this.sentimentFloors = new Float64Array([0.0, 0.0, 0.0]);
     }
 
     /**
@@ -44,11 +47,7 @@ export class PhaseShiftModule {
      * Based on the velocity of the deviation.
      */
     calculateBlend(velocity) {
-        // If movement is instantaneous (Flash Crash), set α to 0.8 immediately.
-        // We define "instantaneous" as velocity > 0.5 (arbitrary high threshold for action space)
         if (velocity > 0.5) return 0.8;
-
-        // Otherwise, alpha is proportional to velocity
         return Math.min(1.0, velocity * 2);
     }
 
@@ -65,6 +64,20 @@ export class PhaseShiftModule {
             blended[i] = (1 - alpha) * weightsM[i] + alpha * weightsS[i];
         }
         return blended;
+    }
+
+    /**
+     * Update Sentiment Floors based on S-weights performance or current regime.
+     */
+    updateFloors(sActions) {
+        if (this.steActive) {
+            for (let i = 0; i < 3; i++) {
+                // Sentiment Floor acts as a 'soft support' for Domain S actions
+                this.sentimentFloors[i] = sActions[i] * 0.9;
+            }
+        } else {
+            this.sentimentFloors.fill(0);
+        }
     }
 
     /**

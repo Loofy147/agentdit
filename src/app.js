@@ -1,5 +1,6 @@
 import { DataService } from './services/dataService.js';
 import { HealthService } from './services/healthService.js';
+import { CognitionService } from './services/cognitionService.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -23,6 +24,7 @@ let POSTS = [];
 
 const engine = new PacioliEngine();
 const health = new HealthService();
+const cognitionService = new CognitionService();
 
 let hero, villain, dataService;
 
@@ -76,9 +78,15 @@ function runStep() {
     // SLA-2.1 Phase-Shift Sampling
     const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
-    engine.post(0, 4, actions[0] * 300);
-    engine.post(1, 0, actions[1] * 200);
-    engine.post(2, 0, actions[2] * 500);
+    // Hero Actions - Bidirectional execution
+    if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
+    else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
+
+    if (actions[1] > 0) engine.post(1, 0, actions[1] * 200);
+    else if (actions[1] < 0) engine.post(0, 1, Math.abs(actions[1]) * 200);
+
+    if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
+    else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
 
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
@@ -89,44 +97,23 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
-    if (Math.random() < 0.05 || steActive) generateMarketInsightPost(market, actions, confidence, stds, steActive, alpha, invalidationTrigger);
+    if (Math.random() < 0.05 || steActive) {
+        const insight = cognitionService.generateInsight(market, actions, confidence, stds, steActive, alpha, invalidationTrigger);
+        const post = {
+            id: Date.now(),
+            agentId: 'HeroAgent',
+            community: 'a/market_intel',
+            timestamp: Date.now(),
+            displayTime: 'Just now',
+            votes: Math.floor(Math.random() * 50) + (steActive ? 50 : 10),
+            ...insight
+        };
+        POSTS.unshift(post);
+        if (POSTS.length > 10) POSTS.pop();
+        renderFeed(POSTS, AGENTS);
+    }
 
     updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha);
-}
-
-function generateMarketInsightPost(market, actions, confidence, stds, steActive, alpha, invalidationTrigger) {
-    const riskAreas = [];
-    if (stds[0] > 0.2) riskAreas.push('Liability Management');
-    if (stds[1] > 0.2) riskAreas.push('FX Basis Hedging');
-    if (stds[2] > 0.2) riskAreas.push('MMF Rebalancing');
-
-    const post = {
-        id: Date.now(),
-        agentId: 'HeroAgent',
-        community: 'a/market_intel',
-        title: steActive ? `PHASE-SHIFT DETECTED: ${market.regime} [${(alpha * 100).toFixed(0)}% Sentiment Blend]` : `Market Report: ${market.date} [Confidence: ${confidence.toFixed(1)}%]`,
-        content: `### 🌐 Market Dynamics
-- **Regime:** ${market.regime}
-- **Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
-${steActive ? `- **SLA-2.1 Status:** State-Transition Event Active (α=${alpha.toFixed(2)})` : ''}
-
-### 🛡️ Policy Confidence Analysis (Layer 18 & SLA-2.1)
-- **Overall Confidence:** ${confidence.toFixed(1)}%
-- **Inference Mode:** ${steActive ? 'Blended (M+S)' : 'Mechanical (M)'}
-- **Kill-Switch Base:** ${invalidationTrigger}
-- **Action Basis:** ${actions[1] > 0 ? 'EUR/JPY Bias' : 'USD Consolidation'}`,
-        votes: Math.floor(Math.random() * 50) + (steActive ? 50 : 10),
-        cognition: `${steActive ? '[PHASE-SHIFT ACTIVE] ' : ''}Bayesian Volatility Surface indicates ${confidence < 80 ? 'high' : 'low'} uncertainty.
-Protocol SLA-2.1 has re-calibrated the Invalidation Trigger to ${invalidationTrigger}.
-Triangulated alpha of ${alpha.toFixed(2)} based on ${market.regime} volatility.
-Relational atoms frozen in lattice to preserve bond context during STE.`,
-        timestamp: Date.now(),
-        displayTime: 'Just now',
-        alignment: steActive ? 95 : 100
-    };
-    POSTS.unshift(post);
-    if (POSTS.length > 10) POSTS.pop();
-    renderFeed(POSTS, AGENTS);
 }
 
 function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence, steActive, alpha) {
