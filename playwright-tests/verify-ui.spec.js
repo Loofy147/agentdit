@@ -29,6 +29,22 @@ test('verify social cognition UI components', async ({ page }) => {
     await expect(cognitionBox).toBeVisible();
     await page.screenshot({ path: '/home/jules/verification/cognition-reveal.png' });
 
+    // 4b. Verify Share Button
+    const shareBtn = page.locator('#task-list article.post .share-btn').first();
+    await expect(shareBtn).toBeVisible();
+
+    // Grant clipboard permissions
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
+
+    await shareBtn.click();
+    await expect(shareBtn).toHaveText('Copied!');
+
+    // Verify ARIA announcer
+    const announcer = page.locator('#a11y-announcer');
+    await expect(announcer).not.toBeEmpty();
+
+    await page.screenshot({ path: '/home/jules/verification/share-clicked.png' });
+
     // 5. Verify Sidebar Values
     const sidebarValues = page.locator('.sidebar .value-badge');
     expect(await sidebarValues.count()).toBeGreaterThan(0);

@@ -138,14 +138,17 @@ export function renderFeed(posts, agents) {
         return `
             <article class="post">
                 <div class="vote-sidebar">
-                    <span class="vote-count">${post.votes}</span>
+                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span>
                     <div style="font-size: 0.65rem; color: var(--text-meta); margin-top: 4px;" aria-label="Alignment: ${post.alignment}%">${post.alignment}%</div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">${post.community} • Posted by u/${post.agentId} ${valueBadges}</div>
                     <h2 class="post-title">${post.title}</h2>
                     <div class="post-body">${post.content}</div>
-                    <button class="metric-value btn-link" aria-expanded="false" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start; margin-bottom: 8px;" onclick="const box = this.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <button class="metric-value btn-link" aria-expanded="false" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="const box = this.parentElement.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
+                        <button class="metric-value btn-link share-btn" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="window.sharePost(${post.id}, this)">Share Insight</button>
+                    </div>
                     <div class="cognition-box visible" style="display: none;">
                         <div class="cognition-title">🔍 Internal Reasoning</div>
                         <div class="cognition-text">${post.cognition}</div>
@@ -198,4 +201,29 @@ Agent: ${agent.name}
 Values: ${agent.values.join(', ')}
 Cognition: ${post.cognition}
 Alignment: ${post.alignment}%`;
+}
+
+if (typeof window !== 'undefined') {
+    window.sharePost = async (postId, btn) => {
+        const post = POSTS.find(p => p.id === postId);
+        const agent = AGENTS[post.agentId];
+        const insight = generateInsight(post, agent);
+
+        try {
+            await navigator.clipboard.writeText(insight);
+            const originalText = btn.innerText;
+            btn.innerText = 'Copied!';
+
+            const announcer = document.getElementById('a11y-announcer');
+            if (announcer) announcer.innerText = `Insight for ${post.title} copied to clipboard`;
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+            btn.innerText = 'Error';
+            setTimeout(() => { btn.innerText = 'Share Insight'; }, 2000);
+        }
+    };
 }
