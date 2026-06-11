@@ -19,9 +19,12 @@ describe('MetricEvaluator', () => {
     });
 
     it('should score reasoning based on shock response', () => {
+        // state[10] is shockProb in the 17-dim model
+        const state1 = new Float64Array(17); state1[10] = 0.8;
+        const state2 = new Float64Array(17); state2[10] = 0.1;
         const trace = [
-            { state: [0,0,0,0,0,0,0,0, 0.8], actions: [0, 0, 0.5] }, // High shock, MMF Realloc
-            { state: [0,0,0,0,0,0,0,0, 0.1], actions: [0, 0, 0.0] }  // Low shock, Neutral
+            { state: state1, actions: [0, 0, 0.5] }, // High shock, MMF Realloc
+            { state: state2, actions: [0, 0, 0.0] }  // Low shock, Neutral
         ];
         const score = evaluator.evaluateReasoning(trace);
         expect(score).toBeGreaterThan(0.7);

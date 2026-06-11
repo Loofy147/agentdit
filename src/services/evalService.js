@@ -11,43 +11,46 @@ export class EvaluationService {
 
     async evaluateAgent(agent, tasks) {
         const results = [];
-        // Pre-allocate buffer for state vector [8 accounts + shockProb + vix_norm + rec_norm]
-        const stateBuffer = new Float64Array(11);
+        const stateBuffer = new Float64Array(17);
 
         for (const task of tasks) {
             const engine = new PacioliEngine();
             const initialState = engine.getState();
             const trace = [];
-            let totalLatency = 0;
+            const latencies = [];
 
             for (let t = 0; t < task.steps; t++) {
                 const market = task.data[t % task.data.length];
                 const t0 = performance.now();
 
-                // Optimized state preparation: avoids spread operator and new allocations in hot loop
                 const vix_norm = Math.min(1.0, (market.vix || 15) / 50);
                 const rec_norm = Math.min(1.0, (market.recessionProb || 10) / 100);
+                const int_norm = Math.min(1.0, (market.interestRate || 5) / 10);
 
                 stateBuffer.set(engine.state);
-                stateBuffer[8] = market.shockProb || 0;
-                stateBuffer[9] = vix_norm;
-                stateBuffer[10] = rec_norm;
+                stateBuffer[10] = market.shockProb || 0;
+                stateBuffer[11] = vix_norm;
+                stateBuffer[12] = rec_norm;
+                stateBuffer[13] = int_norm;
+                stateBuffer[14] = market.companyProbs?.techCorp || 0;
+                stateBuffer[15] = market.companyProbs?.energyPlus || 0;
+                stateBuffer[16] = market.companyProbs?.retailGlobal || 0;
 
-                const { actions } = agent.sample(stateBuffer, true); // Use deterministic for eval
+                const { actions } = agent.sample(stateBuffer, true);
+
+                const t1 = performance.now();
+                latencies.push(t1 - t0);
 
                 // Execute actions
-                engine.post(0, 4, actions[0] * 300); // Borrow
-                engine.post(1, 0, actions[1] * 200); // Swap
-                engine.post(2, 0, actions[2] * 500); // MMF Realloc
+                engine.post(0, 4, actions[0] * 300);
+                engine.post(1, 0, actions[1] * 200);
+                engine.post(2, 0, actions[2] * 500);
 
-                // Reality update
-                engine.fxRate = market.fxRate || engine.fxRate;
+                engine.revalueFX(market.fx || engine.fxRates);
+                engine.accrueInterest(market.interestRate || 5.0);
                 engine.post(3, 5, market.sales || 250);
                 engine.post(0, 3, engine.state[3] * 0.18);
                 engine.post(5, 0, 180);
-
-                const t1 = performance.now();
-                totalLatency += (t1 - t0);
 
                 trace.push({
                     step: t,
@@ -56,7 +59,7 @@ export class EvaluationService {
                     engineState: engine.getState()
                 });
 
-                if (engine.state[0] < 0) break; // Failure: Liquidity Exhausted
+                if (engine.state[0] < 0) break;
             }
 
             const finalState = engine.getState();
@@ -65,9 +68,9 @@ export class EvaluationService {
                 taskSuccess: this.evaluator.evaluateTaskSuccess(initialState, finalState),
                 reasoning: this.evaluator.evaluateReasoning(trace),
                 toolUse: this.evaluator.evaluateToolUse(trace),
-                efficiency: this.evaluator.evaluateEfficiency(totalLatency, trace.length),
+                efficiency: this.evaluator.evaluateEfficiency(latencies),
                 robustness: this.evaluator.evaluateRobustness(trace),
-                planning: this.evaluator.evaluateReasoning(trace), // Proxy for now
+                planning: this.evaluator.evaluateReasoning(trace),
                 safety: finalState.usdCash > 0 ? 1.0 : 0.0
             };
 
@@ -77,7 +80,11 @@ export class EvaluationService {
                 taskId: task.id,
                 taskName: task.name,
                 finalScore,
-                breakdown: metrics
+                breakdown: metrics,
+                latencyStats: {
+                    avg: latencies.reduce((a, b) => a + b, 0) / latencies.length,
+                    p99: [...latencies].sort((a,b) => a-b)[Math.floor(latencies.length * 0.99)]
+                }
             });
         }
 
