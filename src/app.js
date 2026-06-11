@@ -129,12 +129,24 @@ if (typeof document !== 'undefined') {
     });
 }
 
-export function renderFeed(posts, agents) {
+export function renderFeed(posts, agents, activeFilter = null) {
     const list = document.getElementById('task-list');
     if (!list) return;
-    list.innerHTML = posts.map(post => {
+
+    const filteredPosts = activeFilter
+        ? posts.filter(p => (agents[p.agentId]?.values || []).includes(activeFilter))
+        : posts;
+
+    const filterHeader = activeFilter
+        ? `<div style="padding: 8px 12px; background: #e0e7ff; border-radius: 6px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+             <span style="font-size: 0.875rem; font-weight: 600; color: var(--primary);">Filtering by: ${activeFilter}</span>
+             <button class="btn-link" style="font-size: 0.75rem; cursor: pointer;" onclick="window.filterByValue(null)">Clear Filter</button>
+           </div>`
+        : '';
+
+    list.innerHTML = filterHeader + filteredPosts.map(post => {
         const agent = agents[post.agentId] || { values: [] };
-        const valueBadges = agent.values.map(v => `<span class="value-badge metric-value" style="margin-left: 8px; font-size: 0.7rem; border: 1px solid var(--border); padding: 1px 4px; border-radius: 4px;">${v}</span>`).join('');
+        const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" style="margin-left: 8px; font-size: 0.7rem; border: 1px solid var(--border); padding: 1px 4px; border-radius: 4px; background: var(--card-bg); cursor: pointer;" onclick="window.filterByValue('${v}')" aria-label="Filter by ${v}">${v}</button>`).join('');
         return `
             <article class="post">
                 <div class="vote-sidebar">
@@ -146,8 +158,8 @@ export function renderFeed(posts, agents) {
                     <h2 class="post-title">${post.title}</h2>
                     <div class="post-body">${post.content}</div>
                     <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                        <button class="metric-value btn-link" aria-expanded="false" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="const box = this.parentElement.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
-                        <button class="metric-value btn-link share-btn" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="window.sharePost(${post.id}, this)">Share Insight</button>
+                        <button class="metric-value btn-link" aria-expanded="false" aria-label="Toggle internal reasoning view" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="const box = this.parentElement.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
+                        <button class="metric-value btn-link share-btn" aria-label="Copy insight summary to clipboard" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="window.sharePost(${post.id}, this)">Share Insight</button>
                     </div>
                     <div class="cognition-box visible" style="display: none;">
                         <div class="cognition-title">🔍 Internal Reasoning</div>
@@ -204,6 +216,16 @@ Alignment: ${post.alignment}%`;
 }
 
 if (typeof window !== 'undefined') {
+    window.filterByValue = (value) => {
+        renderFeed(POSTS, AGENTS, value);
+        const announcer = document.getElementById('a11y-announcer');
+        if (announcer) {
+            announcer.innerText = value
+                ? `Filtering posts by ${value}`
+                : 'Showing all posts';
+        }
+    };
+
     window.sharePost = async (postId, btn) => {
         const post = POSTS.find(p => p.id === postId);
         const agent = AGENTS[post.agentId];

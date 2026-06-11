@@ -49,4 +49,21 @@ test('verify social cognition UI components', async ({ page }) => {
     const sidebarValues = page.locator('.sidebar .value-badge');
     expect(await sidebarValues.count()).toBeGreaterThan(0);
     await page.screenshot({ path: '/home/jules/verification/sidebar-values.png' });
+
+    // 6. Verify Filtering
+    const resilienceBadge = page.locator('#task-list .value-badge:has-text("Resilience")').first();
+    await resilienceBadge.click();
+
+    // Verify filter header and post count
+    await expect(page.locator('text=Filtering by: Resilience')).toBeVisible();
+    await expect(page.locator('#task-list article.post')).toHaveCount(1);
+
+    // Verify announcer
+    await expect(announcer).toHaveText('Filtering posts by Resilience');
+    await page.screenshot({ path: '/home/jules/verification/filtered-feed.png' });
+
+    // Clear filter
+    await page.locator('text=Clear Filter').click();
+    await expect(page.locator('#task-list article.post')).toHaveCount(2);
+    await expect(announcer).toHaveText('Showing all posts');
 });
