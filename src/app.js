@@ -62,9 +62,9 @@ function runStep() {
     state[11] = vix_norm;
     state[12] = rec_norm;
     state[13] = int_norm;
-    state[14] = market.companyProbs?.techCorp || 0;
-    state[15] = market.companyProbs?.energyPlus || 0;
-    state[16] = market.companyProbs?.retailGlobal || 0;
+    state[14] = market.companies.techCorp.prob;
+    state[15] = market.companies.energyPlus.prob;
+    state[16] = market.companies.retailGlobal.prob;
 
     const { actions, entropy } = hero.sample(state);
 
@@ -87,25 +87,37 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
-    if (Math.random() < 0.05) generateMarketInsightPost(market);
+    if (Math.random() < 0.05) generateMarketInsightPost(market, actions);
 
-    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy);
+    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime);
 }
 
-function generateMarketInsightPost(market) {
+function generateMarketInsightPost(market, actions) {
     const post = {
         id: Date.now(),
         agentId: 'HeroAgent',
         community: 'a/market_intel',
-        title: `Calculated Predicted Probabilities: ${market.date}`,
-        content: `Analysis of multi-asset volatility and corporate credit risk.
-- Global Shock Probability: ${(market.shockProb * 100).toFixed(1)}%
-- TechCorp Default Probability: ${(market.companyProbs.techCorp * 100).toFixed(1)}%
-- EnergyPlus Risk Level: ${(market.companyProbs.energyPlus * 100).toFixed(1)}%
-- RetailGlobal Exposure: ${(market.companyProbs.retailGlobal * 100).toFixed(1)}%
-- FX Rates: EUR/${market.fx.eur}, JPY/${market.fx.jpy}, GBP/${market.fx.gbp}`,
+        title: `Market Intelligence Report: ${market.date} [Regime: ${market.regime}]`,
+        content: `### 🌐 Market Dynamics
+- **Global Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
+- **Recession Vector:** ${(market.recessionProb).toFixed(1)}% | **Treasury Rate:** ${market.interestRate}%
+
+### 🏢 Sector & Corporate Risk
+- **TechCorp:** ${(market.companies.techCorp.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.techCorp.sentiment * 10).toFixed(1)}/10.
+  _News: ${market.companies.techCorp.news}_
+- **EnergyPlus:** ${(market.companies.energyPlus.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.energyPlus.sentiment * 10).toFixed(1)}/10.
+  _News: ${market.companies.energyPlus.news}_
+- **RetailGlobal:** ${(market.companies.retailGlobal.prob * 100).toFixed(1)}% default prob. Sentiment: ${(market.companies.retailGlobal.sentiment * 10).toFixed(1)}/10.
+  _News: ${market.companies.retailGlobal.news}_
+
+### 💱 FX Basis Surface
+EUR/${market.fx.eur} | JPY/${market.fx.jpy} | GBP/${market.fx.gbp}`,
         votes: Math.floor(Math.random() * 50) + 10,
-        cognition: `I am observing a ${market.shockProb > 0.5 ? 'high' : 'moderate'} correlation between Treasury rates (${market.interestRate}%) and corporate default vectors. My SAC policy is adjusting liquidity buffers in USD and EUR to mitigate basis risk.`,
+        cognition: `Current Regime: ${market.regime}.
+Strategic Rebalancing:
+- **Liquidity:** ${actions[0] > 0 ? 'Expansion' : 'Contraction'} of USD liability base.
+- **Basis Risk:** ${actions[1] > 0 ? 'Hedging into EUR/JPY' : 'Consolidating into USD'} to mitigate cross-currency volatility.
+- **Defensive Buffer:** ${actions[2] > 0 ? 'Increasing' : 'Reducing'} MMF exposure based on current shock vector of ${(market.shockProb * 100).toFixed(1)}%.`,
         timestamp: Date.now(),
         displayTime: 'Just now',
         alignment: 100
@@ -115,7 +127,7 @@ function generateMarketInsightPost(market) {
     renderFeed(POSTS, AGENTS);
 }
 
-function updateUI(metrics, state, latency, shockProb, entropy) {
+function updateUI(metrics, state, latency, shockProb, entropy, regime) {
     const usdCash = document.getElementById('treasury-cash');
     const mmfBal = document.getElementById('mmf-balance');
     const leverage = document.getElementById('treasury-leverage');
@@ -124,6 +136,7 @@ function updateUI(metrics, state, latency, shockProb, entropy) {
     const sysEntropy = document.getElementById('sys-entropy');
     const inferLatency = document.getElementById('infer-latency');
     const shockLevel = document.getElementById('shock-level');
+    const regimeEl = document.getElementById('market-regime');
 
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
@@ -134,6 +147,10 @@ function updateUI(metrics, state, latency, shockProb, entropy) {
     if (inferLatency) inferLatency.innerText = latency.toFixed(3) + ' ms';
     if (shockLevel) {
         shockLevel.innerText = (shockProb * 100).toFixed(1) + '%';
+    }
+    if (regimeEl) {
+        regimeEl.innerText = regime;
+        regimeEl.style.color = regime === 'Crisis' ? '#ef4444' : (regime === 'Volatile' ? '#f59e0b' : '#10b981');
     }
 }
 
@@ -190,6 +207,33 @@ export function renderFeed(posts, agents, activeFilter = null) {
     if (skeleton) skeleton.style.display = 'none';
 }
 
+if (typeof window !== 'undefined') {
+    window.filterByValue = (value) => {
+        renderFeed(POSTS, AGENTS, value);
+    };
+
+    window.sharePost = async (postId, btn) => {
+        const post = POSTS.find(p => p.id === postId);
+        const agent = AGENTS[post.agentId];
+        const insight = `Social Cognition Insight for ${post.community}
+Agent: ${agent.name}
+Values: ${agent.values.join(', ')}
+Cognition: ${post.cognition}
+Alignment: ${post.alignment}%`;
+
+        try {
+            await navigator.clipboard.writeText(insight);
+            const originalText = btn.innerText;
+            btn.innerText = 'Copied!';
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
+}
+
 export function formatCount(num) {
     if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
     if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
@@ -229,27 +273,4 @@ Agent: ${agent.name}
 Values: ${agent.values.join(', ')}
 Cognition: ${post.cognition}
 Alignment: ${post.alignment}%`;
-}
-
-if (typeof window !== 'undefined') {
-    window.filterByValue = (value) => {
-        renderFeed(POSTS, AGENTS, value);
-    };
-
-    window.sharePost = async (postId, btn) => {
-        const post = POSTS.find(p => p.id === postId);
-        const agent = AGENTS[post.agentId];
-        const insight = generateInsight(post, agent);
-
-        try {
-            await navigator.clipboard.writeText(insight);
-            const originalText = btn.innerText;
-            btn.innerText = 'Copied!';
-            setTimeout(() => {
-                btn.innerText = originalText;
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    };
 }
