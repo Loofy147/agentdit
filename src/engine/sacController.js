@@ -4,6 +4,8 @@
  * Optimized for "Bolt Tempo" (sub-1ms inference) using pre-allocated buffers.
  */
 export class SACController {
+    static LOG_2PI = Math.log(2 * Math.PI);
+
     constructor(stateDim, actionDim, hiddenDim = 64, weights = null) {
         this.stateDim = stateDim;
         this.actionDim = actionDim;
@@ -30,7 +32,7 @@ export class SACController {
         this.wLogStd = this.weights.subarray(fc1Size + muSize);
     }
 
-    relu(x) { return Math.max(0, x); }
+    relu(x) { return x > 0 ? x : 0; }
     tanh(x) { return Math.tanh(x); }
 
     /**
@@ -47,7 +49,8 @@ export class SACController {
             }
         }
         for (let j = 0; j < this.hiddenDim; j++) {
-            this.hiddenBuffer[j] = this.relu(this.hiddenBuffer[j]);
+            const val = this.hiddenBuffer[j];
+            this.hiddenBuffer[j] = val > 0 ? val : 0;
         }
 
         // 2. MU and LOG_STD (Hidden -> Action Params)
@@ -64,24 +67,25 @@ export class SACController {
 
         let logProb = 0;
         for (let k = 0; k < this.actionDim; k++) {
-            this.logStdBuffer[k] = Math.max(-20, Math.min(2, this.logStdBuffer[k]));
-            const std = Math.exp(this.logStdBuffer[k]);
+            const logStd = Math.max(-20, Math.min(2, this.logStdBuffer[k]));
+            const std = Math.exp(logStd);
             let z;
             if (deterministic) {
                 z = this.muBuffer[k];
             } else {
                 const u1 = Math.random();
                 const u2 = Math.random();
-                const standardNormal = Math.sqrt(-2.0 * Math.log(u1 + 1e-9)) * Math.cos(2.0 * Math.PI * u2);
+                const standardNormal = Math.sqrt(-2.0 * Math.log(u1 + 1e-9)) * Math.cos(6.283185307179586 * u2);
                 z = this.muBuffer[k] + standardNormal * std;
             }
 
-            const actionRaw = this.tanh(z);
+            const actionRaw = Math.tanh(z);
             this.actionsBuffer[k] = actionRaw;
 
-            // Simplified entropy calculation
-            const lnNormal = -0.5 * (Math.pow((z - this.muBuffer[k]) / std, 2) + 2 * Math.log(std) + Math.log(2 * Math.PI));
-            const lnCorrection = Math.log(Math.max(1e-6, 1 - Math.pow(actionRaw, 2)));
+            // Optimized entropy calculation: replace Math.pow(x, 2) with x * x
+            const diff = (z - this.muBuffer[k]) / std;
+            const lnNormal = -0.5 * (diff * diff + 2 * logStd + SACController.LOG_2PI);
+            const lnCorrection = Math.log(Math.max(1e-6, 1 - actionRaw * actionRaw));
             logProb += (lnNormal - lnCorrection);
         }
 

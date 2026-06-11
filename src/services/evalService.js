@@ -11,14 +11,13 @@ export class EvaluationService {
 
     async evaluateAgent(agent, tasks) {
         const results = [];
-        // stateDim=17: 10 accounts + 7 market/company signals
         const stateBuffer = new Float64Array(17);
 
         for (const task of tasks) {
             const engine = new PacioliEngine();
             const initialState = engine.getState();
             const trace = [];
-            let totalLatency = 0;
+            const latencies = [];
 
             for (let t = 0; t < task.steps; t++) {
                 const market = task.data[t % task.data.length];
@@ -39,7 +38,10 @@ export class EvaluationService {
 
                 const { actions } = agent.sample(stateBuffer, true);
 
-                // Execute actions (mapped to engine indices)
+                const t1 = performance.now();
+                latencies.push(t1 - t0);
+
+                // Execute actions
                 engine.post(0, 4, actions[0] * 300);
                 engine.post(1, 0, actions[1] * 200);
                 engine.post(2, 0, actions[2] * 500);
@@ -49,9 +51,6 @@ export class EvaluationService {
                 engine.post(3, 5, market.sales || 250);
                 engine.post(0, 3, engine.state[3] * 0.18);
                 engine.post(5, 0, 180);
-
-                const t1 = performance.now();
-                totalLatency += (t1 - t0);
 
                 trace.push({
                     step: t,
@@ -69,7 +68,7 @@ export class EvaluationService {
                 taskSuccess: this.evaluator.evaluateTaskSuccess(initialState, finalState),
                 reasoning: this.evaluator.evaluateReasoning(trace),
                 toolUse: this.evaluator.evaluateToolUse(trace),
-                efficiency: this.evaluator.evaluateEfficiency(totalLatency, trace.length),
+                efficiency: this.evaluator.evaluateEfficiency(latencies),
                 robustness: this.evaluator.evaluateRobustness(trace),
                 planning: this.evaluator.evaluateReasoning(trace),
                 safety: finalState.usdCash > 0 ? 1.0 : 0.0
@@ -81,7 +80,11 @@ export class EvaluationService {
                 taskId: task.id,
                 taskName: task.name,
                 finalScore,
-                breakdown: metrics
+                breakdown: metrics,
+                latencyStats: {
+                    avg: latencies.reduce((a, b) => a + b, 0) / latencies.length,
+                    p99: [...latencies].sort((a,b) => a-b)[Math.floor(latencies.length * 0.99)]
+                }
             });
         }
 

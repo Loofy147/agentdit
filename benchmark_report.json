@@ -1,49 +1,66 @@
 {
   "agent_id": "HeroAgent_v17",
-  "timestamp": "2026-06-11T15:17:42.019Z",
-  "overall_score": 0.6530701754385966,
+  "timestamp": "2026-06-11T15:45:37.846Z",
+  "overall_score": 0.6433333333333335,
   "task_results": [
     {
       "taskId": "market_stability",
       "taskName": "Market Stability Benchmark",
-      "finalScore": 0.6175,
+      "finalScore": 0.6375000000000002,
       "breakdown": {
         "taskSuccess": 1,
-        "reasoning": 0,
+        "reasoning": 0.20000000000000007,
         "toolUse": 0.8500000000000002,
-        "efficiency": 0.9,
+        "efficiency": 0.4,
         "robustness": 1,
-        "planning": 0,
+        "planning": 0.20000000000000007,
         "safety": 1
+      },
+      "latencyStats": {
+        "avg": 0.2929313333333319,
+        "p99": 3.3464309999999955
       }
     },
     {
       "taskId": "liquidity_crunch",
       "taskName": "Liquidity Crunch Simulation",
-      "finalScore": 0.40046052631578943,
+      "finalScore": 0.27625,
       "breakdown": {
         "taskSuccess": 0,
         "reasoning": 0,
         "toolUse": 0.8500000000000001,
-        "efficiency": 1,
-        "robustness": 0.7894736842105263,
+        "efficiency": 0.4,
+        "robustness": 0.3333333333333333,
         "planning": 0,
         "safety": 0
+      },
+      "latencyStats": {
+        "avg": 0.3248334210526339,
+        "p99": 2.6462630000000047
       }
     },
     {
       "taskId": "fx_volatility",
       "taskName": "FX Volatility Stress Test",
-      "finalScore": 0.9412500000000001,
+      "finalScore": 1.0162500000000003,
       "breakdown": {
         "taskSuccess": 1,
-        "reasoning": 0,
+        "reasoning": 0.20000000000000007,
         "toolUse": 0.8500000000000002,
-        "efficiency": 1,
+        "efficiency": 0.8,
         "robustness": 1,
-        "planning": 0,
+        "planning": 0.20000000000000007,
         "safety": 1
+      },
+      "latencyStats": {
+        "avg": 0.1655404583333334,
+        "p99": 0.6996329999999773
       }
     }
-  ]
+  ],
+  "stress_test": {
+    "avg": 0.008166864499999999,
+    "p99": 0.115035000000006,
+    "total": 81.668645
+  }
 }
