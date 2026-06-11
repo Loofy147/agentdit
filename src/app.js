@@ -7,7 +7,7 @@ import { NeuralController } from './engine/neuralController.js';
 const AGENTS = {
     'HeroAgent': {
         name: 'HeroAgent',
-        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC with Layer 18 Bayesian Uncertainty estimation.',
+        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC with Layer 18 Bayesian Uncertainty estimation and SLA-2.1 Phase-Shift.',
         values: ['Stability', 'Liquidity', 'Anti-Fragility'],
         metrics: { reasoning: 0.96, safety: 0.99, boltTempo: '0.14ms' }
     },
@@ -28,13 +28,17 @@ let hero, villain, dataService;
 
 async function init() {
     try {
-        const hw = await fetch('./hero_v17_real_weights.json').then(r => r.json());
-        const vw = await fetch('./villain_v16_weights.json').then(r => r.json());
+        const [hw, sw, vw] = await Promise.all([
+            fetch('./hero_v17_real_weights.json').then(r => r.json()),
+            fetch('./sla_s_weights.json').then(r => r.json()),
+            fetch('./villain_v16_weights.json').then(r => r.json())
+        ]);
         dataService = await DataService.load('./public_market_data.json');
 
-        hero = new SACController(17, 3, 64, new Float64Array(hw));
+        hero = new SACController(17, 3, 64, new Float64Array(hw), new Float64Array(sw));
         villain = new NeuralController(8, 32, 2, new Float64Array(vw));
     } catch (e) {
+        console.warn('Fallback initialization active', e);
         hero = new SACController(17, 3, 64);
         villain = new NeuralController(8, 32, 2);
         dataService = await DataService.load('./public_market_data.json');
@@ -69,7 +73,8 @@ function runStep() {
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
     const confidence = Math.max(0, 100 - (avgUncertainty * 200));
 
-    const { actions, entropy } = hero.sample(state, true);
+    // SLA-2.1 Phase-Shift Sampling
+    const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
     engine.post(0, 4, actions[0] * 300);
     engine.post(1, 0, actions[1] * 200);
@@ -84,12 +89,12 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
-    if (Math.random() < 0.05) generateMarketInsightPost(market, actions, confidence, stds);
+    if (Math.random() < 0.05 || steActive) generateMarketInsightPost(market, actions, confidence, stds, steActive, alpha, invalidationTrigger);
 
-    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence);
+    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha);
 }
 
-function generateMarketInsightPost(market, actions, confidence, stds) {
+function generateMarketInsightPost(market, actions, confidence, stds, steActive, alpha, invalidationTrigger) {
     const riskAreas = [];
     if (stds[0] > 0.2) riskAreas.push('Liability Management');
     if (stds[1] > 0.2) riskAreas.push('FX Basis Hedging');
@@ -99,33 +104,32 @@ function generateMarketInsightPost(market, actions, confidence, stds) {
         id: Date.now(),
         agentId: 'HeroAgent',
         community: 'a/market_intel',
-        title: `Market Report: ${market.date} [Confidence: ${confidence.toFixed(1)}%]`,
+        title: steActive ? `PHASE-SHIFT DETECTED: ${market.regime} [${(alpha * 100).toFixed(0)}% Sentiment Blend]` : `Market Report: ${market.date} [Confidence: ${confidence.toFixed(1)}%]`,
         content: `### 🌐 Market Dynamics
 - **Regime:** ${market.regime}
 - **Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
+${steActive ? `- **SLA-2.1 Status:** State-Transition Event Active (α=${alpha.toFixed(2)})` : ''}
 
-### 🏢 Corporate Credit Risk
-- **TechCorp:** ${(market.companies.techCorp.prob * 100).toFixed(1)}% | **RetailGlobal:** ${(market.companies.retailGlobal.prob * 100).toFixed(1)}%
-
-### 🛡️ Policy Confidence Analysis (Layer 18)
+### 🛡️ Policy Confidence Analysis (Layer 18 & SLA-2.1)
 - **Overall Confidence:** ${confidence.toFixed(1)}%
-- **Uncertainty Vectors:** ${riskAreas.length > 0 ? riskAreas.join(', ') : 'All systems nominal'}
+- **Inference Mode:** ${steActive ? 'Blended (M+S)' : 'Mechanical (M)'}
+- **Kill-Switch Base:** ${invalidationTrigger}
 - **Action Basis:** ${actions[1] > 0 ? 'EUR/JPY Bias' : 'USD Consolidation'}`,
-        votes: Math.floor(Math.random() * 50) + 10,
-        cognition: `Bayesian Volatility Surface indicates ${confidence < 80 ? 'high' : 'low'} uncertainty in the current ${market.regime} regime.
-Internal reasoning for action entropy of ${means.reduce((a,b)=>a+Math.abs(b),0).toFixed(2)}:
-- Rebalancing based on ${riskAreas.includes('FX Basis Hedging') ? 'volatile' : 'stable'} currency basis.
-- Policy stability is ${confidence.toFixed(1)}% against current shock vector.`,
+        votes: Math.floor(Math.random() * 50) + (steActive ? 50 : 10),
+        cognition: `${steActive ? '[PHASE-SHIFT ACTIVE] ' : ''}Bayesian Volatility Surface indicates ${confidence < 80 ? 'high' : 'low'} uncertainty.
+Protocol SLA-2.1 has re-calibrated the Invalidation Trigger to ${invalidationTrigger}.
+Triangulated alpha of ${alpha.toFixed(2)} based on ${market.regime} volatility.
+Relational atoms frozen in lattice to preserve bond context during STE.`,
         timestamp: Date.now(),
         displayTime: 'Just now',
-        alignment: 100
+        alignment: steActive ? 95 : 100
     };
     POSTS.unshift(post);
     if (POSTS.length > 10) POSTS.pop();
     renderFeed(POSTS, AGENTS);
 }
 
-function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence) {
+function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence, steActive, alpha) {
     const usdCash = document.getElementById('treasury-cash');
     const mmfBal = document.getElementById('mmf-balance');
     const leverage = document.getElementById('treasury-leverage');
@@ -136,6 +140,8 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     const shockLevel = document.getElementById('shock-level');
     const regimeEl = document.getElementById('market-regime');
     const confidenceEl = document.getElementById('policy-confidence');
+    const steStatusEl = document.getElementById('ste-status');
+    const alphaBlendEl = document.getElementById('alpha-blend');
 
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
@@ -152,6 +158,13 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     if (confidenceEl) {
         confidenceEl.innerText = confidence.toFixed(1) + '%';
         confidenceEl.style.color = confidence < 80 ? '#f59e0b' : '#10b981';
+    }
+    if (steStatusEl) {
+        steStatusEl.innerText = steActive ? 'ACTIVE' : 'NOMINAL';
+        steStatusEl.style.color = steActive ? '#ef4444' : '#10b981';
+    }
+    if (alphaBlendEl) {
+        alphaBlendEl.innerText = alpha.toFixed(2);
     }
 }
 

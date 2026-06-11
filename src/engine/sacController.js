@@ -1,29 +1,36 @@
+import { PhaseShiftModule } from './phaseShift.js';
+
 /**
  * SACController implements Layer 16 & 18: Soft Actor-Critic & Bayesian Volatility Surface.
- * Stochastic Policy with MC Dropout for real-time policy uncertainty estimation.
+ * Upgraded with Protocol SLA-2.1 Phase-Shift Module.
  */
 export class SACController {
     static LOG_2PI = Math.log(2 * Math.PI);
 
-    constructor(stateDim, actionDim, hiddenDim = 64, weights = null) {
+    constructor(stateDim, actionDim, hiddenDim = 64, weightsM = null, weightsS = null) {
         this.stateDim = stateDim;
         this.actionDim = actionDim;
         this.hiddenDim = hiddenDim;
 
         const totalWeights = (stateDim * hiddenDim) + (hiddenDim * actionDim) + (hiddenDim * actionDim);
-        if (weights && weights.length !== totalWeights) {
-            console.warn(`SACController: Weight length mismatch. Expected ${totalWeights}, got ${weights.length}.`);
-            weights = null;
-        }
-        this.weights = weights || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
 
+        this.weightsM = weightsM || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
+        this.weightsS = weightsS || new Float64Array(this.weightsM); // Default S to M if not provided
+
+        this.weights = new Float64Array(this.weightsM); // Active weights
+
+        this.phaseShift = new PhaseShiftModule();
         this.hiddenBuffer = new Float64Array(hiddenDim);
         this.muBuffer = new Float64Array(actionDim);
         this.logStdBuffer = new Float64Array(actionDim);
         this.actionsBuffer = new Float64Array(actionDim);
 
-        const fc1Size = stateDim * hiddenDim;
-        const muSize = hiddenDim * actionDim;
+        this.updateWeightViews();
+    }
+
+    updateWeightViews() {
+        const fc1Size = this.stateDim * this.hiddenDim;
+        const muSize = this.hiddenDim * this.actionDim;
         this.wFc1 = this.weights.subarray(0, fc1Size);
         this.wMu = this.weights.subarray(fc1Size, fc1Size + muSize);
         this.wLogStd = this.weights.subarray(fc1Size + muSize);
@@ -31,7 +38,7 @@ export class SACController {
 
     relu(x) { return x > 0 ? x : 0; }
 
-    sample(state, deterministic = false) {
+    sampleInternal(state, deterministic = false) {
         this.hiddenBuffer.fill(0);
         for (let i = 0; i < this.stateDim; i++) {
             const s = state[i];
@@ -81,18 +88,64 @@ export class SACController {
 
         return {
             actions: new Float64Array(this.actionsBuffer),
-            entropy: -logProb
+            entropy: -logProb,
+            mu: new Float64Array(this.muBuffer)
+        };
+    }
+
+    sample(state, deterministic = false) {
+        return this.sampleInternal(state, deterministic);
+    }
+
+    /**
+     * Protocol SLA-2.1: PHASE-SHIFT MODULE EXECUTION.
+     */
+    samplePhaseShifted(state, sigma = 0.15) {
+        // 1. Bond Conservation (Freeze Lattice if STE active)
+        const activeState = this.phaseShift.conserveBond(state);
+
+        // 2. Calculate Vector B (Mechanical Necessity) using M Weights
+        const originalWeights = new Float64Array(this.weights);
+        this.weights.set(this.weightsM);
+        this.updateWeightViews();
+        const mechanical = this.sampleInternal(activeState, true);
+        const vectorB = mechanical.actions[0]; // Primary control vector
+
+        // 3. Calculate Actual Behavior (using current weights, which could be blended or M)
+        this.weights.set(originalWeights);
+        this.updateWeightViews();
+        const actualBehavior = this.sampleInternal(activeState, false);
+        const actualA = actualBehavior.actions[0];
+
+        // 4. Monitor Entropy & Triangulate
+        const { steActive, alpha } = this.phaseShift.monitorEntropy(actualA, vectorB, sigma);
+
+        if (alpha > 0) {
+            this.weights.set(this.phaseShift.triangulateWeights(this.weightsM, this.weightsS, alpha));
+        } else {
+            this.weights.set(this.weightsM);
+        }
+        this.updateWeightViews();
+
+        // 5. Re-calibrate Kill-Switch (Internal Logic)
+        const invalidationTrigger = steActive ? 'Sentiment Floor' : 'Technical Level';
+
+        const result = this.sampleInternal(activeState, false);
+        return {
+            ...result,
+            steActive,
+            alpha,
+            invalidationTrigger
         };
     }
 
     /**
      * Layer 18: Bayesian Volatility Surface estimation via MC Dropout.
-     * Calculates policy uncertainty (standard deviation) for the current state.
      */
     sampleBayesian(state, numPasses = 10) {
         const results = [];
         for (let i = 0; i < numPasses; i++) {
-            results.push(this.sample(state, false).actions);
+            results.push(this.sampleInternal(state, false).actions);
         }
 
         const means = new Float64Array(this.actionDim);

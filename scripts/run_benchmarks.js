@@ -10,17 +10,28 @@ async function runBenchmark() {
     const tasks = await generator.generateTasks();
     const evalService = new EvaluationService();
 
-    let hw;
+    let hw, sw;
     try {
         hw = JSON.parse(fs.readFileSync('./hero_v17_real_weights.json', 'utf8'));
+        sw = JSON.parse(fs.readFileSync('./sla_s_weights.json', 'utf8'));
     } catch (e) {
-        console.warn('Could not load hero_v17_real_weights.json, using random weights.');
+        console.warn('Could not load weights, using random weights.');
         hw = null;
+        sw = null;
     }
 
-    const hero = new SACController(17, 3, 64, hw ? new Float64Array(hw) : null);
+    const hero = new SACController(17, 3, 64, hw ? new Float64Array(hw) : null, sw ? new Float64Array(sw) : null);
 
-    console.log('Evaluating HeroAgent (v17 SAC)...');
+    console.log('Evaluating HeroAgent (v17 SAC with SLA-2.1 Phase-Shift)...');
+
+    // Monkey-patch EvaluationService to use samplePhaseShifted instead of sample
+    // But EvaluationService calls agent.sample. So let's wrap it carefully.
+    const originalSample = hero.sample.bind(hero);
+    hero.sample = (state, deterministic) => {
+        if (deterministic) return originalSample(state, true);
+        return hero.samplePhaseShifted(state, 0.15);
+    };
+
     const results = await evalService.evaluateAgent(hero, tasks);
 
     // Bolt Tempo Stress Test
@@ -30,13 +41,13 @@ async function runBenchmark() {
     const latencies = [];
     for (let i = 0; i < 10000; i++) {
         const t0 = performance.now();
-        hero.sample(state, true);
+        hero.samplePhaseShifted(state, 0.15);
         latencies.push(performance.now() - t0);
     }
     const end = performance.now();
     const totalTime = end - start;
     const avgLatency = totalTime / 10000;
-    const sorted = latencies.sort((a,b) => a-b);
+    const sorted = [...latencies].sort((a,b) => a-b);
     const p99 = sorted[Math.floor(latencies.length * 0.99)];
 
     console.log(`Total Time: ${totalTime.toFixed(2)}ms`);
@@ -44,7 +55,7 @@ async function runBenchmark() {
     console.log(`p99 Latency: ${p99.toFixed(4)}ms`);
 
     const report = {
-        agent_id: 'HeroAgent_v17',
+        agent_id: 'HeroAgent_v17_PhaseShift',
         timestamp: new Date().toISOString(),
         overall_score: results.reduce((acc, r) => acc + r.finalScore, 0) / results.length,
         task_results: results,

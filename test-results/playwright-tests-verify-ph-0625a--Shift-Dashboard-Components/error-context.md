@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: playwright-tests/verify-ui.spec.js >> verify social cognition UI components
-- Location: playwright-tests/verify-ui.spec.js:3:1
+- Name: playwright-tests/verify-phase-shift.spec.js >> Verify Phase-Shift Dashboard Components
+- Location: playwright-tests/verify-phase-shift.spec.js:3:1
 
 # Error details
 
