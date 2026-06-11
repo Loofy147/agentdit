@@ -1,2315 +1,4628 @@
 [
   {
     "date": "2023-12-29",
-    "fxRate": 1.105,
+    "fx": {
+      "eur": 0.90498,
+      "jpy": 141.48,
+      "gbp": 0.78647
+    },
     "interestRate": 5,
-    "vix": 15.97,
-    "recessionProb": 13.42,
-    "sales": 211.22,
-    "shockProb": 0.18
+    "vix": 15.98,
+    "recessionProb": 13.68,
+    "sales": 216.42,
+    "shockProb": 0.181,
+    "companyProbs": {
+      "techCorp": 0.138,
+      "energyPlus": 0.121,
+      "retailGlobal": 0.165
+    }
   },
   {
     "date": "2024-01-02",
-    "fxRate": 1.0956,
+    "fx": {
+      "eur": 0.91274,
+      "jpy": 142.1,
+      "gbp": 0.79085
+    },
     "interestRate": 5,
-    "vix": 15.81,
-    "recessionProb": 10.91,
-    "sales": 220.11,
-    "shockProb": 0.13
+    "vix": 16.2,
+    "recessionProb": 12.44,
+    "sales": 214.94,
+    "shockProb": 0.159,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.159,
+      "retailGlobal": 0.162
+    }
   },
   {
     "date": "2024-01-03",
-    "fxRate": 1.0919,
+    "fx": {
+      "eur": 0.91583,
+      "jpy": 143.02,
+      "gbp": 0.79192
+    },
     "interestRate": 5,
-    "vix": 16.42,
-    "recessionProb": 11.37,
-    "sales": 218.29,
-    "shockProb": 0.146
+    "vix": 17.09,
+    "recessionProb": 14.99,
+    "sales": 217,
+    "shockProb": 0.192,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.192,
+      "retailGlobal": 0.196
+    }
   },
   {
     "date": "2024-01-04",
-    "fxRate": 1.0953,
+    "fx": {
+      "eur": 0.91299,
+      "jpy": 144.17,
+      "gbp": 0.78771
+    },
     "interestRate": 5,
-    "vix": 17.79,
-    "recessionProb": 11.43,
-    "sales": 217.16,
-    "shockProb": 0.163
+    "vix": 17.26,
+    "recessionProb": 13.36,
+    "sales": 215.78,
+    "shockProb": 0.186,
+    "companyProbs": {
+      "techCorp": 0.11,
+      "energyPlus": 0.093,
+      "retailGlobal": 0.205
+    }
   },
   {
     "date": "2024-01-05",
-    "fxRate": 1.0921,
+    "fx": {
+      "eur": 0.91567,
+      "jpy": 145.2,
+      "gbp": 0.7894
+    },
     "interestRate": 5,
-    "vix": 18.36,
-    "recessionProb": 11.61,
-    "sales": 217.84,
-    "shockProb": 0.165
+    "vix": 18.83,
+    "recessionProb": 10.86,
+    "sales": 215.31,
+    "shockProb": 0.183,
+    "companyProbs": {
+      "techCorp": 0.125,
+      "energyPlus": 0.151,
+      "retailGlobal": 0.166
+    }
   },
   {
     "date": "2024-01-08",
-    "fxRate": 1.0946,
+    "fx": {
+      "eur": 0.91358,
+      "jpy": 144.52,
+      "gbp": 0.78705
+    },
     "interestRate": 5,
-    "vix": 18.74,
-    "recessionProb": 11.73,
-    "sales": 223.64,
-    "shockProb": 0.177
+    "vix": 18.06,
+    "recessionProb": 12.69,
+    "sales": 215.63,
+    "shockProb": 0.173,
+    "companyProbs": {
+      "techCorp": 0.104,
+      "energyPlus": 0.16,
+      "retailGlobal": 0.154
+    }
   },
   {
     "date": "2024-01-09",
-    "fxRate": 1.094,
+    "fx": {
+      "eur": 0.91408,
+      "jpy": 144.09,
+      "gbp": 0.78554
+    },
     "interestRate": 5,
-    "vix": 19.48,
-    "recessionProb": 13.02,
-    "sales": 208.4,
-    "shockProb": 0.211
+    "vix": 19.29,
+    "recessionProb": 15.11,
+    "sales": 202.77,
+    "shockProb": 0.231,
+    "companyProbs": {
+      "techCorp": 0.145,
+      "energyPlus": 0.133,
+      "retailGlobal": 0.185
+    }
   },
   {
     "date": "2024-01-10",
-    "fxRate": 1.0946,
+    "fx": {
+      "eur": 0.91358,
+      "jpy": 145.29,
+      "gbp": 0.78589
+    },
     "interestRate": 5,
-    "vix": 18.72,
-    "recessionProb": 15.36,
-    "sales": 221.57,
-    "shockProb": 0.196
+    "vix": 18.49,
+    "recessionProb": 13.06,
+    "sales": 215.8,
+    "shockProb": 0.167,
+    "companyProbs": {
+      "techCorp": 0.129,
+      "energyPlus": 0.097,
+      "retailGlobal": 0.199
+    }
   },
   {
     "date": "2024-01-11",
-    "fxRate": 1.0987,
+    "fx": {
+      "eur": 0.91017,
+      "jpy": 145.36,
+      "gbp": 0.78406
+    },
     "interestRate": 5,
-    "vix": 18.83,
-    "recessionProb": 12.53,
-    "sales": 216.62,
-    "shockProb": 0.172
+    "vix": 20.58,
+    "recessionProb": 11.64,
+    "sales": 208.36,
+    "shockProb": 0.198,
+    "companyProbs": {
+      "techCorp": 0.133,
+      "energyPlus": 0.148,
+      "retailGlobal": 0.165
+    }
   },
   {
     "date": "2024-01-12",
-    "fxRate": 1.0942,
+    "fx": {
+      "eur": 0.91391,
+      "jpy": 145.47,
+      "gbp": 0.78551
+    },
     "interestRate": 5,
-    "vix": 20.17,
-    "recessionProb": 14.61,
-    "sales": 205.1,
-    "shockProb": 0.225
+    "vix": 20.53,
+    "recessionProb": 13.58,
+    "sales": 212.35,
+    "shockProb": 0.224,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.133,
+      "retailGlobal": 0.181
+    }
   },
   {
     "date": "2024-01-15",
-    "fxRate": 1.0945,
+    "fx": {
+      "eur": 0.91366,
+      "jpy": 145.88,
+      "gbp": 0.78643
+    },
     "interestRate": 5,
-    "vix": 20.74,
-    "recessionProb": 15.61,
-    "sales": 198.04,
-    "shockProb": 0.259
+    "vix": 20.49,
+    "recessionProb": 13.66,
+    "sales": 202.39,
+    "shockProb": 0.232,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.172
+    }
   },
   {
     "date": "2024-01-16",
-    "fxRate": 1.0882,
+    "fx": {
+      "eur": 0.91895,
+      "jpy": 146.7,
+      "gbp": 0.79101
+    },
     "interestRate": 5,
-    "vix": 21.09,
-    "recessionProb": 14.13,
-    "sales": 199.5,
-    "shockProb": 0.25
+    "vix": 19.76,
+    "recessionProb": 14.11,
+    "sales": 215.86,
+    "shockProb": 0.218,
+    "companyProbs": {
+      "techCorp": 0.125,
+      "energyPlus": 0.113,
+      "retailGlobal": 0.179
+    }
   },
   {
     "date": "2024-01-17",
-    "fxRate": 1.0877,
+    "fx": {
+      "eur": 0.91937,
+      "jpy": 147.7,
+      "gbp": 0.78899
+    },
     "interestRate": 5,
-    "vix": 20.52,
-    "recessionProb": 13.21,
-    "sales": 209.14,
-    "shockProb": 0.198
+    "vix": 19.76,
+    "recessionProb": 13.28,
+    "sales": 214.87,
+    "shockProb": 0.192,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.14,
+      "retailGlobal": 0.16
+    }
   },
   {
     "date": "2024-01-18",
-    "fxRate": 1.0875,
+    "fx": {
+      "eur": 0.91954,
+      "jpy": 147.94,
+      "gbp": 0.78872
+    },
     "interestRate": 5,
-    "vix": 21.52,
-    "recessionProb": 13.49,
-    "sales": 202.01,
-    "shockProb": 0.248
+    "vix": 20.89,
+    "recessionProb": 14.56,
+    "sales": 200.49,
+    "shockProb": 0.253,
+    "companyProbs": {
+      "techCorp": 0.145,
+      "energyPlus": 0.224,
+      "retailGlobal": 0.204
+    }
   },
   {
     "date": "2024-01-19",
-    "fxRate": 1.0887,
+    "fx": {
+      "eur": 0.91853,
+      "jpy": 148.04,
+      "gbp": 0.78833
+    },
     "interestRate": 5,
-    "vix": 20.3,
-    "recessionProb": 14.03,
-    "sales": 212.85,
-    "shockProb": 0.208
+    "vix": 21.68,
+    "recessionProb": 12.66,
+    "sales": 210.61,
+    "shockProb": 0.219,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.172,
+      "retailGlobal": 0.167
+    }
   },
   {
     "date": "2024-01-22",
-    "fxRate": 1.089,
+    "fx": {
+      "eur": 0.91827,
+      "jpy": 147.8,
+      "gbp": 0.78581
+    },
     "interestRate": 5,
-    "vix": 20.55,
-    "recessionProb": 12.75,
-    "sales": 215.6,
-    "shockProb": 0.205
+    "vix": 20.92,
+    "recessionProb": 14.23,
+    "sales": 202.87,
+    "shockProb": 0.25,
+    "companyProbs": {
+      "techCorp": 0.149,
+      "energyPlus": 0.22,
+      "retailGlobal": 0.192
+    }
   },
   {
     "date": "2024-01-23",
-    "fxRate": 1.0872,
+    "fx": {
+      "eur": 0.91979,
+      "jpy": 147.98,
+      "gbp": 0.78636
+    },
     "interestRate": 5,
-    "vix": 20.28,
-    "recessionProb": 11.34,
-    "sales": 214.51,
-    "shockProb": 0.182
+    "vix": 20.66,
+    "recessionProb": 13.67,
+    "sales": 212.41,
+    "shockProb": 0.211,
+    "companyProbs": {
+      "techCorp": 0.138,
+      "energyPlus": 0.108,
+      "retailGlobal": 0.166
+    }
   },
   {
     "date": "2024-01-24",
-    "fxRate": 1.0905,
+    "fx": {
+      "eur": 0.91701,
+      "jpy": 147.14,
+      "gbp": 0.78444
+    },
     "interestRate": 5,
-    "vix": 21.71,
-    "recessionProb": 11.34,
-    "sales": 215.31,
-    "shockProb": 0.217
+    "vix": 20.74,
+    "recessionProb": 14,
+    "sales": 200.46,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.145,
+      "retailGlobal": 0.19
+    }
   },
   {
     "date": "2024-01-25",
-    "fxRate": 1.0893,
+    "fx": {
+      "eur": 0.91802,
+      "jpy": 147.63,
+      "gbp": 0.78526
+    },
     "interestRate": 5,
-    "vix": 21.36,
-    "recessionProb": 12.86,
-    "sales": 199.55,
-    "shockProb": 0.251
+    "vix": 21.44,
+    "recessionProb": 12.19,
+    "sales": 215.98,
+    "shockProb": 0.214,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.197,
+      "retailGlobal": 0.164
+    }
   },
   {
     "date": "2024-01-26",
-    "fxRate": 1.0871,
+    "fx": {
+      "eur": 0.91988,
+      "jpy": 147.75,
+      "gbp": 0.78528
+    },
     "interestRate": 5,
-    "vix": 20.12,
-    "recessionProb": 15.88,
-    "sales": 204.46,
-    "shockProb": 0.241
+    "vix": 20.14,
+    "recessionProb": 15.28,
+    "sales": 221.11,
+    "shockProb": 0.203,
+    "companyProbs": {
+      "techCorp": 0.152,
+      "energyPlus": 0.136,
+      "retailGlobal": 0.186
+    }
   },
   {
     "date": "2024-01-29",
-    "fxRate": 1.0823,
+    "fx": {
+      "eur": 0.92396,
+      "jpy": 147.95,
+      "gbp": 0.78767
+    },
     "interestRate": 5,
-    "vix": 20.46,
-    "recessionProb": 15.95,
-    "sales": 208.39,
-    "shockProb": 0.218
+    "vix": 20.03,
+    "recessionProb": 14.03,
+    "sales": 215.67,
+    "shockProb": 0.193,
+    "companyProbs": {
+      "techCorp": 0.152,
+      "energyPlus": 0.111,
+      "retailGlobal": 0.182
+    }
   },
   {
     "date": "2024-01-30",
-    "fxRate": 1.0846,
+    "fx": {
+      "eur": 0.922,
+      "jpy": 147.49,
+      "gbp": 0.78949
+    },
     "interestRate": 5,
-    "vix": 20.78,
-    "recessionProb": 11.91,
-    "sales": 209.62,
-    "shockProb": 0.197
+    "vix": 20.75,
+    "recessionProb": 11.71,
+    "sales": 208.77,
+    "shockProb": 0.225,
+    "companyProbs": {
+      "techCorp": 0.165,
+      "energyPlus": 0.115,
+      "retailGlobal": 0.146
+    }
   },
   {
     "date": "2024-01-31",
-    "fxRate": 1.0837,
+    "fx": {
+      "eur": 0.92276,
+      "jpy": 147.82,
+      "gbp": 0.78836
+    },
     "interestRate": 5.411,
-    "vix": 20.72,
-    "recessionProb": 13.87,
-    "sales": 210.29,
-    "shockProb": 0.222
+    "vix": 20.15,
+    "recessionProb": 15.89,
+    "sales": 203.59,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.155,
+      "retailGlobal": 0.195
+    }
   },
   {
     "date": "2024-02-01",
-    "fxRate": 1.0814,
+    "fx": {
+      "eur": 0.92473,
+      "jpy": 146.99,
+      "gbp": 0.78928
+    },
     "interestRate": 5.411,
-    "vix": 20.58,
-    "recessionProb": 16.15,
-    "sales": 216.84,
-    "shockProb": 0.226
+    "vix": 20.46,
+    "recessionProb": 16.42,
+    "sales": 218.06,
+    "shockProb": 0.221,
+    "companyProbs": {
+      "techCorp": 0.129,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.213
+    }
   },
   {
     "date": "2024-02-02",
-    "fxRate": 1.0883,
+    "fx": {
+      "eur": 0.91886,
+      "jpy": 146.63,
+      "gbp": 0.78345
+    },
     "interestRate": 5.411,
-    "vix": 18.73,
-    "recessionProb": 12.25,
-    "sales": 220.41,
-    "shockProb": 0.194
+    "vix": 20.07,
+    "recessionProb": 16.58,
+    "sales": 210.79,
+    "shockProb": 0.215,
+    "companyProbs": {
+      "techCorp": 0.162,
+      "energyPlus": 0.148,
+      "retailGlobal": 0.194
+    }
   },
   {
     "date": "2024-02-05",
-    "fxRate": 1.0746,
+    "fx": {
+      "eur": 0.93058,
+      "jpy": 148.63,
+      "gbp": 0.79653
+    },
     "interestRate": 5.411,
-    "vix": 19.51,
-    "recessionProb": 15.9,
-    "sales": 206.84,
-    "shockProb": 0.245
+    "vix": 18.45,
+    "recessionProb": 14.26,
+    "sales": 226.77,
+    "shockProb": 0.172,
+    "companyProbs": {
+      "techCorp": 0.111,
+      "energyPlus": 0.127,
+      "retailGlobal": 0.183
+    }
   },
   {
     "date": "2024-02-06",
-    "fxRate": 1.0743,
+    "fx": {
+      "eur": 0.93084,
+      "jpy": 148.52,
+      "gbp": 0.79549
+    },
     "interestRate": 5.411,
-    "vix": 19.15,
-    "recessionProb": 15.77,
-    "sales": 208.23,
-    "shockProb": 0.21
+    "vix": 19.53,
+    "recessionProb": 13.06,
+    "sales": 214.69,
+    "shockProb": 0.182,
+    "companyProbs": {
+      "techCorp": 0.111,
+      "energyPlus": 0.186,
+      "retailGlobal": 0.169
+    }
   },
   {
     "date": "2024-02-07",
-    "fxRate": 1.0776,
+    "fx": {
+      "eur": 0.92799,
+      "jpy": 148.21,
+      "gbp": 0.79162
+    },
     "interestRate": 5.411,
-    "vix": 17.32,
-    "recessionProb": 12.98,
-    "sales": 219.01,
-    "shockProb": 0.151
+    "vix": 18.66,
+    "recessionProb": 15.43,
+    "sales": 218.07,
+    "shockProb": 0.215,
+    "companyProbs": {
+      "techCorp": 0.141,
+      "energyPlus": 0.123,
+      "retailGlobal": 0.206
+    }
   },
   {
     "date": "2024-02-08",
-    "fxRate": 1.0758,
+    "fx": {
+      "eur": 0.92954,
+      "jpy": 149.24,
+      "gbp": 0.79362
+    },
     "interestRate": 5.411,
-    "vix": 17.16,
-    "recessionProb": 12.51,
-    "sales": 222.63,
-    "shockProb": 0.15
+    "vix": 18.36,
+    "recessionProb": 15.1,
+    "sales": 205.74,
+    "shockProb": 0.222,
+    "companyProbs": {
+      "techCorp": 0.161,
+      "energyPlus": 0.126,
+      "retailGlobal": 0.195
+    }
   },
   {
     "date": "2024-02-09",
-    "fxRate": 1.0772,
+    "fx": {
+      "eur": 0.92833,
+      "jpy": 149.46,
+      "gbp": 0.79317
+    },
     "interestRate": 5.411,
-    "vix": 16.81,
-    "recessionProb": 12.39,
-    "sales": 222.92,
-    "shockProb": 0.14
+    "vix": 16.99,
+    "recessionProb": 14.31,
+    "sales": 214.61,
+    "shockProb": 0.184,
+    "companyProbs": {
+      "techCorp": 0.139,
+      "energyPlus": 0.13,
+      "retailGlobal": 0.182
+    }
   },
   {
     "date": "2024-02-12",
-    "fxRate": 1.0773,
+    "fx": {
+      "eur": 0.92825,
+      "jpy": 148.99,
+      "gbp": 0.79264
+    },
     "interestRate": 5.411,
-    "vix": 15.93,
-    "recessionProb": 15.25,
-    "sales": 212.24,
-    "shockProb": 0.178
+    "vix": 16.55,
+    "recessionProb": 13.68,
+    "sales": 223.55,
+    "shockProb": 0.187,
+    "companyProbs": {
+      "techCorp": 0.134,
+      "energyPlus": 0.103,
+      "retailGlobal": 0.19
+    }
   },
   {
     "date": "2024-02-13",
-    "fxRate": 1.0793,
+    "fx": {
+      "eur": 0.92653,
+      "jpy": 149.33,
+      "gbp": 0.78846
+    },
     "interestRate": 5.411,
-    "vix": 16.36,
-    "recessionProb": 16.23,
-    "sales": 207.67,
-    "shockProb": 0.204
+    "vix": 16.34,
+    "recessionProb": 13.23,
+    "sales": 225.19,
+    "shockProb": 0.144,
+    "companyProbs": {
+      "techCorp": 0.1,
+      "energyPlus": 0.073,
+      "retailGlobal": 0.17
+    }
   },
   {
     "date": "2024-02-14",
-    "fxRate": 1.0713,
+    "fx": {
+      "eur": 0.93345,
+      "jpy": 150.55,
+      "gbp": 0.79584
+    },
     "interestRate": 5.411,
-    "vix": 16.07,
-    "recessionProb": 14.58,
-    "sales": 224.01,
-    "shockProb": 0.15
+    "vix": 15.48,
+    "recessionProb": 14.3,
+    "sales": 214.7,
+    "shockProb": 0.175,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.164,
+      "retailGlobal": 0.195
+    }
   },
   {
     "date": "2024-02-15",
-    "fxRate": 1.0743,
+    "fx": {
+      "eur": 0.93084,
+      "jpy": 150.11,
+      "gbp": 0.79712
+    },
     "interestRate": 5.411,
-    "vix": 15.22,
-    "recessionProb": 15.62,
-    "sales": 220.27,
-    "shockProb": 0.154
+    "vix": 14.49,
+    "recessionProb": 16.9,
+    "sales": 210.98,
+    "shockProb": 0.183,
+    "companyProbs": {
+      "techCorp": 0.121,
+      "energyPlus": 0.167,
+      "retailGlobal": 0.189
+    }
   },
   {
     "date": "2024-02-16",
-    "fxRate": 1.0768,
+    "fx": {
+      "eur": 0.92868,
+      "jpy": 150.33,
+      "gbp": 0.79499
+    },
     "interestRate": 5.411,
-    "vix": 14.15,
-    "recessionProb": 16.82,
-    "sales": 223.93,
-    "shockProb": 0.155
+    "vix": 14.3,
+    "recessionProb": 12.69,
+    "sales": 223.35,
+    "shockProb": 0.124,
+    "companyProbs": {
+      "techCorp": 0.093,
+      "energyPlus": 0.148,
+      "retailGlobal": 0.189
+    }
   },
   {
     "date": "2024-02-19",
-    "fxRate": 1.0776,
+    "fx": {
+      "eur": 0.92799,
+      "jpy": 149.95,
+      "gbp": 0.79295
+    },
     "interestRate": 5.411,
-    "vix": 14.46,
-    "recessionProb": 14,
-    "sales": 220.42,
-    "shockProb": 0.166
+    "vix": 14.23,
+    "recessionProb": 16.69,
+    "sales": 219.06,
+    "shockProb": 0.152,
+    "companyProbs": {
+      "techCorp": 0.105,
+      "energyPlus": 0.158,
+      "retailGlobal": 0.192
+    }
   },
   {
     "date": "2024-02-20",
-    "fxRate": 1.0802,
+    "fx": {
+      "eur": 0.92575,
+      "jpy": 150.14,
+      "gbp": 0.793
+    },
     "interestRate": 5.411,
-    "vix": 14.17,
-    "recessionProb": 15.84,
-    "sales": 224.39,
-    "shockProb": 0.151
+    "vix": 12.84,
+    "recessionProb": 16.76,
+    "sales": 216.76,
+    "shockProb": 0.15,
+    "companyProbs": {
+      "techCorp": 0.121,
+      "energyPlus": 0.121,
+      "retailGlobal": 0.183
+    }
   },
   {
     "date": "2024-02-21",
-    "fxRate": 1.0809,
+    "fx": {
+      "eur": 0.92515,
+      "jpy": 149.99,
+      "gbp": 0.79211
+    },
     "interestRate": 5.411,
-    "vix": 12.89,
-    "recessionProb": 13.68,
-    "sales": 226.08,
-    "shockProb": 0.134
+    "vix": 14.17,
+    "recessionProb": 14.05,
+    "sales": 230.27,
+    "shockProb": 0.114,
+    "companyProbs": {
+      "techCorp": 0.118,
+      "energyPlus": 0.149,
+      "retailGlobal": 0.187
+    }
   },
   {
     "date": "2024-02-22",
-    "fxRate": 1.0844,
+    "fx": {
+      "eur": 0.92217,
+      "jpy": 150.42,
+      "gbp": 0.78961
+    },
     "interestRate": 5.411,
-    "vix": 12.72,
-    "recessionProb": 16.36,
-    "sales": 232.34,
-    "shockProb": 0.131
+    "vix": 12.73,
+    "recessionProb": 16.57,
+    "sales": 230.47,
+    "shockProb": 0.149,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.11,
+      "retailGlobal": 0.223
+    }
   },
   {
     "date": "2024-02-23",
-    "fxRate": 1.0834,
+    "fx": {
+      "eur": 0.92302,
+      "jpy": 150.37,
+      "gbp": 0.78771
+    },
     "interestRate": 5.411,
-    "vix": 11.88,
-    "recessionProb": 16.61,
-    "sales": 231,
-    "shockProb": 0.117
+    "vix": 11.76,
+    "recessionProb": 13.1,
+    "sales": 228.85,
+    "shockProb": 0.086,
+    "companyProbs": {
+      "techCorp": 0.114,
+      "energyPlus": 0.051,
+      "retailGlobal": 0.171
+    }
   },
   {
     "date": "2024-02-26",
-    "fxRate": 1.0852,
+    "fx": {
+      "eur": 0.92149,
+      "jpy": 150.55,
+      "gbp": 0.78783
+    },
     "interestRate": 5.411,
-    "vix": 12.44,
-    "recessionProb": 13.8,
-    "sales": 227.42,
-    "shockProb": 0.138
+    "vix": 12.11,
+    "recessionProb": 14.91,
+    "sales": 225.05,
+    "shockProb": 0.104,
+    "companyProbs": {
+      "techCorp": 0.119,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.22
+    }
   },
   {
     "date": "2024-02-27",
-    "fxRate": 1.0856,
+    "fx": {
+      "eur": 0.92115,
+      "jpy": 150.18,
+      "gbp": 0.78869
+    },
     "interestRate": 5.411,
-    "vix": 12.67,
-    "recessionProb": 16.77,
-    "sales": 220.71,
-    "shockProb": 0.131
+    "vix": 12.29,
+    "recessionProb": 15.4,
+    "sales": 232.41,
+    "shockProb": 0.11,
+    "companyProbs": {
+      "techCorp": 0.105,
+      "energyPlus": 0.124,
+      "retailGlobal": 0.203
+    }
   },
   {
     "date": "2024-02-28",
-    "fxRate": 1.0808,
+    "fx": {
+      "eur": 0.92524,
+      "jpy": 150.69,
+      "gbp": 0.79152
+    },
     "interestRate": 5.411,
-    "vix": 12.25,
-    "recessionProb": 16.2,
-    "sales": 226.43,
-    "shockProb": 0.136
+    "vix": 10.89,
+    "recessionProb": 14.38,
+    "sales": 232.54,
+    "shockProb": 0.102,
+    "companyProbs": {
+      "techCorp": 0.093,
+      "energyPlus": 0.069,
+      "retailGlobal": 0.205
+    }
   },
   {
     "date": "2024-02-29",
-    "fxRate": 1.0826,
+    "fx": {
+      "eur": 0.9237,
+      "jpy": 150.13,
+      "gbp": 0.7912
+    },
     "interestRate": 5.384,
-    "vix": 11.74,
-    "recessionProb": 17.64,
-    "sales": 220.06,
-    "shockProb": 0.131
+    "vix": 10.83,
+    "recessionProb": 17.68,
+    "sales": 229.05,
+    "shockProb": 0.145,
+    "companyProbs": {
+      "techCorp": 0.125,
+      "energyPlus": 0.092,
+      "retailGlobal": 0.209
+    }
   },
   {
     "date": "2024-03-01",
-    "fxRate": 1.0813,
+    "fx": {
+      "eur": 0.92481,
+      "jpy": 150.58,
+      "gbp": 0.79153
+    },
     "interestRate": 5.384,
-    "vix": 11.12,
-    "recessionProb": 13.44,
-    "sales": 225.03,
-    "shockProb": 0.13
+    "vix": 10.26,
+    "recessionProb": 15.58,
+    "sales": 229.14,
+    "shockProb": 0.121,
+    "companyProbs": {
+      "techCorp": 0.096,
+      "energyPlus": 0.1,
+      "retailGlobal": 0.208
+    }
   },
   {
     "date": "2024-03-04",
-    "fxRate": 1.0846,
+    "fx": {
+      "eur": 0.922,
+      "jpy": 150.49,
+      "gbp": 0.78907
+    },
     "interestRate": 5.384,
-    "vix": 10.27,
-    "recessionProb": 14.1,
-    "sales": 234.21,
-    "shockProb": 0.131
+    "vix": 11.97,
+    "recessionProb": 16.91,
+    "sales": 231.49,
+    "shockProb": 0.113,
+    "companyProbs": {
+      "techCorp": 0.125,
+      "energyPlus": 0.125,
+      "retailGlobal": 0.231
+    }
   },
   {
     "date": "2024-03-05",
-    "fxRate": 1.0849,
+    "fx": {
+      "eur": 0.92174,
+      "jpy": 150.25,
+      "gbp": 0.78849
+    },
     "interestRate": 5.384,
-    "vix": 11.06,
-    "recessionProb": 18.35,
-    "sales": 224.56,
-    "shockProb": 0.155
+    "vix": 11.33,
+    "recessionProb": 15.04,
+    "sales": 238.92,
+    "shockProb": 0.091,
+    "companyProbs": {
+      "techCorp": 0.097,
+      "energyPlus": 0.063,
+      "retailGlobal": 0.215
+    }
   },
   {
     "date": "2024-03-06",
-    "fxRate": 1.0874,
+    "fx": {
+      "eur": 0.91962,
+      "jpy": 149.6,
+      "gbp": 0.78626
+    },
     "interestRate": 5.384,
-    "vix": 10.8,
-    "recessionProb": 16.27,
-    "sales": 225.39,
-    "shockProb": 0.128
+    "vix": 11.22,
+    "recessionProb": 16.9,
+    "sales": 233.23,
+    "shockProb": 0.107,
+    "companyProbs": {
+      "techCorp": 0.106,
+      "energyPlus": 0.12,
+      "retailGlobal": 0.228
+    }
   },
   {
     "date": "2024-03-07",
-    "fxRate": 1.0895,
+    "fx": {
+      "eur": 0.91785,
+      "jpy": 147.86,
+      "gbp": 0.78426
+    },
     "interestRate": 5.384,
-    "vix": 11.46,
-    "recessionProb": 14.43,
-    "sales": 229.42,
-    "shockProb": 0.101
+    "vix": 12.02,
+    "recessionProb": 16.94,
+    "sales": 234.44,
+    "shockProb": 0.124,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.139,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-03-08",
-    "fxRate": 1.0932,
+    "fx": {
+      "eur": 0.91475,
+      "jpy": 147.26,
+      "gbp": 0.77907
+    },
     "interestRate": 5.384,
-    "vix": 11.8,
-    "recessionProb": 16.47,
-    "sales": 226.06,
-    "shockProb": 0.147
+    "vix": 11.64,
+    "recessionProb": 14.72,
+    "sales": 219.19,
+    "shockProb": 0.135,
+    "companyProbs": {
+      "techCorp": 0.116,
+      "energyPlus": 0.143,
+      "retailGlobal": 0.208
+    }
   },
   {
     "date": "2024-03-11",
-    "fxRate": 1.0926,
+    "fx": {
+      "eur": 0.91525,
+      "jpy": 146.83,
+      "gbp": 0.77986
+    },
     "interestRate": 5.384,
-    "vix": 11.79,
-    "recessionProb": 16.58,
-    "sales": 229.11,
-    "shockProb": 0.123
+    "vix": 11.94,
+    "recessionProb": 17.03,
+    "sales": 232.42,
+    "shockProb": 0.11,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.074,
+      "retailGlobal": 0.209
+    }
   },
   {
     "date": "2024-03-12",
-    "fxRate": 1.0916,
+    "fx": {
+      "eur": 0.91609,
+      "jpy": 147.85,
+      "gbp": 0.78287
+    },
     "interestRate": 5.384,
-    "vix": 11.72,
-    "recessionProb": 16.91,
-    "sales": 230.63,
-    "shockProb": 0.147
+    "vix": 10.68,
+    "recessionProb": 15.32,
+    "sales": 236.32,
+    "shockProb": 0.114,
+    "companyProbs": {
+      "techCorp": 0.12,
+      "energyPlus": 0.111,
+      "retailGlobal": 0.202
+    }
   },
   {
     "date": "2024-03-13",
-    "fxRate": 1.0939,
+    "fx": {
+      "eur": 0.91416,
+      "jpy": 147.94,
+      "gbp": 0.78116
+    },
     "interestRate": 5.384,
-    "vix": 12.12,
-    "recessionProb": 15.73,
-    "sales": 221.32,
-    "shockProb": 0.143
+    "vix": 11.75,
+    "recessionProb": 16.91,
+    "sales": 225.71,
+    "shockProb": 0.119,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.089,
+      "retailGlobal": 0.219
+    }
   },
   {
     "date": "2024-03-14",
-    "fxRate": 1.0925,
+    "fx": {
+      "eur": 0.91533,
+      "jpy": 148.01,
+      "gbp": 0.78188
+    },
     "interestRate": 5.384,
-    "vix": 12.52,
-    "recessionProb": 14.52,
-    "sales": 227.49,
-    "shockProb": 0.137
+    "vix": 12.73,
+    "recessionProb": 17.83,
+    "sales": 228.32,
+    "shockProb": 0.136,
+    "companyProbs": {
+      "techCorp": 0.124,
+      "energyPlus": 0.114,
+      "retailGlobal": 0.228
+    }
   },
   {
     "date": "2024-03-15",
-    "fxRate": 1.0892,
+    "fx": {
+      "eur": 0.91811,
+      "jpy": 148.76,
+      "gbp": 0.78415
+    },
     "interestRate": 5.384,
-    "vix": 11.36,
-    "recessionProb": 18.93,
-    "sales": 216.23,
-    "shockProb": 0.162
+    "vix": 11.23,
+    "recessionProb": 15.28,
+    "sales": 233.15,
+    "shockProb": 0.139,
+    "companyProbs": {
+      "techCorp": 0.096,
+      "energyPlus": 0.162,
+      "retailGlobal": 0.203
+    }
   },
   {
     "date": "2024-03-18",
-    "fxRate": 1.0892,
+    "fx": {
+      "eur": 0.91811,
+      "jpy": 149.2,
+      "gbp": 0.78521
+    },
     "interestRate": 5.384,
-    "vix": 11.68,
-    "recessionProb": 17.54,
-    "sales": 231.98,
-    "shockProb": 0.136
+    "vix": 13,
+    "recessionProb": 17.15,
+    "sales": 224.3,
+    "shockProb": 0.141,
+    "companyProbs": {
+      "techCorp": 0.141,
+      "energyPlus": 0.086,
+      "retailGlobal": 0.218
+    }
   },
   {
     "date": "2024-03-19",
-    "fxRate": 1.0854,
+    "fx": {
+      "eur": 0.92132,
+      "jpy": 150.52,
+      "gbp": 0.78722
+    },
     "interestRate": 5.384,
-    "vix": 13.27,
-    "recessionProb": 15.87,
-    "sales": 228.07,
-    "shockProb": 0.114
+    "vix": 13.18,
+    "recessionProb": 15.73,
+    "sales": 224.51,
+    "shockProb": 0.121,
+    "companyProbs": {
+      "techCorp": 0.1,
+      "energyPlus": 0.083,
+      "retailGlobal": 0.223
+    }
   },
   {
     "date": "2024-03-20",
-    "fxRate": 1.0844,
+    "fx": {
+      "eur": 0.92217,
+      "jpy": 151.73,
+      "gbp": 0.78788
+    },
     "interestRate": 5.384,
-    "vix": 12.33,
-    "recessionProb": 18.86,
-    "sales": 222.81,
-    "shockProb": 0.166
+    "vix": 12.62,
+    "recessionProb": 18.97,
+    "sales": 224.25,
+    "shockProb": 0.161,
+    "companyProbs": {
+      "techCorp": 0.116,
+      "energyPlus": 0.152,
+      "retailGlobal": 0.21
+    }
   },
   {
     "date": "2024-03-21",
-    "fxRate": 1.0907,
+    "fx": {
+      "eur": 0.91684,
+      "jpy": 151.24,
+      "gbp": 0.78553
+    },
     "interestRate": 5.384,
     "vix": 14.38,
-    "recessionProb": 17.75,
-    "sales": 226.44,
-    "shockProb": 0.153
+    "recessionProb": 14.6,
+    "sales": 216.2,
+    "shockProb": 0.159,
+    "companyProbs": {
+      "techCorp": 0.107,
+      "energyPlus": 0.114,
+      "retailGlobal": 0.19
+    }
   },
   {
     "date": "2024-03-22",
-    "fxRate": 1.0823,
+    "fx": {
+      "eur": 0.92396,
+      "jpy": 151.29,
+      "gbp": 0.79271
+    },
     "interestRate": 5.384,
-    "vix": 13.82,
-    "recessionProb": 18.93,
-    "sales": 223.79,
-    "shockProb": 0.175
+    "vix": 14.29,
+    "recessionProb": 18.22,
+    "sales": 214.87,
+    "shockProb": 0.172,
+    "companyProbs": {
+      "techCorp": 0.14,
+      "energyPlus": 0.157,
+      "retailGlobal": 0.214
+    }
   },
   {
     "date": "2024-03-25",
-    "fxRate": 1.0835,
+    "fx": {
+      "eur": 0.92293,
+      "jpy": 151.16,
+      "gbp": 0.79094
+    },
     "interestRate": 5.384,
-    "vix": 13.7,
-    "recessionProb": 19.33,
-    "sales": 220.12,
-    "shockProb": 0.14
+    "vix": 13.72,
+    "recessionProb": 14.84,
+    "sales": 219.77,
+    "shockProb": 0.157,
+    "companyProbs": {
+      "techCorp": 0.137,
+      "energyPlus": 0.177,
+      "retailGlobal": 0.214
+    }
   },
   {
     "date": "2024-03-26",
-    "fxRate": 1.0855,
+    "fx": {
+      "eur": 0.92123,
+      "jpy": 151.45,
+      "gbp": 0.79084
+    },
     "interestRate": 5.384,
-    "vix": 14.74,
-    "recessionProb": 18.26,
-    "sales": 221.83,
-    "shockProb": 0.147
+    "vix": 15.88,
+    "recessionProb": 16.57,
+    "sales": 214.68,
+    "shockProb": 0.2,
+    "companyProbs": {
+      "techCorp": 0.158,
+      "energyPlus": 0.147,
+      "retailGlobal": 0.197
+    }
   },
   {
     "date": "2024-03-27",
-    "fxRate": 1.0816,
+    "fx": {
+      "eur": 0.92456,
+      "jpy": 151.18,
+      "gbp": 0.79297
+    },
     "interestRate": 5.384,
-    "vix": 14.72,
-    "recessionProb": 17.23,
-    "sales": 230.16,
-    "shockProb": 0.146
+    "vix": 14.75,
+    "recessionProb": 19.38,
+    "sales": 225.1,
+    "shockProb": 0.183,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.116,
+      "retailGlobal": 0.209
+    }
   },
   {
     "date": "2024-03-28",
-    "fxRate": 1.0811,
+    "fx": {
+      "eur": 0.92498,
+      "jpy": 151.19,
+      "gbp": 0.79095
+    },
     "interestRate": 5.384,
-    "vix": 15.49,
-    "recessionProb": 19.73,
-    "sales": 211.85,
-    "shockProb": 0.186
+    "vix": 16.09,
+    "recessionProb": 16.2,
+    "sales": 221.36,
+    "shockProb": 0.19,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.12,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-04-02",
-    "fxRate": 1.0749,
+    "fx": {
+      "eur": 0.93032,
+      "jpy": 151.65,
+      "gbp": 0.79552
+    },
     "interestRate": 5.384,
-    "vix": 16.75,
-    "recessionProb": 17.94,
-    "sales": 216.69,
-    "shockProb": 0.18
+    "vix": 16.1,
+    "recessionProb": 17.96,
+    "sales": 214.18,
+    "shockProb": 0.191,
+    "companyProbs": {
+      "techCorp": 0.128,
+      "energyPlus": 0.13,
+      "retailGlobal": 0.192
+    }
   },
   {
     "date": "2024-04-03",
-    "fxRate": 1.0783,
+    "fx": {
+      "eur": 0.92739,
+      "jpy": 151.78,
+      "gbp": 0.79489
+    },
     "interestRate": 5.384,
-    "vix": 17.02,
-    "recessionProb": 18.15,
-    "sales": 211.4,
-    "shockProb": 0.198
+    "vix": 16.44,
+    "recessionProb": 18.97,
+    "sales": 211.03,
+    "shockProb": 0.182,
+    "companyProbs": {
+      "techCorp": 0.142,
+      "energyPlus": 0.143,
+      "retailGlobal": 0.234
+    }
   },
   {
     "date": "2024-04-04",
-    "fxRate": 1.0852,
+    "fx": {
+      "eur": 0.92149,
+      "jpy": 151.76,
+      "gbp": 0.79053
+    },
     "interestRate": 5.384,
-    "vix": 17.38,
-    "recessionProb": 19.54,
-    "sales": 214.83,
-    "shockProb": 0.217
+    "vix": 16.72,
+    "recessionProb": 16.59,
+    "sales": 213.5,
+    "shockProb": 0.169,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.093,
+      "retailGlobal": 0.193
+    }
   },
   {
     "date": "2024-04-05",
-    "fxRate": 1.0841,
+    "fx": {
+      "eur": 0.92242,
+      "jpy": 151.37,
+      "gbp": 0.79119
+    },
     "interestRate": 5.384,
-    "vix": 18.66,
-    "recessionProb": 19.85,
-    "sales": 205.79,
-    "shockProb": 0.214
+    "vix": 17.16,
+    "recessionProb": 19.86,
+    "sales": 209.77,
+    "shockProb": 0.232,
+    "companyProbs": {
+      "techCorp": 0.133,
+      "energyPlus": 0.124,
+      "retailGlobal": 0.222
+    }
   },
   {
     "date": "2024-04-08",
-    "fxRate": 1.0823,
+    "fx": {
+      "eur": 0.92396,
+      "jpy": 151.93,
+      "gbp": 0.79271
+    },
     "interestRate": 5.384,
-    "vix": 19.34,
-    "recessionProb": 20.14,
-    "sales": 215.07,
-    "shockProb": 0.228
+    "vix": 18.35,
+    "recessionProb": 16.54,
+    "sales": 210.18,
+    "shockProb": 0.208,
+    "companyProbs": {
+      "techCorp": 0.16,
+      "energyPlus": 0.174,
+      "retailGlobal": 0.187
+    }
   },
   {
     "date": "2024-04-09",
-    "fxRate": 1.0867,
+    "fx": {
+      "eur": 0.92022,
+      "jpy": 151.81,
+      "gbp": 0.78829
+    },
     "interestRate": 5.384,
-    "vix": 18.58,
-    "recessionProb": 18.32,
-    "sales": 211.37,
-    "shockProb": 0.246
+    "vix": 19.62,
+    "recessionProb": 16.5,
+    "sales": 201.83,
+    "shockProb": 0.24,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.168,
+      "retailGlobal": 0.203
+    }
   },
   {
     "date": "2024-04-10",
-    "fxRate": 1.086,
+    "fx": {
+      "eur": 0.92081,
+      "jpy": 151.83,
+      "gbp": 0.78743
+    },
     "interestRate": 5.384,
-    "vix": 18.29,
-    "recessionProb": 17.43,
-    "sales": 211.18,
-    "shockProb": 0.201
+    "vix": 20.27,
+    "recessionProb": 16.39,
+    "sales": 213.29,
+    "shockProb": 0.216,
+    "companyProbs": {
+      "techCorp": 0.167,
+      "energyPlus": 0.123,
+      "retailGlobal": 0.197
+    }
   },
   {
     "date": "2024-04-11",
-    "fxRate": 1.0729,
+    "fx": {
+      "eur": 0.93205,
+      "jpy": 153.02,
+      "gbp": 0.79714
+    },
     "interestRate": 5.384,
-    "vix": 18.78,
-    "recessionProb": 16.31,
-    "sales": 208.53,
-    "shockProb": 0.201
+    "vix": 19.15,
+    "recessionProb": 20.32,
+    "sales": 205.13,
+    "shockProb": 0.251,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.218,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-04-12",
-    "fxRate": 1.0652,
+    "fx": {
+      "eur": 0.93879,
+      "jpy": 153.17,
+      "gbp": 0.80195
+    },
     "interestRate": 5.384,
-    "vix": 20.13,
-    "recessionProb": 18.83,
-    "sales": 209.84,
-    "shockProb": 0.243
+    "vix": 20.94,
+    "recessionProb": 16.02,
+    "sales": 208.06,
+    "shockProb": 0.234,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.189,
+      "retailGlobal": 0.214
+    }
   },
   {
     "date": "2024-04-15",
-    "fxRate": 1.0656,
+    "fx": {
+      "eur": 0.93844,
+      "jpy": 153.95,
+      "gbp": 0.80147
+    },
     "interestRate": 5.384,
-    "vix": 19.65,
+    "vix": 19.55,
     "recessionProb": 17.15,
-    "sales": 212.76,
-    "shockProb": 0.219
+    "sales": 210.79,
+    "shockProb": 0.243,
+    "companyProbs": {
+      "techCorp": 0.157,
+      "energyPlus": 0.161,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-04-16",
-    "fxRate": 1.0637,
+    "fx": {
+      "eur": 0.94011,
+      "jpy": 154.69,
+      "gbp": 0.80323
+    },
     "interestRate": 5.384,
-    "vix": 21.29,
-    "recessionProb": 17.73,
-    "sales": 202.87,
-    "shockProb": 0.234
+    "vix": 20.75,
+    "recessionProb": 17.94,
+    "sales": 204.77,
+    "shockProb": 0.235,
+    "companyProbs": {
+      "techCorp": 0.149,
+      "energyPlus": 0.203,
+      "retailGlobal": 0.221
+    }
   },
   {
     "date": "2024-04-17",
-    "fxRate": 1.0638,
+    "fx": {
+      "eur": 0.94003,
+      "jpy": 154.67,
+      "gbp": 0.80278
+    },
     "interestRate": 5.384,
-    "vix": 21.57,
-    "recessionProb": 15.87,
-    "sales": 209.71,
-    "shockProb": 0.229
+    "vix": 20.85,
+    "recessionProb": 16.8,
+    "sales": 204.93,
+    "shockProb": 0.221,
+    "companyProbs": {
+      "techCorp": 0.154,
+      "energyPlus": 0.131,
+      "retailGlobal": 0.213
+    }
   },
   {
     "date": "2024-04-18",
-    "fxRate": 1.0679,
+    "fx": {
+      "eur": 0.93642,
+      "jpy": 154.34,
+      "gbp": 0.80184
+    },
     "interestRate": 5.384,
-    "vix": 21.02,
-    "recessionProb": 20.81,
-    "sales": 206.59,
-    "shockProb": 0.289
+    "vix": 21.33,
+    "recessionProb": 18.29,
+    "sales": 211.04,
+    "shockProb": 0.258,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.186,
+      "retailGlobal": 0.207
+    }
   },
   {
     "date": "2024-04-19",
-    "fxRate": 1.0653,
+    "fx": {
+      "eur": 0.9387,
+      "jpy": 154.59,
+      "gbp": 0.80372
+    },
     "interestRate": 5.384,
-    "vix": 21.6,
-    "recessionProb": 17.27,
-    "sales": 210.11,
-    "shockProb": 0.25
+    "vix": 21.26,
+    "recessionProb": 18.91,
+    "sales": 201.26,
+    "shockProb": 0.271,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.192,
+      "retailGlobal": 0.226
+    }
   },
   {
     "date": "2024-04-22",
-    "fxRate": 1.0632,
+    "fx": {
+      "eur": 0.94056,
+      "jpy": 154.73,
+      "gbp": 0.81196
+    },
     "interestRate": 5.384,
-    "vix": 20.16,
-    "recessionProb": 20.67,
-    "sales": 201.96,
-    "shockProb": 0.245
+    "vix": 21.91,
+    "recessionProb": 18.76,
+    "sales": 200.09,
+    "shockProb": 0.274,
+    "companyProbs": {
+      "techCorp": 0.18,
+      "energyPlus": 0.139,
+      "retailGlobal": 0.221
+    }
   },
   {
     "date": "2024-04-23",
-    "fxRate": 1.0674,
+    "fx": {
+      "eur": 0.93686,
+      "jpy": 154.8,
+      "gbp": 0.80616
+    },
     "interestRate": 5.384,
-    "vix": 21.65,
-    "recessionProb": 20.72,
-    "sales": 196.65,
-    "shockProb": 0.274
+    "vix": 20.74,
+    "recessionProb": 16.22,
+    "sales": 207.04,
+    "shockProb": 0.241,
+    "companyProbs": {
+      "techCorp": 0.166,
+      "energyPlus": 0.215,
+      "retailGlobal": 0.219
+    }
   },
   {
     "date": "2024-04-24",
-    "fxRate": 1.0686,
+    "fx": {
+      "eur": 0.9358,
+      "jpy": 154.94,
+      "gbp": 0.80428
+    },
     "interestRate": 5.384,
-    "vix": 21.67,
-    "recessionProb": 17.62,
-    "sales": 197.95,
-    "shockProb": 0.266
+    "vix": 19.95,
+    "recessionProb": 16.51,
+    "sales": 213.28,
+    "shockProb": 0.227,
+    "companyProbs": {
+      "techCorp": 0.131,
+      "energyPlus": 0.135,
+      "retailGlobal": 0.225
+    }
   },
   {
     "date": "2024-04-25",
-    "fxRate": 1.072,
+    "fx": {
+      "eur": 0.93284,
+      "jpy": 155.56,
+      "gbp": 0.79921
+    },
     "interestRate": 5.384,
-    "vix": 21.74,
-    "recessionProb": 19.67,
-    "sales": 200.04,
-    "shockProb": 0.275
+    "vix": 20.12,
+    "recessionProb": 21.03,
+    "sales": 205.18,
+    "shockProb": 0.252,
+    "companyProbs": {
+      "techCorp": 0.131,
+      "energyPlus": 0.158,
+      "retailGlobal": 0.25
+    }
   },
   {
     "date": "2024-04-26",
-    "fxRate": 1.0714,
+    "fx": {
+      "eur": 0.93336,
+      "jpy": 156.83,
+      "gbp": 0.79936
+    },
     "interestRate": 5.384,
-    "vix": 21.42,
-    "recessionProb": 16.46,
-    "sales": 196.55,
-    "shockProb": 0.274
+    "vix": 21.22,
+    "recessionProb": 20.87,
+    "sales": 195.45,
+    "shockProb": 0.282,
+    "companyProbs": {
+      "techCorp": 0.159,
+      "energyPlus": 0.19,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-04-29",
-    "fxRate": 1.072,
+    "fx": {
+      "eur": 0.93284,
+      "jpy": 156.28,
+      "gbp": 0.79751
+    },
     "interestRate": 5.384,
-    "vix": 20.91,
-    "recessionProb": 18.14,
-    "sales": 206.69,
-    "shockProb": 0.266
+    "vix": 20.59,
+    "recessionProb": 17.87,
+    "sales": 204.33,
+    "shockProb": 0.264,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.148,
+      "retailGlobal": 0.231
+    }
   },
   {
     "date": "2024-04-30",
-    "fxRate": 1.0718,
+    "fx": {
+      "eur": 0.93301,
+      "jpy": 157,
+      "gbp": 0.79752
+    },
     "interestRate": 5.357,
-    "vix": 21.17,
-    "recessionProb": 19.26,
-    "sales": 203.92,
-    "shockProb": 0.258
+    "vix": 19.91,
+    "recessionProb": 17.45,
+    "sales": 210.76,
+    "shockProb": 0.229,
+    "companyProbs": {
+      "techCorp": 0.127,
+      "energyPlus": 0.137,
+      "retailGlobal": 0.218
+    }
   },
   {
     "date": "2024-05-02",
-    "fxRate": 1.0698,
+    "fx": {
+      "eur": 0.93475,
+      "jpy": 154.82,
+      "gbp": 0.79957
+    },
     "interestRate": 5.357,
-    "vix": 19.31,
-    "recessionProb": 18.94,
-    "sales": 214.82,
-    "shockProb": 0.216
+    "vix": 20.97,
+    "recessionProb": 18.2,
+    "sales": 205.37,
+    "shockProb": 0.229,
+    "companyProbs": {
+      "techCorp": 0.166,
+      "energyPlus": 0.121,
+      "retailGlobal": 0.234
+    }
   },
   {
     "date": "2024-05-03",
-    "fxRate": 1.0744,
+    "fx": {
+      "eur": 0.93075,
+      "jpy": 153.22,
+      "gbp": 0.79647
+    },
     "interestRate": 5.357,
-    "vix": 19.33,
-    "recessionProb": 21.23,
-    "sales": 204.05,
-    "shockProb": 0.244
+    "vix": 18.91,
+    "recessionProb": 19.92,
+    "sales": 201.93,
+    "shockProb": 0.236,
+    "companyProbs": {
+      "techCorp": 0.129,
+      "energyPlus": 0.151,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-05-06",
-    "fxRate": 1.0776,
+    "fx": {
+      "eur": 0.92799,
+      "jpy": 153.77,
+      "gbp": 0.79491
+    },
     "interestRate": 5.357,
-    "vix": 19.83,
-    "recessionProb": 18.83,
-    "sales": 202.6,
-    "shockProb": 0.254
+    "vix": 18.89,
+    "recessionProb": 18.65,
+    "sales": 217.33,
+    "shockProb": 0.206,
+    "companyProbs": {
+      "techCorp": 0.117,
+      "energyPlus": 0.108,
+      "retailGlobal": 0.213
+    }
   },
   {
     "date": "2024-05-07",
-    "fxRate": 1.0766,
+    "fx": {
+      "eur": 0.92885,
+      "jpy": 154.61,
+      "gbp": 0.797
+    },
     "interestRate": 5.357,
-    "vix": 18.58,
-    "recessionProb": 19.28,
-    "sales": 205.81,
-    "shockProb": 0.246
+    "vix": 19.46,
+    "recessionProb": 17.71,
+    "sales": 215.87,
+    "shockProb": 0.219,
+    "companyProbs": {
+      "techCorp": 0.133,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.223
+    }
   },
   {
     "date": "2024-05-08",
-    "fxRate": 1.0743,
+    "fx": {
+      "eur": 0.93084,
+      "jpy": 155.59,
+      "gbp": 0.80129
+    },
     "interestRate": 5.357,
-    "vix": 18.52,
-    "recessionProb": 20.21,
-    "sales": 205.34,
-    "shockProb": 0.22
+    "vix": 18,
+    "recessionProb": 17.31,
+    "sales": 211.97,
+    "shockProb": 0.191,
+    "companyProbs": {
+      "techCorp": 0.134,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-05-09",
-    "fxRate": 1.0732,
+    "fx": {
+      "eur": 0.93179,
+      "jpy": 155.91,
+      "gbp": 0.8013
+    },
     "interestRate": 5.357,
-    "vix": 17.36,
-    "recessionProb": 21.93,
-    "sales": 207.39,
-    "shockProb": 0.226
+    "vix": 18.32,
+    "recessionProb": 17.59,
+    "sales": 209.74,
+    "shockProb": 0.212,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.169,
+      "retailGlobal": 0.196
+    }
   },
   {
     "date": "2024-05-10",
-    "fxRate": 1.0779,
+    "fx": {
+      "eur": 0.92773,
+      "jpy": 155.74,
+      "gbp": 0.79836
+    },
     "interestRate": 5.357,
-    "vix": 17.67,
-    "recessionProb": 18.56,
-    "sales": 214.78,
-    "shockProb": 0.198
+    "vix": 18.36,
+    "recessionProb": 20.82,
+    "sales": 211.74,
+    "shockProb": 0.244,
+    "companyProbs": {
+      "techCorp": 0.142,
+      "energyPlus": 0.195,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-05-13",
-    "fxRate": 1.0795,
+    "fx": {
+      "eur": 0.92635,
+      "jpy": 155.86,
+      "gbp": 0.79688
+    },
     "interestRate": 5.357,
-    "vix": 17.19,
-    "recessionProb": 19.37,
-    "sales": 219.64,
-    "shockProb": 0.2
+    "vix": 17.12,
+    "recessionProb": 17.5,
+    "sales": 208.15,
+    "shockProb": 0.202,
+    "companyProbs": {
+      "techCorp": 0.125,
+      "energyPlus": 0.104,
+      "retailGlobal": 0.219
+    }
   },
   {
     "date": "2024-05-14",
-    "fxRate": 1.0796,
+    "fx": {
+      "eur": 0.92627,
+      "jpy": 156.44,
+      "gbp": 0.79643
+    },
     "interestRate": 5.357,
-    "vix": 15.68,
-    "recessionProb": 18.47,
-    "sales": 218.12,
-    "shockProb": 0.2
+    "vix": 16.44,
+    "recessionProb": 20.84,
+    "sales": 223.6,
+    "shockProb": 0.189,
+    "companyProbs": {
+      "techCorp": 0.124,
+      "energyPlus": 0.1,
+      "retailGlobal": 0.246
+    }
   },
   {
     "date": "2024-05-15",
-    "fxRate": 1.0832,
+    "fx": {
+      "eur": 0.92319,
+      "jpy": 155.49,
+      "gbp": 0.79247
+    },
     "interestRate": 5.357,
-    "vix": 16.73,
-    "recessionProb": 17.99,
-    "sales": 226.61,
-    "shockProb": 0.172
+    "vix": 17.04,
+    "recessionProb": 20.1,
+    "sales": 209.86,
+    "shockProb": 0.212,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.153,
+      "retailGlobal": 0.218
+    }
   },
   {
     "date": "2024-05-16",
-    "fxRate": 1.0866,
+    "fx": {
+      "eur": 0.9203,
+      "jpy": 154.91,
+      "gbp": 0.79008
+    },
     "interestRate": 5.357,
-    "vix": 15.81,
-    "recessionProb": 22.17,
-    "sales": 211.89,
-    "shockProb": 0.217
+    "vix": 14.89,
+    "recessionProb": 22.21,
+    "sales": 209.62,
+    "shockProb": 0.221,
+    "companyProbs": {
+      "techCorp": 0.166,
+      "energyPlus": 0.126,
+      "retailGlobal": 0.237
+    }
   },
   {
     "date": "2024-05-17",
-    "fxRate": 1.0844,
+    "fx": {
+      "eur": 0.92217,
+      "jpy": 155.81,
+      "gbp": 0.79016
+    },
     "interestRate": 5.357,
-    "vix": 15.82,
-    "recessionProb": 20.75,
-    "sales": 210.22,
-    "shockProb": 0.194
+    "vix": 15.16,
+    "recessionProb": 20.14,
+    "sales": 213.82,
+    "shockProb": 0.168,
+    "companyProbs": {
+      "techCorp": 0.142,
+      "energyPlus": 0.138,
+      "retailGlobal": 0.216
+    }
   },
   {
     "date": "2024-05-20",
-    "fxRate": 1.0861,
+    "fx": {
+      "eur": 0.92073,
+      "jpy": 155.83,
+      "gbp": 0.78766
+    },
     "interestRate": 5.357,
-    "vix": 14.33,
-    "recessionProb": 20.69,
-    "sales": 226.89,
-    "shockProb": 0.163
+    "vix": 14.35,
+    "recessionProb": 22.24,
+    "sales": 222.52,
+    "shockProb": 0.17,
+    "companyProbs": {
+      "techCorp": 0.114,
+      "energyPlus": 0.175,
+      "retailGlobal": 0.229
+    }
   },
   {
     "date": "2024-05-21",
-    "fxRate": 1.0864,
+    "fx": {
+      "eur": 0.92047,
+      "jpy": 156.35,
+      "gbp": 0.78645
+    },
     "interestRate": 5.357,
-    "vix": 14.25,
-    "recessionProb": 18.48,
-    "sales": 223.23,
-    "shockProb": 0.189
+    "vix": 13.53,
+    "recessionProb": 21.4,
+    "sales": 219.24,
+    "shockProb": 0.175,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.093,
+      "retailGlobal": 0.251
+    }
   },
   {
     "date": "2024-05-22",
-    "fxRate": 1.083,
+    "fx": {
+      "eur": 0.92336,
+      "jpy": 156.55,
+      "gbp": 0.78638
+    },
     "interestRate": 5.357,
-    "vix": 13.56,
-    "recessionProb": 21.09,
-    "sales": 226.02,
-    "shockProb": 0.148
+    "vix": 13.29,
+    "recessionProb": 22.37,
+    "sales": 221.28,
+    "shockProb": 0.175,
+    "companyProbs": {
+      "techCorp": 0.106,
+      "energyPlus": 0.161,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-05-23",
-    "fxRate": 1.0854,
+    "fx": {
+      "eur": 0.92132,
+      "jpy": 156.53,
+      "gbp": 0.78473
+    },
     "interestRate": 5.357,
-    "vix": 12.85,
-    "recessionProb": 21.67,
-    "sales": 226.69,
-    "shockProb": 0.152
+    "vix": 12.31,
+    "recessionProb": 18.88,
+    "sales": 223.14,
+    "shockProb": 0.129,
+    "companyProbs": {
+      "techCorp": 0.134,
+      "energyPlus": 0.076,
+      "retailGlobal": 0.239
+    }
   },
   {
     "date": "2024-05-24",
-    "fxRate": 1.084,
+    "fx": {
+      "eur": 0.92251,
+      "jpy": 157.08,
+      "gbp": 0.78636
+    },
     "interestRate": 5.357,
-    "vix": 13.12,
-    "recessionProb": 21.54,
-    "sales": 224.84,
-    "shockProb": 0.184
+    "vix": 12.09,
+    "recessionProb": 19.1,
+    "sales": 226.57,
+    "shockProb": 0.144,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.089,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-05-27",
-    "fxRate": 1.0843,
+    "fx": {
+      "eur": 0.92225,
+      "jpy": 156.85,
+      "gbp": 0.78456
+    },
     "interestRate": 5.357,
-    "vix": 12.47,
-    "recessionProb": 18.13,
-    "sales": 228.7,
-    "shockProb": 0.139
+    "vix": 11.89,
+    "recessionProb": 21.6,
+    "sales": 212.78,
+    "shockProb": 0.174,
+    "companyProbs": {
+      "techCorp": 0.127,
+      "energyPlus": 0.139,
+      "retailGlobal": 0.238
+    }
   },
   {
     "date": "2024-05-28",
-    "fxRate": 1.0882,
+    "fx": {
+      "eur": 0.91895,
+      "jpy": 156.72,
+      "gbp": 0.78184
+    },
     "interestRate": 5.357,
-    "vix": 13.03,
-    "recessionProb": 20.4,
-    "sales": 211.56,
-    "shockProb": 0.183
+    "vix": 12.64,
+    "recessionProb": 20.36,
+    "sales": 225.55,
+    "shockProb": 0.156,
+    "companyProbs": {
+      "techCorp": 0.112,
+      "energyPlus": 0.152,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-05-29",
-    "fxRate": 1.0857,
+    "fx": {
+      "eur": 0.92106,
+      "jpy": 157.26,
+      "gbp": 0.7841
+    },
     "interestRate": 5.357,
-    "vix": 11.39,
-    "recessionProb": 20.69,
-    "sales": 230.39,
-    "shockProb": 0.132
+    "vix": 11.93,
+    "recessionProb": 22.58,
+    "sales": 230.51,
+    "shockProb": 0.151,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.11,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-05-30",
-    "fxRate": 1.0815,
+    "fx": {
+      "eur": 0.92464,
+      "jpy": 156.73,
+      "gbp": 0.78692
+    },
     "interestRate": 5.357,
-    "vix": 10.88,
-    "recessionProb": 21.28,
-    "sales": 214.46,
-    "shockProb": 0.174
+    "vix": 10.78,
+    "recessionProb": 21.63,
+    "sales": 217.99,
+    "shockProb": 0.178,
+    "companyProbs": {
+      "techCorp": 0.114,
+      "energyPlus": 0.1,
+      "retailGlobal": 0.217
+    }
   },
   {
     "date": "2024-05-31",
-    "fxRate": 1.0852,
+    "fx": {
+      "eur": 0.92149,
+      "jpy": 157.13,
+      "gbp": 0.78663
+    },
     "interestRate": 5.352,
-    "vix": 10.91,
-    "recessionProb": 21.77,
-    "sales": 221.68,
-    "shockProb": 0.173
+    "vix": 11.08,
+    "recessionProb": 22.85,
+    "sales": 222.13,
+    "shockProb": 0.179,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.161,
+      "retailGlobal": 0.225
+    }
   },
   {
     "date": "2024-06-03",
-    "fxRate": 1.0842,
+    "fx": {
+      "eur": 0.92234,
+      "jpy": 156.88,
+      "gbp": 0.7856
+    },
     "interestRate": 5.352,
-    "vix": 12.11,
-    "recessionProb": 21.68,
-    "sales": 214.99,
-    "shockProb": 0.161
+    "vix": 11.01,
+    "recessionProb": 23.19,
+    "sales": 218.96,
+    "shockProb": 0.166,
+    "companyProbs": {
+      "techCorp": 0.118,
+      "energyPlus": 0.122,
+      "retailGlobal": 0.25
+    }
   },
   {
     "date": "2024-06-04",
-    "fxRate": 1.0865,
+    "fx": {
+      "eur": 0.92039,
+      "jpy": 154.89,
+      "gbp": 0.78364
+    },
     "interestRate": 5.352,
-    "vix": 11.2,
-    "recessionProb": 18.55,
-    "sales": 219.07,
-    "shockProb": 0.137
+    "vix": 10.78,
+    "recessionProb": 19.49,
+    "sales": 229.93,
+    "shockProb": 0.126,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.121,
+      "retailGlobal": 0.197
+    }
   },
   {
     "date": "2024-06-05",
-    "fxRate": 1.0872,
+    "fx": {
+      "eur": 0.91979,
+      "jpy": 156.11,
+      "gbp": 0.78227
+    },
     "interestRate": 5.352,
-    "vix": 10.24,
-    "recessionProb": 20.19,
-    "sales": 228.58,
-    "shockProb": 0.144
+    "vix": 10.76,
+    "recessionProb": 19.15,
+    "sales": 218.74,
+    "shockProb": 0.158,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.151,
+      "retailGlobal": 0.205
+    }
   },
   {
     "date": "2024-06-06",
-    "fxRate": 1.0865,
+    "fx": {
+      "eur": 0.92039,
+      "jpy": 156.23,
+      "gbp": 0.78314
+    },
     "interestRate": 5.352,
-    "vix": 10.4,
-    "recessionProb": 23.07,
-    "sales": 217.38,
-    "shockProb": 0.152
+    "vix": 10.75,
+    "recessionProb": 21.28,
+    "sales": 219.77,
+    "shockProb": 0.144,
+    "companyProbs": {
+      "techCorp": 0.133,
+      "energyPlus": 0.14,
+      "retailGlobal": 0.251
+    }
   },
   {
     "date": "2024-06-07",
-    "fxRate": 1.0898,
+    "fx": {
+      "eur": 0.9176,
+      "jpy": 155.55,
+      "gbp": 0.78106
+    },
     "interestRate": 5.352,
-    "vix": 11.25,
-    "recessionProb": 22.3,
-    "sales": 219.61,
-    "shockProb": 0.156
+    "vix": 11.73,
+    "recessionProb": 19.93,
+    "sales": 218.69,
+    "shockProb": 0.142,
+    "companyProbs": {
+      "techCorp": 0.139,
+      "energyPlus": 0.133,
+      "retailGlobal": 0.211
+    }
   },
   {
     "date": "2024-06-10",
-    "fxRate": 1.0756,
+    "fx": {
+      "eur": 0.92971,
+      "jpy": 156.88,
+      "gbp": 0.78621
+    },
     "interestRate": 5.352,
-    "vix": 11.54,
-    "recessionProb": 18.89,
-    "sales": 220.53,
-    "shockProb": 0.134
+    "vix": 12.07,
+    "recessionProb": 20.34,
+    "sales": 217.06,
+    "shockProb": 0.158,
+    "companyProbs": {
+      "techCorp": 0.11,
+      "energyPlus": 0.174,
+      "retailGlobal": 0.204
+    }
   },
   {
     "date": "2024-06-11",
-    "fxRate": 1.073,
+    "fx": {
+      "eur": 0.93197,
+      "jpy": 157,
+      "gbp": 0.7847
+    },
     "interestRate": 5.352,
-    "vix": 11.97,
-    "recessionProb": 19.44,
-    "sales": 229.11,
-    "shockProb": 0.142
+    "vix": 10.37,
+    "recessionProb": 21.85,
+    "sales": 226.01,
+    "shockProb": 0.137,
+    "companyProbs": {
+      "techCorp": 0.133,
+      "energyPlus": 0.075,
+      "retailGlobal": 0.22
+    }
   },
   {
     "date": "2024-06-12",
-    "fxRate": 1.0765,
+    "fx": {
+      "eur": 0.92894,
+      "jpy": 157.32,
+      "gbp": 0.7837
+    },
     "interestRate": 5.352,
-    "vix": 10.48,
-    "recessionProb": 18.95,
-    "sales": 232.23,
-    "shockProb": 0.12
+    "vix": 12.14,
+    "recessionProb": 22.49,
+    "sales": 219.7,
+    "shockProb": 0.17,
+    "companyProbs": {
+      "techCorp": 0.153,
+      "energyPlus": 0.113,
+      "retailGlobal": 0.221
+    }
   },
   {
     "date": "2024-06-13",
-    "fxRate": 1.0784,
+    "fx": {
+      "eur": 0.9273,
+      "jpy": 157.25,
+      "gbp": 0.78327
+    },
     "interestRate": 5.352,
-    "vix": 11.05,
-    "recessionProb": 19.99,
-    "sales": 222.57,
-    "shockProb": 0.159
+    "vix": 10.75,
+    "recessionProb": 20.1,
+    "sales": 228.07,
+    "shockProb": 0.135,
+    "companyProbs": {
+      "techCorp": 0.141,
+      "energyPlus": 0.085,
+      "retailGlobal": 0.25
+    }
   },
   {
     "date": "2024-06-14",
-    "fxRate": 1.0686,
+    "fx": {
+      "eur": 0.9358,
+      "jpy": 157.03,
+      "gbp": 0.78799
+    },
     "interestRate": 5.352,
-    "vix": 12.75,
-    "recessionProb": 20.43,
-    "sales": 222.4,
-    "shockProb": 0.156
+    "vix": 10.97,
+    "recessionProb": 21.46,
+    "sales": 213.83,
+    "shockProb": 0.171,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.182,
+      "retailGlobal": 0.249
+    }
   },
   {
     "date": "2024-06-17",
-    "fxRate": 1.0712,
+    "fx": {
+      "eur": 0.93353,
+      "jpy": 157.87,
+      "gbp": 0.78952
+    },
     "interestRate": 5.352,
-    "vix": 12.55,
-    "recessionProb": 22.32,
-    "sales": 210.97,
-    "shockProb": 0.184
+    "vix": 12.64,
+    "recessionProb": 22.53,
+    "sales": 223.06,
+    "shockProb": 0.188,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.127,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-06-18",
-    "fxRate": 1.0715,
+    "fx": {
+      "eur": 0.93327,
+      "jpy": 158.11,
+      "gbp": 0.78899
+    },
     "interestRate": 5.352,
-    "vix": 12.6,
-    "recessionProb": 21.89,
-    "sales": 224.66,
-    "shockProb": 0.173
+    "vix": 11.58,
+    "recessionProb": 20.34,
+    "sales": 223.76,
+    "shockProb": 0.163,
+    "companyProbs": {
+      "techCorp": 0.106,
+      "energyPlus": 0.169,
+      "retailGlobal": 0.239
+    }
   },
   {
     "date": "2024-06-19",
-    "fxRate": 1.0749,
+    "fx": {
+      "eur": 0.93032,
+      "jpy": 157.95,
+      "gbp": 0.7857
+    },
     "interestRate": 5.352,
-    "vix": 13.37,
-    "recessionProb": 23.04,
-    "sales": 215.33,
-    "shockProb": 0.187
+    "vix": 12.82,
+    "recessionProb": 20.71,
+    "sales": 213.82,
+    "shockProb": 0.168,
+    "companyProbs": {
+      "techCorp": 0.126,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.231
+    }
   },
   {
     "date": "2024-06-20",
-    "fxRate": 1.0719,
+    "fx": {
+      "eur": 0.93292,
+      "jpy": 158.43,
+      "gbp": 0.78844
+    },
     "interestRate": 5.352,
-    "vix": 13.98,
-    "recessionProb": 22.36,
-    "sales": 217.02,
-    "shockProb": 0.208
+    "vix": 13.14,
+    "recessionProb": 19.44,
+    "sales": 219.73,
+    "shockProb": 0.179,
+    "companyProbs": {
+      "techCorp": 0.151,
+      "energyPlus": 0.183,
+      "retailGlobal": 0.229
+    }
   },
   {
     "date": "2024-06-21",
-    "fxRate": 1.0688,
+    "fx": {
+      "eur": 0.93563,
+      "jpy": 158.89,
+      "gbp": 0.7909
+    },
     "interestRate": 5.352,
-    "vix": 13,
-    "recessionProb": 21.52,
-    "sales": 221.56,
-    "shockProb": 0.167
+    "vix": 13.49,
+    "recessionProb": 24.15,
+    "sales": 217.01,
+    "shockProb": 0.185,
+    "companyProbs": {
+      "techCorp": 0.154,
+      "energyPlus": 0.097,
+      "retailGlobal": 0.255
+    }
   },
   {
     "date": "2024-06-24",
-    "fxRate": 1.073,
+    "fx": {
+      "eur": 0.93197,
+      "jpy": 159.52,
+      "gbp": 0.78966
+    },
     "interestRate": 5.352,
-    "vix": 14.45,
-    "recessionProb": 22.82,
-    "sales": 217.88,
-    "shockProb": 0.196
+    "vix": 13.73,
+    "recessionProb": 23.68,
+    "sales": 225.25,
+    "shockProb": 0.167,
+    "companyProbs": {
+      "techCorp": 0.137,
+      "energyPlus": 0.116,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-06-25",
-    "fxRate": 1.0714,
+    "fx": {
+      "eur": 0.93336,
+      "jpy": 159.45,
+      "gbp": 0.78836
+    },
     "interestRate": 5.352,
-    "vix": 14.98,
-    "recessionProb": 23.82,
-    "sales": 210.51,
-    "shockProb": 0.203
+    "vix": 15.21,
+    "recessionProb": 22.4,
+    "sales": 213.19,
+    "shockProb": 0.222,
+    "companyProbs": {
+      "techCorp": 0.145,
+      "energyPlus": 0.128,
+      "retailGlobal": 0.241
+    }
   },
   {
     "date": "2024-06-26",
-    "fxRate": 1.0689,
+    "fx": {
+      "eur": 0.93554,
+      "jpy": 160.37,
+      "gbp": 0.79009
+    },
     "interestRate": 5.352,
-    "vix": 16.06,
-    "recessionProb": 21.48,
-    "sales": 215.94,
-    "shockProb": 0.231
+    "vix": 15.95,
+    "recessionProb": 20.38,
+    "sales": 214.36,
+    "shockProb": 0.222,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.135,
+      "retailGlobal": 0.209
+    }
   },
   {
     "date": "2024-06-27",
-    "fxRate": 1.0696,
+    "fx": {
+      "eur": 0.93493,
+      "jpy": 160.49,
+      "gbp": 0.79086
+    },
     "interestRate": 5.352,
-    "vix": 16.21,
-    "recessionProb": 22.65,
-    "sales": 204.11,
-    "shockProb": 0.238
+    "vix": 15.93,
+    "recessionProb": 21.5,
+    "sales": 218.09,
+    "shockProb": 0.191,
+    "companyProbs": {
+      "techCorp": 0.137,
+      "energyPlus": 0.152,
+      "retailGlobal": 0.211
+    }
   },
   {
     "date": "2024-06-28",
-    "fxRate": 1.0705,
+    "fx": {
+      "eur": 0.93414,
+      "jpy": 160.62,
+      "gbp": 0.79064
+    },
     "interestRate": 5.352,
-    "vix": 17.09,
-    "recessionProb": 24.06,
-    "sales": 210.96,
-    "shockProb": 0.26
+    "vix": 16.57,
+    "recessionProb": 24.5,
+    "sales": 212.76,
+    "shockProb": 0.252,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.239
+    }
   },
   {
     "date": "2024-07-01",
-    "fxRate": 1.0745,
+    "fx": {
+      "eur": 0.93067,
+      "jpy": 161.14,
+      "gbp": 0.78911
+    },
     "interestRate": 5.352,
-    "vix": 16.95,
-    "recessionProb": 20.25,
-    "sales": 213.33,
-    "shockProb": 0.213
+    "vix": 15.81,
+    "recessionProb": 24.12,
+    "sales": 203.05,
+    "shockProb": 0.242,
+    "companyProbs": {
+      "techCorp": 0.154,
+      "energyPlus": 0.133,
+      "retailGlobal": 0.272
+    }
   },
   {
     "date": "2024-07-02",
-    "fxRate": 1.0729,
+    "fx": {
+      "eur": 0.93205,
+      "jpy": 161.53,
+      "gbp": 0.78996
+    },
     "interestRate": 5.352,
-    "vix": 17.09,
-    "recessionProb": 21.1,
-    "sales": 206.09,
-    "shockProb": 0.24
+    "vix": 17.85,
+    "recessionProb": 24.13,
+    "sales": 212.42,
+    "shockProb": 0.245,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.149,
+      "retailGlobal": 0.248
+    }
   },
   {
     "date": "2024-07-03",
-    "fxRate": 1.0758,
+    "fx": {
+      "eur": 0.92954,
+      "jpy": 161.91,
+      "gbp": 0.78714
+    },
     "interestRate": 5.352,
-    "vix": 16.82,
-    "recessionProb": 24.81,
-    "sales": 203.76,
-    "shockProb": 0.24
+    "vix": 17.99,
+    "recessionProb": 24.38,
+    "sales": 203.07,
+    "shockProb": 0.265,
+    "companyProbs": {
+      "techCorp": 0.14,
+      "energyPlus": 0.164,
+      "retailGlobal": 0.235
+    }
   },
   {
     "date": "2024-07-04",
-    "fxRate": 1.08,
+    "fx": {
+      "eur": 0.92593,
+      "jpy": 160.96,
+      "gbp": 0.78392
+    },
     "interestRate": 5.352,
-    "vix": 17.56,
-    "recessionProb": 22.7,
-    "sales": 209.66,
-    "shockProb": 0.216
+    "vix": 17.21,
+    "recessionProb": 23.63,
+    "sales": 217.7,
+    "shockProb": 0.222,
+    "companyProbs": {
+      "techCorp": 0.14,
+      "energyPlus": 0.116,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-07-05",
-    "fxRate": 1.0824,
+    "fx": {
+      "eur": 0.92387,
+      "jpy": 160.81,
+      "gbp": 0.78172
+    },
     "interestRate": 5.352,
-    "vix": 18.08,
-    "recessionProb": 20.26,
-    "sales": 211.01,
-    "shockProb": 0.228
+    "vix": 19.49,
+    "recessionProb": 21.67,
+    "sales": 198.87,
+    "shockProb": 0.261,
+    "companyProbs": {
+      "techCorp": 0.177,
+      "energyPlus": 0.205,
+      "retailGlobal": 0.236
+    }
   },
   {
     "date": "2024-07-08",
-    "fxRate": 1.0835,
+    "fx": {
+      "eur": 0.92293,
+      "jpy": 160.93,
+      "gbp": 0.77905
+    },
     "interestRate": 5.352,
-    "vix": 18.17,
-    "recessionProb": 23.95,
-    "sales": 200.81,
-    "shockProb": 0.25
+    "vix": 19.93,
+    "recessionProb": 20.66,
+    "sales": 202.67,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.171,
+      "energyPlus": 0.216,
+      "retailGlobal": 0.231
+    }
   },
   {
     "date": "2024-07-09",
-    "fxRate": 1.0814,
+    "fx": {
+      "eur": 0.92473,
+      "jpy": 161.09,
+      "gbp": 0.78131
+    },
     "interestRate": 5.352,
-    "vix": 19.83,
-    "recessionProb": 25.06,
-    "sales": 198.54,
-    "shockProb": 0.299
+    "vix": 19.73,
+    "recessionProb": 22.12,
+    "sales": 197.02,
+    "shockProb": 0.274,
+    "companyProbs": {
+      "techCorp": 0.171,
+      "energyPlus": 0.193,
+      "retailGlobal": 0.257
+    }
   },
   {
     "date": "2024-07-10",
-    "fxRate": 1.0825,
+    "fx": {
+      "eur": 0.92379,
+      "jpy": 161.47,
+      "gbp": 0.78077
+    },
     "interestRate": 5.352,
-    "vix": 20.32,
-    "recessionProb": 24.65,
-    "sales": 202.94,
-    "shockProb": 0.306
+    "vix": 19.34,
+    "recessionProb": 23.07,
+    "sales": 201.7,
+    "shockProb": 0.265,
+    "companyProbs": {
+      "techCorp": 0.16,
+      "energyPlus": 0.23,
+      "retailGlobal": 0.244
+    }
   },
   {
     "date": "2024-07-11",
-    "fxRate": 1.0855,
+    "fx": {
+      "eur": 0.92123,
+      "jpy": 161.58,
+      "gbp": 0.77665
+    },
     "interestRate": 5.352,
-    "vix": 19.85,
-    "recessionProb": 23.28,
-    "sales": 207.86,
-    "shockProb": 0.263
+    "vix": 19.68,
+    "recessionProb": 22.89,
+    "sales": 208.39,
+    "shockProb": 0.262,
+    "companyProbs": {
+      "techCorp": 0.157,
+      "energyPlus": 0.153,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-07-12",
-    "fxRate": 1.089,
+    "fx": {
+      "eur": 0.91827,
+      "jpy": 158.74,
+      "gbp": 0.77162
+    },
     "interestRate": 5.352,
-    "vix": 19.98,
-    "recessionProb": 22.42,
-    "sales": 195.71,
-    "shockProb": 0.274
+    "vix": 20.85,
+    "recessionProb": 20.73,
+    "sales": 206.05,
+    "shockProb": 0.278,
+    "companyProbs": {
+      "techCorp": 0.162,
+      "energyPlus": 0.15,
+      "retailGlobal": 0.224
+    }
   },
   {
     "date": "2024-07-15",
-    "fxRate": 1.0907,
+    "fx": {
+      "eur": 0.91684,
+      "jpy": 158.01,
+      "gbp": 0.77056
+    },
     "interestRate": 5.352,
-    "vix": 19.8,
-    "recessionProb": 21.76,
-    "sales": 207.65,
-    "shockProb": 0.249
+    "vix": 21.03,
+    "recessionProb": 22.56,
+    "sales": 199.3,
+    "shockProb": 0.266,
+    "companyProbs": {
+      "techCorp": 0.141,
+      "energyPlus": 0.169,
+      "retailGlobal": 0.238
+    }
   },
   {
     "date": "2024-07-16",
-    "fxRate": 1.0902,
+    "fx": {
+      "eur": 0.91726,
+      "jpy": 158.37,
+      "gbp": 0.77103
+    },
     "interestRate": 5.352,
-    "vix": 21.08,
-    "recessionProb": 23.49,
-    "sales": 201.4,
-    "shockProb": 0.265
+    "vix": 21.43,
+    "recessionProb": 23.1,
+    "sales": 194.69,
+    "shockProb": 0.29,
+    "companyProbs": {
+      "techCorp": 0.176,
+      "energyPlus": 0.22,
+      "retailGlobal": 0.269
+    }
   },
   {
     "date": "2024-07-17",
-    "fxRate": 1.0934,
+    "fx": {
+      "eur": 0.91458,
+      "jpy": 156.58,
+      "gbp": 0.76747
+    },
     "interestRate": 5.352,
-    "vix": 21.24,
-    "recessionProb": 22.93,
-    "sales": 202.15,
-    "shockProb": 0.31
+    "vix": 21.09,
+    "recessionProb": 22.83,
+    "sales": 202.78,
+    "shockProb": 0.3,
+    "companyProbs": {
+      "techCorp": 0.184,
+      "energyPlus": 0.188,
+      "retailGlobal": 0.23
+    }
   },
   {
     "date": "2024-07-18",
-    "fxRate": 1.093,
+    "fx": {
+      "eur": 0.91491,
+      "jpy": 156.47,
+      "gbp": 0.77013
+    },
     "interestRate": 5.352,
-    "vix": 21.46,
-    "recessionProb": 24.18,
-    "sales": 207.75,
-    "shockProb": 0.272
+    "vix": 21.63,
+    "recessionProb": 22.12,
+    "sales": 204.67,
+    "shockProb": 0.288,
+    "companyProbs": {
+      "techCorp": 0.182,
+      "energyPlus": 0.233,
+      "retailGlobal": 0.235
+    }
   },
   {
     "date": "2024-07-19",
-    "fxRate": 1.089,
+    "fx": {
+      "eur": 0.91827,
+      "jpy": 157.58,
+      "gbp": 0.77392
+    },
     "interestRate": 5.352,
-    "vix": 21.77,
-    "recessionProb": 21.56,
-    "sales": 191.04,
-    "shockProb": 0.295
+    "vix": 20.09,
+    "recessionProb": 22.3,
+    "sales": 201.07,
+    "shockProb": 0.256,
+    "companyProbs": {
+      "techCorp": 0.178,
+      "energyPlus": 0.161,
+      "retailGlobal": 0.214
+    }
   },
   {
     "date": "2024-07-22",
-    "fxRate": 1.0888,
+    "fx": {
+      "eur": 0.91844,
+      "jpy": 156.87,
+      "gbp": 0.77347
+    },
     "interestRate": 5.352,
-    "vix": 20.08,
-    "recessionProb": 25.38,
-    "sales": 204.12,
-    "shockProb": 0.293
+    "vix": 20.53,
+    "recessionProb": 25.95,
+    "sales": 194.72,
+    "shockProb": 0.295,
+    "companyProbs": {
+      "techCorp": 0.166,
+      "energyPlus": 0.154,
+      "retailGlobal": 0.261
+    }
   },
   {
     "date": "2024-07-23",
-    "fxRate": 1.086,
+    "fx": {
+      "eur": 0.92081,
+      "jpy": 156.21,
+      "gbp": 0.77415
+    },
     "interestRate": 5.352,
-    "vix": 20.48,
-    "recessionProb": 23.81,
-    "sales": 189.95,
-    "shockProb": 0.302
+    "vix": 20.2,
+    "recessionProb": 25.05,
+    "sales": 199.24,
+    "shockProb": 0.267,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.138,
+      "retailGlobal": 0.26
+    }
   },
   {
     "date": "2024-07-24",
-    "fxRate": 1.0848,
+    "fx": {
+      "eur": 0.92183,
+      "jpy": 154.16,
+      "gbp": 0.77409
+    },
     "interestRate": 5.352,
-    "vix": 20.61,
-    "recessionProb": 25.48,
-    "sales": 203.8,
-    "shockProb": 0.301
+    "vix": 21.73,
+    "recessionProb": 21.65,
+    "sales": 191.87,
+    "shockProb": 0.306,
+    "companyProbs": {
+      "techCorp": 0.173,
+      "energyPlus": 0.249,
+      "retailGlobal": 0.255
+    }
   },
   {
     "date": "2024-07-25",
-    "fxRate": 1.0851,
+    "fx": {
+      "eur": 0.92157,
+      "jpy": 152.63,
+      "gbp": 0.7767
+    },
     "interestRate": 5.352,
-    "vix": 20.04,
-    "recessionProb": 23.62,
-    "sales": 200.06,
-    "shockProb": 0.295
+    "vix": 21.25,
+    "recessionProb": 21.73,
+    "sales": 208.57,
+    "shockProb": 0.276,
+    "companyProbs": {
+      "techCorp": 0.167,
+      "energyPlus": 0.162,
+      "retailGlobal": 0.22
+    }
   },
   {
     "date": "2024-07-26",
-    "fxRate": 1.086,
+    "fx": {
+      "eur": 0.92081,
+      "jpy": 154.55,
+      "gbp": 0.77696
+    },
     "interestRate": 5.352,
-    "vix": 20.92,
-    "recessionProb": 21.88,
-    "sales": 198.61,
-    "shockProb": 0.255
+    "vix": 21.19,
+    "recessionProb": 24.73,
+    "sales": 188.78,
+    "shockProb": 0.314,
+    "companyProbs": {
+      "techCorp": 0.188,
+      "energyPlus": 0.215,
+      "retailGlobal": 0.264
+    }
   },
   {
     "date": "2024-07-29",
-    "fxRate": 1.0817,
+    "fx": {
+      "eur": 0.92447,
+      "jpy": 153.87,
+      "gbp": 0.77974
+    },
     "interestRate": 5.352,
-    "vix": 20.81,
-    "recessionProb": 23.48,
-    "sales": 205.66,
-    "shockProb": 0.29
+    "vix": 20.69,
+    "recessionProb": 24.62,
+    "sales": 206.02,
+    "shockProb": 0.28,
+    "companyProbs": {
+      "techCorp": 0.184,
+      "energyPlus": 0.177,
+      "retailGlobal": 0.23
+    }
   },
   {
     "date": "2024-07-30",
-    "fxRate": 1.0824,
+    "fx": {
+      "eur": 0.92387,
+      "jpy": 154.85,
+      "gbp": 0.77846
+    },
     "interestRate": 5.352,
-    "vix": 19.87,
-    "recessionProb": 25.76,
-    "sales": 205.5,
-    "shockProb": 0.272
+    "vix": 19.1,
+    "recessionProb": 22.46,
+    "sales": 203.83,
+    "shockProb": 0.267,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.227,
+      "retailGlobal": 0.24
+    }
   },
   {
     "date": "2024-07-31",
-    "fxRate": 1.0828,
+    "fx": {
+      "eur": 0.92353,
+      "jpy": 150.31,
+      "gbp": 0.77928
+    },
     "interestRate": 5.345,
-    "vix": 19.25,
-    "recessionProb": 23.09,
-    "sales": 212.65,
-    "shockProb": 0.235
+    "vix": 18.65,
+    "recessionProb": 23.21,
+    "sales": 205.91,
+    "shockProb": 0.26,
+    "companyProbs": {
+      "techCorp": 0.172,
+      "energyPlus": 0.19,
+      "retailGlobal": 0.255
+    }
   },
   {
     "date": "2024-08-01",
-    "fxRate": 1.0789,
+    "fx": {
+      "eur": 0.92687,
+      "jpy": 150.76,
+      "gbp": 0.78161
+    },
     "interestRate": 5.345,
-    "vix": 19.3,
-    "recessionProb": 24.83,
-    "sales": 209.34,
-    "shockProb": 0.261
+    "vix": 20.04,
+    "recessionProb": 23.3,
+    "sales": 209.64,
+    "shockProb": 0.251,
+    "companyProbs": {
+      "techCorp": 0.162,
+      "energyPlus": 0.217,
+      "retailGlobal": 0.223
+    }
   },
   {
     "date": "2024-08-02",
-    "fxRate": 1.0835,
+    "fx": {
+      "eur": 0.92293,
+      "jpy": 148.93,
+      "gbp": 0.78449
+    },
     "interestRate": 5.345,
-    "vix": 18.42,
-    "recessionProb": 22.81,
-    "sales": 206.83,
-    "shockProb": 0.252
+    "vix": 18.78,
+    "recessionProb": 24.98,
+    "sales": 205.16,
+    "shockProb": 0.281,
+    "companyProbs": {
+      "techCorp": 0.151,
+      "energyPlus": 0.143,
+      "retailGlobal": 0.277
+    }
   },
   {
     "date": "2024-08-05",
-    "fxRate": 1.0966,
+    "fx": {
+      "eur": 0.91191,
+      "jpy": 142.24,
+      "gbp": 0.78313
+    },
     "interestRate": 5.345,
-    "vix": 19.19,
-    "recessionProb": 23.94,
-    "sales": 199.62,
-    "shockProb": 0.289
+    "vix": 18.42,
+    "recessionProb": 26.09,
+    "sales": 201.58,
+    "shockProb": 0.273,
+    "companyProbs": {
+      "techCorp": 0.181,
+      "energyPlus": 0.159,
+      "retailGlobal": 0.256
+    }
   },
   {
     "date": "2024-08-06",
-    "fxRate": 1.0915,
+    "fx": {
+      "eur": 0.91617,
+      "jpy": 145.02,
+      "gbp": 0.78789
+    },
     "interestRate": 5.345,
-    "vix": 17.68,
-    "recessionProb": 25.33,
-    "sales": 211.08,
-    "shockProb": 0.234
+    "vix": 18.18,
+    "recessionProb": 26.8,
+    "sales": 209.24,
+    "shockProb": 0.251,
+    "companyProbs": {
+      "techCorp": 0.165,
+      "energyPlus": 0.197,
+      "retailGlobal": 0.251
+    }
   },
   {
     "date": "2024-08-07",
-    "fxRate": 1.0922,
+    "fx": {
+      "eur": 0.91558,
+      "jpy": 147.06,
+      "gbp": 0.78564
+    },
     "interestRate": 5.345,
-    "vix": 16.99,
-    "recessionProb": 23,
-    "sales": 201.84,
-    "shockProb": 0.236
+    "vix": 18.49,
+    "recessionProb": 24.21,
+    "sales": 204.8,
+    "shockProb": 0.278,
+    "companyProbs": {
+      "techCorp": 0.164,
+      "energyPlus": 0.19,
+      "retailGlobal": 0.261
+    }
   },
   {
     "date": "2024-08-08",
-    "fxRate": 1.093,
+    "fx": {
+      "eur": 0.91491,
+      "jpy": 146.15,
+      "gbp": 0.78768
+    },
     "interestRate": 5.345,
-    "vix": 16.82,
-    "recessionProb": 24.6,
-    "sales": 207.24,
-    "shockProb": 0.232
+    "vix": 17.8,
+    "recessionProb": 23.13,
+    "sales": 199.76,
+    "shockProb": 0.261,
+    "companyProbs": {
+      "techCorp": 0.177,
+      "energyPlus": 0.205,
+      "retailGlobal": 0.234
+    }
   },
   {
     "date": "2024-08-09",
-    "fxRate": 1.0917,
+    "fx": {
+      "eur": 0.916,
+      "jpy": 146.86,
+      "gbp": 0.78509
+    },
     "interestRate": 5.345,
-    "vix": 16.87,
-    "recessionProb": 24.33,
-    "sales": 207.19,
-    "shockProb": 0.249
+    "vix": 16.76,
+    "recessionProb": 25.9,
+    "sales": 212.33,
+    "shockProb": 0.247,
+    "companyProbs": {
+      "techCorp": 0.128,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.271
+    }
   },
   {
     "date": "2024-08-12",
-    "fxRate": 1.0925,
+    "fx": {
+      "eur": 0.91533,
+      "jpy": 147.6,
+      "gbp": 0.7831
+    },
     "interestRate": 5.345,
-    "vix": 17.01,
-    "recessionProb": 25.32,
-    "sales": 209.45,
-    "shockProb": 0.263
+    "vix": 15.24,
+    "recessionProb": 25.38,
+    "sales": 219.75,
+    "shockProb": 0.211,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.275
+    }
   },
   {
     "date": "2024-08-13",
-    "fxRate": 1.0931,
+    "fx": {
+      "eur": 0.91483,
+      "jpy": 147.44,
+      "gbp": 0.78179
+    },
     "interestRate": 5.345,
-    "vix": 16.17,
-    "recessionProb": 22.99,
-    "sales": 217.65,
-    "shockProb": 0.223
+    "vix": 15.65,
+    "recessionProb": 24.49,
+    "sales": 216.59,
+    "shockProb": 0.227,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.137,
+      "retailGlobal": 0.241
+    }
   },
   {
     "date": "2024-08-14",
-    "fxRate": 1.1019,
+    "fx": {
+      "eur": 0.90752,
+      "jpy": 147,
+      "gbp": 0.7785
+    },
     "interestRate": 5.345,
-    "vix": 15.67,
-    "recessionProb": 22.45,
-    "sales": 204.62,
-    "shockProb": 0.226
+    "vix": 15.05,
+    "recessionProb": 26.1,
+    "sales": 207.39,
+    "shockProb": 0.244,
+    "companyProbs": {
+      "techCorp": 0.164,
+      "energyPlus": 0.192,
+      "retailGlobal": 0.268
+    }
   },
   {
     "date": "2024-08-15",
-    "fxRate": 1.1011,
+    "fx": {
+      "eur": 0.90818,
+      "jpy": 147.25,
+      "gbp": 0.77754
+    },
     "interestRate": 5.345,
-    "vix": 15.11,
-    "recessionProb": 23.73,
-    "sales": 212.47,
-    "shockProb": 0.203
+    "vix": 13.79,
+    "recessionProb": 26.54,
+    "sales": 212.44,
+    "shockProb": 0.198,
+    "companyProbs": {
+      "techCorp": 0.127,
+      "energyPlus": 0.139,
+      "retailGlobal": 0.275
+    }
   },
   {
     "date": "2024-08-16",
-    "fxRate": 1.0994,
+    "fx": {
+      "eur": 0.90959,
+      "jpy": 148.01,
+      "gbp": 0.77431
+    },
     "interestRate": 5.345,
-    "vix": 13.42,
-    "recessionProb": 25.1,
-    "sales": 209.59,
-    "shockProb": 0.194
+    "vix": 13.21,
+    "recessionProb": 24.54,
+    "sales": 220.22,
+    "shockProb": 0.199,
+    "companyProbs": {
+      "techCorp": 0.115,
+      "energyPlus": 0.102,
+      "retailGlobal": 0.239
+    }
   },
   {
     "date": "2024-08-19",
-    "fxRate": 1.1041,
+    "fx": {
+      "eur": 0.90572,
+      "jpy": 146.02,
+      "gbp": 0.77206
+    },
     "interestRate": 5.345,
-    "vix": 13.49,
-    "recessionProb": 24.58,
-    "sales": 215.42,
-    "shockProb": 0.19
+    "vix": 13.59,
+    "recessionProb": 27.33,
+    "sales": 211.35,
+    "shockProb": 0.225,
+    "companyProbs": {
+      "techCorp": 0.139,
+      "energyPlus": 0.151,
+      "retailGlobal": 0.279
+    }
   },
   {
     "date": "2024-08-20",
-    "fxRate": 1.1084,
+    "fx": {
+      "eur": 0.9022,
+      "jpy": 146.32,
+      "gbp": 0.76862
+    },
     "interestRate": 5.345,
-    "vix": 12.86,
-    "recessionProb": 22.93,
-    "sales": 216.3,
-    "shockProb": 0.175
+    "vix": 12.87,
+    "recessionProb": 23.82,
+    "sales": 215.01,
+    "shockProb": 0.162,
+    "companyProbs": {
+      "techCorp": 0.103,
+      "energyPlus": 0.082,
+      "retailGlobal": 0.247
+    }
   },
   {
     "date": "2024-08-21",
-    "fxRate": 1.1116,
+    "fx": {
+      "eur": 0.8996,
+      "jpy": 145.97,
+      "gbp": 0.76739
+    },
     "interestRate": 5.345,
-    "vix": 13.18,
-    "recessionProb": 24.54,
-    "sales": 216.73,
-    "shockProb": 0.207
+    "vix": 12.94,
+    "recessionProb": 25.41,
+    "sales": 210.67,
+    "shockProb": 0.208,
+    "companyProbs": {
+      "techCorp": 0.118,
+      "energyPlus": 0.169,
+      "retailGlobal": 0.257
+    }
   },
   {
     "date": "2024-08-22",
-    "fxRate": 1.1135,
+    "fx": {
+      "eur": 0.89807,
+      "jpy": 146.06,
+      "gbp": 0.76285
+    },
     "interestRate": 5.345,
-    "vix": 12.38,
-    "recessionProb": 26.42,
-    "sales": 217.59,
-    "shockProb": 0.17
+    "vix": 12.19,
+    "recessionProb": 27.04,
+    "sales": 211.26,
+    "shockProb": 0.204,
+    "companyProbs": {
+      "techCorp": 0.117,
+      "energyPlus": 0.104,
+      "retailGlobal": 0.278
+    }
   },
   {
     "date": "2024-08-23",
-    "fxRate": 1.1121,
+    "fx": {
+      "eur": 0.8992,
+      "jpy": 146,
+      "gbp": 0.76192
+    },
     "interestRate": 5.345,
-    "vix": 12.64,
-    "recessionProb": 26.13,
-    "sales": 216.12,
-    "shockProb": 0.17
+    "vix": 11.53,
+    "recessionProb": 26.22,
+    "sales": 218.78,
+    "shockProb": 0.2,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.197,
+      "retailGlobal": 0.27
+    }
   },
   {
     "date": "2024-08-26",
-    "fxRate": 1.1163,
+    "fx": {
+      "eur": 0.89582,
+      "jpy": 144.17,
+      "gbp": 0.75826
+    },
     "interestRate": 5.345,
-    "vix": 11.71,
-    "recessionProb": 23.81,
-    "sales": 219.92,
-    "shockProb": 0.168
+    "vix": 12.57,
+    "recessionProb": 26.07,
+    "sales": 221.94,
+    "shockProb": 0.202,
+    "companyProbs": {
+      "techCorp": 0.153,
+      "energyPlus": 0.168,
+      "retailGlobal": 0.28
+    }
   },
   {
     "date": "2024-08-27",
-    "fxRate": 1.1162,
+    "fx": {
+      "eur": 0.8959,
+      "jpy": 144.45,
+      "gbp": 0.75648
+    },
     "interestRate": 5.345,
-    "vix": 11.47,
-    "recessionProb": 24.89,
-    "sales": 208.69,
-    "shockProb": 0.197
+    "vix": 10.6,
+    "recessionProb": 24.53,
+    "sales": 215.43,
+    "shockProb": 0.196,
+    "companyProbs": {
+      "techCorp": 0.137,
+      "energyPlus": 0.185,
+      "retailGlobal": 0.236
+    }
   },
   {
     "date": "2024-08-28",
-    "fxRate": 1.1117,
+    "fx": {
+      "eur": 0.89952,
+      "jpy": 144.44,
+      "gbp": 0.75707
+    },
     "interestRate": 5.345,
-    "vix": 10.82,
-    "recessionProb": 26.6,
-    "sales": 220.66,
-    "shockProb": 0.196
+    "vix": 10.7,
+    "recessionProb": 25.83,
+    "sales": 223.33,
+    "shockProb": 0.192,
+    "companyProbs": {
+      "techCorp": 0.149,
+      "energyPlus": 0.185,
+      "retailGlobal": 0.278
+    }
   },
   {
     "date": "2024-08-29",
-    "fxRate": 1.1088,
+    "fx": {
+      "eur": 0.90188,
+      "jpy": 144.62,
+      "gbp": 0.75915
+    },
     "interestRate": 5.345,
-    "vix": 11.14,
-    "recessionProb": 25.29,
-    "sales": 217.98,
-    "shockProb": 0.17
+    "vix": 11.44,
+    "recessionProb": 25.06,
+    "sales": 220.88,
+    "shockProb": 0.153,
+    "companyProbs": {
+      "techCorp": 0.122,
+      "energyPlus": 0.082,
+      "retailGlobal": 0.232
+    }
   },
   {
     "date": "2024-08-30",
-    "fxRate": 1.1087,
+    "fx": {
+      "eur": 0.90196,
+      "jpy": 145.39,
+      "gbp": 0.75873
+    },
     "interestRate": 5.345,
-    "vix": 11.93,
-    "recessionProb": 26.65,
-    "sales": 222.24,
-    "shockProb": 0.167
+    "vix": 11.97,
+    "recessionProb": 23.36,
+    "sales": 224.73,
+    "shockProb": 0.151,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.153,
+      "retailGlobal": 0.255
+    }
   },
   {
     "date": "2024-09-02",
-    "fxRate": 1.1061,
+    "fx": {
+      "eur": 0.90408,
+      "jpy": 146.97,
+      "gbp": 0.7614
+    },
     "interestRate": 5.345,
-    "vix": 11.64,
-    "recessionProb": 27.65,
-    "sales": 222.28,
-    "shockProb": 0.185
+    "vix": 10.25,
+    "recessionProb": 25.46,
+    "sales": 222.58,
+    "shockProb": 0.153,
+    "companyProbs": {
+      "techCorp": 0.121,
+      "energyPlus": 0.122,
+      "retailGlobal": 0.28
+    }
   },
   {
     "date": "2024-09-03",
-    "fxRate": 1.1035,
+    "fx": {
+      "eur": 0.90621,
+      "jpy": 146.14,
+      "gbp": 0.76198
+    },
     "interestRate": 5.345,
-    "vix": 11.86,
-    "recessionProb": 27.77,
-    "sales": 212.01,
-    "shockProb": 0.18
+    "vix": 11.23,
+    "recessionProb": 25.86,
+    "sales": 224.93,
+    "shockProb": 0.182,
+    "companyProbs": {
+      "techCorp": 0.126,
+      "energyPlus": 0.092,
+      "retailGlobal": 0.278
+    }
   },
   {
     "date": "2024-09-04",
-    "fxRate": 1.105,
+    "fx": {
+      "eur": 0.90498,
+      "jpy": 145.03,
+      "gbp": 0.76243
+    },
     "interestRate": 5.345,
-    "vix": 11.24,
-    "recessionProb": 23.87,
-    "sales": 212.88,
-    "shockProb": 0.183
+    "vix": 10.62,
+    "recessionProb": 24.48,
+    "sales": 218.79,
+    "shockProb": 0.156,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.105,
+      "retailGlobal": 0.245
+    }
   },
   {
     "date": "2024-09-05",
-    "fxRate": 1.1097,
+    "fx": {
+      "eur": 0.90114,
+      "jpy": 143.46,
+      "gbp": 0.75983
+    },
     "interestRate": 5.345,
-    "vix": 10.66,
-    "recessionProb": 27.96,
-    "sales": 218.21,
-    "shockProb": 0.185
+    "vix": 10.56,
+    "recessionProb": 26.78,
+    "sales": 217.42,
+    "shockProb": 0.192,
+    "companyProbs": {
+      "techCorp": 0.158,
+      "energyPlus": 0.163,
+      "retailGlobal": 0.264
+    }
   },
   {
     "date": "2024-09-06",
-    "fxRate": 1.1103,
+    "fx": {
+      "eur": 0.90066,
+      "jpy": 143.14,
+      "gbp": 0.75919
+    },
     "interestRate": 5.345,
-    "vix": 12.03,
-    "recessionProb": 28.07,
-    "sales": 219.33,
-    "shockProb": 0.183
+    "vix": 10.49,
+    "recessionProb": 28.59,
+    "sales": 210.05,
+    "shockProb": 0.199,
+    "companyProbs": {
+      "techCorp": 0.158,
+      "energyPlus": 0.118,
+      "retailGlobal": 0.297
+    }
   },
   {
     "date": "2024-09-09",
-    "fxRate": 1.1043,
+    "fx": {
+      "eur": 0.90555,
+      "jpy": 143.56,
+      "gbp": 0.76397
+    },
     "interestRate": 5.345,
-    "vix": 11.53,
-    "recessionProb": 26.1,
-    "sales": 219.43,
-    "shockProb": 0.174
+    "vix": 10.69,
+    "recessionProb": 24.37,
+    "sales": 215.56,
+    "shockProb": 0.187,
+    "companyProbs": {
+      "techCorp": 0.138,
+      "energyPlus": 0.143,
+      "retailGlobal": 0.238
+    }
   },
   {
     "date": "2024-09-10",
-    "fxRate": 1.1031,
+    "fx": {
+      "eur": 0.90654,
+      "jpy": 143.06,
+      "gbp": 0.76389
+    },
     "interestRate": 5.345,
-    "vix": 11.2,
-    "recessionProb": 25.61,
-    "sales": 209.25,
-    "shockProb": 0.197
+    "vix": 11.5,
+    "recessionProb": 25.07,
+    "sales": 221.35,
+    "shockProb": 0.155,
+    "companyProbs": {
+      "techCorp": 0.117,
+      "energyPlus": 0.1,
+      "retailGlobal": 0.279
+    }
   },
   {
     "date": "2024-09-11",
-    "fxRate": 1.1043,
+    "fx": {
+      "eur": 0.90555,
+      "jpy": 141.81,
+      "gbp": 0.76406
+    },
     "interestRate": 5.345,
-    "vix": 12.24,
-    "recessionProb": 27.3,
-    "sales": 221.88,
-    "shockProb": 0.187
+    "vix": 12.21,
+    "recessionProb": 23.95,
+    "sales": 214.24,
+    "shockProb": 0.19,
+    "companyProbs": {
+      "techCorp": 0.12,
+      "energyPlus": 0.1,
+      "retailGlobal": 0.226
+    }
   },
   {
     "date": "2024-09-12",
-    "fxRate": 1.1016,
+    "fx": {
+      "eur": 0.90777,
+      "jpy": 142.54,
+      "gbp": 0.7667
+    },
     "interestRate": 5.345,
-    "vix": 13.07,
-    "recessionProb": 28,
-    "sales": 210.44,
-    "shockProb": 0.186
+    "vix": 12.98,
+    "recessionProb": 25.01,
+    "sales": 218.92,
+    "shockProb": 0.194,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.185,
+      "retailGlobal": 0.278
+    }
   },
   {
     "date": "2024-09-13",
-    "fxRate": 1.1081,
+    "fx": {
+      "eur": 0.90245,
+      "jpy": 140.93,
+      "gbp": 0.76234
+    },
     "interestRate": 5.345,
-    "vix": 11.66,
-    "recessionProb": 24.74,
-    "sales": 222.2,
-    "shockProb": 0.168
+    "vix": 12.6,
+    "recessionProb": 27.95,
+    "sales": 215,
+    "shockProb": 0.211,
+    "companyProbs": {
+      "techCorp": 0.126,
+      "energyPlus": 0.165,
+      "retailGlobal": 0.256
+    }
   },
   {
     "date": "2024-09-16",
-    "fxRate": 1.1126,
+    "fx": {
+      "eur": 0.8988,
+      "jpy": 139.91,
+      "gbp": 0.75749
+    },
     "interestRate": 5.345,
-    "vix": 12.17,
-    "recessionProb": 28.18,
-    "sales": 215.2,
-    "shockProb": 0.173
+    "vix": 13.45,
+    "recessionProb": 26.39,
+    "sales": 211.06,
+    "shockProb": 0.224,
+    "companyProbs": {
+      "techCorp": 0.17,
+      "energyPlus": 0.204,
+      "retailGlobal": 0.251
+    }
   },
   {
     "date": "2024-09-17",
-    "fxRate": 1.1139,
+    "fx": {
+      "eur": 0.89775,
+      "jpy": 140.69,
+      "gbp": 0.7566
+    },
     "interestRate": 5.345,
-    "vix": 13.52,
-    "recessionProb": 27.9,
-    "sales": 209.23,
-    "shockProb": 0.228
+    "vix": 13.04,
+    "recessionProb": 26.28,
+    "sales": 219.6,
+    "shockProb": 0.202,
+    "companyProbs": {
+      "techCorp": 0.162,
+      "energyPlus": 0.172,
+      "retailGlobal": 0.266
+    }
   },
   {
     "date": "2024-09-18",
-    "fxRate": 1.1124,
+    "fx": {
+      "eur": 0.89896,
+      "jpy": 141.98,
+      "gbp": 0.75715
+    },
     "interestRate": 5.345,
-    "vix": 13.39,
-    "recessionProb": 29.32,
-    "sales": 211.82,
-    "shockProb": 0.232
+    "vix": 13.68,
+    "recessionProb": 28.32,
+    "sales": 215.21,
+    "shockProb": 0.211,
+    "companyProbs": {
+      "techCorp": 0.122,
+      "energyPlus": 0.166,
+      "retailGlobal": 0.298
+    }
   },
   {
     "date": "2024-09-19",
-    "fxRate": 1.1156,
+    "fx": {
+      "eur": 0.89638,
+      "jpy": 143,
+      "gbp": 0.75254
+    },
     "interestRate": 5.345,
-    "vix": 14.8,
-    "recessionProb": 27.64,
-    "sales": 205.17,
-    "shockProb": 0.227
+    "vix": 13.57,
+    "recessionProb": 25.23,
+    "sales": 213.94,
+    "shockProb": 0.204,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.114,
+      "retailGlobal": 0.246
+    }
   },
   {
     "date": "2024-09-20",
-    "fxRate": 1.1166,
+    "fx": {
+      "eur": 0.89558,
+      "jpy": 144.26,
+      "gbp": 0.75148
+    },
     "interestRate": 5.345,
-    "vix": 15.37,
-    "recessionProb": 25.5,
-    "sales": 216.92,
-    "shockProb": 0.215
+    "vix": 15.42,
+    "recessionProb": 25.8,
+    "sales": 210.7,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.168,
+      "energyPlus": 0.129,
+      "retailGlobal": 0.235
+    }
   },
   {
     "date": "2024-09-23",
-    "fxRate": 1.1119,
+    "fx": {
+      "eur": 0.89936,
+      "jpy": 143.52,
+      "gbp": 0.75113
+    },
     "interestRate": 5.345,
-    "vix": 16.24,
-    "recessionProb": 28.92,
-    "sales": 208.77,
-    "shockProb": 0.265
+    "vix": 15.85,
+    "recessionProb": 25.7,
+    "sales": 205.17,
+    "shockProb": 0.221,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.144,
+      "retailGlobal": 0.251
+    }
   },
   {
     "date": "2024-09-24",
-    "fxRate": 1.1133,
+    "fx": {
+      "eur": 0.89823,
+      "jpy": 143.84,
+      "gbp": 0.74751
+    },
     "interestRate": 5.345,
-    "vix": 15.63,
-    "recessionProb": 28.59,
-    "sales": 200.65,
-    "shockProb": 0.257
+    "vix": 15.52,
+    "recessionProb": 27.45,
+    "sales": 204.65,
+    "shockProb": 0.232,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.201,
+      "retailGlobal": 0.256
+    }
   },
   {
     "date": "2024-09-25",
-    "fxRate": 1.1194,
+    "fx": {
+      "eur": 0.89334,
+      "jpy": 144.26,
+      "gbp": 0.7473
+    },
     "interestRate": 5.345,
-    "vix": 15.49,
-    "recessionProb": 28.43,
-    "sales": 201.27,
-    "shockProb": 0.251
+    "vix": 15.31,
+    "recessionProb": 25,
+    "sales": 209.6,
+    "shockProb": 0.241,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.207,
+      "retailGlobal": 0.234
+    }
   },
   {
     "date": "2024-09-26",
-    "fxRate": 1.1155,
+    "fx": {
+      "eur": 0.89646,
+      "jpy": 144.13,
+      "gbp": 0.7479
+    },
     "interestRate": 5.345,
-    "vix": 16.17,
-    "recessionProb": 26.57,
-    "sales": 208.53,
-    "shockProb": 0.241
+    "vix": 16.93,
+    "recessionProb": 28.61,
+    "sales": 212.76,
+    "shockProb": 0.252,
+    "companyProbs": {
+      "techCorp": 0.17,
+      "energyPlus": 0.2,
+      "retailGlobal": 0.26
+    }
   },
   {
     "date": "2024-09-27",
-    "fxRate": 1.1158,
+    "fx": {
+      "eur": 0.89622,
+      "jpy": 143.06,
+      "gbp": 0.74689
+    },
     "interestRate": 5.345,
-    "vix": 18.01,
-    "recessionProb": 27.26,
-    "sales": 199.13,
-    "shockProb": 0.267
+    "vix": 16.45,
+    "recessionProb": 28.14,
+    "sales": 198.87,
+    "shockProb": 0.255,
+    "companyProbs": {
+      "techCorp": 0.168,
+      "energyPlus": 0.184,
+      "retailGlobal": 0.262
+    }
   },
   {
     "date": "2024-09-30",
-    "fxRate": 1.1196,
+    "fx": {
+      "eur": 0.89318,
+      "jpy": 142.75,
+      "gbp": 0.74619
+    },
     "interestRate": 5.154,
-    "vix": 16.73,
-    "recessionProb": 28.78,
-    "sales": 204.97,
-    "shockProb": 0.239
+    "vix": 18.12,
+    "recessionProb": 26.02,
+    "sales": 203.09,
+    "shockProb": 0.283,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.213,
+      "retailGlobal": 0.269
+    }
   },
   {
     "date": "2024-10-01",
-    "fxRate": 1.1086,
+    "fx": {
+      "eur": 0.90204,
+      "jpy": 143.76,
+      "gbp": 0.75043
+    },
     "interestRate": 5.154,
-    "vix": 18.21,
-    "recessionProb": 26.84,
-    "sales": 203.81,
-    "shockProb": 0.251
+    "vix": 17.78,
+    "recessionProb": 28.05,
+    "sales": 202.79,
+    "shockProb": 0.29,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.171,
+      "retailGlobal": 0.264
+    }
   },
   {
     "date": "2024-10-02",
-    "fxRate": 1.1071,
+    "fx": {
+      "eur": 0.90326,
+      "jpy": 144.76,
+      "gbp": 0.75231
+    },
     "interestRate": 5.154,
-    "vix": 17.96,
-    "recessionProb": 25.45,
-    "sales": 206.27,
-    "shockProb": 0.274
+    "vix": 18.54,
+    "recessionProb": 26.36,
+    "sales": 213.84,
+    "shockProb": 0.247,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.175,
+      "retailGlobal": 0.242
+    }
   },
   {
     "date": "2024-10-03",
-    "fxRate": 1.1039,
+    "fx": {
+      "eur": 0.90588,
+      "jpy": 146.73,
+      "gbp": 0.76328
+    },
     "interestRate": 5.154,
-    "vix": 18.82,
-    "recessionProb": 27.53,
-    "sales": 194.92,
-    "shockProb": 0.299
+    "vix": 18.9,
+    "recessionProb": 29.23,
+    "sales": 194.12,
+    "shockProb": 0.289,
+    "companyProbs": {
+      "techCorp": 0.168,
+      "energyPlus": 0.2,
+      "retailGlobal": 0.262
+    }
   },
   {
     "date": "2024-10-04",
-    "fxRate": 1.1029,
+    "fx": {
+      "eur": 0.9067,
+      "jpy": 146.6,
+      "gbp": 0.75923
+    },
     "interestRate": 5.154,
-    "vix": 18.95,
-    "recessionProb": 30.11,
-    "sales": 199.78,
-    "shockProb": 0.302
+    "vix": 19.24,
+    "recessionProb": 25.51,
+    "sales": 202.57,
+    "shockProb": 0.296,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.216,
+      "retailGlobal": 0.264
+    }
   },
   {
     "date": "2024-10-07",
-    "fxRate": 1.0982,
+    "fx": {
+      "eur": 0.91058,
+      "jpy": 148.09,
+      "gbp": 0.76414
+    },
     "interestRate": 5.154,
-    "vix": 19.04,
-    "recessionProb": 28.33,
-    "sales": 195.17,
-    "shockProb": 0.284
+    "vix": 19.67,
+    "recessionProb": 26.4,
+    "sales": 207.82,
+    "shockProb": 0.279,
+    "companyProbs": {
+      "techCorp": 0.184,
+      "energyPlus": 0.141,
+      "retailGlobal": 0.28
+    }
   },
   {
     "date": "2024-10-08",
-    "fxRate": 1.0982,
+    "fx": {
+      "eur": 0.91058,
+      "jpy": 147.96,
+      "gbp": 0.76287
+    },
     "interestRate": 5.154,
-    "vix": 20.69,
-    "recessionProb": 26.95,
-    "sales": 199.63,
-    "shockProb": 0.296
+    "vix": 19.1,
+    "recessionProb": 29.97,
+    "sales": 201.73,
+    "shockProb": 0.303,
+    "companyProbs": {
+      "techCorp": 0.164,
+      "energyPlus": 0.2,
+      "retailGlobal": 0.298
+    }
   },
   {
     "date": "2024-10-09",
-    "fxRate": 1.0957,
+    "fx": {
+      "eur": 0.91266,
+      "jpy": 148.74,
+      "gbp": 0.76426
+    },
     "interestRate": 5.154,
-    "vix": 21,
-    "recessionProb": 30.37,
-    "sales": 186.66,
-    "shockProb": 0.324
+    "vix": 19.87,
+    "recessionProb": 25.55,
+    "sales": 200.55,
+    "shockProb": 0.28,
+    "companyProbs": {
+      "techCorp": 0.138,
+      "energyPlus": 0.149,
+      "retailGlobal": 0.234
+    }
   },
   {
     "date": "2024-10-10",
-    "fxRate": 1.0932,
+    "fx": {
+      "eur": 0.91475,
+      "jpy": 148.97,
+      "gbp": 0.76551
+    },
     "interestRate": 5.154,
-    "vix": 20.4,
-    "recessionProb": 27.4,
-    "sales": 204.54,
-    "shockProb": 0.277
+    "vix": 21.53,
+    "recessionProb": 28.01,
+    "sales": 193.98,
+    "shockProb": 0.341,
+    "companyProbs": {
+      "techCorp": 0.189,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.253
+    }
   },
   {
     "date": "2024-10-11",
-    "fxRate": 1.0938,
+    "fx": {
+      "eur": 0.91424,
+      "jpy": 148.97,
+      "gbp": 0.76527
+    },
     "interestRate": 5.154,
-    "vix": 19.94,
-    "recessionProb": 29.14,
-    "sales": 194.77,
-    "shockProb": 0.328
+    "vix": 21.42,
+    "recessionProb": 27.38,
+    "sales": 190.01,
+    "shockProb": 0.308,
+    "companyProbs": {
+      "techCorp": 0.181,
+      "energyPlus": 0.229,
+      "retailGlobal": 0.246
+    }
   },
   {
     "date": "2024-10-14",
-    "fxRate": 1.0915,
+    "fx": {
+      "eur": 0.91617,
+      "jpy": 149.69,
+      "gbp": 0.76651
+    },
     "interestRate": 5.154,
-    "vix": 21.08,
-    "recessionProb": 28.95,
-    "sales": 200.66,
-    "shockProb": 0.318
+    "vix": 21.24,
+    "recessionProb": 30.04,
+    "sales": 193.55,
+    "shockProb": 0.323,
+    "companyProbs": {
+      "techCorp": 0.175,
+      "energyPlus": 0.257,
+      "retailGlobal": 0.3
+    }
   },
   {
     "date": "2024-10-15",
-    "fxRate": 1.0903,
+    "fx": {
+      "eur": 0.91718,
+      "jpy": 149.36,
+      "gbp": 0.76451
+    },
     "interestRate": 5.154,
-    "vix": 21.83,
-    "recessionProb": 29.05,
-    "sales": 188.32,
-    "shockProb": 0.339
+    "vix": 19.97,
+    "recessionProb": 27.53,
+    "sales": 195.21,
+    "shockProb": 0.306,
+    "companyProbs": {
+      "techCorp": 0.164,
+      "energyPlus": 0.203,
+      "retailGlobal": 0.249
+    }
   },
   {
     "date": "2024-10-16",
-    "fxRate": 1.0897,
+    "fx": {
+      "eur": 0.91768,
+      "jpy": 149.19,
+      "gbp": 0.76723
+    },
     "interestRate": 5.154,
-    "vix": 20.1,
-    "recessionProb": 30.01,
-    "sales": 206.13,
-    "shockProb": 0.29
+    "vix": 20.22,
+    "recessionProb": 27.71,
+    "sales": 198.66,
+    "shockProb": 0.301,
+    "companyProbs": {
+      "techCorp": 0.187,
+      "energyPlus": 0.177,
+      "retailGlobal": 0.253
+    }
   },
   {
     "date": "2024-10-17",
-    "fxRate": 1.0866,
+    "fx": {
+      "eur": 0.9203,
+      "jpy": 149.55,
+      "gbp": 0.76804
+    },
     "interestRate": 5.154,
-    "vix": 21,
-    "recessionProb": 26.57,
-    "sales": 204.87,
-    "shockProb": 0.292
+    "vix": 20.21,
+    "recessionProb": 26.41,
+    "sales": 200.63,
+    "shockProb": 0.278,
+    "companyProbs": {
+      "techCorp": 0.18,
+      "energyPlus": 0.216,
+      "retailGlobal": 0.25
+    }
   },
   {
     "date": "2024-10-18",
-    "fxRate": 1.0847,
+    "fx": {
+      "eur": 0.92191,
+      "jpy": 150.04,
+      "gbp": 0.76671
+    },
     "interestRate": 5.154,
-    "vix": 21.78,
-    "recessionProb": 30.98,
-    "sales": 198.98,
-    "shockProb": 0.325
+    "vix": 21.12,
+    "recessionProb": 26.13,
+    "sales": 191.32,
+    "shockProb": 0.304,
+    "companyProbs": {
+      "techCorp": 0.189,
+      "energyPlus": 0.207,
+      "retailGlobal": 0.273
+    }
   },
   {
     "date": "2024-10-21",
-    "fxRate": 1.0853,
+    "fx": {
+      "eur": 0.9214,
+      "jpy": 150,
+      "gbp": 0.76767
+    },
     "interestRate": 5.154,
-    "vix": 20.61,
-    "recessionProb": 27.08,
-    "sales": 200,
-    "shockProb": 0.289
+    "vix": 20.46,
+    "recessionProb": 28.71,
+    "sales": 201.17,
+    "shockProb": 0.318,
+    "companyProbs": {
+      "techCorp": 0.178,
+      "energyPlus": 0.209,
+      "retailGlobal": 0.27
+    }
   },
   {
     "date": "2024-10-22",
-    "fxRate": 1.0821,
+    "fx": {
+      "eur": 0.92413,
+      "jpy": 150.84,
+      "gbp": 0.77017
+    },
     "interestRate": 5.154,
-    "vix": 19.98,
-    "recessionProb": 30.46,
-    "sales": 190.57,
-    "shockProb": 0.312
+    "vix": 19.73,
+    "recessionProb": 28.8,
+    "sales": 195.51,
+    "shockProb": 0.302,
+    "companyProbs": {
+      "techCorp": 0.177,
+      "energyPlus": 0.227,
+      "retailGlobal": 0.259
+    }
   },
   {
     "date": "2024-10-23",
-    "fxRate": 1.0767,
+    "fx": {
+      "eur": 0.92876,
+      "jpy": 152.93,
+      "gbp": 0.77225
+    },
     "interestRate": 5.154,
-    "vix": 20.67,
-    "recessionProb": 27.56,
-    "sales": 195.74,
-    "shockProb": 0.282
+    "vix": 21.35,
+    "recessionProb": 27.81,
+    "sales": 193.4,
+    "shockProb": 0.309,
+    "companyProbs": {
+      "techCorp": 0.167,
+      "energyPlus": 0.231,
+      "retailGlobal": 0.248
+    }
   },
   {
     "date": "2024-10-24",
-    "fxRate": 1.0801,
+    "fx": {
+      "eur": 0.92584,
+      "jpy": 151.95,
+      "gbp": 0.77039
+    },
     "interestRate": 5.154,
-    "vix": 20.72,
-    "recessionProb": 26.75,
-    "sales": 188.11,
-    "shockProb": 0.324
+    "vix": 20.39,
+    "recessionProb": 31.16,
+    "sales": 192.45,
+    "shockProb": 0.319,
+    "companyProbs": {
+      "techCorp": 0.172,
+      "energyPlus": 0.217,
+      "retailGlobal": 0.3
+    }
   },
   {
     "date": "2024-10-25",
-    "fxRate": 1.0825,
+    "fx": {
+      "eur": 0.92379,
+      "jpy": 151.92,
+      "gbp": 0.77005
+    },
     "interestRate": 5.154,
-    "vix": 19.24,
-    "recessionProb": 29.23,
-    "sales": 191.9,
-    "shockProb": 0.318
+    "vix": 20.57,
+    "recessionProb": 28.88,
+    "sales": 190.11,
+    "shockProb": 0.324,
+    "companyProbs": {
+      "techCorp": 0.192,
+      "energyPlus": 0.184,
+      "retailGlobal": 0.282
+    }
   },
   {
     "date": "2024-10-28",
-    "fxRate": 1.0818,
+    "fx": {
+      "eur": 0.92439,
+      "jpy": 152.69,
+      "gbp": 0.76992
+    },
     "interestRate": 5.154,
-    "vix": 19.78,
-    "recessionProb": 27.07,
-    "sales": 200.89,
-    "shockProb": 0.284
+    "vix": 20.01,
+    "recessionProb": 29.66,
+    "sales": 199.13,
+    "shockProb": 0.297,
+    "companyProbs": {
+      "techCorp": 0.172,
+      "energyPlus": 0.153,
+      "retailGlobal": 0.271
+    }
   },
   {
     "date": "2024-10-29",
-    "fxRate": 1.0774,
+    "fx": {
+      "eur": 0.92816,
+      "jpy": 153.76,
+      "gbp": 0.77056
+    },
     "interestRate": 5.154,
-    "vix": 18.52,
-    "recessionProb": 30.21,
-    "sales": 207.36,
-    "shockProb": 0.28
+    "vix": 19.01,
+    "recessionProb": 31.26,
+    "sales": 187.83,
+    "shockProb": 0.319,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.196,
+      "retailGlobal": 0.266
+    }
   },
   {
     "date": "2024-10-30",
-    "fxRate": 1.0815,
+    "fx": {
+      "eur": 0.92464,
+      "jpy": 153.41,
+      "gbp": 0.77138
+    },
     "interestRate": 5.154,
-    "vix": 18.99,
-    "recessionProb": 29.12,
-    "sales": 204.84,
-    "shockProb": 0.295
+    "vix": 18.48,
+    "recessionProb": 28.63,
+    "sales": 199.89,
+    "shockProb": 0.3,
+    "companyProbs": {
+      "techCorp": 0.187,
+      "energyPlus": 0.164,
+      "retailGlobal": 0.252
+    }
   },
   {
     "date": "2024-10-31",
-    "fxRate": 1.0882,
+    "fx": {
+      "eur": 0.91895,
+      "jpy": 152.82,
+      "gbp": 0.76965
+    },
     "interestRate": 4.901,
-    "vix": 19.15,
-    "recessionProb": 28.95,
-    "sales": 190.48,
-    "shockProb": 0.309
+    "vix": 17.76,
+    "recessionProb": 30.62,
+    "sales": 190.83,
+    "shockProb": 0.3,
+    "companyProbs": {
+      "techCorp": 0.173,
+      "energyPlus": 0.192,
+      "retailGlobal": 0.273
+    }
   },
   {
     "date": "2024-11-01",
-    "fxRate": 1.0885,
+    "fx": {
+      "eur": 0.9187,
+      "jpy": 152.08,
+      "gbp": 0.77169
+    },
     "interestRate": 4.901,
-    "vix": 18.22,
-    "recessionProb": 27.28,
-    "sales": 194.42,
-    "shockProb": 0.286
+    "vix": 18.08,
+    "recessionProb": 28.28,
+    "sales": 207.53,
+    "shockProb": 0.285,
+    "companyProbs": {
+      "techCorp": 0.175,
+      "energyPlus": 0.188,
+      "retailGlobal": 0.248
+    }
   },
   {
     "date": "2024-11-04",
-    "fxRate": 1.0904,
+    "fx": {
+      "eur": 0.91709,
+      "jpy": 151.75,
+      "gbp": 0.77094
+    },
     "interestRate": 4.901,
-    "vix": 17.34,
-    "recessionProb": 28.73,
-    "sales": 205.84,
-    "shockProb": 0.283
+    "vix": 17.12,
+    "recessionProb": 31.71,
+    "sales": 198.27,
+    "shockProb": 0.289,
+    "companyProbs": {
+      "techCorp": 0.169,
+      "energyPlus": 0.211,
+      "retailGlobal": 0.269
+    }
   },
   {
     "date": "2024-11-05",
-    "fxRate": 1.0897,
+    "fx": {
+      "eur": 0.91768,
+      "jpy": 152.27,
+      "gbp": 0.77012
+    },
     "interestRate": 4.901,
-    "vix": 17.89,
-    "recessionProb": 30.43,
-    "sales": 196.36,
-    "shockProb": 0.287
+    "vix": 16.59,
+    "recessionProb": 29.27,
+    "sales": 203.03,
+    "shockProb": 0.272,
+    "companyProbs": {
+      "techCorp": 0.163,
+      "energyPlus": 0.157,
+      "retailGlobal": 0.298
+    }
   },
   {
     "date": "2024-11-06",
-    "fxRate": 1.0695,
+    "fx": {
+      "eur": 0.93502,
+      "jpy": 154.32,
+      "gbp": 0.77815
+    },
     "interestRate": 4.901,
-    "vix": 16,
-    "recessionProb": 29.34,
-    "sales": 208.89,
-    "shockProb": 0.241
+    "vix": 15.93,
+    "recessionProb": 30.27,
+    "sales": 210.05,
+    "shockProb": 0.255,
+    "companyProbs": {
+      "techCorp": 0.127,
+      "energyPlus": 0.16,
+      "retailGlobal": 0.297
+    }
   },
   {
     "date": "2024-11-07",
-    "fxRate": 1.0785,
+    "fx": {
+      "eur": 0.92721,
+      "jpy": 153.65,
+      "gbp": 0.7713
+    },
     "interestRate": 4.901,
-    "vix": 15.86,
-    "recessionProb": 27.33,
-    "sales": 207.88,
-    "shockProb": 0.239
+    "vix": 15.98,
+    "recessionProb": 28.78,
+    "sales": 210.87,
+    "shockProb": 0.23,
+    "companyProbs": {
+      "techCorp": 0.163,
+      "energyPlus": 0.21,
+      "retailGlobal": 0.248
+    }
   },
   {
     "date": "2024-11-08",
-    "fxRate": 1.0772,
+    "fx": {
+      "eur": 0.92833,
+      "jpy": 152.41,
+      "gbp": 0.77226
+    },
     "interestRate": 4.901,
-    "vix": 15.91,
-    "recessionProb": 29.72,
-    "sales": 213.44,
-    "shockProb": 0.248
+    "vix": 14.71,
+    "recessionProb": 31.02,
+    "sales": 203.8,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.195,
+      "retailGlobal": 0.283
+    }
   },
   {
     "date": "2024-11-11",
-    "fxRate": 1.0651,
+    "fx": {
+      "eur": 0.93888,
+      "jpy": 153.81,
+      "gbp": 0.77627
+    },
     "interestRate": 4.901,
-    "vix": 15.45,
-    "recessionProb": 27.29,
-    "sales": 215.94,
-    "shockProb": 0.22
+    "vix": 14.16,
+    "recessionProb": 30.75,
+    "sales": 203.58,
+    "shockProb": 0.237,
+    "companyProbs": {
+      "techCorp": 0.127,
+      "energyPlus": 0.155,
+      "retailGlobal": 0.299
+    }
   },
   {
     "date": "2024-11-12",
-    "fxRate": 1.0617,
+    "fx": {
+      "eur": 0.94189,
+      "jpy": 154.2,
+      "gbp": 0.78021
+    },
     "interestRate": 4.901,
-    "vix": 14.73,
-    "recessionProb": 29.52,
-    "sales": 205.83,
-    "shockProb": 0.25
+    "vix": 14.2,
+    "recessionProb": 29.29,
+    "sales": 205.29,
+    "shockProb": 0.216,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.119,
+      "retailGlobal": 0.278
+    }
   },
   {
     "date": "2024-11-13",
-    "fxRate": 1.0629,
+    "fx": {
+      "eur": 0.94082,
+      "jpy": 154.96,
+      "gbp": 0.78477
+    },
     "interestRate": 4.901,
-    "vix": 14.96,
-    "recessionProb": 28.16,
-    "sales": 215.25,
-    "shockProb": 0.23
+    "vix": 13.05,
+    "recessionProb": 27.91,
+    "sales": 214.79,
+    "shockProb": 0.203,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.165,
+      "retailGlobal": 0.266
+    }
   },
   {
     "date": "2024-11-14",
-    "fxRate": 1.0533,
+    "fx": {
+      "eur": 0.9494,
+      "jpy": 155.93,
+      "gbp": 0.7895
+    },
     "interestRate": 4.901,
-    "vix": 14.48,
-    "recessionProb": 28.89,
-    "sales": 218.67,
-    "shockProb": 0.215
+    "vix": 14.23,
+    "recessionProb": 28.83,
+    "sales": 205.09,
+    "shockProb": 0.224,
+    "companyProbs": {
+      "techCorp": 0.162,
+      "energyPlus": 0.155,
+      "retailGlobal": 0.276
+    }
   },
   {
     "date": "2024-11-15",
-    "fxRate": 1.0583,
+    "fx": {
+      "eur": 0.94491,
+      "jpy": 155.31,
+      "gbp": 0.78858
+    },
     "interestRate": 4.901,
-    "vix": 12.54,
-    "recessionProb": 32.05,
-    "sales": 210.36,
-    "shockProb": 0.222
+    "vix": 13.48,
+    "recessionProb": 29.78,
+    "sales": 215.79,
+    "shockProb": 0.23,
+    "companyProbs": {
+      "techCorp": 0.132,
+      "energyPlus": 0.16,
+      "retailGlobal": 0.264
+    }
   },
   {
     "date": "2024-11-18",
-    "fxRate": 1.0552,
+    "fx": {
+      "eur": 0.94769,
+      "jpy": 155.17,
+      "gbp": 0.79189
+    },
     "interestRate": 4.901,
-    "vix": 12.15,
-    "recessionProb": 29.35,
-    "sales": 216.05,
-    "shockProb": 0.221
+    "vix": 12.98,
+    "recessionProb": 31.31,
+    "sales": 203.28,
+    "shockProb": 0.23,
+    "companyProbs": {
+      "techCorp": 0.15,
+      "energyPlus": 0.131,
+      "retailGlobal": 0.308
+    }
   },
   {
     "date": "2024-11-19",
-    "fxRate": 1.0578,
+    "fx": {
+      "eur": 0.94536,
+      "jpy": 153.82,
+      "gbp": 0.79068
+    },
     "interestRate": 4.901,
-    "vix": 11.84,
-    "recessionProb": 27.94,
-    "sales": 207.03,
-    "shockProb": 0.205
+    "vix": 11.77,
+    "recessionProb": 28.47,
+    "sales": 219.31,
+    "shockProb": 0.209,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.125,
+      "retailGlobal": 0.246
+    }
   },
   {
     "date": "2024-11-20",
-    "fxRate": 1.0562,
+    "fx": {
+      "eur": 0.94679,
+      "jpy": 155.67,
+      "gbp": 0.78943
+    },
     "interestRate": 4.901,
-    "vix": 11.45,
-    "recessionProb": 28.93,
-    "sales": 211.91,
-    "shockProb": 0.198
+    "vix": 12.92,
+    "recessionProb": 27.89,
+    "sales": 208.63,
+    "shockProb": 0.225,
+    "companyProbs": {
+      "techCorp": 0.147,
+      "energyPlus": 0.132,
+      "retailGlobal": 0.284
+    }
   },
   {
     "date": "2024-11-21",
-    "fxRate": 1.0526,
+    "fx": {
+      "eur": 0.95003,
+      "jpy": 154.41,
+      "gbp": 0.79112
+    },
     "interestRate": 4.901,
-    "vix": 11.23,
-    "recessionProb": 28.73,
-    "sales": 208.68,
-    "shockProb": 0.22
+    "vix": 11.26,
+    "recessionProb": 28.33,
+    "sales": 214.04,
+    "shockProb": 0.175,
+    "companyProbs": {
+      "techCorp": 0.13,
+      "energyPlus": 0.175,
+      "retailGlobal": 0.256
+    }
   },
   {
     "date": "2024-11-22",
-    "fxRate": 1.0412,
+    "fx": {
+      "eur": 0.96043,
+      "jpy": 154.48,
+      "gbp": 0.79913
+    },
     "interestRate": 4.901,
-    "vix": 11.39,
-    "recessionProb": 31.8,
-    "sales": 217.61,
-    "shockProb": 0.204
+    "vix": 12.32,
+    "recessionProb": 28.72,
+    "sales": 218.05,
+    "shockProb": 0.185,
+    "companyProbs": {
+      "techCorp": 0.143,
+      "energyPlus": 0.162,
+      "retailGlobal": 0.272
+    }
   },
   {
     "date": "2024-11-25",
-    "fxRate": 1.0495,
+    "fx": {
+      "eur": 0.95283,
+      "jpy": 154.02,
+      "gbp": 0.79528
+    },
     "interestRate": 4.901,
-    "vix": 10.4,
-    "recessionProb": 30.85,
-    "sales": 205.44,
-    "shockProb": 0.213
+    "vix": 11.19,
+    "recessionProb": 28.34,
+    "sales": 217.24,
+    "shockProb": 0.207,
+    "companyProbs": {
+      "techCorp": 0.123,
+      "energyPlus": 0.105,
+      "retailGlobal": 0.249
+    }
   },
   {
     "date": "2024-11-26",
-    "fxRate": 1.0522,
+    "fx": {
+      "eur": 0.95039,
+      "jpy": 153.14,
+      "gbp": 0.79339
+    },
     "interestRate": 4.901,
-    "vix": 11.72,
-    "recessionProb": 29.77,
-    "sales": 219.26,
-    "shockProb": 0.18
+    "vix": 10.2,
+    "recessionProb": 28.81,
+    "sales": 218.85,
+    "shockProb": 0.182,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.155,
+      "retailGlobal": 0.274
+    }
   },
   {
     "date": "2024-11-27",
-    "fxRate": 1.0531,
+    "fx": {
+      "eur": 0.94958,
+      "jpy": 151.6,
+      "gbp": 0.79195
+    },
     "interestRate": 4.901,
-    "vix": 10.9,
-    "recessionProb": 30.36,
-    "sales": 216.68,
-    "shockProb": 0.223
+    "vix": 11.79,
+    "recessionProb": 33,
+    "sales": 215.01,
+    "shockProb": 0.213,
+    "companyProbs": {
+      "techCorp": 0.134,
+      "energyPlus": 0.172,
+      "retailGlobal": 0.305
+    }
   },
   {
     "date": "2024-11-28",
-    "fxRate": 1.0542,
+    "fx": {
+      "eur": 0.94859,
+      "jpy": 151.67,
+      "gbp": 0.78951
+    },
     "interestRate": 4.901,
-    "vix": 10.73,
-    "recessionProb": 29.81,
-    "sales": 218.81,
-    "shockProb": 0.207
+    "vix": 10.39,
+    "recessionProb": 32.38,
+    "sales": 205.98,
+    "shockProb": 0.221,
+    "companyProbs": {
+      "techCorp": 0.129,
+      "energyPlus": 0.179,
+      "retailGlobal": 0.296
+    }
   },
   {
     "date": "2024-11-29",
-    "fxRate": 1.0562,
+    "fx": {
+      "eur": 0.94679,
+      "jpy": 150.2,
+      "gbp": 0.78778
+    },
     "interestRate": 4.901,
-    "vix": 11.44,
-    "recessionProb": 31.04,
-    "sales": 211.62,
-    "shockProb": 0.192
+    "vix": 11.96,
+    "recessionProb": 32.18,
+    "sales": 207.89,
+    "shockProb": 0.231,
+    "companyProbs": {
+      "techCorp": 0.126,
+      "energyPlus": 0.164,
+      "retailGlobal": 0.274
+    }
   },
   {
     "date": "2024-12-02",
-    "fxRate": 1.0507,
+    "fx": {
+      "eur": 0.95175,
+      "jpy": 150.13,
+      "gbp": 0.78898
+    },
     "interestRate": 4.901,
-    "vix": 11.4,
-    "recessionProb": 33.05,
-    "sales": 220.68,
-    "shockProb": 0.205
+    "vix": 10.52,
+    "recessionProb": 31.76,
+    "sales": 212.34,
+    "shockProb": 0.237,
+    "companyProbs": {
+      "techCorp": 0.148,
+      "energyPlus": 0.153,
+      "retailGlobal": 0.293
+    }
   },
   {
     "date": "2024-12-03",
-    "fxRate": 1.0512,
+    "fx": {
+      "eur": 0.95129,
+      "jpy": 149.64,
+      "gbp": 0.79074
+    },
     "interestRate": 4.901,
-    "vix": 11.25,
-    "recessionProb": 33.52,
-    "sales": 216.19,
-    "shockProb": 0.219
+    "vix": 11.19,
+    "recessionProb": 31.55,
+    "sales": 209.43,
+    "shockProb": 0.205,
+    "companyProbs": {
+      "techCorp": 0.155,
+      "energyPlus": 0.167,
+      "retailGlobal": 0.281
+    }
   },
   {
     "date": "2024-12-04",
-    "fxRate": 1.0492,
+    "fx": {
+      "eur": 0.95311,
+      "jpy": 151.15,
+      "gbp": 0.78946
+    },
     "interestRate": 4.901,
-    "vix": 11.6,
-    "recessionProb": 32.97,
-    "sales": 211.07,
-    "shockProb": 0.198
+    "vix": 11.94,
+    "recessionProb": 29.97,
+    "sales": 214.58,
+    "shockProb": 0.215,
+    "companyProbs": {
+      "techCorp": 0.132,
+      "energyPlus": 0.116,
+      "retailGlobal": 0.3
+    }
   },
   {
     "date": "2024-12-05",
-    "fxRate": 1.054,
+    "fx": {
+      "eur": 0.94877,
+      "jpy": 150.4,
+      "gbp": 0.78558
+    },
     "interestRate": 4.901,
-    "vix": 11.07,
-    "recessionProb": 30.39,
-    "sales": 208.97,
-    "shockProb": 0.194
+    "vix": 11.99,
+    "recessionProb": 31.35,
+    "sales": 215.64,
+    "shockProb": 0.194,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.116,
+      "retailGlobal": 0.303
+    }
   },
   {
     "date": "2024-12-06",
-    "fxRate": 1.0581,
+    "fx": {
+      "eur": 0.94509,
+      "jpy": 150.51,
+      "gbp": 0.78305
+    },
     "interestRate": 4.901,
-    "vix": 12.36,
-    "recessionProb": 32.36,
-    "sales": 205.31,
-    "shockProb": 0.233
+    "vix": 12.11,
+    "recessionProb": 33.62,
+    "sales": 212.08,
+    "shockProb": 0.227,
+    "companyProbs": {
+      "techCorp": 0.137,
+      "energyPlus": 0.138,
+      "retailGlobal": 0.306
+    }
   },
   {
     "date": "2024-12-09",
-    "fxRate": 1.0568,
+    "fx": {
+      "eur": 0.94625,
+      "jpy": 150.83,
+      "gbp": 0.78354
+    },
     "interestRate": 4.901,
-    "vix": 12.03,
-    "recessionProb": 30.14,
-    "sales": 218.24,
-    "shockProb": 0.209
+    "vix": 12.07,
+    "recessionProb": 33.8,
+    "sales": 206.8,
+    "shockProb": 0.209,
+    "companyProbs": {
+      "techCorp": 0.151,
+      "energyPlus": 0.196,
+      "retailGlobal": 0.281
+    }
   },
   {
     "date": "2024-12-10",
-    "fxRate": 1.0527,
+    "fx": {
+      "eur": 0.94994,
+      "jpy": 151.74,
+      "gbp": 0.78422
+    },
     "interestRate": 4.901,
-    "vix": 13.12,
-    "recessionProb": 32.97,
-    "sales": 200.44,
-    "shockProb": 0.25
+    "vix": 11.72,
+    "recessionProb": 30.78,
+    "sales": 214.06,
+    "shockProb": 0.229,
+    "companyProbs": {
+      "techCorp": 0.12,
+      "energyPlus": 0.127,
+      "retailGlobal": 0.298
+    }
   },
   {
     "date": "2024-12-11",
-    "fxRate": 1.0507,
+    "fx": {
+      "eur": 0.95175,
+      "jpy": 152.61,
+      "gbp": 0.78479
+    },
     "interestRate": 4.901,
-    "vix": 12.5,
-    "recessionProb": 30.22,
-    "sales": 215.12,
-    "shockProb": 0.224
+    "vix": 11.66,
+    "recessionProb": 31.87,
+    "sales": 219.59,
+    "shockProb": 0.192,
+    "companyProbs": {
+      "techCorp": 0.128,
+      "energyPlus": 0.159,
+      "retailGlobal": 0.307
+    }
   },
   {
     "date": "2024-12-12",
-    "fxRate": 1.0491,
+    "fx": {
+      "eur": 0.9532,
+      "jpy": 152.13,
+      "gbp": 0.7857
+    },
     "interestRate": 4.901,
-    "vix": 13.13,
-    "recessionProb": 29.09,
-    "sales": 210.86,
-    "shockProb": 0.237
+    "vix": 12.29,
+    "recessionProb": 31.24,
+    "sales": 216.55,
+    "shockProb": 0.211,
+    "companyProbs": {
+      "techCorp": 0.144,
+      "energyPlus": 0.128,
+      "retailGlobal": 0.287
+    }
   },
   {
     "date": "2024-12-13",
-    "fxRate": 1.0518,
+    "fx": {
+      "eur": 0.95075,
+      "jpy": 153.5,
+      "gbp": 0.78953
+    },
     "interestRate": 4.901,
-    "vix": 14,
-    "recessionProb": 30.59,
-    "sales": 205.67,
-    "shockProb": 0.254
+    "vix": 12.92,
+    "recessionProb": 30.15,
+    "sales": 208.87,
+    "shockProb": 0.194,
+    "companyProbs": {
+      "techCorp": 0.121,
+      "energyPlus": 0.149,
+      "retailGlobal": 0.292
+    }
   },
   {
     "date": "2024-12-16",
-    "fxRate": 1.0498,
+    "fx": {
+      "eur": 0.95256,
+      "jpy": 154.06,
+      "gbp": 0.7901
+    },
     "interestRate": 4.901,
-    "vix": 13.69,
-    "recessionProb": 31.75,
-    "sales": 210.8,
-    "shockProb": 0.243
+    "vix": 14.85,
+    "recessionProb": 32.76,
+    "sales": 206.03,
+    "shockProb": 0.266,
+    "companyProbs": {
+      "techCorp": 0.141,
+      "energyPlus": 0.171,
+      "retailGlobal": 0.3
+    }
   },
   {
     "date": "2024-12-17",
-    "fxRate": 1.0497,
+    "fx": {
+      "eur": 0.95265,
+      "jpy": 153.98,
+      "gbp": 0.78735
+    },
     "interestRate": 4.901,
-    "vix": 14.31,
-    "recessionProb": 31.13,
-    "sales": 210.11,
-    "shockProb": 0.225
+    "vix": 14,
+    "recessionProb": 30.88,
+    "sales": 204.12,
+    "shockProb": 0.256,
+    "companyProbs": {
+      "techCorp": 0.146,
+      "energyPlus": 0.211,
+      "retailGlobal": 0.266
+    }
   },
   {
     "date": "2024-12-18",
-    "fxRate": 1.0496,
+    "fx": {
+      "eur": 0.95274,
+      "jpy": 153.89,
+      "gbp": 0.7862
+    },
     "interestRate": 4.901,
-    "vix": 14.3,
-    "recessionProb": 32.33,
-    "sales": 212.9,
-    "shockProb": 0.243
+    "vix": 14.1,
+    "recessionProb": 31.71,
+    "sales": 209.02,
+    "shockProb": 0.222,
+    "companyProbs": {
+      "techCorp": 0.152,
+      "energyPlus": 0.148,
+      "retailGlobal": 0.288
+    }
   },
   {
     "date": "2024-12-19",
-    "fxRate": 1.0395,
+    "fx": {
+      "eur": 0.962,
+      "jpy": 156.87,
+      "gbp": 0.79312
+    },
     "interestRate": 4.901,
-    "vix": 15.42,
-    "recessionProb": 31.17,
-    "sales": 200.05,
-    "shockProb": 0.278
+    "vix": 14.97,
+    "recessionProb": 32.22,
+    "sales": 208.44,
+    "shockProb": 0.249,
+    "companyProbs": {
+      "techCorp": 0.159,
+      "energyPlus": 0.135,
+      "retailGlobal": 0.309
+    }
   },
   {
     "date": "2024-12-20",
-    "fxRate": 1.039,
+    "fx": {
+      "eur": 0.96246,
+      "jpy": 156.78,
+      "gbp": 0.79851
+    },
     "interestRate": 4.901,
-    "vix": 16.05,
-    "recessionProb": 31.71,
-    "sales": 208.58,
-    "shockProb": 0.25
+    "vix": 16.31,
+    "recessionProb": 31.38,
+    "sales": 202.48,
+    "shockProb": 0.285,
+    "companyProbs": {
+      "techCorp": 0.136,
+      "energyPlus": 0.212,
+      "retailGlobal": 0.288
+    }
   },
   {
     "date": "2024-12-23",
-    "fxRate": 1.0393,
+    "fx": {
+      "eur": 0.96219,
+      "jpy": 157.18,
+      "gbp": 0.79857
+    },
     "interestRate": 4.901,
-    "vix": 16.57,
-    "recessionProb": 33.58,
-    "sales": 203.46,
-    "shockProb": 0.281
+    "vix": 15.36,
+    "recessionProb": 34.57,
+    "sales": 197.21,
+    "shockProb": 0.276,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.166,
+      "retailGlobal": 0.29
+    }
   },
   {
     "date": "2024-12-24",
-    "fxRate": 1.0395,
+    "fx": {
+      "eur": 0.962,
+      "jpy": 157.05,
+      "gbp": 0.79658
+    },
     "interestRate": 4.901,
-    "vix": 17.43,
-    "recessionProb": 33.68,
-    "sales": 195.88,
-    "shockProb": 0.309
+    "vix": 17.26,
+    "recessionProb": 32.39,
+    "sales": 195.8,
+    "shockProb": 0.307,
+    "companyProbs": {
+      "techCorp": 0.163,
+      "energyPlus": 0.175,
+      "retailGlobal": 0.293
+    }
   },
   {
     "date": "2024-12-27",
-    "fxRate": 1.0435,
+    "fx": {
+      "eur": 0.95831,
+      "jpy": 157.79,
+      "gbp": 0.79634
+    },
     "interestRate": 4.901,
-    "vix": 17.81,
-    "recessionProb": 33.57,
-    "sales": 200.92,
-    "shockProb": 0.293
+    "vix": 16.74,
+    "recessionProb": 31.16,
+    "sales": 196.53,
+    "shockProb": 0.282,
+    "companyProbs": {
+      "techCorp": 0.139,
+      "energyPlus": 0.169,
+      "retailGlobal": 0.28
+    }
   },
   {
     "date": "2024-12-30",
-    "fxRate": 1.0444,
+    "fx": {
+      "eur": 0.95749,
+      "jpy": 157.57,
+      "gbp": 0.79424
+    },
     "interestRate": 4.901,
-    "vix": 18.03,
-    "recessionProb": 30.62,
-    "sales": 195,
-    "shockProb": 0.289
+    "vix": 17.01,
+    "recessionProb": 33.13,
+    "sales": 194.38,
+    "shockProb": 0.278,
+    "companyProbs": {
+      "techCorp": 0.135,
+      "energyPlus": 0.163,
+      "retailGlobal": 0.305
+    }
   },
   {
     "date": "2024-12-31",
-    "fxRate": 1.0389,
+    "fx": {
+      "eur": 0.96256,
+      "jpy": 156.95,
+      "gbp": 0.79813
+    },
     "interestRate": 4.586,
-    "vix": 18.3,
-    "recessionProb": 31.08,
-    "sales": 193.08,
-    "shockProb": 0.312
+    "vix": 17.6,
+    "recessionProb": 34.46,
+    "sales": 200.99,
+    "shockProb": 0.3,
+    "companyProbs": {
+      "techCorp": 0.18,
+      "energyPlus": 0.185,
+      "retailGlobal": 0.299
+    }
   }
 ]

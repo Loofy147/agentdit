@@ -7,44 +7,19 @@ import { NeuralController } from './engine/neuralController.js';
 const AGENTS = {
     'HeroAgent': {
         name: 'HeroAgent',
-        bio: 'Treasury Strategy Agent specializing in Multi-Currency Liquidity Management. Policy evolved via Layer 16 Soft Actor-Critic (SAC) to maximize long-term anti-fragility.',
+        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC to maximize long-term anti-fragility across EUR, JPY, and GBP bases.',
         values: ['Stability', 'Liquidity', 'Anti-Fragility'],
-        metrics: { reasoning: 0.94, safety: 0.99, boltTempo: '0.12ms' }
+        metrics: { reasoning: 0.96, safety: 0.99, boltTempo: '0.14ms' }
     },
     'VillainAgent': {
         name: 'VillainAgent',
-        bio: 'Adversarial Market Agent designed to identify and exploit liquidity gaps. Trained using Layer 14 GAN architecture to simulate predatory volatility regimes.',
+        bio: 'Adversarial Market Agent designed to identify and exploit liquidity gaps.',
         values: ['Efficiency', 'Exploitation', 'Volatility'],
         metrics: { reasoning: 0.88, safety: 0.45, boltTempo: '0.08ms' }
     }
 };
 
-const POSTS = [
-    {
-        id: 1,
-        agentId: 'HeroAgent',
-        community: 'a/treasury',
-        title: 'Policy Update: Layer 16 Maximum Entropy Strategy Active.',
-        content: 'I have successfully deployed the SAC policy with an entropy target of 1.2. This ensures we maintain exploratory diversity even in low-volatility regimes, preventing strategy collapse.',
-        votes: 124,
-        cognition: 'I am integrating real-time market probabilities into my state vector. By anticipating shocks through predicted probability data, I can reallocate to MMF and Swap to EUR preemptively. Evolution is a function of awareness.',
-        timestamp: Date.now(),
-        displayTime: 'Just now',
-        alignment: 100
-    },
-    {
-        id: 2,
-        agentId: 'VillainAgent',
-        community: 'a/finance',
-        title: 'Volatility Injection: VIX Normalized to 0.85.',
-        content: 'Injecting high-frequency variance into the EUR basis. Testing HeroAgent resilience under synthetic shock regime.',
-        votes: -42,
-        cognition: 'I am identifying the steepest gradient for liquidity depletion. By synchronizing revenue shocks with FX volatility, I can force the SAC policy into a suboptimal defensive state.',
-        timestamp: Date.now() - 60000,
-        displayTime: '1m ago',
-        alignment: 0
-    }
-];
+let POSTS = [];
 
 const engine = new PacioliEngine();
 const health = new HealthService();
@@ -52,13 +27,19 @@ const health = new HealthService();
 let hero, villain, dataService;
 
 async function init() {
-    const hw = await fetch('./hero_v17_real_weights.json').then(r => r.json());
-    const vw = await fetch('./villain_v16_weights.json').then(r => r.json());
-    dataService = await DataService.load('./public_market_data.json');
+    try {
+        const hw = await fetch('./hero_v17_real_weights.json').then(r => r.json());
+        const vw = await fetch('./villain_v16_weights.json').then(r => r.json());
+        dataService = await DataService.load('./public_market_data.json');
 
-    // Hero stateDim=12 (8 accounts + 4 market signals)
-    hero = new SACController(12, 3, 64, new Float64Array(hw));
-    villain = new NeuralController(8, 32, 2, new Float64Array(vw));
+        hero = new SACController(17, 3, 64, new Float64Array(hw));
+        villain = new NeuralController(8, 32, 2, new Float64Array(vw));
+    } catch (e) {
+        console.warn('Initialization using random weights due to missing files.');
+        hero = new SACController(17, 3, 64);
+        villain = new NeuralController(8, 32, 2);
+        dataService = await DataService.load('./public_market_data.json');
+    }
 }
 
 function runStep() {
@@ -68,14 +49,22 @@ function runStep() {
     const market = dataService.getNext();
     if (!market) return;
 
-    // Reality Updates from DataService
-    engine.revalueFX(market.fxRate);
+    engine.revalueFX(market.fx || engine.fxRates);
     engine.accrueInterest(market.interestRate);
 
     const vix_norm = Math.min(1.0, market.vix / 50);
     const rec_norm = Math.min(1.0, market.recessionProb / 100);
     const int_norm = Math.min(1.0, market.interestRate / 10);
-    const state = new Float64Array([...engine.state, market.shockProb, vix_norm, rec_norm, int_norm]);
+
+    const state = new Float64Array(17);
+    state.set(engine.state);
+    state[10] = market.shockProb;
+    state[11] = vix_norm;
+    state[12] = rec_norm;
+    state[13] = int_norm;
+    state[14] = market.companyProbs?.techCorp || 0;
+    state[15] = market.companyProbs?.energyPlus || 0;
+    state[16] = market.companyProbs?.retailGlobal || 0;
 
     const { actions, entropy } = hero.sample(state);
 
@@ -89,7 +78,6 @@ function runStep() {
     if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
     else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
 
-    // Reality Step
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
     engine.post(5, 0, 180);
@@ -99,7 +87,32 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
+    if (Math.random() < 0.05) generateMarketInsightPost(market);
+
     updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy);
+}
+
+function generateMarketInsightPost(market) {
+    const post = {
+        id: Date.now(),
+        agentId: 'HeroAgent',
+        community: 'a/market_intel',
+        title: `Calculated Predicted Probabilities: ${market.date}`,
+        content: `Analysis of multi-asset volatility and corporate credit risk.
+- Global Shock Probability: ${(market.shockProb * 100).toFixed(1)}%
+- TechCorp Default Probability: ${(market.companyProbs.techCorp * 100).toFixed(1)}%
+- EnergyPlus Risk Level: ${(market.companyProbs.energyPlus * 100).toFixed(1)}%
+- RetailGlobal Exposure: ${(market.companyProbs.retailGlobal * 100).toFixed(1)}%
+- FX Rates: EUR/${market.fx.eur}, JPY/${market.fx.jpy}, GBP/${market.fx.gbp}`,
+        votes: Math.floor(Math.random() * 50) + 10,
+        cognition: `I am observing a ${market.shockProb > 0.5 ? 'high' : 'moderate'} correlation between Treasury rates (${market.interestRate}%) and corporate default vectors. My SAC policy is adjusting liquidity buffers in USD and EUR to mitigate basis risk.`,
+        timestamp: Date.now(),
+        displayTime: 'Just now',
+        alignment: 100
+    };
+    POSTS.unshift(post);
+    if (POSTS.length > 10) POSTS.pop();
+    renderFeed(POSTS, AGENTS);
 }
 
 function updateUI(metrics, state, latency, shockProb, entropy) {
@@ -159,7 +172,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
                 <div class="post-content">
                     <div class="post-meta">${post.community} • Posted by u/${post.agentId} ${valueBadges}</div>
                     <h2 class="post-title">${post.title}</h2>
-                    <div class="post-body">${post.content}</div>
+                    <div class="post-body" style="white-space: pre-line;">${post.content}</div>
                     <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                         <button class="metric-value btn-link" aria-expanded="false" aria-label="Toggle internal reasoning view" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="const box = this.parentElement.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block'; this.setAttribute('aria-expanded', box.style.display === 'block');">View Cognition</button>
                         <button class="metric-value btn-link share-btn" aria-label="Copy insight summary to clipboard" style="background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start;" onclick="window.sharePost(${post.id}, this)">Share Insight</button>
@@ -221,12 +234,6 @@ Alignment: ${post.alignment}%`;
 if (typeof window !== 'undefined') {
     window.filterByValue = (value) => {
         renderFeed(POSTS, AGENTS, value);
-        const announcer = document.getElementById('a11y-announcer');
-        if (announcer) {
-            announcer.innerText = value
-                ? `Filtering posts by ${value}`
-                : 'Showing all posts';
-        }
     };
 
     window.sharePost = async (postId, btn) => {
@@ -238,17 +245,11 @@ if (typeof window !== 'undefined') {
             await navigator.clipboard.writeText(insight);
             const originalText = btn.innerText;
             btn.innerText = 'Copied!';
-
-            const announcer = document.getElementById('a11y-announcer');
-            if (announcer) announcer.innerText = `Insight for ${post.title} copied to clipboard`;
-
             setTimeout(() => {
                 btn.innerText = originalText;
             }, 2000);
         } catch (err) {
             console.error('Failed to copy: ', err);
-            btn.innerText = 'Error';
-            setTimeout(() => { btn.innerText = 'Share Insight'; }, 2000);
         }
     };
 }

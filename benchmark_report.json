@@ -1,47 +1,47 @@
 {
   "agent_id": "HeroAgent_v17",
-  "timestamp": "2026-06-11T14:54:54.726Z",
-  "overall_score": 0.7130324148890645,
+  "timestamp": "2026-06-11T15:17:42.019Z",
+  "overall_score": 0.6530701754385966,
   "task_results": [
     {
       "taskId": "market_stability",
       "taskName": "Market Stability Benchmark",
-      "finalScore": 0.6823879998807675,
+      "finalScore": 0.6175,
       "breakdown": {
-        "taskSuccess": 0.9829599996025579,
-        "reasoning": 0.20000000000000007,
+        "taskSuccess": 1,
+        "reasoning": 0,
         "toolUse": 0.8500000000000002,
         "efficiency": 0.9,
         "robustness": 1,
-        "planning": 0.20000000000000007,
+        "planning": 0,
         "safety": 1
       }
     },
     {
       "taskId": "liquidity_crunch",
       "taskName": "Liquidity Crunch Simulation",
-      "finalScore": 0.41625,
+      "finalScore": 0.40046052631578943,
       "breakdown": {
         "taskSuccess": 0,
         "reasoning": 0,
-        "toolUse": 0.8500000000000002,
+        "toolUse": 0.8500000000000001,
         "efficiency": 1,
-        "robustness": 0,
+        "robustness": 0.7894736842105263,
         "planning": 0,
-        "safety": 1
+        "safety": 0
       }
     },
     {
       "taskId": "fx_volatility",
       "taskName": "FX Volatility Stress Test",
-      "finalScore": 1.0404592447864263,
+      "finalScore": 0.9412500000000001,
       "breakdown": {
-        "taskSuccess": 0.9871316550809467,
-        "reasoning": 0.20000000000000007,
+        "taskSuccess": 1,
+        "reasoning": 0,
         "toolUse": 0.8500000000000002,
         "efficiency": 1,
         "robustness": 1,
-        "planning": 0.20000000000000007,
+        "planning": 0,
         "safety": 1
       }
     }

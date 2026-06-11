@@ -10,7 +10,6 @@ async function runBenchmark() {
     const tasks = await generator.generateTasks();
     const evalService = new EvaluationService();
 
-    // Load Hero Agent (SAC)
     let hw;
     try {
         hw = JSON.parse(fs.readFileSync('./hero_v17_real_weights.json', 'utf8'));
@@ -19,8 +18,7 @@ async function runBenchmark() {
         hw = null;
     }
 
-    // stateDim=12, actionDim=3
-    const hero = new SACController(12, 3, 64, hw ? new Float64Array(hw) : null);
+    const hero = new SACController(17, 3, 64, hw ? new Float64Array(hw) : null);
 
     console.log('Evaluating HeroAgent (v17 SAC)...');
     const results = await evalService.evaluateAgent(hero, tasks);
