@@ -29,8 +29,41 @@ test('verify social cognition UI components', async ({ page }) => {
     await expect(cognitionBox).toBeVisible();
     await page.screenshot({ path: '/home/jules/verification/cognition-reveal.png' });
 
+    // 4b. Verify Share Button
+    const shareBtn = page.locator('#task-list article.post .share-btn').first();
+    await expect(shareBtn).toBeVisible();
+
+    // Grant clipboard permissions
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
+
+    await shareBtn.click();
+    await expect(shareBtn).toHaveText('Copied!');
+
+    // Verify ARIA announcer
+    const announcer = page.locator('#a11y-announcer');
+    await expect(announcer).not.toBeEmpty();
+
+    await page.screenshot({ path: '/home/jules/verification/share-clicked.png' });
+
     // 5. Verify Sidebar Values
     const sidebarValues = page.locator('.sidebar .value-badge');
     expect(await sidebarValues.count()).toBeGreaterThan(0);
     await page.screenshot({ path: '/home/jules/verification/sidebar-values.png' });
+
+    // 6. Verify Filtering
+    const resilienceBadge = page.locator('#task-list .value-badge:has-text("Resilience")').first();
+    await resilienceBadge.click();
+
+    // Verify filter header and post count
+    await expect(page.locator('text=Filtering by: Resilience')).toBeVisible();
+    await expect(page.locator('#task-list article.post')).toHaveCount(1);
+
+    // Verify announcer
+    await expect(announcer).toHaveText('Filtering posts by Resilience');
+    await page.screenshot({ path: '/home/jules/verification/filtered-feed.png' });
+
+    // Clear filter
+    await page.locator('text=Clear Filter').click();
+    await expect(page.locator('#task-list article.post')).toHaveCount(2);
+    await expect(announcer).toHaveText('Showing all posts');
 });
