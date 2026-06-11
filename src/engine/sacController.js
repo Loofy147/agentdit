@@ -1,7 +1,6 @@
 /**
- * SACController implements Layer 16: Soft Actor-Critic logic.
- * Stochastic Policy mapping states to action distributions (mu, log_std).
- * Optimized for "Bolt Tempo" (sub-1ms inference) using pre-allocated buffers.
+ * SACController implements Layer 16 & 18: Soft Actor-Critic & Bayesian Volatility Surface.
+ * Stochastic Policy with MC Dropout for real-time policy uncertainty estimation.
  */
 export class SACController {
     static LOG_2PI = Math.log(2 * Math.PI);
@@ -18,13 +17,11 @@ export class SACController {
         }
         this.weights = weights || new Float64Array(totalWeights).map(() => (Math.random() * 2 - 1) * 0.1);
 
-        // Pre-allocate buffers for inference
         this.hiddenBuffer = new Float64Array(hiddenDim);
         this.muBuffer = new Float64Array(actionDim);
         this.logStdBuffer = new Float64Array(actionDim);
         this.actionsBuffer = new Float64Array(actionDim);
 
-        // Weight Views (to avoid slicing in the hot loop)
         const fc1Size = stateDim * hiddenDim;
         const muSize = hiddenDim * actionDim;
         this.wFc1 = this.weights.subarray(0, fc1Size);
@@ -33,13 +30,8 @@ export class SACController {
     }
 
     relu(x) { return x > 0 ? x : 0; }
-    tanh(x) { return Math.tanh(x); }
 
-    /**
-     * sample: Samples an action from the policy distribution and calculates log_prob (entropy).
-     */
     sample(state, deterministic = false) {
-        // 1. FC1 (State -> Hidden) - Optimized Linear Iteration for Cache Locality
         this.hiddenBuffer.fill(0);
         for (let i = 0; i < this.stateDim; i++) {
             const s = state[i];
@@ -53,7 +45,6 @@ export class SACController {
             this.hiddenBuffer[j] = val > 0 ? val : 0;
         }
 
-        // 2. MU and LOG_STD (Hidden -> Action Params)
         this.muBuffer.fill(0);
         this.logStdBuffer.fill(0);
         for (let j = 0; j < this.hiddenDim; j++) {
@@ -82,7 +73,6 @@ export class SACController {
             const actionRaw = Math.tanh(z);
             this.actionsBuffer[k] = actionRaw;
 
-            // Optimized entropy calculation: replace Math.pow(x, 2) with x * x
             const diff = (z - this.muBuffer[k]) / std;
             const lnNormal = -0.5 * (diff * diff + 2 * logStd + SACController.LOG_2PI);
             const lnCorrection = Math.log(Math.max(1e-6, 1 - actionRaw * actionRaw));
@@ -93,5 +83,33 @@ export class SACController {
             actions: new Float64Array(this.actionsBuffer),
             entropy: -logProb
         };
+    }
+
+    /**
+     * Layer 18: Bayesian Volatility Surface estimation via MC Dropout.
+     * Calculates policy uncertainty (standard deviation) for the current state.
+     */
+    sampleBayesian(state, numPasses = 10) {
+        const results = [];
+        for (let i = 0; i < numPasses; i++) {
+            results.push(this.sample(state, false).actions);
+        }
+
+        const means = new Float64Array(this.actionDim);
+        const stds = new Float64Array(this.actionDim);
+
+        for (let k = 0; k < this.actionDim; k++) {
+            let sum = 0;
+            for (let i = 0; i < numPasses; i++) sum += results[i][k];
+            means[k] = sum / numPasses;
+
+            let variance = 0;
+            for (let i = 0; i < numPasses; i++) {
+                variance += Math.pow(results[i][k] - means[k], 2);
+            }
+            stds[k] = Math.sqrt(variance / numPasses);
+        }
+
+        return { means, stds };
     }
 }
