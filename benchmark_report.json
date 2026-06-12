@@ -1,24 +1,24 @@
 {
   "agent_id": "HeroAgent_v17_PhaseShift",
-  "timestamp": "2026-06-12T14:15:22.305Z",
-  "overall_score": 0.6787500000000003,
+  "timestamp": "2026-06-12T16:53:11.756Z",
+  "overall_score": 0.7020833333333334,
   "task_results": [
     {
       "taskId": "market_stability",
       "taskName": "Market Stability Benchmark",
-      "finalScore": 0.6375000000000002,
+      "finalScore": 0.6775000000000002,
       "breakdown": {
         "taskSuccess": 1,
         "reasoning": 0.20000000000000007,
         "toolUse": 0.8500000000000002,
-        "efficiency": 0.4,
+        "efficiency": 0.8,
         "robustness": 1,
         "planning": 0.20000000000000007,
         "safety": 1
       },
       "latencyStats": {
-        "avg": 0.22273258333333365,
-        "p99": 1.1918350000000046
+        "avg": 0.20150758333333219,
+        "p99": 0.9107219999999998
       }
     },
     {
@@ -35,32 +35,32 @@
         "safety": 0
       },
       "latencyStats": {
-        "avg": 0.1640432999999991,
-        "p99": 0.4227109999999996
+        "avg": 0.15820274999999953,
+        "p99": 0.418528000000002
       }
     },
     {
       "taskId": "fx_volatility",
       "taskName": "FX Volatility Stress Test",
-      "finalScore": 1.0162500000000003,
+      "finalScore": 1.0462500000000001,
       "breakdown": {
         "taskSuccess": 1,
         "reasoning": 0.20000000000000007,
         "toolUse": 0.8500000000000002,
-        "efficiency": 0.8,
+        "efficiency": 1,
         "robustness": 1,
         "planning": 0.20000000000000007,
         "safety": 1
       },
       "latencyStats": {
-        "avg": 0.1619408750000003,
-        "p99": 0.5281450000000021
+        "avg": 0.14529750000000105,
+        "p99": 0.3678600000000003
       }
     }
   ],
   "stress_test": {
-    "avg": 0.050726784399999995,
-    "p99": 0.20051599999999326,
-    "total": 507.26784399999997
+    "avg": 0.0346768121,
+    "p99": 0.09324399999997013,
+    "total": 346.768121
   }
 }

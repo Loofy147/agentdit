@@ -5,6 +5,7 @@ import { LatticeService } from './services/latticeService.js';
 import { SettlementService } from './services/settlementService.js';
 import { GovernanceService } from './services/governanceService.js';
 import { TreasuryBridge } from './services/treasuryBridge.js';
+import { MacroService } from './services/macroService.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -33,6 +34,7 @@ const latticeService = new LatticeService();
 const settlementService = new SettlementService();
 const governanceService = new GovernanceService();
 const treasuryBridge = new TreasuryBridge(engine, governanceService, settlementService);
+const macroService = new MacroService();
 
 let hero, villain, dataService;
 
@@ -60,8 +62,14 @@ function runStep() {
 
     const t0 = performance.now();
 
-    // Drive Market Dynamics from Geopolitical Lattice
-    latticeService.step(1.0, 0.5);
+    // Drive Market Dynamics from Macro + Geopolitical Lattice
+    const currentRegime = latticeService.getMarketDynamics().regime;
+    const currentShock = latticeService.getMarketDynamics().shockProb;
+
+    macroService.step(currentRegime, currentShock);
+    const macroSignals = macroService.getNormalizedSignals();
+
+    latticeService.step(1.0, 0.5, 0.05, macroService.vitals);
     const dynamics = latticeService.getMarketDynamics();
 
     // Process Bridge & Settlement
@@ -81,19 +89,18 @@ function runStep() {
     engine.revalueFX(market.fx || engine.fxRates);
     engine.accrueInterest(market.interestRate);
 
-    const vix_norm = Math.min(1.0, market.vix / 50);
     const rec_norm = Math.min(1.0, market.recessionProb / 100);
     const int_norm = Math.min(1.0, market.interestRate / 10);
 
     const state = new Float64Array(17);
     state.set(engine.state);
     state[10] = market.shockProb;
-    state[11] = vix_norm;
+    state[11] = macroSignals.cpi; // Normalized CPI
     state[12] = rec_norm;
     state[13] = int_norm;
-    state[14] = market.companies?.techCorp?.prob || 0.1;
-    state[15] = market.companies?.energyPlus?.prob || 0.1;
-    state[16] = market.companies?.retailGlobal?.prob || 0.1;
+    state[14] = macroSignals.ffr; // Normalized FFR
+    state[15] = macroSignals.nfp; // Normalized NFP
+    state[16] = macroSignals.curve; // Normalized Yield Curve
 
     const { stds } = hero.sampleBayesian(state, 12);
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
@@ -153,6 +160,10 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     const mempoolEl = document.getElementById('gov-mempool');
     const payloadEl = document.getElementById('bridge-payload');
 
+    const cpiEl = document.getElementById('macro-cpi');
+    const nfpEl = document.getElementById('macro-nfp');
+    const ffrEl = document.getElementById('macro-ffr');
+
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
     if (leverage) leverage.innerText = metrics.leverage + 'x';
@@ -167,6 +178,10 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
 
     if (mempoolEl) mempoolEl.innerText = governanceService.mempool.length;
     if (payloadEl) payloadEl.innerText = governanceService.lastPayload || '0X00000000';
+
+    if (cpiEl) cpiEl.innerText = macroService.vitals.inflation.cpi.toFixed(1) + '%';
+    if (nfpEl) nfpEl.innerText = (macroService.vitals.labor.nfp / 1000).toFixed(0) + 'k';
+    if (ffrEl) ffrEl.innerText = macroService.vitals.monetary.ffr.toFixed(2) + '%';
 
     if (regimeEl) {
         regimeEl.innerText = regime;
