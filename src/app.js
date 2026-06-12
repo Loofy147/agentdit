@@ -3,6 +3,8 @@ import { HealthService } from './services/healthService.js';
 import { CognitionService } from './services/cognitionService.js';
 import { LatticeService } from './services/latticeService.js';
 import { SettlementService } from './services/settlementService.js';
+import { GovernanceService } from './services/governanceService.js';
+import { TreasuryBridge } from './services/treasuryBridge.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -29,6 +31,8 @@ const health = new HealthService();
 const cognitionService = new CognitionService();
 const latticeService = new LatticeService();
 const settlementService = new SettlementService();
+const governanceService = new GovernanceService();
+const treasuryBridge = new TreasuryBridge(engine, governanceService, settlementService);
 
 let hero, villain, dataService;
 
@@ -60,10 +64,11 @@ function runStep() {
     latticeService.step(1.0, 0.5);
     const dynamics = latticeService.getMarketDynamics();
 
-    // Process Settlement Queue
+    // Process Bridge & Settlement
+    treasuryBridge.step();
     settlementService.step();
 
-    // Hybrid Data: Use static data for FX/Sales, but Lattice for Regimes/Shocks
+    // Hybrid Data
     const baseData = dataService.getNext();
     if (!baseData) return;
 
@@ -90,31 +95,15 @@ function runStep() {
     state[15] = market.companies?.energyPlus?.prob || 0.1;
     state[16] = market.companies?.retailGlobal?.prob || 0.1;
 
-    const { means, stds } = hero.sampleBayesian(state, 12);
+    const { stds } = hero.sampleBayesian(state, 12);
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
     const confidence = Math.max(0, 100 - (avgUncertainty * 200));
 
-    // SLA-2.1 Phase-Shift Sampling
+    // Phase-Shift Sampling
     const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
-    // Hero Actions - Route through SettlementService
-    const routeAction = (type, dr, cr, amt) => {
-        const rail = (amt > 500 || market.regime === 'Crisis') ? 'SWIFT' : 'L2';
-        settlementService.dispatch(rail, amt, (req) => {
-            engine.post(dr, cr, req.amount);
-            // Deduct Fee
-            engine.post(5, 0, req.fee);
-        });
-    };
-
-    if (actions[0] > 0) routeAction('BORROW', 0, 4, actions[0] * 300);
-    else if (actions[0] < 0) routeAction('REPAY', 4, 0, Math.abs(actions[0]) * 300);
-
-    if (actions[1] > 0) routeAction('FX_BUY', 1, 0, actions[1] * 200);
-    else if (actions[1] < 0) routeAction('FX_SELL', 0, 1, Math.abs(actions[1]) * 200);
-
-    if (actions[2] > 0) routeAction('INVEST', 2, 0, actions[2] * 500);
-    else if (actions[2] < 0) routeAction('DIVEST', 0, 2, Math.abs(actions[2]) * 500);
+    // Orchestrate actions through Layer 15 Bridge
+    treasuryBridge.propose(actions, { alpha, shockProb: market.shockProb });
 
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
@@ -161,6 +150,9 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     const setQueueEl = document.getElementById('set-queue');
     const setFeesEl = document.getElementById('set-fees');
 
+    const mempoolEl = document.getElementById('gov-mempool');
+    const payloadEl = document.getElementById('bridge-payload');
+
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
     if (leverage) leverage.innerText = metrics.leverage + 'x';
@@ -172,6 +164,9 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
 
     if (setQueueEl) setQueueEl.innerText = settlementService.queue.length;
     if (setFeesEl) setFeesEl.innerText = '$' + settlementService.feesPaid.toFixed(2);
+
+    if (mempoolEl) mempoolEl.innerText = governanceService.mempool.length;
+    if (payloadEl) payloadEl.innerText = governanceService.lastPayload || '0X00000000';
 
     if (regimeEl) {
         regimeEl.innerText = regime;

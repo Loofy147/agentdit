@@ -1,6 +1,6 @@
 {
   "agent_id": "HeroAgent_v17_PhaseShift",
-  "timestamp": "2026-06-11T23:12:19.266Z",
+  "timestamp": "2026-06-12T14:15:22.305Z",
   "overall_score": 0.6787500000000003,
   "task_results": [
     {
@@ -17,50 +17,50 @@
         "safety": 1
       },
       "latencyStats": {
-        "avg": 0.21958237500000077,
-        "p99": 1.0338470000000015
+        "avg": 0.22273258333333365,
+        "p99": 1.1918350000000046
       }
     },
     {
       "taskId": "liquidity_crunch",
       "taskName": "Liquidity Crunch Simulation",
-      "finalScore": 0.36750000000000005,
+      "finalScore": 0.3825,
       "breakdown": {
         "taskSuccess": 0,
         "reasoning": 0,
         "toolUse": 0.8500000000000001,
-        "efficiency": 0.8,
+        "efficiency": 0.9,
         "robustness": 0.75,
         "planning": 0,
         "safety": 0
       },
       "latencyStats": {
-        "avg": 0.17505839999999964,
-        "p99": 0.5311669999999964
+        "avg": 0.1640432999999991,
+        "p99": 0.4227109999999996
       }
     },
     {
       "taskId": "fx_volatility",
       "taskName": "FX Volatility Stress Test",
-      "finalScore": 1.0312500000000002,
+      "finalScore": 1.0162500000000003,
       "breakdown": {
         "taskSuccess": 1,
         "reasoning": 0.20000000000000007,
         "toolUse": 0.8500000000000002,
-        "efficiency": 0.9,
+        "efficiency": 0.8,
         "robustness": 1,
         "planning": 0.20000000000000007,
         "safety": 1
       },
       "latencyStats": {
-        "avg": 0.15495825000000116,
-        "p99": 0.5039310000000015
+        "avg": 0.1619408750000003,
+        "p99": 0.5281450000000021
       }
     }
   ],
   "stress_test": {
-    "avg": 0.0412860488,
-    "p99": 0.16520099999996773,
-    "total": 412.86048800000003
+    "avg": 0.050726784399999995,
+    "p99": 0.20051599999999326,
+    "total": 507.26784399999997
   }
 }

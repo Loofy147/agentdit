@@ -1,31 +1,36 @@
 /**
- * LatticeService implements SynapticLattice v3 (Kinetic Resonance) in JavaScript.
- * Tracks geopolitical "Atoms" and their "Bonds" to determine market regime and shock probability.
+ * LatticeService implements SynapticLattice v4 (Stochastic Ensemble).
  */
 
 class Atom {
-    constructor(name, vs, role = 'Anchor', tau = 1.0) {
+    constructor(name, vs, role = 'Anchor', tau = 1.0, floor = 1.0) {
         this.name = name;
         this.vs = vs;
         this.role = role;
         this.tau = Math.max(0, Math.min(1.0, tau));
+        this.floor = floor;
         this.bonds = [];
         this.growthMode = role === 'Threat' ? 'Sigmoid' : 'Decay';
         this.networkEffect = ["CHINA_YUAN_INTL", "SWIFT_ALTERNATIVES", "CBDC_COMPETITION"].includes(name);
     }
 
-    bondTo(other, strength = 1.0) {
-        this.bonds.push({ atom: other, strength });
+    bondTo(other, strength = 1.0, polarity = 1, lag = 0) {
+        this.bonds.push({ atom: other, strength, polarity, lag });
     }
 
-    step(dt = 1.0, k = 0.5) {
+    step(dt = 1.0, k = 0.5, sigma = 0.05) {
+        let dvs;
         if (this.growthMode === 'Sigmoid') {
             const kEff = this.networkEffect ? k * (1.0 + Math.max(0.0, (this.vs - 5.0) * 0.4)) : k;
-            const dvs = kEff * this.vs * (1.0 - this.vs / 10.0) * dt;
-            this.vs = Math.min(10.0, this.vs + dvs);
+            dvs = kEff * this.vs * (1.0 - this.vs / 10.0) * dt;
         } else {
-            this.vs = Math.max(1.0, this.vs - 0.2 * dt);
+            dvs = -0.2 * dt;
         }
+
+        // Stochastic Shock (Gaussian Approximation)
+        const shock = (Math.random() + Math.random() + Math.random() + Math.random() - 2) * sigma * dt;
+
+        this.vs = Math.min(10.0, Math.max(this.floor, this.vs + dvs + shock));
         return this.vs;
     }
 }
@@ -33,16 +38,20 @@ class Atom {
 export class LatticeService {
     constructor() {
         this.atoms = {};
+        this.pendingEffects = [];
         this.initLattice();
         this.snapFired = false;
+        this.lastProb = null;
+        this.probStableCount = 0;
+        this.reflexiveFrozen = false;
     }
 
     initLattice() {
         // Anchors
-        const a1 = new Atom("USD_RESERVE_STATUS", 10.0, 'Anchor', 0.85);
-        const a2 = new Atom("US_DEBT_LIQUIDITY", 9.0, 'Anchor', 0.80);
-        const a8 = new Atom("FED_CREDIBILITY", 7.0, 'Anchor', 0.65);
-        const a9 = new Atom("EURODOLLAR_SYSTEM", 9.0, 'Anchor', 0.90);
+        const a1 = new Atom("USD_RESERVE_STATUS", 10.0, 'Anchor', 0.85, 2.0);
+        const a2 = new Atom("US_DEBT_LIQUIDITY", 9.0, 'Anchor', 0.80, 2.0);
+        const a8 = new Atom("FED_CREDIBILITY", 7.0, 'Anchor', 0.65, 1.5);
+        const a9 = new Atom("EURODOLLAR_SYSTEM", 9.0, 'Anchor', 0.90, 4.0);
 
         // Threats
         const a3 = new Atom("BRICS_COMMODITY_PEG", 3.0, 'Threat', 0.50);
@@ -55,13 +64,19 @@ export class LatticeService {
         const a12 = new Atom("US_FISCAL_TRAJECTORY", 6.0, 'Threat', 0.60);
 
         // Bonds
-        a1.bondTo(a2, 0.90); a1.bondTo(a8, 0.70); a1.bondTo(a9, 0.60);
-        a2.bondTo(a12, 0.80); a8.bondTo(a12, 0.55);
-        a4.bondTo(a1, 0.80); a3.bondTo(a4, 0.70);
-        a5.bondTo(a4, 0.85); a5.bondTo(a6, 0.60);
-        a6.bondTo(a7, 0.75); a7.bondTo(a3, 0.65);
-        a10.bondTo(a3, 0.50); a11.bondTo(a7, 0.70);
-        a12.bondTo(a5, 0.40);
+        a9.bondTo(a1, 0.90, 1, 0);
+        a1.bondTo(a2, 0.90, 1, 0);
+        a1.bondTo(a8, 0.70, 1, 0);
+        a8.bondTo(a3, 0.80, -1, 4);
+        a9.bondTo(a7, 0.70, -1, 0);
+        a2.bondTo(a12, 0.80, 1, 0);
+        a8.bondTo(a12, 0.55, 1, 0);
+        a4.bondTo(a1, 0.80, 1, 0);
+        a3.bondTo(a4, 0.70, 1, 8);
+        a5.bondTo(a4, 0.85, 1, 0); a5.bondTo(a6, 0.60, 1, 2);
+        a6.bondTo(a7, 0.75, 1, 0); a7.bondTo(a3, 0.65, 1, 4);
+        a10.bondTo(a3, 0.50, 1, 0); a11.bondTo(a7, 0.70, 1, 2);
+        a12.bondTo(a5, 0.40, 1, 0);
 
         [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12].forEach(a => {
             this.atoms[a.name] = a;
@@ -72,27 +87,64 @@ export class LatticeService {
     }
 
     getRegimeProb() {
-        const t = this.tKeys.reduce((acc, k) => acc + this.atoms[k].vs, 0) / this.tKeys.length;
+        const t_vals = this.tKeys.map(k => {
+            const atom = this.atoms[k];
+            let inhibition = 0;
+            Object.values(this.atoms).forEach(src => {
+                src.bonds.forEach(b => {
+                    if (b.atom.name === k && b.polarity === -1 && b.lag === 0) {
+                        inhibition += src.vs * b.strength * 0.1;
+                    }
+                });
+            });
+            this.pendingEffects.forEach(pe => {
+                if (pe.target === k && pe.polarity === -1) inhibition += pe.magnitude;
+            });
+            return Math.max(1.0, atom.vs - inhibition);
+        });
+
+        const t = t_vals.reduce((acc, v) => acc + v, 0) / this.tKeys.length;
         const a = this.aKeys.reduce((acc, k) => acc + this.atoms[k].vs, 0) / this.aKeys.length;
-        const prob = 1.0 / (1.0 + Math.exp(-0.5 * (t - a)));
-        return { prob, t, a };
+        return { prob: 1.0 / (1.0 + Math.exp(-0.5 * (t - a))), t, a };
     }
 
-    step(dt = 1.0, k = 0.5) {
+    step(dt = 1.0, k = 0.5, sigma = 0.05) {
+        this.pendingEffects.forEach(pe => pe.steps--);
+        this.pendingEffects = this.pendingEffects.filter(pe => pe.steps > 0);
+
         const { prob } = this.getRegimeProb();
 
-        // Step all atoms
-        Object.values(this.atoms).forEach(atom => atom.step(dt, k));
+        if (this.lastProb !== null) {
+            const dP = Math.abs(prob - this.lastProb);
+            if (dP < 0.001) this.probStableCount++;
+            else this.probStableCount = 0;
+        }
+        this.lastProb = prob;
+        this.reflexiveFrozen = this.probStableCount >= 2;
 
-        // Reflexivity: P > 0.40 -> anchors erode
-        if (prob > 0.40) {
-            const rm = 1.0 + (prob - 0.40);
+        Object.values(this.atoms).forEach(atom => {
+            const oldVs = atom.vs;
+            const newVs = atom.step(dt, k, sigma);
+            atom.bonds.forEach(b => {
+                if (b.lag > 0) {
+                    this.pendingEffects.push({
+                        target: b.atom.name,
+                        magnitude: (newVs - oldVs) * b.strength,
+                        steps: b.lag,
+                        polarity: b.polarity
+                    });
+                }
+            });
+        });
+
+        if (prob > 0.40 && !this.reflexiveFrozen) {
+            const rm = Math.min(1.0 + (prob - 0.40), 1.25);
             this.aKeys.forEach(k => {
-                this.atoms[k].vs = Math.max(1.0, this.atoms[k].vs / rm);
+                const atom = this.atoms[k];
+                atom.vs = Math.max(atom.floor, atom.vs / rm);
             });
         }
 
-        // Liquidity Snap: P > 0.45 -> snap US_DEBT_LIQUIDITY
         let snapEvent = false;
         if (prob > 0.45 && !this.snapFired) {
             if (this.atoms["US_DEBT_LIQUIDITY"].vs > 4.0) {
@@ -102,7 +154,7 @@ export class LatticeService {
             }
         }
 
-        return { prob, snapEvent };
+        return { prob, snapEvent, reflexiveFrozen: this.reflexiveFrozen };
     }
 
     getMarketDynamics() {
@@ -112,11 +164,24 @@ export class LatticeService {
         else if (prob > 0.4) regime = 'Volatile';
         else if (prob > 0.2) regime = 'Recovery';
 
-        return {
-            regime,
-            shockProb: prob,
-            vix: 15 + (prob * 40),
-            interestRate: 5 + (prob * 5)
-        };
+        return { regime, shockProb: prob, vix: 15 + (prob * 40), interestRate: 5 + (prob * 5) };
+    }
+
+    /**
+     * Monte Carlo ensemble simulation.
+     */
+    runEnsemble(steps = 12, iterations = 100) {
+        const results = [];
+        for (let i = 0; i < iterations; i++) {
+            const tempLattice = new LatticeService();
+            // Clone state if needed, but here we just start fresh
+            let crossover = null;
+            for (let t = 0; t < steps; t++) {
+                const { prob } = tempLattice.step();
+                if (prob >= 0.5 && crossover === null) crossover = t;
+            }
+            results.push(crossover || steps);
+        }
+        return results;
     }
 }
