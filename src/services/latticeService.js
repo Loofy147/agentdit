@@ -1,5 +1,5 @@
 /**
- * LatticeService v4.1 - Connected to Macro Service.
+ * LatticeService v4.3 - Implements Geopolitical Cascade Analysis.
  */
 
 class Atom {
@@ -96,11 +96,7 @@ export class LatticeService {
     }
 
     step(dt = 1.0, k = 0.5, sigma = 0.05, macroData = null) {
-        // Connect Macro to Lattice: High CPI erodes FED_CREDIBILITY
-        if (macroData && macroData.inflation.cpi > 4.0) {
-            this.atoms["FED_CREDIBILITY"].vs -= 0.1;
-        }
-
+        if (macroData && macroData.inflation.cpi > 4.0) this.atoms["FED_CREDIBILITY"].vs -= 0.1;
         this.pendingEffects.forEach(pe => pe.steps--);
         this.pendingEffects = this.pendingEffects.filter(pe => pe.steps > 0);
         const { prob } = this.getRegimeProb();
@@ -135,6 +131,36 @@ export class LatticeService {
         return { prob, snapEvent, reflexiveFrozen: this.reflexiveFrozen };
     }
 
+    /**
+     * Geopolitical Cascade Analysis: propagate a shock through the graph.
+     */
+    cascade(origin, shock = 0.5, decay = 0.6) {
+        const visited = {};
+        const q = [{ atom: this.atoms[origin], s: shock }];
+        const impacts = {};
+
+        while (q.length > 0) {
+            const { atom, s } = q.shift();
+            if (!atom || visited[atom.name]) continue;
+            visited[atom.name] = s;
+
+            const oldVs = atom.vs;
+            atom.vs = Math.max(atom.floor, atom.vs * (1 - s));
+            impacts[atom.name] = oldVs - atom.vs;
+
+            atom.bonds.forEach(b => {
+                if (!visited[b.atom.name]) {
+                    // Shocks propagate through reinforcing bonds, reversed through inhibitory
+                    const transmission = b.polarity === 1 ? s * b.strength * decay : -s * b.strength * decay;
+                    if (Math.abs(transmission) > 0.01) {
+                        q.push({ atom: b.atom, s: Math.abs(transmission) });
+                    }
+                }
+            });
+        }
+        return impacts;
+    }
+
     getMarketDynamics() {
         const { prob } = this.getRegimeProb();
         let regime = 'Stable';
@@ -142,5 +168,25 @@ export class LatticeService {
         else if (prob > 0.4) regime = 'Volatile';
         else if (prob > 0.2) regime = 'Recovery';
         return { regime, shockProb: prob, vix: 15 + (prob * 40), interestRate: 5 + (prob * 5) };
+    }
+
+    calculateOptimalIntervention() {
+        const anchors = this.aKeys;
+        const recommendations = anchors.map(name => {
+            const simulate = (boost) => {
+                const ls = new LatticeService();
+                ls.atoms[name].vs = Math.min(10.0, ls.atoms[name].vs + boost);
+                let crossover = 12;
+                for (let t = 0; t < 12; t++) {
+                    const { prob } = ls.step();
+                    if (prob >= 0.5) { crossover = t; break; }
+                }
+                return crossover;
+            };
+            const base = simulate(0);
+            const boosted = simulate(2.0);
+            return { name, delay: boosted - base };
+        });
+        return recommendations.sort((a, b) => b.delay - a.delay)[0];
     }
 }
