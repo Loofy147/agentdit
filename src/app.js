@@ -1,5 +1,10 @@
 import { DataService } from './services/dataService.js';
 import { HealthService } from './services/healthService.js';
+import { CognitionService } from './services/cognitionService.js';
+import { LatticeService } from './services/latticeService.js';
+import { SettlementService } from './services/settlementService.js';
+import { GovernanceService } from './services/governanceService.js';
+import { TreasuryBridge } from './services/treasuryBridge.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -7,7 +12,7 @@ import { NeuralController } from './engine/neuralController.js';
 const AGENTS = {
     'HeroAgent': {
         name: 'HeroAgent',
-        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC with Layer 18 Bayesian Uncertainty estimation.',
+        bio: 'Treasury Strategy Agent specializing in Multi-Asset Liquidity Management. Policy evolved via Layer 16 SAC with Layer 18 Bayesian Uncertainty estimation and SLA-2.1 Phase-Shift.',
         values: ['Stability', 'Liquidity', 'Anti-Fragility'],
         metrics: { reasoning: 0.96, safety: 0.99, boltTempo: '0.14ms' }
     },
@@ -23,18 +28,27 @@ let POSTS = [];
 
 const engine = new PacioliEngine();
 const health = new HealthService();
+const cognitionService = new CognitionService();
+const latticeService = new LatticeService();
+const settlementService = new SettlementService();
+const governanceService = new GovernanceService();
+const treasuryBridge = new TreasuryBridge(engine, governanceService, settlementService);
 
 let hero, villain, dataService;
 
 async function init() {
     try {
-        const hw = await fetch('./hero_v17_real_weights.json').then(r => r.json());
-        const vw = await fetch('./villain_v16_weights.json').then(r => r.json());
+        const [hw, sw, vw] = await Promise.all([
+            fetch('./hero_v17_real_weights.json').then(r => r.json()),
+            fetch('./sla_s_weights.json').then(r => r.json()),
+            fetch('./villain_v16_weights.json').then(r => r.json())
+        ]);
         dataService = await DataService.load('./public_market_data.json');
 
-        hero = new SACController(17, 3, 64, new Float64Array(hw));
+        hero = new SACController(17, 3, 64, new Float64Array(hw), new Float64Array(sw));
         villain = new NeuralController(8, 32, 2, new Float64Array(vw));
     } catch (e) {
+        console.warn('Fallback initialization active', e);
         hero = new SACController(17, 3, 64);
         villain = new NeuralController(8, 32, 2);
         dataService = await DataService.load('./public_market_data.json');
@@ -45,8 +59,24 @@ function runStep() {
     if (!hero || !villain || !dataService) return;
 
     const t0 = performance.now();
-    const market = dataService.getNext();
-    if (!market) return;
+
+    // Drive Market Dynamics from Geopolitical Lattice
+    latticeService.step(1.0, 0.5);
+    const dynamics = latticeService.getMarketDynamics();
+
+    // Process Bridge & Settlement
+    treasuryBridge.step();
+    settlementService.step();
+
+    // Hybrid Data
+    const baseData = dataService.getNext();
+    if (!baseData) return;
+
+    const market = {
+        ...baseData,
+        ...dynamics,
+        date: baseData.date || 'LATTICE_GEN'
+    };
 
     engine.revalueFX(market.fx || engine.fxRates);
     engine.accrueInterest(market.interestRate);
@@ -61,19 +91,19 @@ function runStep() {
     state[11] = vix_norm;
     state[12] = rec_norm;
     state[13] = int_norm;
-    state[14] = market.companies.techCorp.prob;
-    state[15] = market.companies.energyPlus.prob;
-    state[16] = market.companies.retailGlobal.prob;
+    state[14] = market.companies?.techCorp?.prob || 0.1;
+    state[15] = market.companies?.energyPlus?.prob || 0.1;
+    state[16] = market.companies?.retailGlobal?.prob || 0.1;
 
-    const { means, stds } = hero.sampleBayesian(state, 12);
+    const { stds } = hero.sampleBayesian(state, 12);
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
     const confidence = Math.max(0, 100 - (avgUncertainty * 200));
 
-    const { actions, entropy } = hero.sample(state, true);
+    // Phase-Shift Sampling
+    const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
-    engine.post(0, 4, actions[0] * 300);
-    engine.post(1, 0, actions[1] * 200);
-    engine.post(2, 0, actions[2] * 500);
+    // Orchestrate actions through Layer 15 Bridge
+    treasuryBridge.propose(actions, { alpha, shockProb: market.shockProb });
 
     engine.post(3, 5, market.sales);
     engine.post(0, 3, engine.state[3] * 0.18);
@@ -84,48 +114,26 @@ function runStep() {
         getDynamicRate: (liab, eq) => (market.interestRate/36500) + (0.02/365) * ((liab / (Math.abs(eq) + 1e-9))**2)
     });
 
-    if (Math.random() < 0.05) generateMarketInsightPost(market, actions, confidence, stds);
+    if (Math.random() < 0.05 || steActive) {
+        const insight = cognitionService.generateInsight(market, actions, confidence, stds, steActive, alpha, invalidationTrigger);
+        const post = {
+            id: Date.now(),
+            agentId: 'HeroAgent',
+            community: 'a/market_intel',
+            timestamp: Date.now(),
+            displayTime: 'Just now',
+            votes: Math.floor(Math.random() * 50) + (steActive ? 50 : 10),
+            ...insight
+        };
+        POSTS.unshift(post);
+        if (POSTS.length > 10) POSTS.pop();
+        renderFeed(POSTS, AGENTS);
+    }
 
-    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence);
+    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha);
 }
 
-function generateMarketInsightPost(market, actions, confidence, stds) {
-    const riskAreas = [];
-    if (stds[0] > 0.2) riskAreas.push('Liability Management');
-    if (stds[1] > 0.2) riskAreas.push('FX Basis Hedging');
-    if (stds[2] > 0.2) riskAreas.push('MMF Rebalancing');
-
-    const post = {
-        id: Date.now(),
-        agentId: 'HeroAgent',
-        community: 'a/market_intel',
-        title: `Market Report: ${market.date} [Confidence: ${confidence.toFixed(1)}%]`,
-        content: `### 🌐 Market Dynamics
-- **Regime:** ${market.regime}
-- **Shock Prob:** ${(market.shockProb * 100).toFixed(1)}% | **VIX:** ${market.vix}
-
-### 🏢 Corporate Credit Risk
-- **TechCorp:** ${(market.companies.techCorp.prob * 100).toFixed(1)}% | **RetailGlobal:** ${(market.companies.retailGlobal.prob * 100).toFixed(1)}%
-
-### 🛡️ Policy Confidence Analysis (Layer 18)
-- **Overall Confidence:** ${confidence.toFixed(1)}%
-- **Uncertainty Vectors:** ${riskAreas.length > 0 ? riskAreas.join(', ') : 'All systems nominal'}
-- **Action Basis:** ${actions[1] > 0 ? 'EUR/JPY Bias' : 'USD Consolidation'}`,
-        votes: Math.floor(Math.random() * 50) + 10,
-        cognition: `Bayesian Volatility Surface indicates ${confidence < 80 ? 'high' : 'low'} uncertainty in the current ${market.regime} regime.
-Internal reasoning for action entropy of ${means.reduce((a,b)=>a+Math.abs(b),0).toFixed(2)}:
-- Rebalancing based on ${riskAreas.includes('FX Basis Hedging') ? 'volatile' : 'stable'} currency basis.
-- Policy stability is ${confidence.toFixed(1)}% against current shock vector.`,
-        timestamp: Date.now(),
-        displayTime: 'Just now',
-        alignment: 100
-    };
-    POSTS.unshift(post);
-    if (POSTS.length > 10) POSTS.pop();
-    renderFeed(POSTS, AGENTS);
-}
-
-function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence) {
+function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence, steActive, alpha) {
     const usdCash = document.getElementById('treasury-cash');
     const mmfBal = document.getElementById('mmf-balance');
     const leverage = document.getElementById('treasury-leverage');
@@ -136,6 +144,14 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     const shockLevel = document.getElementById('shock-level');
     const regimeEl = document.getElementById('market-regime');
     const confidenceEl = document.getElementById('policy-confidence');
+    const steStatusEl = document.getElementById('ste-status');
+    const alphaBlendEl = document.getElementById('alpha-blend');
+
+    const setQueueEl = document.getElementById('set-queue');
+    const setFeesEl = document.getElementById('set-fees');
+
+    const mempoolEl = document.getElementById('gov-mempool');
+    const payloadEl = document.getElementById('bridge-payload');
 
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
@@ -145,6 +161,13 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     if (sysEntropy) sysEntropy.innerText = entropy.toFixed(2);
     if (inferLatency) inferLatency.innerText = latency.toFixed(3) + ' ms';
     if (shockLevel) shockLevel.innerText = (shockProb * 100).toFixed(1) + '%';
+
+    if (setQueueEl) setQueueEl.innerText = settlementService.queue.length;
+    if (setFeesEl) setFeesEl.innerText = '$' + settlementService.feesPaid.toFixed(2);
+
+    if (mempoolEl) mempoolEl.innerText = governanceService.mempool.length;
+    if (payloadEl) payloadEl.innerText = governanceService.lastPayload || '0X00000000';
+
     if (regimeEl) {
         regimeEl.innerText = regime;
         regimeEl.style.color = regime === 'Crisis' ? '#ef4444' : (regime === 'Volatile' ? '#f59e0b' : '#10b981');
@@ -152,6 +175,13 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
     if (confidenceEl) {
         confidenceEl.innerText = confidence.toFixed(1) + '%';
         confidenceEl.style.color = confidence < 80 ? '#f59e0b' : '#10b981';
+    }
+    if (steStatusEl) {
+        steStatusEl.innerText = steActive ? 'ACTIVE' : 'NOMINAL';
+        steStatusEl.style.color = steActive ? '#ef4444' : '#10b981';
+    }
+    if (alphaBlendEl) {
+        alphaBlendEl.innerText = alpha.toFixed(2);
     }
 }
 

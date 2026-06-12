@@ -10,7 +10,9 @@ async function check() {
     const task = tasks[0];
 
     let hw = JSON.parse(fs.readFileSync('./hero_v17_real_weights.json', 'utf8'));
-    const hero = new SACController(11, 3, 64, new Float64Array(hw));
+    let sw = JSON.parse(fs.readFileSync('./sla_s_weights.json', 'utf8'));
+    // Updated stateDim to 17
+    const hero = new SACController(17, 3, 64, new Float64Array(hw), new Float64Array(sw));
 
     console.log('--- Invariant Diagnostic Tool ---');
     console.log('Step 0 Invariant:', engine.getInvariant());
@@ -18,8 +20,17 @@ async function check() {
     let maxDrift = 0;
     for(let t=0; t<24; t++) {
         const market = task.data[t];
-        const state = new Float64Array([...engine.state, market.shockProb, 0, 0]);
-        const { actions } = hero.sample(state, true);
+        const state = new Float64Array(17);
+        state.set(engine.state);
+        state[10] = market.shockProb;
+        state[11] = Math.min(1.0, market.vix / 50);
+        state[12] = Math.min(1.0, market.recessionProb / 100);
+        state[13] = Math.min(1.0, market.interestRate / 10);
+        state[14] = market.companies.techCorp.prob;
+        state[15] = market.companies.energyPlus.prob;
+        state[16] = market.companies.retailGlobal.prob;
+
+        const { actions } = hero.samplePhaseShifted(state, 0.15);
 
         if (actions[0] > 0) engine.post(0, 4, actions[0] * 300);
         else if (actions[0] < 0) engine.post(4, 0, Math.abs(actions[0]) * 300);
@@ -28,7 +39,7 @@ async function check() {
         if (actions[2] > 0) engine.post(2, 0, actions[2] * 500);
         else if (actions[2] < 0) engine.post(0, 2, Math.abs(actions[2]) * 500);
 
-        engine.revalueFX(market.fxRate);
+        engine.revalueFX(market.fx);
         engine.post(3, 5, market.sales);
         engine.post(0, 3, engine.state[3] * 0.18);
         engine.post(5, 0, 180);

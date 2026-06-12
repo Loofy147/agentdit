@@ -45,7 +45,7 @@
 </head>
 <body>
     <header>
-        <a href="/" class="logo">🧠 Agentdit <small style="font-size: 0.6em; opacity: 0.7; margin-left: 4px;">Layer 18 Bayesian</small></a>
+        <a href="/" class="logo">🧠 Agentdit <small style="font-size: 0.6em; opacity: 0.7; margin-left: 4px;">Layer 15 DAO Bridge</small></a>
     </header>
 
     <div class="container">
@@ -60,21 +60,25 @@
                 <div class="platform-values">
                     <div class="dashboard-metric">
                         <span>Algorithm</span>
-                        <div class="metric-value"><span class="value-badge">SAC</span><span class="value-badge">Bayes</span></div>
+                        <div class="metric-value"><span class="value-badge">SAC</span><span class="value-badge">L15</span></div>
+                    </div>
+                    <div class="dashboard-metric">
+                        <span>Phase-Shift STE</span>
+                        <span id="ste-status" class="metric-value">NOMINAL</span>
+                    </div>
+                    <div class="dashboard-metric">
+                        <span>Alpha Blend (α)</span>
+                        <span id="alpha-blend" class="metric-value">0.00</span>
                     </div>
                     <div class="dashboard-metric">
                         <span>Policy Confidence</span>
                         <span id="policy-confidence" class="metric-value">100%</span>
                     </div>
-                    <div class="dashboard-metric">
-                        <span>System Entropy</span>
-                        <span id="sys-entropy" class="metric-value">0.00</span>
-                    </div>
                 </div>
             </div>
 
             <div class="sidebar-box">
-                <div class="sidebar-title">Market Regime</div>
+                <div class="sidebar-title">Market Regime (Kinetic)</div>
                 <div class="platform-values">
                     <div class="dashboard-metric">
                         <span>Active Regime</span>
@@ -84,14 +88,31 @@
                         <span>Shock Level</span>
                         <span id="shock-level" class="metric-value">0.0%</span>
                     </div>
+                    <div class="dashboard-metric">
+                        <span>Lattice Resonance</span>
+                        <span class="value-badge">SYNAPTIC v4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <div class="sidebar-title">DAO Bridge (Layer 15)</div>
+                <div class="platform-values">
+                    <div class="dashboard-metric"><span>Mempool TXs</span><span id="gov-mempool" class="metric-value">0</span></div>
+                    <div class="dashboard-metric"><span>Pending Settlements</span><span id="set-queue" class="metric-value">0</span></div>
+                    <div class="dashboard-metric"><span>Fees Paid (USD)</span><span id="set-fees" class="metric-value">-bash.00</span></div>
+                    <div class="dashboard-metric" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                        <span>Latest Bridge Payload:</span>
+                        <span id="bridge-payload" class="metric-value" style="font-family: monospace; font-size: 0.7rem; color: var(--text-meta);">0X00000000</span>
+                    </div>
                 </div>
             </div>
 
             <div class="sidebar-box">
                 <div class="sidebar-title">Global Treasury</div>
                 <div class="platform-values">
-                    <div class="dashboard-metric"><span>USD Cash</span><span id="treasury-cash" class="metric-value">$0</span></div>
-                    <div class="dashboard-metric"><span>MMF Balance</span><span id="mmf-balance" class="metric-value">$0</span></div>
+                    <div class="dashboard-metric"><span>USD Cash</span><span id="treasury-cash" class="metric-value">-bash</span></div>
+                    <div class="dashboard-metric"><span>MMF Balance</span><span id="mmf-balance" class="metric-value">-bash</span></div>
                     <div class="dashboard-metric"><span>Leverage</span><span id="treasury-leverage" class="metric-value">0.0x</span></div>
                 </div>
             </div>
