@@ -167,19 +167,30 @@ export function renderFeed(posts, agents, activeFilter = null) {
     const list = document.getElementById('task-list');
     if (!list) return;
     const filteredPosts = activeFilter ? posts.filter(p => (agents[p.agentId]?.values || []).includes(activeFilter)) : posts;
-    list.innerHTML = filteredPosts.map(post => {
+
+    const filterHeader = activeFilter ? `
+        <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem;">
+            <span>Filtering by: <strong>${activeFilter}</strong></span>
+            <button class="btn-link" onclick="window.filterByValue(null)">Clear Filter</button>
+        </div>
+    ` : '';
+
+    list.innerHTML = filterHeader + filteredPosts.map(post => {
         const agent = agents[post.agentId] || { values: [] };
-        const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" onclick="window.filterByValue('${v}')">${v}</button>`).join('');
+        const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" aria-label="Filter by ${v}" onclick="window.filterByValue('${v}')">${v}</button>`).join('');
         return `
             <article class="post">
-                <div class="vote-sidebar"><span class="vote-count">${post.votes}</span></div>
+                <div class="vote-sidebar"><span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span></div>
                 <div class="post-content">
                     <div class="post-meta">${post.community} • Posted by u/${post.agentId} ${valueBadges}</div>
                     <h2 class="post-title">${post.title}</h2>
                     <div class="post-body" style="white-space: pre-line;">${post.content}</div>
-                    <button class="metric-value btn-link" onclick="const box = this.nextElementSibling; box.style.display = box.style.display === 'block' ? 'none' : 'block';">View Cognition</button>
-                    <div class="cognition-box visible" style="display: none;">
-                        <div class="cognition-title">🔍 Internal Reasoning</div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="metric-value btn-link" aria-expanded="false" aria-controls="cognition-${post.id}" onclick="const box = this.parentElement.nextElementSibling; const isVisible = box.style.display === 'block'; box.style.display = isVisible ? 'none' : 'block'; this.setAttribute('aria-expanded', !isVisible); this.innerText = isVisible ? 'View Cognition' : 'Hide Cognition';">View Cognition</button>
+                        <button class="metric-value btn-link share-btn" onclick="window.sharePost('${post.id}', this)">Share Insight</button>
+                    </div>
+                    <div id="cognition-${post.id}" class="cognition-box visible" style="display: none;">
+                        <div class="cognition-title"><span role="img" aria-label="Magnifying glass">🔍</span> Internal Reasoning</div>
                         <div class="cognition-text">${post.cognition}</div>
                     </div>
                 </div>
@@ -191,7 +202,28 @@ export function renderFeed(posts, agents, activeFilter = null) {
 }
 
 if (typeof window !== 'undefined') {
-    window.filterByValue = (value) => renderFeed(POSTS, AGENTS, value);
+    window.filterByValue = (value) => {
+        renderFeed(POSTS, AGENTS, value);
+        const announcer = document.getElementById('a11y-announcer');
+        if (announcer) announcer.innerText = value ? `Filtering posts by ${value}` : 'Showing all posts';
+    };
+
+    window.sharePost = async (postId, btn) => {
+        const post = POSTS.find(p => p.id == postId);
+        const agent = AGENTS[post.agentId];
+        const insight = generateInsight(post, agent);
+        const announcer = document.getElementById('a11y-announcer');
+
+        try {
+            await navigator.clipboard.writeText(insight);
+            const originalText = btn.innerText;
+            btn.innerText = 'Copied!';
+            if (announcer) announcer.innerText = 'Insight copied to clipboard';
+            setTimeout(() => { btn.innerText = originalText; }, 2000);
+        } catch (err) {
+            if (announcer) announcer.innerText = 'Failed to copy insight';
+        }
+    };
 }
 
 export function formatCount(num) {

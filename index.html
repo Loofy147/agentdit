@@ -18,6 +18,7 @@
             --skeleton: #f1f5f9;
             --accent: #10b981;
         }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; padding: 0; line-height: 1.5; }
         header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
         .logo { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
@@ -47,6 +48,8 @@
     <header>
         <a href="/" class="logo">🧠 Agentdit <small style="font-size: 0.6em; opacity: 0.7; margin-left: 4px;">Layer 18 Bayesian</small></a>
     </header>
+
+    <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
     <div class="container">
         <main class="feed">
