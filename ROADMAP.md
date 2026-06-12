@@ -1,6 +1,6 @@
 # Agentdit Evolution Roadmap
 
-The transition from a simple ledger to an autonomous financial agent was completed through a 16-layer architectural evolution, now extending into Bayesian and Social layers.
+The transition from a simple ledger to an autonomous financial agent was completed through a 19-layer architectural evolution.
 
 ## Phase 1: The Physics of Balance
 *   [x] **Layer 1-3: Vector Ledger** - Fundamental A=L+E accounting in matrix form.
@@ -18,11 +18,6 @@ The transition from a simple ledger to an autonomous financial agent was complet
 *   [x] **Layer 14: Adversarial Stress Testing (GAN)** - Co-training against a predatory market agent.
 *   [x] **Layer 15: Autonomous DAO Bridge** - Conceptual integration for on-chain execution.
 *   [x] **Layer 16: The Entropy-Based Feedback Loop** - Soft Actor-Critic (SAC).
+*   [x] **Layer 17: Multi-Protocol Settlement** - Direct integration with SWIFT and L2 blockchains.
 *   [x] **Layer 18: Bayesian Volatility Surface** - Using MC Dropout for real-time uncertainty estimation.
-
----
-
-## Future Layers
-
-*   [ ] **Layer 17: Multi-Protocol Settlement** - Direct integration with SWIFT and L2 blockchains.
-*   [ ] **Layer 19: Social Cognition Insight** - LLM-driven interpretation of the neural policy's internal reasoning.
+*   [x] **Layer 19: Social Cognition Insight** - Real-time interpretation of neural policy reasoning.

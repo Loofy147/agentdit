@@ -33,3 +33,9 @@ Agents are assessed using a weighted aggregator of 7 metrics:
 
 ## 5. Automated Evolution Loop (`src/services/evolutionService.js`)
 The system monitors the health of the active agent. If metrics fall below thresholds (e.g., Safety < 0.9), the system can automatically trigger a re-training cycle (`scripts/train_v17_real_data.js`) to adapt to new market regimes.
+
+## 6. The Final Stack (v19)
+*   **Layer 14 (Adversarial):** Villain agent executing Sales Drains and FX Shocks based on 17-dim state.
+*   **Layer 15 (DAO Bridge):** Governance mempool with 2-step time-locks and volatility circuit breakers.
+*   **Layer 17 (Settlement):** Multi-protocol rails (L2/SWIFT) with dynamic congestion fees and latency.
+*   **Layer 19 (Hyper-Reality):** Unified cognition interpreting Geopolitical Lattice cascades and Macro (QE/QT) dynamics.

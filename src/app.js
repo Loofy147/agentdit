@@ -5,6 +5,8 @@ import { LatticeService } from './services/latticeService.js';
 import { SettlementService } from './services/settlementService.js';
 import { GovernanceService } from './services/governanceService.js';
 import { TreasuryBridge } from './services/treasuryBridge.js';
+import { MacroService } from './services/macroService.js';
+import { EvaluationService } from './services/evalService.js';
 import { PacioliEngine } from './engine/pacioli.js';
 import { SACController } from './engine/sacController.js';
 import { NeuralController } from './engine/neuralController.js';
@@ -18,7 +20,7 @@ const AGENTS = {
     },
     'VillainAgent': {
         name: 'VillainAgent',
-        bio: 'Adversarial Market Agent.',
+        bio: 'Adversarial Market Agent. Executes predatory short-vol strategies and liquidity attacks.',
         values: ['Efficiency', 'Exploitation', 'Volatility'],
         metrics: { reasoning: 0.88, safety: 0.45, boltTempo: '0.08ms' }
     }
@@ -33,8 +35,11 @@ const latticeService = new LatticeService();
 const settlementService = new SettlementService();
 const governanceService = new GovernanceService();
 const treasuryBridge = new TreasuryBridge(engine, governanceService, settlementService);
+const macroService = new MacroService();
+const evalService = new EvaluationService();
 
 let hero, villain, dataService;
+let recursiveAuditResult = { failureRate: 0, iterations: 0 };
 
 async function init() {
     try {
@@ -46,11 +51,17 @@ async function init() {
         dataService = await DataService.load('./public_market_data.json');
 
         hero = new SACController(17, 3, 64, new Float64Array(hw), new Float64Array(sw));
-        villain = new NeuralController(8, 32, 2, new Float64Array(vw));
+        villain = new NeuralController(17, 32, 2);
+
+        // Background Recursive Audit
+        setTimeout(() => {
+            recursiveAuditResult = evalService.runRecursiveAudit(hero, 100);
+        }, 5000);
+
     } catch (e) {
         console.warn('Fallback initialization active', e);
         hero = new SACController(17, 3, 64);
-        villain = new NeuralController(8, 32, 2);
+        villain = new NeuralController(17, 32, 2);
         dataService = await DataService.load('./public_market_data.json');
     }
 }
@@ -60,12 +71,16 @@ function runStep() {
 
     const t0 = performance.now();
 
-    // Drive Market Dynamics from Geopolitical Lattice
-    latticeService.step(1.0, 0.5);
+    // Drive Market Dynamics from Macro + Geopolitical Lattice
+    const dynamics0 = latticeService.getMarketDynamics();
+    macroService.step(dynamics0.regime, dynamics0.shockProb);
+    const macroSignals = macroService.getNormalizedSignals();
+
+    latticeService.step(1.0, 0.5, 0.05, macroService.vitals);
     const dynamics = latticeService.getMarketDynamics();
 
     // Process Bridge & Settlement
-    treasuryBridge.step();
+    treasuryBridge.step(dynamics);
     settlementService.step();
 
     // Hybrid Data
@@ -81,28 +96,31 @@ function runStep() {
     engine.revalueFX(market.fx || engine.fxRates);
     engine.accrueInterest(market.interestRate);
 
-    const vix_norm = Math.min(1.0, market.vix / 50);
-    const rec_norm = Math.min(1.0, market.recessionProb / 100);
-    const int_norm = Math.min(1.0, market.interestRate / 10);
-
     const state = new Float64Array(17);
     state.set(engine.state);
     state[10] = market.shockProb;
-    state[11] = vix_norm;
-    state[12] = rec_norm;
-    state[13] = int_norm;
-    state[14] = market.companies?.techCorp?.prob || 0.1;
-    state[15] = market.companies?.energyPlus?.prob || 0.1;
-    state[16] = market.companies?.retailGlobal?.prob || 0.1;
+    state[11] = macroSignals.cpi;
+    state[12] = macroSignals.liquidity;
+    state[13] = macroSignals.ffr;
+    state[14] = macroSignals.realYield;
+    state[15] = macroSignals.curve;
+    state[16] = dynamics.shockProb; // Lattice Resonance
 
+    // 1. Villain Predatory Action
+    const villainActions = villain.predict(state);
+    const salesDrain = Math.max(0, villainActions[0] * 100);
+    const fxShock = villainActions[1] * 0.05;
+
+    market.sales = Math.max(0, market.sales - salesDrain);
+    if (market.fx) market.fx.eur += fxShock;
+
+    // 2. Hero Policy
     const { stds } = hero.sampleBayesian(state, 12);
     const avgUncertainty = stds.reduce((a, b) => a + b, 0) / stds.length;
     const confidence = Math.max(0, 100 - (avgUncertainty * 200));
 
-    // Phase-Shift Sampling
     const { actions, entropy, steActive, alpha, invalidationTrigger } = hero.samplePhaseShifted(state, 0.15);
 
-    // Orchestrate actions through Layer 15 Bridge
     treasuryBridge.propose(actions, { alpha, shockProb: market.shockProb });
 
     engine.post(3, 5, market.sales);
@@ -115,7 +133,8 @@ function runStep() {
     });
 
     if (Math.random() < 0.05 || steActive) {
-        const insight = cognitionService.generateInsight(market, actions, confidence, stds, steActive, alpha, invalidationTrigger);
+        const intervention = latticeService.calculateOptimalIntervention();
+        const insight = cognitionService.generateInsight(market, actions, confidence, stds, steActive, alpha, invalidationTrigger, intervention, macroService.vitals);
         const post = {
             id: Date.now(),
             agentId: 'HeroAgent',
@@ -130,10 +149,10 @@ function runStep() {
         renderFeed(POSTS, AGENTS);
     }
 
-    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha);
+    updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha, salesDrain);
 }
 
-function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence, steActive, alpha) {
+function updateUI(metrics, state, latency, shockProb, entropy, regime, confidence, steActive, alpha, salesDrain) {
     const usdCash = document.getElementById('treasury-cash');
     const mmfBal = document.getElementById('mmf-balance');
     const leverage = document.getElementById('treasury-leverage');
@@ -149,9 +168,17 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
 
     const setQueueEl = document.getElementById('set-queue');
     const setFeesEl = document.getElementById('set-fees');
+    const setCongestionEl = document.getElementById('set-congestion');
 
     const mempoolEl = document.getElementById('gov-mempool');
     const payloadEl = document.getElementById('bridge-payload');
+
+    const cpiEl = document.getElementById('macro-cpi');
+    const ffrEl = document.getElementById('macro-ffr');
+    const policyModeEl = document.getElementById('macro-mode');
+
+    const attackEl = document.getElementById('villain-attack');
+    const resilienceEl = document.getElementById('resilience-score');
 
     if (usdCash) usdCash.innerText = '$' + state.usdCash.toFixed(0);
     if (mmfBal) mmfBal.innerText = '$' + state.mmf.toFixed(0);
@@ -164,9 +191,28 @@ function updateUI(metrics, state, latency, shockProb, entropy, regime, confidenc
 
     if (setQueueEl) setQueueEl.innerText = settlementService.queue.length;
     if (setFeesEl) setFeesEl.innerText = '$' + settlementService.feesPaid.toFixed(2);
+    if (setCongestionEl) setCongestionEl.innerText = settlementService.congestion.toFixed(1) + 'x';
 
     if (mempoolEl) mempoolEl.innerText = governanceService.mempool.length;
     if (payloadEl) payloadEl.innerText = governanceService.lastPayload || '0X00000000';
+
+    if (cpiEl) cpiEl.innerText = macroService.vitals.inflation.cpi.toFixed(1) + '%';
+    if (ffrEl) ffrEl.innerText = macroService.vitals.monetary.ffr.toFixed(2) + '%';
+    if (policyModeEl) {
+        policyModeEl.innerText = macroService.vitals.monetary.mode;
+        policyModeEl.style.color = macroService.vitals.monetary.mode === 'QE' ? '#10b981' : '#ef4444';
+    }
+
+    if (attackEl) {
+        attackEl.innerText = salesDrain > 20 ? 'Sales Drain Active' : 'Normal Operations';
+        attackEl.style.color = salesDrain > 20 ? '#ef4444' : '#64748b';
+    }
+
+    if (resilienceEl) {
+        const score = (1 - recursiveAuditResult.failureRate) * 100;
+        resilienceEl.innerText = score.toFixed(0) + '%';
+        resilienceEl.style.color = score > 80 ? '#10b981' : '#ef4444';
+    }
 
     if (regimeEl) {
         regimeEl.innerText = regime;

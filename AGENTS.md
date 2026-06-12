@@ -33,3 +33,8 @@ Before submitting any change to the financial core:
 All agent updates must be benchmarked using the standard Evaluation System.
 *   **Requirement:** Any regression in 'Reasoning' or 'Robustness' scores requires a policy re-training.
 *   **Threshold:** 'Efficiency' score must remain > 0.9 (Bolt Tempo compliance).
+
+## 8. Layer 15-19 Protocol Standards
+*   **DAO Bridge (L15):** All actions must generate a 16-char B64 bridge payload. High-alpha (>0.7) actions must be rejected by the circuit breaker.
+*   **Settlement Rails (L17):** Actions > 500 USD or in Crisis regimes must route via SWIFT (3-5 step latency).
+*   **Social Cognition (L19):** Agents must provide a reasoning trace that includes Kinetic Resonance context and Macro base alignment.
