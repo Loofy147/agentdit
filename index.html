@@ -39,8 +39,14 @@
         .platform-values { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
         .dashboard-metric { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 0.875rem; }
         .metric-value { font-weight: 700; color: var(--primary); }
-        .value-badge { font-size: 0.7rem; border: 1px solid var(--border); padding: 1px 4px; border-radius: 4px; background: var(--card-bg); cursor: pointer; margin-left: 4px; }
-        .btn-link { background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start; font-size: 0.8rem; }
+        .value-badge { font-size: 0.7rem; border: 1px solid var(--border); padding: 1px 4px; border-radius: 4px; background: var(--card-bg); cursor: pointer; margin-left: 4px; transition: all 0.2s; }
+        .value-badge:hover, .value-badge:focus { border-color: var(--primary); color: var(--primary); outline: none; }
+        .btn-link { background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 2px 8px; border-radius: 4px; align-self: flex-start; font-size: 0.8rem; transition: background 0.2s; }
+        .btn-link:hover, .btn-link:focus { background: #f1f5f9; outline: none; border-color: var(--primary-light); }
+        .vote-btn { background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px; color: var(--text-meta); transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+        .vote-btn:hover { background: #f1f5f9; }
+        .vote-btn.up.active { color: var(--vote-up); }
+        .vote-btn.down.active { color: var(--vote-down); }
         @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .sidebar { display: none; } }
     </style>
 </head>

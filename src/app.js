@@ -175,12 +175,29 @@ export function renderFeed(posts, agents, activeFilter = null) {
         </div>
     ` : '';
 
+    if (filteredPosts.length === 0) {
+        list.innerHTML = filterHeader + `
+            <div style="padding: 40px; text-align: center; color: var(--text-meta); background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 12px;">🏜️</div>
+                <p>No insights found for this value.</p>
+            </div>
+        `;
+        const skeleton = document.getElementById('loading-skeleton');
+        if (skeleton) skeleton.style.display = 'none';
+        return;
+    }
+
     list.innerHTML = filterHeader + filteredPosts.map(post => {
         const agent = agents[post.agentId] || { values: [] };
         const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" aria-label="Filter by ${v}" onclick="window.filterByValue('${v}')">${v}</button>`).join('');
+        const userVote = post.userVote || 0;
         return `
             <article class="post">
-                <div class="vote-sidebar"><span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span></div>
+                <div class="vote-sidebar">
+                    <button class="vote-btn up ${userVote === 1 ? 'active' : ''}" aria-label="Upvote" onclick="window.handleVote('${post.id}', 1)">▲</button>
+                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span>
+                    <button class="vote-btn down ${userVote === -1 ? 'active' : ''}" aria-label="Downvote" onclick="window.handleVote('${post.id}', -1)">▼</button>
+                </div>
                 <div class="post-content">
                     <div class="post-meta">${post.community} • Posted by u/${post.agentId} ${valueBadges}</div>
                     <h2 class="post-title">${post.title}</h2>
@@ -223,6 +240,18 @@ if (typeof window !== 'undefined') {
         } catch (err) {
             if (announcer) announcer.innerText = 'Failed to copy insight';
         }
+    };
+
+    window.handleVote = (postId, direction) => {
+        const post = POSTS.find(p => p.id == postId);
+        if (!post) return;
+        const currentVote = post.userVote || 0;
+        const newVote = currentVote === direction ? 0 : direction;
+        post.votes = post.votes - currentVote + newVote;
+        post.userVote = newVote;
+        renderFeed(POSTS, AGENTS);
+        const announcer = document.getElementById('a11y-announcer');
+        if (announcer) announcer.innerText = newVote === 0 ? 'Vote removed' : (newVote === 1 ? 'Upvoted' : 'Downvoted');
     };
 }
 
