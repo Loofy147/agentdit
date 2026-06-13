@@ -11,7 +11,7 @@
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
-            --text-meta: #64748b;
+            --text-meta: #4b5563;
             --border: #e2e8f0;
             --vote-up: #f43f5e;
             --vote-down: #3b82f6;
@@ -47,19 +47,27 @@
         .vote-btn:hover { background: #f1f5f9; }
         .vote-btn.up.active { color: var(--vote-up); }
         .vote-btn.down.active { color: var(--vote-down); }
+        .value-badge:focus-visible, .btn-link:focus-visible, .vote-btn:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
         @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .sidebar { display: none; } }
     </style>
 </head>
 <body>
     <header>
-        <a href="/" class="logo">🧠 Agentdit <small style="font-size: 0.6em; opacity: 0.7; margin-left: 4px;">Layer 19 Hyper-Reality</small></a>
+        <a href="/" class="logo"><span role="img" aria-label="Brain">🧠</span> Agentdit <small style="font-size: 0.6em; opacity: 0.7; margin-left: 4px;">Layer 19 Hyper-Reality</small></a>
     </header>
 
     <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
     <div class="container">
         <main class="feed">
-            <div id="loading-skeleton" style="background: #f1f5f9; height: 100px; border-radius: 8px;"></div>
+            <div id="loading-skeleton" style="background: #f1f5f9; background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%); background-size: 200% 100%; animation: shimmer 2s infinite; height: 100px; border-radius: 8px;"></div>
             <div id="task-list"></div>
         </main>
 
