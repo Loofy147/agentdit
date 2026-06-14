@@ -27,6 +27,7 @@ const AGENTS = {
 };
 
 let POSTS = [];
+let currentFilter = null;
 
 const engine = new PacioliEngine();
 const health = new HealthService();
@@ -146,7 +147,7 @@ function runStep() {
         };
         POSTS.unshift(post);
         if (POSTS.length > 10) POSTS.pop();
-        renderFeed(POSTS, AGENTS);
+        renderFeed(POSTS, AGENTS, currentFilter);
     }
 
     updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha, salesDrain);
@@ -252,14 +253,16 @@ export function renderFeed(posts, agents, activeFilter = null) {
     ` : '';
 
     if (filteredPosts.length === 0) {
-        list.innerHTML = filterHeader + `
-            <div style="padding: 40px; text-align: center; color: var(--text-meta); background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;">
-                <div style="font-size: 2rem; margin-bottom: 12px;">🏜️</div>
-                <p>No insights found for this value.</p>
-            </div>
-        `;
-        const skeleton = document.getElementById('loading-skeleton');
-        if (skeleton) skeleton.style.display = 'none';
+        if (posts.length > 0 || activeFilter) {
+            list.innerHTML = filterHeader + `
+                <div style="padding: 40px; text-align: center; color: var(--text-meta); background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">🏜️</div>
+                    <p>No insights found for this value.</p>
+                </div>
+            `;
+            const skeleton = document.getElementById('loading-skeleton');
+            if (skeleton) skeleton.style.display = 'none';
+        }
         return;
     }
 
@@ -271,7 +274,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
             <article class="post">
                 <div class="vote-sidebar">
                     <button class="vote-btn up ${userVote === 1 ? 'active' : ''}" aria-label="Upvote" onclick="window.handleVote('${post.id}', 1)">▲</button>
-                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span>
+                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${formatCount(post.votes)}</span>
                     <button class="vote-btn down ${userVote === -1 ? 'active' : ''}" aria-label="Downvote" onclick="window.handleVote('${post.id}', -1)">▼</button>
                 </div>
                 <div class="post-content">
@@ -279,12 +282,12 @@ export function renderFeed(posts, agents, activeFilter = null) {
                     <h2 class="post-title">${post.title}</h2>
                     <div class="post-body" style="white-space: pre-line;">${post.content}</div>
                     <div style="display: flex; gap: 8px;">
-                        <button class="metric-value btn-link" aria-expanded="false" aria-controls="cognition-${post.id}" onclick="const box = this.parentElement.nextElementSibling; const isVisible = box.style.display === 'block'; box.style.display = isVisible ? 'none' : 'block'; this.setAttribute('aria-expanded', !isVisible); this.innerText = isVisible ? 'View Cognition' : 'Hide Cognition';">View Cognition</button>
+                        <button class="metric-value btn-link" aria-expanded="false" aria-controls="cognition-${post.id}" onclick="const box = this.parentElement.nextElementSibling; const isVisible = box.style.display === 'block'; box.style.display = isVisible ? 'none' : 'block'; this.setAttribute('aria-expanded', !isVisible); this.innerText = isVisible ? 'View Cognition (${post.alignment}% Match)' : 'Hide Cognition';">View Cognition (${post.alignment}% Match)</button>
                         <button class="metric-value btn-link share-btn" onclick="window.sharePost('${post.id}', this)">Share Insight</button>
                     </div>
-                    <div id="cognition-${post.id}" class="cognition-box visible" style="display: none;">
-                        <div class="cognition-title"><span role="img" aria-label="Magnifying glass">🔍</span> Internal Reasoning</div>
-                        <div class="cognition-text">${post.cognition}</div>
+                    <div id="cognition-${post.id}" class="cognition-box" style="display: none; margin-top: 12px; padding: 12px; background: #f1f5f9; border-radius: 6px; border-left: 4px solid var(--primary);">
+                        <div class="cognition-title" style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--primary); margin-bottom: 4px;"><span role="img" aria-label="Magnifying glass">🔍</span> Internal Reasoning</div>
+                        <div class="cognition-text" style="font-size: 0.875rem; font-style: italic; color: #475569;">${post.cognition}</div>
                     </div>
                 </div>
             </article>
@@ -296,6 +299,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
 
 if (typeof window !== 'undefined') {
     window.filterByValue = (value) => {
+        currentFilter = value;
         renderFeed(POSTS, AGENTS, value);
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.innerText = value ? `Filtering posts by ${value}` : 'Showing all posts';
@@ -325,7 +329,7 @@ if (typeof window !== 'undefined') {
         const newVote = currentVote === direction ? 0 : direction;
         post.votes = post.votes - currentVote + newVote;
         post.userVote = newVote;
-        renderFeed(POSTS, AGENTS);
+        renderFeed(POSTS, AGENTS, currentFilter);
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.innerText = newVote === 0 ? 'Vote removed' : (newVote === 1 ? 'Upvoted' : 'Downvoted');
     };
