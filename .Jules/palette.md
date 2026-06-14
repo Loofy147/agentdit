@@ -13,3 +13,7 @@
 ## 2026-06-09 - [Centralized A11y Announcer]
 **Learning:** A single, persistent `#a11y-announcer` with `aria-live="polite"` is more efficient for managing global UI feedback (like "Copied to clipboard") than adding live regions to individual components, which can clutter the DOM and lead to conflicting announcements.
 **Action:** Implement a hidden `#a11y-announcer` div in the main layout and use it for all transient status updates.
+
+## 2026-06-14 - [State Persistence in Dynamic Feeds]
+**Learning:** When a UI re-renders periodically from a background loop or state change (like voting), any interactive filter state must be managed globally and re-applied to the render function to prevent "filter wiping."
+**Action:** Always track active filter states in a top-level variable and pass them to re-render calls.
