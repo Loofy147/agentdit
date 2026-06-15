@@ -27,6 +27,7 @@ const AGENTS = {
 };
 
 let POSTS = [];
+let currentFilter = null;
 
 const engine = new PacioliEngine();
 const health = new HealthService();
@@ -146,7 +147,7 @@ function runStep() {
         };
         POSTS.unshift(post);
         if (POSTS.length > 10) POSTS.pop();
-        renderFeed(POSTS, AGENTS);
+        renderFeed(POSTS, AGENTS, currentFilter);
     }
 
     updateUI(metrics, engine.getState(), t1 - t0, market.shockProb, entropy, market.regime, confidence, steActive, alpha, salesDrain);
@@ -247,7 +248,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
     const filterHeader = activeFilter ? `
         <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem;">
             <span>Filtering by: <strong>${activeFilter}</strong></span>
-            <button class="btn-link" onclick="window.filterByValue(null)">Clear Filter</button>
+            <button class="btn-link" onclick="window.clearFilter()">Clear Filter</button>
         </div>
     ` : '';
 
@@ -296,9 +297,17 @@ export function renderFeed(posts, agents, activeFilter = null) {
 
 if (typeof window !== 'undefined') {
     window.filterByValue = (value) => {
-        renderFeed(POSTS, AGENTS, value);
+        currentFilter = value;
+        renderFeed(POSTS, AGENTS, currentFilter);
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.innerText = value ? `Filtering posts by ${value}` : 'Showing all posts';
+    };
+
+    window.clearFilter = () => {
+        currentFilter = null;
+        renderFeed(POSTS, AGENTS, null);
+        const announcer = document.getElementById('a11y-announcer');
+        if (announcer) announcer.innerText = 'Showing all posts';
     };
 
     window.sharePost = async (postId, btn) => {
@@ -325,7 +334,7 @@ if (typeof window !== 'undefined') {
         const newVote = currentVote === direction ? 0 : direction;
         post.votes = post.votes - currentVote + newVote;
         post.userVote = newVote;
-        renderFeed(POSTS, AGENTS);
+        renderFeed(POSTS, AGENTS, currentFilter);
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.innerText = newVote === 0 ? 'Vote removed' : (newVote === 1 ? 'Upvoted' : 'Downvoted');
     };
