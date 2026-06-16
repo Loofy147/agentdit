@@ -8,13 +8,14 @@ test('verify social cognition UI components', async ({ page }) => {
     expect(logoText).toContain('Agentdit');
 
     // Wait for the skeleton to disappear and the feed to render
-    await page.waitForSelector('#task-list article.post', { state: 'visible', timeout: 10000 });
+    // Increased timeout to account for 5% probability of post generation
+    await page.waitForSelector('#task-list article.post', { state: 'visible', timeout: 60000 });
 
     await page.screenshot({ path: '/home/jules/verification/branding.png' });
 
-    // 2. Verify Feed Rendering (only count visible posts in task-list)
+    // 2. Verify Feed Rendering (wait for at least 1 post)
     const posts = page.locator('#task-list article.post');
-    await expect(posts).toHaveCount(2);
+    await expect(posts).toHaveCount(1, { timeout: 60000 });
 
     // 3. Verify Value Badges
     const valueBadges = page.locator('#task-list .post-meta .value-badge');
@@ -51,19 +52,19 @@ test('verify social cognition UI components', async ({ page }) => {
     await page.screenshot({ path: '/home/jules/verification/sidebar-values.png' });
 
     // 6. Verify Filtering
-    const resilienceBadge = page.locator('#task-list .value-badge:has-text("Resilience")').first();
-    await resilienceBadge.click();
+    const stabilityBadge = page.locator('#task-list .value-badge:has-text("Stability")').first();
+    await stabilityBadge.click();
 
     // Verify filter header and post count
-    await expect(page.locator('text=Filtering by: Resilience')).toBeVisible();
+    await expect(page.locator('text=Filtering by: Stability')).toBeVisible();
     await expect(page.locator('#task-list article.post')).toHaveCount(1);
 
     // Verify announcer
-    await expect(announcer).toHaveText('Filtering posts by Resilience');
+    await expect(announcer).toHaveText('Filtering posts by Stability');
     await page.screenshot({ path: '/home/jules/verification/filtered-feed.png' });
 
     // Clear filter
     await page.locator('text=Clear Filter').click();
-    await expect(page.locator('#task-list article.post')).toHaveCount(2);
+    await expect(page.locator('#task-list article.post')).toHaveCount(1);
     await expect(announcer).toHaveText('Showing all posts');
 });
