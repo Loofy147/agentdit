@@ -27,6 +27,7 @@ const AGENTS = {
 };
 
 let POSTS = [];
+let currentFilter = null;
 
 const engine = new PacioliEngine();
 const health = new HealthService();
@@ -239,7 +240,7 @@ if (typeof document !== 'undefined') {
     });
 }
 
-export function renderFeed(posts, agents, activeFilter = null) {
+export function renderFeed(posts, agents, activeFilter = currentFilter) {
     const list = document.getElementById('task-list');
     if (!list) return;
     const filteredPosts = activeFilter ? posts.filter(p => (agents[p.agentId]?.values || []).includes(activeFilter)) : posts;
@@ -247,7 +248,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
     const filterHeader = activeFilter ? `
         <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem;">
             <span>Filtering by: <strong>${activeFilter}</strong></span>
-            <button class="btn-link" onclick="window.filterByValue(null)">Clear Filter</button>
+            <button class="btn-link" onclick="window.clearFilter()">Clear Filter</button>
         </div>
     ` : '';
 
@@ -267,11 +268,12 @@ export function renderFeed(posts, agents, activeFilter = null) {
         const agent = agents[post.agentId] || { values: [] };
         const valueBadges = agent.values.map(v => `<button class="value-badge metric-value" aria-label="Filter by ${v}" onclick="window.filterByValue('${v}')">${v}</button>`).join('');
         const userVote = post.userVote || 0;
+        const voteClass = userVote === 1 ? 'up active' : (userVote === -1 ? 'down active' : '');
         return `
             <article class="post">
                 <div class="vote-sidebar">
                     <button class="vote-btn up ${userVote === 1 ? 'active' : ''}" aria-label="Upvote" onclick="window.handleVote('${post.id}', 1)">▲</button>
-                    <span class="vote-count" aria-label="Total votes: ${post.votes}">${post.votes}</span>
+                    <span class="vote-count ${voteClass}" aria-label="Total votes: ${post.votes}">${formatCount(post.votes)}</span>
                     <button class="vote-btn down ${userVote === -1 ? 'active' : ''}" aria-label="Downvote" onclick="window.handleVote('${post.id}', -1)">▼</button>
                 </div>
                 <div class="post-content">
@@ -280,7 +282,7 @@ export function renderFeed(posts, agents, activeFilter = null) {
                     <div class="post-body" style="white-space: pre-line;">${post.content}</div>
                     <div style="display: flex; gap: 8px;">
                         <button class="metric-value btn-link" aria-expanded="false" aria-controls="cognition-${post.id}" onclick="const box = this.parentElement.nextElementSibling; const isVisible = box.style.display === 'block'; box.style.display = isVisible ? 'none' : 'block'; this.setAttribute('aria-expanded', !isVisible); this.innerText = isVisible ? 'View Cognition' : 'Hide Cognition';">View Cognition</button>
-                        <button class="metric-value btn-link share-btn" onclick="window.sharePost('${post.id}', this)">Share Insight</button>
+                        <button class="metric-value btn-link share-btn" onclick="window.sharePost('${post.id}', this)">📋 Share Insight</button>
                     </div>
                     <div id="cognition-${post.id}" class="cognition-box visible" style="display: none;">
                         <div class="cognition-title"><span role="img" aria-label="Magnifying glass">🔍</span> Internal Reasoning</div>
@@ -296,9 +298,14 @@ export function renderFeed(posts, agents, activeFilter = null) {
 
 if (typeof window !== 'undefined') {
     window.filterByValue = (value) => {
-        renderFeed(POSTS, AGENTS, value);
+        currentFilter = value;
+        renderFeed(POSTS, AGENTS, currentFilter);
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.innerText = value ? `Filtering posts by ${value}` : 'Showing all posts';
+    };
+
+    window.clearFilter = () => {
+        window.filterByValue(null);
     };
 
     window.sharePost = async (postId, btn) => {
